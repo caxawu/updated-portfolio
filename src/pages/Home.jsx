@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, Suspense } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Outlet, useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import Loader from '../components/Loader'
 import Sky from '../models/Sky'
@@ -7,12 +8,8 @@ import Room from '../models/Room'
 import Bird from '../models/Bird'
 import Plane from '../models/Plane'
 import Navbar from '../components/Navbar';
-import WebMobile from './WebMobile';
 
 import HomeInfo from '../components/HomeInfo'
-import { PerspectiveCamera } from '@react-three/drei';
-import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
   
 // npm run dev
 
@@ -20,10 +17,8 @@ const Home = () => {
   const defaultCamera = useRef(new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000));
   const [cameraPosition, setCameraPosition] = useState([-18, 2, -6]);
   const [cameraLookAt, setCameraRotation] = useState([8, -6, -32]);
-  // updateCameraPosition([-18, 0, -10]);
-  // updateCameraLookAt([0, -24, -32]); center
-    let navigateTo = useNavigate();
   const [ focusState, setFocusState ] = useState ('home');
+  let navigateTo = useNavigate();
 
   const updateCameraPosition = (newPosition) => {
     const [x, y, z] = newPosition;
@@ -119,23 +114,12 @@ const Home = () => {
   const [planeScale, planePosition] = adjustPlaneForScreenSize();
 
 
-
   return (
     <section className="w-full h-screen relative">
 
       <div className="absolute top-5 left-0 right-0 z-10 flex items-center justify-center">
-        {/* { currentStage && <HomeInfo currentStage={currentStage}/> } */}
-        <Navbar 
-          updateCameraPosition={updateCameraPosition}
-          updateCameraLookAt={updateCameraLookAt}
-          setFocusState={setFocusState}
-        />
-        {/* <WebMobile
-          updateCameraPosition={updateCameraPosition}
-          updateCameraLookAt={updateCameraLookAt}
-      /> */}
+        <Navbar setFocusState={setFocusState}/>
       </div>
-
 
       <Canvas 
       className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
@@ -187,14 +171,6 @@ const CanvasContent = ({ defaultCamera, cameraPosition, cameraLookAt }) => {
     if (defaultCamera.current) {
       defaultCamera.current.position.lerp(new THREE.Vector3(...cameraPosition), 0.05);
 
-      // Assuming cameraLookAt is an array containing the target Euler angles (in radians)
-      // const targetRotation = new THREE.Euler().fromArray(cameraLookAt);
-
-      // Smoothly interpolate towards the target rotation
-      // defaultCamera.current.rotation.x = THREE.MathUtils.lerp(defaultCamera.current.rotation.x, targetRotation.x, 0.05);
-      // defaultCamera.current.rotation.y = THREE.MathUtils.lerp(defaultCamera.current.rotation.y, targetRotation.y, 0.05);
-      // defaultCamera.current.rotation.z = THREE.MathUtils.lerp(defaultCamera.current.rotation.z, targetRotation.z, 0.05);
-      
       // Calculate the current look-at direction
       const currentDirection = new THREE.Vector3();
       defaultCamera.current.getWorldDirection(currentDirection);

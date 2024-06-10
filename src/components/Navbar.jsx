@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const Navbar = ({ updateCameraPosition, updateCameraRotation, setFocusState }) => {
+const Navbar = ({ setFocusState }) => {
 
 const handleClick = (type) => {
     console.log("img");
@@ -14,13 +14,6 @@ const handleClick = (type) => {
         setFocusState('shelf');
     }
 };
-
- useEffect(() => {
-    // Call the updateCamera function when the component mounts
-    // updateCameraPosition([-0.5, -8, -28]);
-    // updateCameraLookAt([-0.5, -2, -36]);
-  }, []); // Empty dependency array ensures this effect runs only once when the component mounts
-
 
 
   return (

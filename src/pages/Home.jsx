@@ -9,6 +9,7 @@ import Bird from '../models/Bird'
 import Plane from '../models/Plane'
 import Navbar from '../components/Navbar';
 import Links from '../components/Links';
+import { Html, useProgress } from '@react-three/drei'
 
 import HomeInfo from '../components/HomeInfo'
   
@@ -129,15 +130,14 @@ const Home = () => {
       </div>
 
       <Canvas 
-      className=
-        {` ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-        style={{
-          background: '#AAABD7',
-          border: '2em solid #FFFFFF',
-          borderRadius: '6em',
-        }}
+      className= {`canvas-content ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
       camera={defaultCamera.current}
       >
+        <Html>
+        <div className="curve-a"></div>
+        <div className="curve-b"></div>
+      </Html>
+
         <Suspense fallback={<Loader />}>
           <directionalLight position={[1, 1, 1]} intensity={2}/>
           <ambientLight intensity={0.25}/>

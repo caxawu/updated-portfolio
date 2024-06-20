@@ -1,5 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -22,39 +23,43 @@ body {
   position: absolute;
   display: flex;
   z-index: 10;
-  top: 0.8em;
-  left:0.8em;
-  width: 14em;
+  top: 0.5em;
+  left: 0.5em;
+  width: 9.7em;
   background: #ffffff;
-  border-bottom-right-radius: 2em;
+  border-bottom-right-radius: 1em;
+  font-family: Raleway;
+  font-size: 1.75rem;
   font-weight: 600;
-  font-size: 1.2rem;
 
   .name-nav {
-    font-size: 1.5em;
-    padding-bottom: 8px;
-    font-size: 1.5em;
-    margin-bottom: 1em;
-    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #AAABD7 50%);
     width: fit-content;
+    margin-top: 0.7em;
+    margin-bottom: 1.3em;
+    padding-right: 8px; /*controls how far color block extends */
+    background: 
+      linear-gradient(to left,rgba(255,255,255,0) 95%, #ffffff 95%), /* % controls left offset whitespace */
+      linear-gradient(to bottom,rgba(255,255,255,0) 50%, #AAABD7 50%); /* % controls split between color and white */
   }
 }
+
 
 .links {
   position: absolute;
   display: flex;
   z-index: 10;
-  top: 6.9em;
+  top: 7.8em;
   left:2em;
   width: 7em;
   background: #ffffff;
-  border-bottom-right-radius: 4em;
+  border-bottom-right-radius: 6em;
+  padding-top: 1em;
 
   .link-list {
     display: flex;
     flex-direction: column;
     font-size: 1.5em;
-    padding-bottom: 8px;
+    padding-bottom: 0.5em;
     font-size: 1.5em;
     /* background: #a37676; */
     a {
@@ -66,6 +71,39 @@ body {
       font-weight: 400;
     }
   }
+}
+
+.canvas-content {
+  background: #AAABD7;
+  border: 2em solid #FFFFFF;
+  border-radius: 4em;
+}
+
+/* For inverse curve corners: 
+  Creating transparent box, filling neg space with box-shadow with white (background color) to clip canvas*/
+.curve-a:before { 
+  content: "";
+  position: absolute;
+  margin-top: 0em;
+  margin-left: 16.7em;
+  width: 60px;
+  height: 60px;
+  transform: rotate(180deg);
+  border-bottom-right-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 15px 15px 0 0 #ffffff;
+}
+.curve-b:before { 
+  content: "";
+  position: absolute;
+  margin-top: 5.9em;
+  margin-left: 7em;
+  width: 60px;
+  height: 60px;
+  transform: rotate(180deg);
+  border-bottom-right-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: 15px 15px 0 0 #ffffff;
 }
 
 /* .test {

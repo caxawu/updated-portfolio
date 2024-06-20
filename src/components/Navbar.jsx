@@ -18,14 +18,17 @@ const handleClick = (type) => {
 
   return (
     <header className="header">
+        {/* <div className='test'>
+          test
+        </div> */}
         <NavLink 
         to="/web-mobile" 
         onClick={() => handleClick("home")}
-        className={"w-10 h-10 rounded-lg bg-white items-center justify-center flex font-bold shadow-md"}>
-            <p className="blue-gradient_text">XCW</p>
+        className="name-nav">
+            Xinai (Cathy) Wu
         </NavLink>
 
-        <nav className="blex text-lg gap-7 font-medium">
+        {/* <nav className="blex text-lg gap-7 font-medium">
             <NavLink style={{ padding: '2rem' }}
             to="/web-mobile" 
             onClick={() => handleClick("webMobile")}
@@ -39,7 +42,7 @@ const handleClick = (type) => {
                 className={({isActive}) => isActive ? 'text-blue-500' : 'text-black'}>
                 XR
             </NavLink>
-        </nav>
+        </nav> */}
     </header>
   )
 }

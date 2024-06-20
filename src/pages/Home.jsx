@@ -8,6 +8,7 @@ import Room from '../models/Room'
 import Bird from '../models/Bird'
 import Plane from '../models/Plane'
 import Navbar from '../components/Navbar';
+import Links from '../components/Links';
 
 import HomeInfo from '../components/HomeInfo'
   
@@ -115,22 +116,34 @@ const Home = () => {
 
 
   return (
-    <section className="w-full h-screen relative">
-
-      <div className="absolute top-5 left-0 right-0 z-10 flex items-center justify-center">
+    <section className="w-full h-screen relative"
+    style={{
+      background: '#FFFFFF',
+    }}>
+      <div className="header">
         <Navbar setFocusState={setFocusState}/>
       </div>
 
+      <div className="links">
+        <Links/>
+      </div>
+
       <Canvas 
-      className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
+      className=
+        {` ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
+        style={{
+          background: '#AAABD7',
+          border: '2em solid #FFFFFF',
+          borderRadius: '6em',
+        }}
       camera={defaultCamera.current}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[1, 1, 1]} intensity={1}/>
+          <directionalLight position={[1, 1, 1]} intensity={2}/>
           <ambientLight intensity={0.25}/>
-          <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1}/>
+          <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/>
           {/* <Bird/> */}
-          <Sky isRotating={isRotating}/>
+          {/* <Sky isRotating={isRotating}/> */}
           <Room
             position={RoomPosition}
             scale={RoomScale}
@@ -151,6 +164,10 @@ const Home = () => {
           /> */}
 
         </Suspense>
+
+        {/* Fog configuration */}
+      <fog attach="fog" args={['#AAABD7', 50, 100]} /> {/* Color, near, far */}
+  
         <CanvasContent
           defaultCamera={defaultCamera}
           cameraPosition={cameraPosition}

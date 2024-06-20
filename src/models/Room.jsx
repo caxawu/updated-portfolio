@@ -72,6 +72,9 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
 
           } else if ( INTERSECTED.name == 'podium' ) {
             setFocusState('models');
+
+          } else if ( INTERSECTED.name == 'ground' ) {
+            setFocusState('home');
           }
          }
        } else {
@@ -292,7 +295,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             ref={handleMeshRef}
             name="screen2"
             castShadow
-            receiveShadow
+            // receiveShadow
             geometry={nodes.Mesh015_1.geometry}
             material={materials.misc}
           />
@@ -334,6 +337,16 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           position={[-146.493, 227.927, -92.512]}
           rotation={[-Math.PI / 2, 0, 0]}
           scale={261.344}
+        />
+        <mesh
+          ref={handleMeshRef}
+          name="ground"
+          castShadow
+          receiveShadow
+          geometry={nodes.whiteground.geometry}
+          material={materials.keycapWhite}
+          position={[0, 0, 12.348]}
+          scale={3503.968}
         />
         <mesh
           ref={handleMeshRef}
@@ -631,7 +644,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           ref={handleMeshRef}
           name="screen1"
           castShadow
-          receiveShadow
+          // receiveShadow
           geometry={nodes.Mesh014_1.geometry}
           material={materials.webMobile}
         />

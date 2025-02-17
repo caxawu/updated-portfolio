@@ -3,10 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Outlet, useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import Loader from '../components/Loader'
-import Sky from '../models/Sky'
 import Room from '../models/Room'
-import Bird from '../models/Bird'
-import Plane from '../models/Plane'
 import Navbar from '../components/Navbar';
 import Links from '../components/Links';
 import { Html, useProgress } from '@react-three/drei'
@@ -17,8 +14,8 @@ import HomeInfo from '../components/HomeInfo'
 
 const Home = () => {
   const defaultCamera = useRef(new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000));
-  const [cameraPosition, setCameraPosition] = useState([-18, 2, -6]);
-  const [cameraLookAt, setCameraRotation] = useState([8, -6, -32]);
+  const [cameraPosition, setCameraPosition] = useState([-12, 2, -8]);     // starting position
+  const [cameraLookAt, setCameraRotation] = useState([16, -8, -32]);      //starting rotation
   const [ focusState, setFocusState ] = useState ('home');
   let navigateTo = useNavigate();
 
@@ -34,26 +31,26 @@ const Home = () => {
 
   useEffect(() => {
     if ( focusState === 'home' ) {
-      updateCameraPosition([-18, 2, -6]);
-      updateCameraLookAt([8, -6, -32]);
+      updateCameraPosition([-12, 2, -8]);         // starting position
+      updateCameraLookAt([16, -8, -32]);          //starting rotation
       navigateTo('/');
 
     } else if ( focusState === 'table' ) {
-      updateCameraPosition([0, -6.8, -20]);
-      updateCameraLookAt([0, -6.8, -36]);
+      updateCameraPosition([8, -6, -46]);
+      updateCameraLookAt([0, -18, -35]);
 
-    } else if (focusState === 'web-mobile') {
-      updateCameraPosition([-0.5, -8, -28]);
+    } else if (focusState === 'screen1') {
+      updateCameraPosition([8, -11, -56]);
       updateCameraLookAt([-0.5, -2, -36]);
       navigateTo('web-mobile');
 
-    } else if ( focusState === 'misc' ) {
-      updateCameraPosition([-4, -7, -28]);
-      updateCameraLookAt([-25, -4, -36]);
+    } else if ( focusState === 'screen2' ) {
+      updateCameraPosition([6, -10.5, -57]);
+      updateCameraLookAt([-25, 0, -36]);
 
-    } else if ( focusState === 'shelf' ) {
-      updateCameraPosition([-20, 3, -23]);
-      updateCameraLookAt([-0.5, -9, -32]);
+    } else if ( focusState === 'vrShelf' ) {
+      updateCameraPosition([11, 10, -41]);
+      updateCameraLookAt([35, -12, -36]);
       navigateTo('XR');
 
     } else if ( focusState === 'spaces' ) {
@@ -66,18 +63,18 @@ const Home = () => {
       updateCameraLookAt([4, -14, -32]);
       navigateTo('XR/anivision');
 
-    }else if ( focusState === 'drawings' ) {
-      updateCameraPosition([12, 0, -40]);
-      updateCameraLookAt([-6, -2, -40]);
+     }else if ( focusState === 'artWall' ) {
+      updateCameraPosition([-2, 6, -40]);
+      updateCameraLookAt([0, 0, -40]);
 
-    } else if ( focusState === 'paintings' ) {
-      updateCameraPosition([10, 4, -44]);
-      updateCameraLookAt([10, -2, -40]);
+    } else if ( focusState === 'businessCard' ) {
+      updateCameraPosition([-12, 4, -58]);
+      updateCameraLookAt([0, -10, -40]);
 
-    } else if ( focusState === 'models' ) {
+    } else if ( focusState === 'modelsShelf' ) {
+      updateCameraPosition([20, 6, -40]);
+      updateCameraLookAt([2000, -500, -36]);
       navigateTo('3d-modeling');
-      updateCameraPosition([28, -2, -40]);
-      updateCameraLookAt([41, -30, -40]);
     }
     setFocusState('null');
   });
@@ -99,27 +96,13 @@ const Home = () => {
     return [screenScale, screenPosition, rotation];
   }
 
-  const adjustPlaneForScreenSize = () => {
-    let screenScale, screenPosition;
-
-    if (window.innerWidth < 768) {
-      screenScale = [1.5, 1.5, 1.5];
-      screenPosition = [0, -1.5, 0];
-    }else {
-      screenScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
-    }
-    return [screenScale, screenPosition];
-  }
-
   const [RoomScale, RoomPosition, RoomRotation] = adjustRoomForScreenSize();
-  const [planeScale, planePosition] = adjustPlaneForScreenSize();
 
 
   return (
     <section className="w-full h-screen relative"
     style={{
-      background: '#FFFFFF',
+      background: '#FFFFFF',      // webpage background to edges
     }}>
       <div className="header">
         <Navbar setFocusState={setFocusState}/>
@@ -139,11 +122,11 @@ const Home = () => {
       </Html>
 
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[1, 1, 1]} intensity={2}/>
-          <ambientLight intensity={0.25}/>
-          <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/>
-          {/* <Bird/> */}
-          {/* <Sky isRotating={isRotating}/> */}
+          {/* these lights requires realtime computation? */}
+          {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
+          <ambientLight intensity={3}/>
+          {/* color and temp of sky global light */}
+          {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={2}/> */}
           <Room
             position={RoomPosition}
             scale={RoomScale}
@@ -156,17 +139,8 @@ const Home = () => {
             defaultCamera={defaultCamera.current}
             setFocusState={setFocusState}
           />
-          {/* <Plane
-            isRotating = {isRotating}
-            planeScale={planeScale}
-            planePosition={planePosition}
-            rotation={[0, 20, 0]}
-          /> */}
 
         </Suspense>
-
-        {/* Fog configuration */}
-      <fog attach="fog" args={['#AAABD7', 50, 100]} /> {/* Color, near, far */}
   
         <CanvasContent
           defaultCamera={defaultCamera}

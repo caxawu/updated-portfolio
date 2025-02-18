@@ -42,7 +42,7 @@ const Home = () => {
     } else if (focusState === 'screen1') {
       updateCameraPosition([8, -11, -56]);
       updateCameraLookAt([-0.5, -2, -36]);
-      navigateTo('web-mobile');
+      // navigateTo('case-studies');        // route only for static web
 
     } else if ( focusState === 'screen2' ) {
       updateCameraPosition([6, -10.5, -57]);
@@ -100,10 +100,7 @@ const Home = () => {
 
 
   return (
-    <section className="w-full h-screen relative"
-    style={{
-      background: '#FFFFFF',      // webpage background to edges
-    }}>
+    <section className="w-full h-screen relative" style={{background: '#FFFFFF'}}>
       <div className="header">
         <Navbar setFocusState={setFocusState}/>
       </div>
@@ -116,17 +113,16 @@ const Home = () => {
       className= {`canvas-content ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
       camera={defaultCamera.current}
       >
-        <Html>
+      <Html>
         <div className="curve-a"></div>
         <div className="curve-b"></div>
       </Html>
 
         <Suspense fallback={<Loader />}>
-          {/* these lights requires realtime computation? */}
+          {/* Expense: ambient < hemisphere < directional */}
+          <ambientLight intensity={4}/>
           {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
-          <ambientLight intensity={3}/>
-          {/* color and temp of sky global light */}
-          {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={2}/> */}
+          {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
           <Room
             position={RoomPosition}
             scale={RoomScale}

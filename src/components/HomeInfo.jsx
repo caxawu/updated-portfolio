@@ -22,7 +22,7 @@ const renderContent = {
     ),
     2: (
         <InfoBox
-        text="Web/mobile"
+        text="Case studies"
         btnText="Learn more"
         />
     ),

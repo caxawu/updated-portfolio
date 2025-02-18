@@ -12,9 +12,9 @@ const handleClick = (type) => {
     console.log("img");
     if (type == "home") {
         setFocusState('home');
-    } else if (type === "webMobile") {
+    } else if (type === "caseStudies") {
         console.log("img");
-        setFocusState('web-mobile');
+        setFocusState('case-studies');
     } else if (type == "XR") {
         setFocusState('shelf');
     }

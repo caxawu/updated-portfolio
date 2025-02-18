@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { Html, Environment, ContactShadows, OrbitControls } from '@react-three/drei'
 
 import roomScene from '../assets/3d/desk5.glb'
-import WebMobile from '../pages/CaseStudies';
+import CaseStudies from '../pages/CaseStudies';
+import { OtherProjects } from '../pages';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
   const roomRef = useRef();
@@ -163,17 +164,13 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
         geometry={nodes.screen1.geometry}
         material={materials.m_blackFlat}
         position={[-91.419, 124.834, 330.657]}
-        scale={[54.879, 58.336, 58.336]}>
-        <Html 
-          style={{ backgroundColor: 'black', padding: '1px', color: 'white'}}
-          rotation-y={-Math.PI} position={[0, 0.03, -0.07]} transform occlude
-          scale={0.1}
-        >
+        scale={[54.879, 58.336, 58.336]}
+      >
+        <Html scale={0.1} rotation-y={-Math.PI} position={[0, 0.03, -0.07]} transform occlude>
         <div>
-          <WebMobile/>
+          <CaseStudies/>
         </div>
-      </Html>
-
+        </Html>
       </mesh>
       {/* <mesh
         ref={handleMeshRef}
@@ -195,7 +192,13 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
         position={[2.249, 133.534, 313.078]}
         rotation={[0, 0.597, Math.PI / 2]}
         scale={[37.647, 40.019, 40.019]}
-      />
+      >
+        <Html scale={0.05} rotation-y={-Math.PI} rotation-z={Math.PI/2} position={[0, 0.03, -0.07]} transform occlude>
+        <div>
+          <OtherProjects/>
+        </div>
+        </Html>
+      </mesh>
       <mesh
         castShadow
         receiveShadow

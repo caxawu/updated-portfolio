@@ -140,7 +140,28 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
         document.removeEventListener('keyup', handleKeyUp);
     }
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove, handleKeyDown, handleKeyUp])
-
+  <Html  style={{ 
+    backgroundColor: 'red', padding: '1px', color: 'white', 
+    width : '50%', 
+    height : '5%',
+    }}
+    rotation-y={-Math.PI} position={[0, 0.02, -0.07]} transform occlude>
+  <div style={{ backgroundColor: 'red', padding: '1px', color: 'white', }}>
+    <iframe 
+      title="embed" 
+      // width={60} 
+      // height={50} 
+      style={{ 
+        // transform: "scale(0.1)",
+        // zoom: 0.2,
+        // transformOrigin: "0 0", 
+        width: "100%",  // Adjust width based on scale
+        height: "100%"   // Adjust height based on scale
+      }} 
+      src="https://xinaicathywu.me/"
+    />
+  </div>
+</Html>
   return (
     <a.group ref={roomRef}{...props}>
       <group rotation={[0, -0.02, 0]} scale={0.1}>

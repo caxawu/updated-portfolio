@@ -27,6 +27,9 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
   const currCamera = defaultCamera;
   let INTERSECTED;
 
+  // currState needed to pass into HTML children to turn on/off interactivity
+  const [ currState, setCurrState ] = useState ('home');
+
   // Add each mesh reference to the meshes array
   const handleMeshRef = (mesh) => {
     if (mesh && !meshes.includes(mesh)) {
@@ -34,6 +37,13 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     }
   };
 
+  // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
+    const handleScreenClick = (location) => {
+      setFocusState(location);
+      setCurrState(location);
+    };
+
+    // handles clicks on 3d objs: meshes in 3d model
   const handlePointerDown = (e) => {
     pointer.x = ( e.clientX / window.innerWidth ) * 2 - 1;
     pointer.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
@@ -70,21 +80,40 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           } else if ( INTERSECTED.name == 'artWall' ) {
             setFocusState('artWall');
 
+          } else if ( INTERSECTED.name == 'corkboard' ) {
+            setFocusState('corkboard');
+
+          } else if ( INTERSECTED.name == 'drawingHand' ) {
+            setFocusState('drawingHand');
+
+          } else if ( INTERSECTED.name == 'drawingDavid' ) {
+            setFocusState('drawingDavid');
+
+          } else if ( INTERSECTED.name == 'drawingFish' ) {
+            setFocusState('drawingFish');
+
           } else if ( INTERSECTED.name == 'businessCard' ) {
             setFocusState('businessCard');
+
+          } else if ( INTERSECTED.name == 'sketchbook' ) {
+            setFocusState('sketchbook');
+
+          } else if ( INTERSECTED.name == 'miniPlayer' ) {
+            setFocusState('miniPlayer');
 
           } else if ( INTERSECTED.name == 'modelsShelf' ) {
             setFocusState('modelsShelf');
 
-          } else if ( INTERSECTED.name == 'ground' ) {
+          } else if ( INTERSECTED.name == 'home' ) {
             setFocusState('home');
+          } else {
+            console.log("state none");
+            setFocusState('none');
           }
-         }
-       } else {
+        }
+      } else {
          INTERSECTED = null;
-         setFocusState('home');
-       }
-
+      }
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
@@ -101,12 +130,10 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     e.preventDefault();
     setIsRotating(false);
   }
-
   const handlePointerMove = (e) => {
     e.stopPropagation();
     e.preventDefault();
   }
-
   const handleKeyDown = (e) => {
     if (e.key === 'ArrowLeft') {
         if (!isRotating) setIsRotating(true);
@@ -119,13 +146,11 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
         updateCameraLookAt([8, -6, -32]);
     }
   }
-
   const handleKeyUp = (e) => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
         setIsRotating(false);
     }
   }
-
 
   useEffect (() => {
     const canvas = gl.domElement;
@@ -147,7 +172,9 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
   return (
     <a.group ref={roomRef}{...props}>
       <group rotation={[0, -0.02, 0]} scale={0.1}>
+
         <group name="table">
+
           <group name="screen1">
             <mesh
               ref={handleMeshRef}
@@ -166,11 +193,10 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               material={materials.m_whiteMonitorBaked}
             />            
             <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.4, 327]} transform occlude>
-              <div>
-                <CaseStudies/>
-              </div>
+              <CaseStudies onScreenClick={handleScreenClick} currState={currState}/>
             </Html>
           </group>
+
           <group name="screen2">
             <mesh
               ref={handleMeshRef}
@@ -188,12 +214,11 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               geometry={nodes.screen2Shape_1.geometry}
               material={materials.m_whiteMonitorBaked}
             />
-          </group>
           <Html scale={[1.5, -1.5, -1.5]} rotation={[0, 0.597, -Math.PI]} position={[7.5, 133.534, 306.5]} transform occlude>
-        <div>
-          <OtherProjects/>
-        </div>
-        </Html>
+            <OtherProjects onScreenClick={handleScreenClick} currState={currState}/>
+          </Html>
+          </group>
+          
           <mesh
             name="resume2"
             castShadow
@@ -218,6 +243,15 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             receiveShadow
             geometry={nodes.resume1Paper.geometry}
             material={materials.m_whitePaperBaked}
+          />
+          <mesh
+            ref={handleMeshRef}
+            name="table"
+            castShadow
+            receiveShadow
+            geometry={nodes.table_1.geometry}
+            material={materials.m_whiteSpecularBaked}
+            position={[0, 1.114, 0]}
           />
           <group name="keyboard">
             <mesh
@@ -270,14 +304,6 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               material={materials.m_keycapPinkBaked}
             />
           </group>
-          <mesh
-            name="table_1"
-            castShadow
-            receiveShadow
-            geometry={nodes.table_1.geometry}
-            material={materials.m_whiteSpecularBaked}
-            position={[0, 1.114, 0]}
-          />
         </group>
         <group name="art">
           <mesh
@@ -296,28 +322,32 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           />
           <group name="miniPlayer">
             <mesh
-              name="miniPlayerShape"
+              ref={handleMeshRef}
+              name="miniPlayer"
               castShadow
               receiveShadow
               geometry={nodes.miniPlayerShape.geometry}
               material={materials.m_miniPlayerFaceBaked}
             />
             <mesh
-              name="miniPlayerShape_1"
+              ref={handleMeshRef}
+              name="miniPlayer"
               castShadow
               receiveShadow
               geometry={nodes.miniPlayerShape_1.geometry}
               material={materials.m_miniPlayerWoodBaked}
             />
             <mesh
-              name="miniPlayerShape_2"
+              ref={handleMeshRef}
+              name="miniPlayer"
               castShadow
               receiveShadow
               geometry={nodes.miniPlayerShape_2.geometry}
               material={materials.m_blackBaked}
             />
             <mesh
-              name="miniPlayerShape_3"
+              ref={handleMeshRef}
+              name="miniPlayer"
               castShadow
               receiveShadow
               geometry={nodes.miniPlayerShape_3.geometry}
@@ -325,6 +355,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             />
           </group>
           <mesh
+            ref={handleMeshRef}
             name="drawingHand"
             castShadow
             receiveShadow
@@ -335,6 +366,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             scale={[81.023, 81.023, 115.7]}
           />
           <mesh
+            ref={handleMeshRef}
             name="drawingFish"
             castShadow
             receiveShadow
@@ -345,6 +377,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             scale={[50.416, 54.923, 71.539]}
           />
           <mesh
+            ref={handleMeshRef}
             name="drawingDavid"
             castShadow
             receiveShadow
@@ -355,6 +388,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             scale={[50.416, 54.923, 71.539]}
           />
           <mesh
+            ref={handleMeshRef}
             name="businessCard"
             castShadow
             receiveShadow
@@ -542,21 +576,24 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           </group>
           <group name="sketchbook">
             <mesh
-              name="sketchbookShape"
+              ref={handleMeshRef}
+              name="sketchbook"
               castShadow
               receiveShadow
               geometry={nodes.sketchbookShape.geometry}
               material={materials.m_blackBaked}
             />
             <mesh
-              name="sketchbookShape_1"
+              ref={handleMeshRef}
+              name="sketchbook"
               castShadow
               receiveShadow
               geometry={nodes.sketchbookShape_1.geometry}
               material={materials.m_whitePaperBaked}
             />
             <mesh
-              name="sketchbookShape_2"
+              ref={handleMeshRef}
+              name="sketchbook"
               castShadow
               receiveShadow
               geometry={nodes.sketchbookShape_2.geometry}
@@ -571,6 +608,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             material={materials.m_keycapYellow}
           />
           <mesh
+            ref={handleMeshRef}
             name="corkboard"
             castShadow
             receiveShadow
@@ -578,7 +616,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             material={materials.m_corkSurfaceBaked}
           />
           <mesh
-            name="artShelfWood"
+            ref={handleMeshRef}
+            name="artWall"
             castShadow
             receiveShadow
             geometry={nodes.artShelfWood.geometry}
@@ -588,7 +627,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             scale={[0.182, 0.039, 0.602]}
           />
           <mesh
-            name="_whiteFrame1"
+            ref={handleMeshRef}
+            name="corkboard"
             castShadow
             receiveShadow
             geometry={nodes._whiteFrame1.geometry}
@@ -1452,7 +1492,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             />
           </group>
           <mesh
-            name="vrShelfWood"
+            ref={handleMeshRef}
+            name="vrShelf"
             castShadow
             receiveShadow
             geometry={nodes.vrShelfWood.geometry}
@@ -1712,35 +1753,40 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
         </group>
         <group name="roomArchitecture1">
           <mesh
-            name="roomArchitecture1Shape"
+            ref={handleMeshRef}
+            name="home"
             castShadow
             receiveShadow
             geometry={nodes.roomArchitecture1Shape.geometry}
             material={materials.m_cushionBaked}
           />
           <mesh
-            name="roomArchitecture1Shape_1"
+            ref={handleMeshRef}
+            name="home"
             castShadow
             receiveShadow
             geometry={nodes.roomArchitecture1Shape_1.geometry}
             material={materials.m_floorBaked}
           />
           <mesh
-            name="roomArchitecture1Shape_2"
+            ref={handleMeshRef}
+            name="home"
             castShadow
             receiveShadow
             geometry={nodes.roomArchitecture1Shape_2.geometry}
             material={materials.m_wallBaked}
           />
           <mesh
-            name="roomArchitecture1Shape_3"
+            ref={handleMeshRef}
+            name="home"
             castShadow
             receiveShadow
             geometry={nodes.roomArchitecture1Shape_3.geometry}
             material={materials.m_rugBaked}
           />
           <mesh
-            name="roomArchitecture1Shape_4"
+            ref={handleMeshRef}
+            name="home"
             castShadow
             receiveShadow
             geometry={nodes.roomArchitecture1Shape_4.geometry}

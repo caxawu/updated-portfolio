@@ -58,18 +58,42 @@ const Home = () => {
       updateCameraLookAt([4, -10, -32]);
       navigateTo('XR/spaces');
 
-    }else if ( focusState === 'anivision' ) {
+    } else if ( focusState === 'anivision' ) {
       updateCameraPosition([-16, -4, -30]);
       updateCameraLookAt([4, -14, -32]);
       navigateTo('XR/anivision');
 
-     }else if ( focusState === 'artWall' ) {
+     } else if ( focusState === 'artWall' ) {
       updateCameraPosition([-2, 6, -40]);
       updateCameraLookAt([0, 0, -40]);
+
+    } else if ( focusState === 'corkboard' ) {
+      updateCameraPosition([-21, 6, -52]);
+      updateCameraLookAt([0, 0, -40]);
+
+    } else if ( focusState === 'drawingHand' ) {
+      updateCameraPosition([-24, 6.7, -58]);
+      updateCameraLookAt([0, -3, -40]);
+
+    } else if ( focusState === 'drawingDavid' ) {
+      updateCameraPosition([-15, 11, -60]);
+      updateCameraLookAt([0, -4, -40]);
+
+    } else if ( focusState === 'drawingFish' ) {
+      updateCameraPosition([-19, 4, -60]);
+      updateCameraLookAt([0, -4, -40]);
 
     } else if ( focusState === 'businessCard' ) {
       updateCameraPosition([-12, 4, -58]);
       updateCameraLookAt([0, -10, -40]);
+
+    } else if ( focusState === 'sketchbook' ) {
+      updateCameraPosition([-3, 0, -61]);
+      updateCameraLookAt([0, -3, -40]);
+
+    } else if ( focusState === 'miniPlayer' ) {
+      updateCameraPosition([-9.7, -1.1, -65]);
+      updateCameraLookAt([0, -1, -40]);
 
     } else if ( focusState === 'modelsShelf' ) {
       updateCameraPosition([20, 6, -40]);

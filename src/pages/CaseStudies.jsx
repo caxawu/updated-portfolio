@@ -35,10 +35,10 @@ const CaseStudies = ({  updateCameraPosition, updateCameraLookAt }) => {
   // }
 
   return (
-    <div className='screen' style={{ width: "920px", height: "470px", fontSize: "14px", overflow:"hidden"}}>
-              <div style={{ transform: "scale(0.64)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
-        <iframe title="embed" width={1450} height={750} src="https://xinaicathywu.me/portfolio" />
-        </div>
+    <div className='screen' style={{ width: "2560px", height: "1420px", overflow:"hidden"}}>
+      <div style={{ transform: "scale(1.77)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
+        <iframe title="embed" width={1445} height={800} src="https://xinaicathywu.me/portfolio" />
+      </div>
       {/* <div className='title'>
         Case studies
       </div>

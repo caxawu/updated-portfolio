@@ -35,8 +35,8 @@ const OtherProjects = ({  updateCameraPosition, updateCameraLookAt }) => {
   // }
 
   return (
-    <div className='screen' style={{width: "950px", height: "1800px", fontSize: "14px", overflow:"hidden"}}>
-              <div style={{ transform: "scale(0.64)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
+    <div className='screen' style={{width: "1775px", height: "2335px", fontSize: "14px", overflow:"hidden", backgroundColor: "red"}}>
+              <div style={{ transform: "scale(1.2)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
         <iframe title="embed" width={1480} height={2800} src="https://xinaicathywu.me/other-works" />
         </div>
       {/* <div className='title'>

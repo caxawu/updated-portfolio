@@ -45,8 +45,8 @@ const Home = () => {
       // navigateTo('case-studies');        // route only for static web
 
     } else if ( focusState === 'screen2' ) {
-      updateCameraPosition([6, -10.5, -57]);
-      updateCameraLookAt([-25, 0, -36]);
+      updateCameraPosition([6, -10.3, -57]);
+      updateCameraLookAt([-25, -1.5, -36]);
 
     } else if ( focusState === 'vrShelf' ) {
       updateCameraPosition([11, 10, -41]);
@@ -92,13 +92,16 @@ const Home = () => {
       updateCameraLookAt([0, -3, -40]);
 
     } else if ( focusState === 'miniPlayer' ) {
-      updateCameraPosition([-9.7, -1.1, -65]);
+      updateCameraPosition([-9.5, -1.1, -65]);
       updateCameraLookAt([0, -1, -40]);
 
     } else if ( focusState === 'modelsShelf' ) {
       updateCameraPosition([20, 6, -40]);
       updateCameraLookAt([2000, -500, -36]);
-      navigateTo('3d-modeling');
+      // navigateTo('3d-modeling');
+    }else if ( focusState === 'animPlayer' ) {
+      updateCameraPosition([33, -2.5, -40]);
+      updateCameraLookAt([2000, -800, -36]);
     }
     setFocusState('null');
   });
@@ -129,18 +132,18 @@ const Home = () => {
         <Navbar setFocusState={setFocusState}/>
       </div>
 
-      <div className="links">
+      {/* <div className="links">
         <Links/>
-      </div>
+      </div> */}
 
       <Canvas 
       className= {`canvas-content ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
       camera={defaultCamera.current}
       >
-      <Html>
+      {/* <Html>
         <div className="curve-a"></div>
         <div className="curve-b"></div>
-      </Html>
+      </Html> */}
 
         <Suspense fallback={<Loader />}>
           {/* Expense: ambient < hemisphere < directional */}

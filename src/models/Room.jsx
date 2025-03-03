@@ -1,21 +1,23 @@
 import { useRef, useState, useEffect } from 'react'
-import { useCursor, useGLTF } from '@react-three/drei'
-import { useFrame, useThree } from '@react-three/fiber'
-import { a } from '@react-spring/three'
+import { useGLTF, useAnimations, Html } from '@react-three/drei'
+import { useThree } from '@react-three/fiber'
 import * as THREE from 'three';
-import { useNavigate } from 'react-router-dom';
-import { Html, Environment, ContactShadows, OrbitControls } from '@react-three/drei'
+import { a, useSpring } from '@react-spring/three';  // Import 'a' for animated mesh
 
-import roomScene from '../assets/3d/desk7.glb'
+import roomScene from '../assets/3d/desk8.glb'
 import CaseStudies from '../pages/CaseStudies';
+import MiniPlayer from '../pages/MiniPlayer';
+import AnimPlayer from '../pages/AnimPlayer';
 import { OtherProjects } from '../pages';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
   const roomRef = useRef();
   const [meshes, setMeshes] = useState([]);
 
-  const { gl, viewport } = useThree();
+  const { gl } = useThree();
   const { nodes, materials } = useGLTF(roomScene);
+  const { scene, animations } = useGLTF(roomScene);
+  const { actions } = useAnimations(animations, roomRef);
 
   const lastX = useRef(0);
   const rotationSpeed = useRef(0);
@@ -27,23 +29,57 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
   const currCamera = defaultCamera;
   let INTERSECTED;
 
-  // currState needed to pass into HTML children to turn on/off interactivity
-  const [ currState, setCurrState ] = useState ('home');
+  const [ currState, setCurrState ] = useState ('home');    // To pass into HTML children to turn off interactivity before zooming in
 
-  // Add each mesh reference to the meshes array
+  const [isArrowPressed, setIsArrowPressed] = useState(false);
+
+   // Animate the mesh position when the buttons are pressed
+   const { positionLeft, positionRight, positionBallBounce, positionTwoBalls, positionWalkCycle, positionWalkForward, positionJump, positionRun } = useSpring({
+    positionLeft: isArrowPressed === 'left' ? [0, 0, 0.6] : [0, 0, 0],
+    positionRight: isArrowPressed === 'right' ? [0, 0, 0.6] : [0, 0, 0],
+    positionBallBounce: isArrowPressed === 'ballBounce' ? [0, -2, 0] : [0, 0, 0],
+    positionTwoBalls: isArrowPressed === 'twoBalls' ? [0, -2, 0] : [0, 0, 0],
+    positionWalkCycle: isArrowPressed === 'walkCycle' ? [0, -2, 0] : [0, 0, 0],
+    positionWalkForward: isArrowPressed === 'walkForward' ? [0, -2, 0] : [0, 0, 0],
+    positionJump: isArrowPressed === 'jump' ? [0, -2, 0] : [0, 0, 0],
+    positionRun: isArrowPressed === 'run' ? [0, -2, 0] : [0, 0, 0],
+    config: { tension: 170, friction: 26 },  // Smooth animation config
+  });
+
+  const handleButtonClick = (arrow) => {
+    setIsArrowPressed(arrow); // Set the state to either 'left' or 'right'
+    setTimeout(() => {
+      setIsArrowPressed(false);  // Reset the animation after 200ms
+    }, 100);
+  };
+
+
+  // loop animations in scene
+  useEffect(() => {
+    if (animations.length > 0 && actions) {
+      animations.forEach((clip) => {
+        if (clip.name !== 'tail1' && actions[clip.name]) {
+          actions[clip.name].play();
+        }
+      });
+    }
+  }, [actions, animations]);
+
+
+
   const handleMeshRef = (mesh) => {
     if (mesh && !meshes.includes(mesh)) {
        setMeshes(prevMeshes => [...prevMeshes, mesh]);
     }
   };
 
-  // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
+    // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
     const handleScreenClick = (location) => {
       setFocusState(location);
       setCurrState(location);
     };
 
-    // handles clicks on 3d objs: meshes in 3d model
+  // handles clicks on 3d objs: meshes in 3d model
   const handlePointerDown = (e) => {
     pointer.x = ( e.clientX / window.innerWidth ) * 2 - 1;
     pointer.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
@@ -58,56 +94,80 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
    
          if ( INTERSECTED != intersects[ 0 ].object) {
            INTERSECTED = intersects[ 0 ].object;
+           console.log("name: " + INTERSECTED.name);
            
            if ( INTERSECTED.name == 'table' ) {
             setFocusState('table');
-
           } else if ( INTERSECTED.name == 'screen1' ) {
             setFocusState('screen1');
-
           } else if ( INTERSECTED.name == 'screen2' ) {
             setFocusState('screen2');
 
           } else if ( INTERSECTED.name == 'vrShelf' ) {
             setFocusState('vrShelf');
-
           } else if ( INTERSECTED.name == 'spaces' ) {
             setFocusState('spaces');
-
           } else if ( INTERSECTED.name == 'anivision' ) {
             setFocusState('anivision');
 
           } else if ( INTERSECTED.name == 'artWall' ) {
             setFocusState('artWall');
-
           } else if ( INTERSECTED.name == 'corkboard' ) {
             setFocusState('corkboard');
-
           } else if ( INTERSECTED.name == 'drawingHand' ) {
             setFocusState('drawingHand');
-
           } else if ( INTERSECTED.name == 'drawingDavid' ) {
             setFocusState('drawingDavid');
-
           } else if ( INTERSECTED.name == 'drawingFish' ) {
             setFocusState('drawingFish');
-
           } else if ( INTERSECTED.name == 'businessCard' ) {
             setFocusState('businessCard');
-
           } else if ( INTERSECTED.name == 'sketchbook' ) {
             setFocusState('sketchbook');
 
           } else if ( INTERSECTED.name == 'miniPlayer' ) {
             setFocusState('miniPlayer');
+          } else if ( INTERSECTED.name == 'rightArrow' ) {
+            setFocusState('miniPlayer');
+            setCurrState('nextImage');
+            handleButtonClick('right');
+          } else if ( INTERSECTED.name == 'leftArrow' ) {
+            setFocusState('miniPlayer');
+            setCurrState('prevImage');
+            handleButtonClick('left');
 
           } else if ( INTERSECTED.name == 'modelsShelf' ) {
             setFocusState('modelsShelf');
+          } else if ( INTERSECTED.name == 'animPlayer' ) {
+            setFocusState('animPlayer');
+          } else if ( INTERSECTED.name == 'keyBounce' ) {
+            setFocusState('animPlayer');
+            setCurrState('ballBounce');
+            handleButtonClick('ballBounce');
+          } else if ( INTERSECTED.name == 'keyTwoBalls' ) {
+            setFocusState('animPlayer');
+            setCurrState('twoBalls');
+            handleButtonClick('twoBalls');
+          } else if ( INTERSECTED.name == 'keyWalkCycle' ) {
+            setFocusState('animPlayer');
+            setCurrState('walkCycle');
+            handleButtonClick('walkCycle');
+          } else if ( INTERSECTED.name == 'keyWalkForward' ) {
+            setFocusState('animPlayer');
+            setCurrState('walkForward');
+            handleButtonClick('walkForward');
+          } else if ( INTERSECTED.name == 'keyJump' ) {
+            setFocusState('animPlayer');
+            setCurrState('jump');
+            handleButtonClick('jump');
+          } else if ( INTERSECTED.name == 'keyRun' ) {
+            setFocusState('animPlayer');
+            setCurrState('run');
+            handleButtonClick('run'); 
 
           } else if ( INTERSECTED.name == 'home' ) {
             setFocusState('home');
           } else {
-            console.log("state none");
             setFocusState('none');
           }
         }
@@ -134,47 +194,24 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     e.stopPropagation();
     e.preventDefault();
   }
-  const handleKeyDown = (e) => {
-    if (e.key === 'ArrowLeft') {
-        if (!isRotating) setIsRotating(true);
-        // roomRef.current.rotation.y = 9.43;
-
-    } else if (e.key === 'ArrowRight') {
-        if (!isRotating) setIsRotating(true);
-        // roomRef.current.rotation.y -= 0.01 * Math.PI;
-        updateCameraPosition([-18, 2, -6]);
-        updateCameraLookAt([8, -6, -32]);
-    }
-  }
-  const handleKeyUp = (e) => {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        setIsRotating(false);
-    }
-  }
 
   useEffect (() => {
     const canvas = gl.domElement;
     canvas.addEventListener('pointerdown', handlePointerDown);
     canvas.addEventListener('pointerup', handlePointerUp);
     canvas.addEventListener('pointermove', handlePointerMove);
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keyup', handleKeyUp);
 
     return () => {
         canvas.removeEventListener('pointerdown', handlePointerDown);
         canvas.removeEventListener('pointerup', handlePointerUp);
         canvas.removeEventListener('pointermove', handlePointerMove);
-        document.removeEventListener('keydown', handleKeyDown);
-        document.removeEventListener('keyup', handleKeyUp);
     }
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove, handleKeyDown, handleKeyUp])
+  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove])
 
   return (
     <a.group ref={roomRef}{...props}>
       <group rotation={[0, -0.02, 0]} scale={0.1}>
-
         <group name="table">
-
           <group name="screen1">
             <mesh
               ref={handleMeshRef}
@@ -191,12 +228,11 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               receiveShadow
               geometry={nodes.screen1Shape_1.geometry}
               material={materials.m_whiteMonitorBaked}
-            />            
-            <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.4, 327]} transform occlude>
+            />
+            <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.1, 327]} transform occlude>
               <CaseStudies onScreenClick={handleScreenClick} currState={currState}/>
             </Html>
           </group>
-
           <group name="screen2">
             <mesh
               ref={handleMeshRef}
@@ -212,22 +248,12 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.screen2Shape_1.geometry}
-              material={materials.m_whiteMonitorBaked}
+              material={materials.m_whiteMonitor}
             />
-          <Html scale={[1.5, -1.5, -1.5]} rotation={[0, 0.597, -Math.PI]} position={[7.5, 133.534, 306.5]} transform occlude>
-            <OtherProjects onScreenClick={handleScreenClick} currState={currState}/>
-          </Html>
+            <Html scale={[1.5, -1.5, -1.5]} rotation={[0, 0.597, -Math.PI]} position={[5.7, 133.534, 306.7]} transform occlude>
+              <OtherProjects onScreenClick={handleScreenClick} currState={currState}/>
+            </Html>
           </group>
-          
-          <mesh
-            name="resume2"
-            castShadow
-            receiveShadow
-            geometry={nodes.resume2.geometry}
-            material={materials.testResumeBaked}
-            position={[-201.075, 77.247, 269.451]}
-            scale={[44.769, 7.701, 44.769]}
-          />
           <mesh
             name="resume1Top"
             castShadow
@@ -244,29 +270,20 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             geometry={nodes.resume1Paper.geometry}
             material={materials.m_whitePaperBaked}
           />
-          <mesh
-            ref={handleMeshRef}
-            name="table"
-            castShadow
-            receiveShadow
-            geometry={nodes.table_1.geometry}
-            material={materials.m_whiteSpecularBaked}
-            position={[0, 1.114, 0]}
-          />
           <group name="keyboard">
             <mesh
               name="keyboardShape"
               castShadow
               receiveShadow
               geometry={nodes.keyboardShape.geometry}
-              material={materials.m_keycapWhiteBaked}
+              material={materials.m_keyboardBottomBaked}
             />
             <mesh
               name="keyboardShape_1"
               castShadow
               receiveShadow
               geometry={nodes.keyboardShape_1.geometry}
-              material={materials.m_keycapPurpleBaked}
+              material={materials.m_keycapYellowBaked}
             />
             <mesh
               name="keyboardShape_2"
@@ -280,21 +297,21 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.keyboardShape_3.geometry}
-              material={materials.m_keyboardBottomBaked}
+              material={materials.m_keycapWhiteBaked}
             />
             <mesh
               name="keyboardShape_4"
               castShadow
               receiveShadow
               geometry={nodes.keyboardShape_4.geometry}
-              material={materials.m_keycapYellowBaked}
+              material={materials.m_keycapBlueBaked}
             />
             <mesh
               name="keyboardShape_5"
               castShadow
               receiveShadow
               geometry={nodes.keyboardShape_5.geometry}
-              material={materials.m_keycapBlueBaked}
+              material={materials.m_keycapPurpleBaked}
             />
             <mesh
               name="keyboardShape_6"
@@ -304,22 +321,17 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               material={materials.m_keycapPinkBaked}
             />
           </group>
+          <mesh
+            ref={handleMeshRef}
+            name="table"
+            castShadow
+            receiveShadow
+            geometry={nodes.table_1.geometry}
+            material={materials.m_whiteSpecularBaked}
+            position={[0, 1.114, 0]}
+          />
         </group>
         <group name="art">
-          <mesh
-            name="rightArrow1"
-            castShadow
-            receiveShadow
-            geometry={nodes.rightArrow1.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
-          <mesh
-            name="leftArrow1"
-            castShadow
-            receiveShadow
-            geometry={nodes.leftArrow1.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
           <group name="miniPlayer">
             <mesh
               ref={handleMeshRef}
@@ -335,7 +347,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.miniPlayerShape_1.geometry}
-              material={materials.m_miniPlayerWoodBaked}
+              material={materials.m_blackRubberBaked}
             />
             <mesh
               ref={handleMeshRef}
@@ -343,7 +355,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.miniPlayerShape_2.geometry}
-              material={materials.m_blackBaked}
+              material={materials.m_miniPlayerWoodBaked}
             />
             <mesh
               ref={handleMeshRef}
@@ -351,9 +363,33 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.miniPlayerShape_3.geometry}
-              material={materials.m_blackRubberBaked}
+              material={materials.m_blackBaked}
             />
+            <Html scale={0.4} rotation-y={-Math.PI} position={[94.46, 232.2, 354]} transform occlude>
+              <MiniPlayer onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
+            </Html>
           </group>
+
+          <a.mesh
+            ref={handleMeshRef}
+            name="leftArrow"
+            onPointerDown={handlePointerDown}
+            position={positionLeft}
+            castShadow
+            receiveShadow
+            geometry={nodes.leftArrow.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
+          <a.mesh
+            ref={handleMeshRef}
+            name="rightArrow"
+            onPointerDown={handlePointerDown}
+            position={positionRight}
+            castShadow
+            receiveShadow
+            geometry={nodes.rightArrow.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
           <mesh
             ref={handleMeshRef}
             name="drawingHand"
@@ -398,6 +434,57 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             rotation={[Math.PI / 2, -0.031, -Math.PI]}
             scale={[25.739, 84.174, 14.145]}
           />
+          <group name="brushes">
+            <mesh
+              name="brushesShape"
+              castShadow
+              receiveShadow
+              geometry={nodes.brushesShape.geometry}
+              material={materials.m_paintbrushHandleBrownBaked}
+            />
+            <mesh
+              name="brushesShape_1"
+              castShadow
+              receiveShadow
+              geometry={nodes.brushesShape_1.geometry}
+              material={materials.m_paintbrushMetalGoldBaked}
+            />
+            <mesh
+              name="brushesShape_2"
+              castShadow
+              receiveShadow
+              geometry={nodes.brushesShape_2.geometry}
+              material={materials.m_paintbrushHairDarkBrownBaked}
+            />
+            <mesh
+              name="brushesShape_3"
+              castShadow
+              receiveShadow
+              geometry={nodes.brushesShape_3.geometry}
+              material={materials.m_blackBaked}
+            />
+            <mesh
+              name="brushesShape_4"
+              castShadow
+              receiveShadow
+              geometry={nodes.brushesShape_4.geometry}
+              material={materials.m_paintbrushHairBrownBaked}
+            />
+            <mesh
+              name="brushesShape_5"
+              castShadow
+              receiveShadow
+              geometry={nodes.brushesShape_5.geometry}
+              material={materials.m_paintbrushHandleBaked}
+            />
+            <mesh
+              name="brushesShape_6"
+              castShadow
+              receiveShadow
+              geometry={nodes.brushesShape_6.geometry}
+              material={materials.m_paintbrushMetalSilverBaked}
+            />
+          </group>
           <mesh
             name="container"
             castShadow
@@ -408,85 +495,34 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             rotation={[-Math.PI, 0, -Math.PI]}
             scale={[8.235, 7.722, 8.235]}
           />
-          <group name="brushes">
-            <mesh
-              name="brushesShape"
-              castShadow
-              receiveShadow
-              geometry={nodes.brushesShape.geometry}
-              material={materials.m_paintbrushHandleBaked}
-            />
-            <mesh
-              name="brushesShape_1"
-              castShadow
-              receiveShadow
-              geometry={nodes.brushesShape_1.geometry}
-              material={materials.m_paintbrushHairDarkBrownBaked}
-            />
-            <mesh
-              name="brushesShape_2"
-              castShadow
-              receiveShadow
-              geometry={nodes.brushesShape_2.geometry}
-              material={materials.m_paintbrushHandleBrownBaked}
-            />
-            <mesh
-              name="brushesShape_3"
-              castShadow
-              receiveShadow
-              geometry={nodes.brushesShape_3.geometry}
-              material={materials.m_paintbrushMetalSilverBaked}
-            />
-            <mesh
-              name="brushesShape_4"
-              castShadow
-              receiveShadow
-              geometry={nodes.brushesShape_4.geometry}
-              material={materials.m_blackBaked}
-            />
-            <mesh
-              name="brushesShape_5"
-              castShadow
-              receiveShadow
-              geometry={nodes.brushesShape_5.geometry}
-              material={materials.m_paintbrushMetalGoldBaked}
-            />
-            <mesh
-              name="brushesShape_6"
-              castShadow
-              receiveShadow
-              geometry={nodes.brushesShape_6.geometry}
-              material={materials.m_paintbrushHairBrownBaked}
-            />
-          </group>
           <group name="inkwell">
             <mesh
               name="inkwellShape"
               castShadow
               receiveShadow
               geometry={nodes.inkwellShape.geometry}
-              material={materials.m_inkBaked}
+              material={materials.m_glassBaked}
             />
             <mesh
               name="inkwellShape_1"
               castShadow
               receiveShadow
               geometry={nodes.inkwellShape_1.geometry}
-              material={materials.m_inkRibbonBaked}
+              material={materials.m_inkWaxBaked}
             />
             <mesh
               name="inkwellShape_2"
               castShadow
               receiveShadow
               geometry={nodes.inkwellShape_2.geometry}
-              material={materials.m_inkWaxBaked}
+              material={materials.m_inkBaked}
             />
             <mesh
               name="inkwellShape_3"
               castShadow
               receiveShadow
               geometry={nodes.inkwellShape_3.geometry}
-              material={materials.m_glassBaked}
+              material={materials.m_inkRibbonBaked}
             />
           </group>
           <group name="paintingDoor">
@@ -495,21 +531,21 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.paintingDoorShape.geometry}
-              material={materials.m_artPaintingDoorBaked}
+              material={materials.m_paintingFrameBaked}
             />
             <mesh
               name="paintingDoorShape_1"
               castShadow
               receiveShadow
               geometry={nodes.paintingDoorShape_1.geometry}
-              material={materials.m_artPaintingBirds}
+              material={materials.m_artPaintingDoorBaked}
             />
             <mesh
               name="paintingDoorShape_2"
               castShadow
               receiveShadow
               geometry={nodes.paintingDoorShape_2.geometry}
-              material={materials.m_paintingFrameBaked}
+              material={materials.m_artPaintingBirds}
             />
           </group>
           <group name="paintingLandscape">
@@ -518,21 +554,21 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.paintingLandscapeShape.geometry}
-              material={materials.m_artPaintingLandscapeBaked}
+              material={materials.m_paintingFrameBaked}
             />
             <mesh
               name="paintingLandscapeShape_1"
               castShadow
               receiveShadow
               geometry={nodes.paintingLandscapeShape_1.geometry}
-              material={nodes.paintingLandscapeShape_1.material}
+              material={materials.m_artPaintingLandscapeBaked}
             />
             <mesh
               name="paintingLandscapeShape_2"
               castShadow
               receiveShadow
               geometry={nodes.paintingLandscapeShape_2.geometry}
-              material={materials.m_paintingFrameBaked}
+              material={nodes.paintingLandscapeShape_2.material}
             />
           </group>
           <group name="paintingFruit">
@@ -548,14 +584,14 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.paintingFruitShape_1.geometry}
-              material={materials.m_artPaintingFruitBaked}
+              material={materials.m_paintingFrameBaked}
             />
             <mesh
               name="paintingFruitShape_2"
               castShadow
               receiveShadow
               geometry={nodes.paintingFruitShape_2.geometry}
-              material={materials.m_paintingFrameBaked}
+              material={materials.m_artPaintingFruitBaked}
             />
           </group>
           <group name="paintingBirds">
@@ -564,14 +600,14 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.paintingBirdsShape.geometry}
-              material={materials.m_artPaintingBirdsBaked}
+              material={materials.m_paintingFrameBaked}
             />
             <mesh
               name="paintingBirdsShape_1"
               castShadow
               receiveShadow
               geometry={nodes.paintingBirdsShape_1.geometry}
-              material={materials.m_paintingFrameBaked}
+              material={materials.m_artPaintingBirdsBaked}
             />
           </group>
           <group name="sketchbook">
@@ -581,14 +617,6 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               castShadow
               receiveShadow
               geometry={nodes.sketchbookShape.geometry}
-              material={materials.m_blackBaked}
-            />
-            <mesh
-              ref={handleMeshRef}
-              name="sketchbook"
-              castShadow
-              receiveShadow
-              geometry={nodes.sketchbookShape_1.geometry}
               material={materials.m_whitePaperBaked}
             />
             <mesh
@@ -596,8 +624,16 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               name="sketchbook"
               castShadow
               receiveShadow
-              geometry={nodes.sketchbookShape_2.geometry}
+              geometry={nodes.sketchbookShape_1.geometry}
               material={materials.m_artTidalBasinBaked}
+            />
+            <mesh
+              ref={handleMeshRef}
+              name="sketchbook"
+              castShadow
+              receiveShadow
+              geometry={nodes.sketchbookShape_2.geometry}
+              material={materials.m_blackBaked}
             />
           </group>
           <mesh
@@ -631,7 +667,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             name="corkboard"
             castShadow
             receiveShadow
-            geometry={nodes._whiteFrame1.geometry}
+            geometry={nodes.whiteFrame.geometry}
             material={materials.m_whiteFrameBaked}
             position={[207.921, 320.416, 376.773]}
             rotation={[Math.PI / 2, 0, 0]}
@@ -639,6 +675,351 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           />
         </group>
         <group name="vrShelf">
+          <mesh
+            name="escher"
+            castShadow
+            receiveShadow
+            geometry={nodes.escher.geometry}
+            material={materials.m_escherBaked}
+            position={[-301.734, 322.289, 301.257]}
+            rotation={[0, 1.57, Math.PI]}
+            scale={[1.775, 1.775, -1.775]}
+          />
+          <mesh
+            name="descAnivision"
+            castShadow
+            receiveShadow
+            geometry={nodes.descAnivision.geometry}
+            material={materials.m_descAnivisionBaked}
+            position={[-311.281, 182.914, 272.2]}
+            rotation={[2.031, 0.418, -2.455]}
+            scale={[65.029, 23.66, 21.305]}
+          />
+          <mesh
+            name="descSpaces"
+            castShadow
+            receiveShadow
+            geometry={nodes.descSpaces.geometry}
+            material={materials.m_descSpacesBaked}
+            position={[-310.484, 286.795, 271.136]}
+            rotation={[2.031, 0.418, -2.455]}
+            scale={[65.029, 23.66, 21.305]}
+          />
+          <mesh
+            ref={handleMeshRef}
+            name="vrShelf"
+            castShadow
+            receiveShadow
+            geometry={nodes.vrShelfWood.geometry}
+            material={materials.m_woodShelfBaked}
+          />
+          <group name="anivision">
+            <group
+              name="snake"
+              position={[-222.788, 162.804, 353.509]}
+              rotation={[-Math.PI, 0.552, -Math.PI]}
+              scale={1.241}>
+              <group
+                name="snakeMesh"
+                position={[-3.494, -131.207, 336.739]}
+                rotation={[-Math.PI, -0.552, -Math.PI]}
+                scale={0.806}>
+                <skinnedMesh
+                  name="snakeMeshShape"
+                  geometry={nodes.snakeMeshShape.geometry}
+                  material={materials.m_snake_eyesBaked}
+                  skeleton={nodes.snakeMeshShape.skeleton}
+                />
+                <skinnedMesh
+                  name="snakeMeshShape_1"
+                  geometry={nodes.snakeMeshShape_1.geometry}
+                  material={materials.m_snakeSkinBaked}
+                  skeleton={nodes.snakeMeshShape_1.skeleton}
+                />
+              </group>
+              <primitive object={nodes.joint69} />
+            </group>
+            <group name="tarsier" position={[-32.071, 9.257, -32.657]} rotation={[0, 0.104, 0]}>
+              <group
+                name="tarsierMesh"
+                position={[-323.004, 174.374, 298.423]}
+                rotation={[1.452, 1.013, -1.432]}
+                scale={25.346}>
+                <skinnedMesh
+                  name="tarsierBody"
+                  geometry={nodes.tarsierBody.geometry}
+                  material={materials.m_TarsierBodyBaked}
+                  skeleton={nodes.tarsierBody.skeleton}
+                />
+                <mesh
+                  name="tarsierEyes"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.tarsierEyes.geometry}
+                  material={materials.m_TarsierEyesBaked}
+                  position={[11.352, 0.7, 14.928]}
+                  rotation={[2.589, -1.541, Math.PI]}
+                  scale={0.039}
+                />
+              </group>
+              <primitive object={nodes.hips} />
+            </group>
+            <group name="anivisionDiorama">
+              <mesh
+                name="mushroom"
+                castShadow
+                receiveShadow
+                geometry={nodes.mushroom.geometry}
+                material={materials.m_mushroomBaked}
+              />
+              <mesh
+                name="tarsierBranch"
+                castShadow
+                receiveShadow
+                geometry={nodes.tarsierBranch.geometry}
+                material={materials.m_jungleTexturesBaked2}
+                position={[-303.789, 21.121, 245.94]}
+                rotation={[-2.935, -0.541, 2.638]}
+                scale={53.392}
+              />
+              <mesh
+                name="snakeBranch"
+                castShadow
+                receiveShadow
+                geometry={nodes.snakeBranch.geometry}
+                material={materials.m_jungleTexturesBaked1}
+                position={[-315.258, 180.541, 346.896]}
+                rotation={[2.529, 0.13, -3.116]}
+                scale={0.089}
+              />
+              <mesh
+                name="baseCombined"
+                castShadow
+                receiveShadow
+                geometry={nodes.baseCombined.geometry}
+                material={materials.m_jungleTexturesBaked}
+              />
+            </group>
+          </group>
+          <group name="headset">
+            <mesh
+              name="headsetShape"
+              castShadow
+              receiveShadow
+              geometry={nodes.headsetShape.geometry}
+              material={materials.m_headsetStrapBaked}
+            />
+            <mesh
+              name="headsetShape_1"
+              castShadow
+              receiveShadow
+              geometry={nodes.headsetShape_1.geometry}
+              material={materials.m_whiteSpecularBaked}
+            />
+            <mesh
+              name="headsetShape_2"
+              castShadow
+              receiveShadow
+              geometry={nodes.headsetShape_2.geometry}
+              material={materials.m_blackRubberBaked}
+            />
+            <mesh
+              name="headsetShape_3"
+              castShadow
+              receiveShadow
+              geometry={nodes.headsetShape_3.geometry}
+              material={materials.m_blackBaked}
+            />
+          </group>
+        </group>
+        <group name="modelsShelf">
+          <mesh
+            name="modelsScreen"
+            castShadow
+            receiveShadow
+            geometry={nodes.modelsScreen.geometry}
+            material={materials.m_digitalFrameBaked}
+            position={[-386.894, 312.47, 26.769]}
+            rotation={[Math.PI / 2, 0, Math.PI / 2]}
+            scale={[0.108, 0.004, 4.959]}
+          />
+          <a.mesh
+            ref={handleMeshRef}
+            name="keyBounce"
+            onPointerDown={handlePointerDown}
+            position={positionBallBounce}
+            castShadow
+            receiveShadow
+            geometry={nodes.keyBounce.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
+          <a.mesh
+            ref={handleMeshRef}
+            name="keyWalkCycle"
+            onPointerDown={handlePointerDown}
+            position={positionWalkCycle}
+            castShadow
+            receiveShadow
+            geometry={nodes.keyWalkCycle.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
+          <a.mesh
+            ref={handleMeshRef}
+            name="keyJump"
+            onPointerDown={handlePointerDown}
+            position={positionJump}
+            castShadow
+            receiveShadow
+            geometry={nodes.keyJump.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
+          <a.mesh
+            ref={handleMeshRef}
+            name="keyTwoBalls"
+            onPointerDown={handlePointerDown}
+            position={positionTwoBalls}
+            castShadow
+            receiveShadow
+            geometry={nodes.keyTwoBalls.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
+          <a.mesh
+            ref={handleMeshRef}
+            name="keyWalkForward"
+            onPointerDown={handlePointerDown}
+            position={positionWalkForward}
+            castShadow
+            receiveShadow
+            geometry={nodes.keyWalkForward.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
+          <a.mesh
+            ref={handleMeshRef}
+            name="keyRun"
+            onPointerDown={handlePointerDown}
+            position={positionRun}
+            castShadow
+            receiveShadow
+            geometry={nodes.keyRun.geometry}
+            material={materials.m_controlButtonsBaked}
+          />
+          <mesh
+            ref={handleMeshRef}
+            name="animPlayer"
+            castShadow
+            receiveShadow
+            geometry={nodes.animPlayer.geometry}
+            material={materials.m_animPlayerBaked}
+          />
+
+          <Html scale={0.4} rotation-y={Math.PI/2} position={[-365, 207, 80]} transform occlude>
+              <AnimPlayer onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
+            </Html>
+          <mesh
+            ref={handleMeshRef}
+            name="modelsShelf"
+            castShadow
+            receiveShadow
+            geometry={nodes.modelsShelfWood.geometry}
+            material={materials.m_woodShelfBaked}
+          />
+          <mesh
+            name="pot1"
+            castShadow
+            receiveShadow
+            geometry={nodes.pot1.geometry}
+            material={materials.m_plantPotBaked}
+            position={[-505.862, -0.66, -205.952]}
+            rotation={[0, 1.414, 0]}
+          />
+          <group name="plant">
+            <mesh
+              name="plantShape"
+              castShadow
+              receiveShadow
+              geometry={nodes.plantShape.geometry}
+              material={materials.m_plantStemBaked}
+            />
+            <mesh
+              name="plantShape_1"
+              castShadow
+              receiveShadow
+              geometry={nodes.plantShape_1.geometry}
+              material={materials.m_flowerCenterBaked}
+            />
+            <mesh
+              name="plantShape_2"
+              castShadow
+              receiveShadow
+              geometry={nodes.plantShape_2.geometry}
+              material={materials.m_lilyBaked}
+            />
+            <mesh
+              name="plantShape_3"
+              castShadow
+              receiveShadow
+              geometry={nodes.plantShape_3.geometry}
+              material={materials.m_flowerLeafsBaked}
+            />
+            <mesh
+              name="plantShape_4"
+              castShadow
+              receiveShadow
+              geometry={nodes.plantShape_4.geometry}
+              material={materials.m_lilyWaterBaked2}
+            />
+            <mesh
+              name="plantShape_5"
+              castShadow
+              receiveShadow
+              geometry={nodes.plantShape_5.geometry}
+              material={materials.m_plantBroadLeafBaked}
+            />
+            <mesh
+              name="plantShape_6"
+              castShadow
+              receiveShadow
+              geometry={nodes.plantShape_6.geometry}
+              material={materials.m_lilyBaked1}
+            />
+          </group>
+          <group name="boat">
+            <mesh
+              name="boatShape"
+              castShadow
+              receiveShadow
+              geometry={nodes.boatShape.geometry}
+              material={materials.m_lanternBaked}
+            />
+            <mesh
+              name="boatShape_1"
+              castShadow
+              receiveShadow
+              geometry={nodes.boatShape_1.geometry}
+              material={materials.m_lanternGlass}
+            />
+            <mesh
+              name="boatShape_2"
+              castShadow
+              receiveShadow
+              geometry={nodes.boatShape_2.geometry}
+              material={materials.m_boatBaked}
+            />
+            <mesh
+              name="boatShape_3"
+              castShadow
+              receiveShadow
+              geometry={nodes.boatShape_3.geometry}
+              material={materials.m_lanternHandle}
+            />
+            <mesh
+              name="boatShape_4"
+              castShadow
+              receiveShadow
+              geometry={nodes.boatShape_4.geometry}
+              material={materials.m_oarBaked}
+            />
+          </group>
           <group name="egg1" position={[-416.381, 97.913, -475.147]} rotation={[0, -1.005, 0]}>
             <mesh
               name="wingL1"
@@ -1438,326 +1819,14 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               scale={[0.293, 0.293, -0.293]}
             />
           </group>
-          <mesh
-            name="escher"
-            castShadow
-            receiveShadow
-            geometry={nodes.escher.geometry}
-            material={materials.m_escherBaked}
-            position={[-301.734, 322.289, 301.257]}
-            rotation={[0, 1.57, Math.PI]}
-            scale={[1.775, 1.775, -1.775]}
-          />
-          <mesh
-            name="descAnivision"
-            castShadow
-            receiveShadow
-            geometry={nodes.descAnivision.geometry}
-            material={materials.m_descAnivisionBaked}
-            position={[-311.281, 182.914, 272.2]}
-            rotation={[2.031, 0.418, -2.455]}
-            scale={[65.029, 23.66, 21.305]}
-          />
-          <mesh
-            name="descSpaces"
-            castShadow
-            receiveShadow
-            geometry={nodes.descSpaces.geometry}
-            material={materials.m_descSpacesBaked}
-            position={[-310.484, 286.795, 271.136]}
-            rotation={[2.031, 0.418, -2.455]}
-            scale={[65.029, 23.66, 21.305]}
-          />
-          <group name="headset">
-            <mesh
-              name="headsetShape"
-              castShadow
-              receiveShadow
-              geometry={nodes.headsetShape.geometry}
-              material={materials.m_whiteSpecularBaked}
-            />
-            <mesh
-              name="headsetShape_1"
-              castShadow
-              receiveShadow
-              geometry={nodes.headsetShape_1.geometry}
-              material={materials.m_blackBaked}
-            />
-            <mesh
-              name="headsetShape_2"
-              castShadow
-              receiveShadow
-              geometry={nodes.headsetShape_2.geometry}
-              material={materials.m_headsetStrapBaked}
-            />
-          </group>
-          <mesh
-            ref={handleMeshRef}
-            name="vrShelf"
-            castShadow
-            receiveShadow
-            geometry={nodes.vrShelfWood.geometry}
-            material={materials.m_woodShelfBaked}
-          />
-          <group name="anivision">
-            <group
-              name="snake"
-              position={[-222.788, 162.804, 353.509]}
-              rotation={[-Math.PI, 0.552, -Math.PI]}
-              scale={1.241}>
-              <group
-                name="snakeMesh"
-                position={[-3.494, -131.207, 336.739]}
-                rotation={[-Math.PI, -0.552, -Math.PI]}
-                scale={0.806}>
-                <skinnedMesh
-                  name="snakeMeshShape"
-                  geometry={nodes.snakeMeshShape.geometry}
-                  material={materials.m_snakeSkinBaked}
-                  skeleton={nodes.snakeMeshShape.skeleton}
-                />
-                <skinnedMesh
-                  name="snakeMeshShape_1"
-                  geometry={nodes.snakeMeshShape_1.geometry}
-                  material={materials.m_snake_eyesBaked}
-                  skeleton={nodes.snakeMeshShape_1.skeleton}
-                />
-              </group>
-              <primitive object={nodes.joint69} />
-            </group>
-            <group name="tarsier" position={[-32.071, 9.257, -32.657]} rotation={[0, 0.104, 0]}>
-              <group
-                name="tarsierMesh"
-                position={[-323.004, 174.374, 298.423]}
-                rotation={[1.452, 1.013, -1.432]}
-                scale={25.346}>
-                <skinnedMesh
-                  name="tarsierBody"
-                  geometry={nodes.tarsierBody.geometry}
-                  material={materials.m_TarsierBodyBaked}
-                  skeleton={nodes.tarsierBody.skeleton}
-                />
-                <mesh
-                  name="tarsierEyes"
-                  castShadow
-                  receiveShadow
-                  geometry={nodes.tarsierEyes.geometry}
-                  material={materials.m_TarsierEyesBaked}
-                  position={[11.352, 0.7, 14.928]}
-                  rotation={[2.589, -1.541, Math.PI]}
-                  scale={0.039}
-                />
-              </group>
-              <primitive object={nodes.hips} />
-            </group>
-            <group name="anivisionDiorama">
-              <mesh
-                name="mushroom"
-                castShadow
-                receiveShadow
-                geometry={nodes.mushroom.geometry}
-                material={materials.m_mushroomBaked}
-              />
-              <mesh
-                name="tarsierBranch"
-                castShadow
-                receiveShadow
-                geometry={nodes.tarsierBranch.geometry}
-                material={materials.m_jungleTexturesBaked2}
-                position={[-303.789, 21.121, 245.94]}
-                rotation={[-2.935, -0.541, 2.638]}
-                scale={53.392}
-              />
-              <mesh
-                name="snakeBranch"
-                castShadow
-                receiveShadow
-                geometry={nodes.snakeBranch.geometry}
-                material={materials.m_jungleTexturesBaked1}
-                position={[-315.258, 180.541, 346.896]}
-                rotation={[2.529, 0.13, -3.116]}
-                scale={0.089}
-              />
-              <mesh
-                name="baseCombined"
-                castShadow
-                receiveShadow
-                geometry={nodes.baseCombined.geometry}
-                material={materials.m_jungleTexturesBaked}
-              />
-            </group>
-          </group>
         </group>
-        <group name="modelsShelf">
-          <mesh
-            name="modelsScreen"
-            castShadow
-            receiveShadow
-            geometry={nodes.modelsScreen.geometry}
-            material={materials.m_digitalFrameBaked}
-            position={[-386.894, 312.47, 26.769]}
-            rotation={[Math.PI / 2, 0, Math.PI / 2]}
-            scale={[0.108, 0.004, 4.959]}
-          />
-          <mesh
-            name="keyBounce"
-            castShadow
-            receiveShadow
-            geometry={nodes.keyBounce.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
-          <mesh
-            name="keyWalkCycle"
-            castShadow
-            receiveShadow
-            geometry={nodes.keyWalkCycle.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
-          <mesh
-            name="keyJump"
-            castShadow
-            receiveShadow
-            geometry={nodes.keyJump.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
-          <mesh
-            name="keyTwoBalls"
-            castShadow
-            receiveShadow
-            geometry={nodes.keyTwoBalls.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
-          <mesh
-            name="keyWalkForward"
-            castShadow
-            receiveShadow
-            geometry={nodes.keyWalkForward.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
-          <mesh
-            name="keyRun"
-            castShadow
-            receiveShadow
-            geometry={nodes.keyRun.geometry}
-            material={materials.m_controlButtonsBaked}
-          />
-          <mesh
-            name="animPlayer"
-            castShadow
-            receiveShadow
-            geometry={nodes.animPlayer.geometry}
-            material={materials.m_animPlayerBaked}
-          />
-          <mesh
-            name="modelsShelfWood"
-            castShadow
-            receiveShadow
-            geometry={nodes.modelsShelfWood.geometry}
-            material={materials.m_woodShelfBaked}
-          />
-          <group name="plant">
-            <mesh
-              name="plantShape"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape.geometry}
-              material={materials.m_flowerCenterBaked}
-            />
-            <mesh
-              name="plantShape_1"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape_1.geometry}
-              material={materials.m_plantPotBaked}
-            />
-            <mesh
-              name="plantShape_2"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape_2.geometry}
-              material={materials.m_plantStemBaked}
-            />
-            <mesh
-              name="plantShape_3"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape_3.geometry}
-              material={materials.m_flowerLeafsBaked}
-            />
-            <mesh
-              name="plantShape_4"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape_4.geometry}
-              material={materials.m_lilyWaterBaked2}
-            />
-            <mesh
-              name="plantShape_5"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape_5.geometry}
-              material={materials.m_lilyBaked}
-            />
-            <mesh
-              name="plantShape_6"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape_6.geometry}
-              material={materials.m_plantBroadLeafBaked}
-            />
-            <mesh
-              name="plantShape_7"
-              castShadow
-              receiveShadow
-              geometry={nodes.plantShape_7.geometry}
-              material={materials.m_lilyBaked1}
-            />
-          </group>
-          <group name="boat">
-            <mesh
-              name="boatShape"
-              castShadow
-              receiveShadow
-              geometry={nodes.boatShape.geometry}
-              material={materials.m_lanternHandle}
-            />
-            <mesh
-              name="boatShape_1"
-              castShadow
-              receiveShadow
-              geometry={nodes.boatShape_1.geometry}
-              material={materials.m_lanternGlass}
-            />
-            <mesh
-              name="boatShape_2"
-              castShadow
-              receiveShadow
-              geometry={nodes.boatShape_2.geometry}
-              material={materials.m_oarBaked}
-            />
-            <mesh
-              name="boatShape_3"
-              castShadow
-              receiveShadow
-              geometry={nodes.boatShape_3.geometry}
-              material={materials.m_boatBaked}
-            />
-            <mesh
-              name="boatShape_4"
-              castShadow
-              receiveShadow
-              geometry={nodes.boatShape_4.geometry}
-              material={materials.m_lanternBaked}
-            />
-          </group>
-        </group>
-        <group name="roomArchitecture1">
+        <group name="roomArchitecture">
           <mesh
             ref={handleMeshRef}
             name="home"
             castShadow
             receiveShadow
-            geometry={nodes.roomArchitecture1Shape.geometry}
+            geometry={nodes.roomArchitectureShape.geometry}
             material={materials.m_cushionBaked}
           />
           <mesh
@@ -1765,15 +1834,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             name="home"
             castShadow
             receiveShadow
-            geometry={nodes.roomArchitecture1Shape_1.geometry}
-            material={materials.m_floorBaked}
-          />
-          <mesh
-            ref={handleMeshRef}
-            name="home"
-            castShadow
-            receiveShadow
-            geometry={nodes.roomArchitecture1Shape_2.geometry}
+            geometry={nodes.roomArchitectureShape_1.geometry}
             material={materials.m_wallBaked}
           />
           <mesh
@@ -1781,19 +1842,26 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             name="home"
             castShadow
             receiveShadow
-            geometry={nodes.roomArchitecture1Shape_3.geometry}
-            material={materials.m_rugBaked}
+            geometry={nodes.roomArchitectureShape_2.geometry}
+            material={materials.m_floorBaked}
           />
           <mesh
             ref={handleMeshRef}
             name="home"
             castShadow
             receiveShadow
-            geometry={nodes.roomArchitecture1Shape_4.geometry}
+            geometry={nodes.roomArchitectureShape_3.geometry}
             material={materials.m_woodShelfBaked}
           />
+          <mesh
+            ref={handleMeshRef}
+            name="home"
+            castShadow
+            receiveShadow
+            geometry={nodes.roomArchitectureShape_4.geometry}
+            material={materials.m_rugBaked}
+          />
         </group>
-
       </group>
     </a.group>
   )

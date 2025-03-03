@@ -7,8 +7,8 @@ const CaseStudies = ({currState, onScreenClick }) => {
   };
 
   return (
-    <div style={{ width: "2560px", height: "1420px", overflow:"hidden"}} onClick={handleClickVariable}>
-      <div style={{ transform: "scale(1.77)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
+    <div style={{ width: "2580px", height: "1445px", overflow:"hidden"}} onClick={handleClickVariable}>
+      <div style={{ transform: "scale(1.785)", transformOrigin: "0 0", imageRendering: "crisp-edges", backgroundColor: "red" }}>
       <iframe 
         title="embed" 
         width={1445} 

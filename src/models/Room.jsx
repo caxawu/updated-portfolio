@@ -8,6 +8,7 @@ import roomScene from '../assets/3d/desk8.glb'
 import CaseStudies from '../pages/CaseStudies';
 import MiniPlayer from '../pages/MiniPlayer';
 import AnimPlayer from '../pages/AnimPlayer';
+import ModelsScreen from '../pages/ModelsScreen';
 import { OtherProjects } from '../pages';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
@@ -94,7 +95,6 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
    
          if ( INTERSECTED != intersects[ 0 ].object) {
            INTERSECTED = intersects[ 0 ].object;
-           console.log("name: " + INTERSECTED.name);
            
            if ( INTERSECTED.name == 'table' ) {
             setFocusState('table');
@@ -138,6 +138,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
 
           } else if ( INTERSECTED.name == 'modelsShelf' ) {
             setFocusState('modelsShelf');
+          } else if ( INTERSECTED.name == 'modelsScreen' ) {
+            setFocusState('modelsScreen');
           } else if ( INTERSECTED.name == 'animPlayer' ) {
             setFocusState('animPlayer');
           } else if ( INTERSECTED.name == 'keyBounce' ) {
@@ -164,6 +166,13 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             setFocusState('animPlayer');
             setCurrState('run');
             handleButtonClick('run'); 
+
+          } else if ( INTERSECTED.name == 'egg' ) {
+            setFocusState('egg');
+          } else if ( INTERSECTED.name == 'boat' ) {
+            setFocusState('boat');
+          } else if ( INTERSECTED.name == 'plant' ) {
+            setFocusState('plant');
 
           } else if ( INTERSECTED.name == 'home' ) {
             setFocusState('home');
@@ -365,7 +374,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               geometry={nodes.miniPlayerShape_3.geometry}
               material={materials.m_blackBaked}
             />
-            <Html scale={0.4} rotation-y={-Math.PI} position={[94.46, 232.2, 354]} transform occlude>
+            <Html scale={0.4} rotation-y={-Math.PI} position={[94.47, 232.21, 354]} transform occlude>
               <MiniPlayer onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
             </Html>
           </group>
@@ -834,6 +843,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
         </group>
         <group name="modelsShelf">
           <mesh
+            ref={handleMeshRef}
             name="modelsScreen"
             castShadow
             receiveShadow
@@ -843,6 +853,10 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             rotation={[Math.PI / 2, 0, Math.PI / 2]}
             scale={[0.108, 0.004, 4.959]}
           />
+          <Html scale={1} rotation-y={Math.PI/2} position={[-387, 313.6, 27]} transform occlude>
+            <ModelsScreen onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
+
+          </Html>
           <a.mesh
             ref={handleMeshRef}
             name="keyBounce"
@@ -924,7 +938,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             material={materials.m_woodShelfBaked}
           />
           <mesh
-            name="pot1"
+            ref={handleMeshRef}
+            name="plant"
             castShadow
             receiveShadow
             geometry={nodes.pot1.geometry}
@@ -955,7 +970,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               material={materials.m_lilyBaked}
             />
             <mesh
-              name="plantShape_3"
+            ref={handleMeshRef}
+              name="plant"
               castShadow
               receiveShadow
               geometry={nodes.plantShape_3.geometry}
@@ -999,7 +1015,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               material={materials.m_lanternGlass}
             />
             <mesh
-              name="boatShape_2"
+              ref={handleMeshRef}
+              name="boat"
               castShadow
               receiveShadow
               geometry={nodes.boatShape_2.geometry}
@@ -1552,7 +1569,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               scale={[0.074, 0.185, 0.074]}
             />
             <mesh
-              name="eggHolder"
+              ref={handleMeshRef}
+              name="egg"
               castShadow
               receiveShadow
               geometry={nodes.eggHolder.geometry}

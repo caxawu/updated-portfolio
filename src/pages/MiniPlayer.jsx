@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
 
@@ -12,27 +12,25 @@ const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
     "src/assets/images/miniPlayer/paintings/batman.png",
     "src/assets/images/miniPlayer/paintings/dragon.png",
     "src/assets/images/miniPlayer/paintings/fence.png",
-    "src/assets/images/miniPlayer/paintings/landscape.png",
-    "src/assets/images/miniPlayer/paintings/metal.png",
-    "src/assets/images/miniPlayer/paintings/ocean.png",
     "src/assets/images/miniPlayer/paintings/tuckDrive.png",
     "src/assets/images/miniPlayer/paintings/umbrella.png",
-    "src/assets/images/miniPlayer/paintings/world.png",
+    "src/assets/images/miniPlayer/paintings/howl.png",
+    "src/assets/images/miniPlayer/paintings/robot.png",
+    "src/assets/images/miniPlayer/paintings/statue.png",
+    "src/assets/images/miniPlayer/paintings/vase.png",
 
     "src/assets/images/miniPlayer/drawings/bellows.png",
+    "src/assets/images/miniPlayer/drawings/bike1.png",
     "src/assets/images/miniPlayer/drawings/bike2.png",
     "src/assets/images/miniPlayer/drawings/bike3.png",
-    "src/assets/images/miniPlayer/drawings/bike4.png",
+    "src/assets/images/miniPlayer/drawings/fruit1.png",
     "src/assets/images/miniPlayer/drawings/fruit2.png",
-    "src/assets/images/miniPlayer/drawings/fruit3.png",
-    "src/assets/images/miniPlayer/drawings/hand1.png",
-    "src/assets/images/miniPlayer/drawings/hand2.png",
-    "src/assets/images/miniPlayer/drawings/hand3.png",
-    "src/assets/images/miniPlayer/drawings/hand5.png",
-    "src/assets/images/miniPlayer/drawings/creature.png",
+    "src/assets/images/miniPlayer/drawings/handG1.png",
+    "src/assets/images/miniPlayer/drawings/handG2.png",
+    "src/assets/images/miniPlayer/drawings/s1.png",
     "src/assets/images/miniPlayer/drawings/s2.png",
     "src/assets/images/miniPlayer/drawings/s3.png",
-    "src/assets/images/miniPlayer/drawings/s4.png",
+    "src/assets/images/miniPlayer/drawings/museum.png"
   ];
 
 
@@ -57,10 +55,10 @@ const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
   }, [currState, setCurrState]);
 
   return (
-    <div style={{ width: "1520px", height: "1130px"}} onClick={handleClickVariable} >
+    <div style={{ width: "1510px", height: "1130px"}} onClick={handleClickVariable} >
         <img 
           src={images[currentIndex]} 
-          alt="Description" 
+          alt="Art image" 
           style={{ width: "100%", 
             height: "100%", 
             objectFit: "contain",  // ✅ This makes the image fit the container while maintaining aspect ratio

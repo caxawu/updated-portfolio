@@ -99,9 +99,21 @@ const Home = () => {
       updateCameraPosition([20, 6, -40]);
       updateCameraLookAt([2000, -500, -36]);
       // navigateTo('3d-modeling');
-    }else if ( focusState === 'animPlayer' ) {
+    } else if ( focusState === 'modelsScreen' ) {
+      updateCameraPosition([30, 7, -34]);
+      updateCameraLookAt([2000, -50, -36]);
+    } else if ( focusState === 'animPlayer' ) {
       updateCameraPosition([33, -2.5, -40]);
       updateCameraLookAt([2000, -800, -36]);
+    } else if ( focusState === 'egg' ) {
+      updateCameraPosition([33, 4.5, -35]);
+      updateCameraLookAt([2000, -1000, -36]);
+    } else if ( focusState === 'boat' ) {
+      updateCameraPosition([33, 3, -40.5]);
+      updateCameraLookAt([2000, -1000, -36]);
+    } else if ( focusState === 'plant' ) {
+      updateCameraPosition([30, 9, -44]);
+      updateCameraLookAt([2000, -500, -36]);
     }
     setFocusState('null');
   });
@@ -147,7 +159,7 @@ const Home = () => {
 
         <Suspense fallback={<Loader />}>
           {/* Expense: ambient < hemisphere < directional */}
-          <ambientLight intensity={4}/>
+          <ambientLight intensity={6}/>
           {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
           {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
           <Room

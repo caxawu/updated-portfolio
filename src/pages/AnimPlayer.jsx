@@ -1,19 +1,11 @@
 import React from 'react';
-import { useRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const AnimPlayer = ({currState, setCurrState, onScreenClick }) => {
 
   const handleClickVariable = () => {
-    onScreenClick('AnimPlayer');
+    onScreenClick('animPlayer');
   };
-
-  const images = [
-    "src/assets/images/animPlayer/ballie walk.gif",
-    "src/assets/images/animPlayer/Balls.gif",
-    "src/assets/images/animPlayer/Bounce.gif",
-    "src/assets/images/animPlayer/elvenWalk.gif",
-    "src/assets/images/animPlayer/final.gif"
-  ];
 
   const [currentImage, setCurrentImage] = useState(null);
   
@@ -28,8 +20,10 @@ const AnimPlayer = ({currState, setCurrState, onScreenClick }) => {
       } else if (currState === 'walkForward') {
         setCurrentImage("src/assets/images/animPlayer/elvenWalk.gif");
       } else if (currState === 'jump') {
-        // setCurrentImage("src/assets/images/animPlayer/ballie walk.gif");
+        setCurrentImage("src/assets/images/animPlayer/jump.gif");
       } else if (currState === 'run') {
+        setCurrentImage("src/assets/images/animPlayer/final.gif");
+      } else {
         setCurrentImage("src/assets/images/animPlayer/final.gif");
       } 
     }, [currState, setCurrState]);
@@ -38,12 +32,10 @@ const AnimPlayer = ({currState, setCurrState, onScreenClick }) => {
     <div style={{ width: "2000px", height: "1500px", backgroundColor: "red"}} onClick={handleClickVariable} >
         <img 
           src={currentImage} 
-          alt="Description" 
+          alt="animation clip" 
           style={{ width: "auto", 
             height: "100%", 
-            // objectFit: "contain",  // ✅ This makes the image fit the container while maintaining aspect ratio
-            maxWidth: "100%", 
-            maxHeight: "100%" }} 
+            objectFit: "cover" }} 
         />
     </div>
   )

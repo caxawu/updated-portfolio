@@ -47,7 +47,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     config: { tension: 170, friction: 26 },  // Smooth animation config
   });
 
-  const handleButtonClick = (arrow) => {
+  const handleButtonAnimation = (arrow) => {
     setIsArrowPressed(arrow); // Set the state to either 'left' or 'right'
     setTimeout(() => {
       setIsArrowPressed(false);  // Reset the animation after 200ms
@@ -130,11 +130,11 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           } else if ( INTERSECTED.name == 'rightArrow' ) {
             setFocusState('miniPlayer');
             setCurrState('nextImage');
-            handleButtonClick('right');
+            handleButtonAnimation('right');
           } else if ( INTERSECTED.name == 'leftArrow' ) {
             setFocusState('miniPlayer');
             setCurrState('prevImage');
-            handleButtonClick('left');
+            handleButtonAnimation('left');
 
           } else if ( INTERSECTED.name == 'modelsShelf' ) {
             setFocusState('modelsShelf');
@@ -145,27 +145,27 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           } else if ( INTERSECTED.name == 'keyBounce' ) {
             setFocusState('animPlayer');
             setCurrState('ballBounce');
-            handleButtonClick('ballBounce');
+            handleButtonAnimation('ballBounce');
           } else if ( INTERSECTED.name == 'keyTwoBalls' ) {
             setFocusState('animPlayer');
             setCurrState('twoBalls');
-            handleButtonClick('twoBalls');
+            handleButtonAnimation('twoBalls');
           } else if ( INTERSECTED.name == 'keyWalkCycle' ) {
             setFocusState('animPlayer');
             setCurrState('walkCycle');
-            handleButtonClick('walkCycle');
+            handleButtonAnimation('walkCycle');
           } else if ( INTERSECTED.name == 'keyWalkForward' ) {
             setFocusState('animPlayer');
             setCurrState('walkForward');
-            handleButtonClick('walkForward');
+            handleButtonAnimation('walkForward');
           } else if ( INTERSECTED.name == 'keyJump' ) {
             setFocusState('animPlayer');
             setCurrState('jump');
-            handleButtonClick('jump');
+            handleButtonAnimation('jump');
           } else if ( INTERSECTED.name == 'keyRun' ) {
             setFocusState('animPlayer');
             setCurrState('run');
-            handleButtonClick('run'); 
+            handleButtonAnimation('run'); 
 
           } else if ( INTERSECTED.name == 'egg' ) {
             setFocusState('egg');
@@ -854,7 +854,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             scale={[0.108, 0.004, 4.959]}
           />
           <Html scale={1} rotation-y={Math.PI/2} position={[-387, 313.6, 27]} transform occlude>
-            <ModelsScreen onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
+            <ModelsScreen onScreenClick={handleScreenClick} currState={currState}/>
 
           </Html>
           <a.mesh
@@ -927,7 +927,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           />
 
           <Html scale={0.4} rotation-y={Math.PI/2} position={[-365, 207, 80]} transform occlude>
-              <AnimPlayer onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
+              <AnimPlayer onScreenClick={handleScreenClick} currState={currState} />
             </Html>
           <mesh
             ref={handleMeshRef}

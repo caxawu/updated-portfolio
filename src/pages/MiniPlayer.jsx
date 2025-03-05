@@ -1,6 +1,28 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
-import img from "../assets/images/miniPlayer/paintings/daisies.png"
+import daisies from "../assets/images/miniPlayer/paintings/daisies.png";
+import batman from "../assets/images/miniPlayer/paintings/batman.png";
+import dragon from "../assets/images/miniPlayer/paintings/dragon.png";
+import fence from "../assets/images/miniPlayer/paintings/fence.png";
+import tuckDrive from "../assets/images/miniPlayer/paintings/tuckDrive.png";
+import umbrella from "../assets/images/miniPlayer/paintings/umbrella.png";
+import howl from "../assets/images/miniPlayer/paintings/howl.png";
+import robot from "../assets/images/miniPlayer/paintings/robot.png";
+import statue from "../assets/images/miniPlayer/paintings/statue.png";
+import vase from "../assets/images/miniPlayer/paintings/vase.png";
+
+import bellows from "../assets/images/miniPlayer/drawings/bellows.png";
+import bike1 from "../assets/images/miniPlayer/drawings/bike1.png";
+import bike2 from "../assets/images/miniPlayer/drawings/bike2.png";
+import bike3 from "../assets/images/miniPlayer/drawings/bike3.png";
+import fruit1 from "../assets/images/miniPlayer/drawings/fruit1.png";
+import fruit2 from "../assets/images/miniPlayer/drawings/fruit2.png";
+import handG1 from "../assets/images/miniPlayer/drawings/handG1.png";
+import handG2 from "../assets/images/miniPlayer/drawings/handG2.png";
+import s1 from "../assets/images/miniPlayer/drawings/s1.png";
+import s2 from "../assets/images/miniPlayer/drawings/s2.png";
+import s3 from "../assets/images/miniPlayer/drawings/s3.png";
+import museum from "../assets/images/miniPlayer/drawings/museum.png";
 
 const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
 
@@ -9,30 +31,8 @@ const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
   };
 
   const images = [
-    img,
-    // "src/assets/images/miniPlayer/paintings/daisies.png",
-    "src/assets/images/miniPlayer/paintings/batman.png",
-    "src/assets/images/miniPlayer/paintings/dragon.png",
-    "src/assets/images/miniPlayer/paintings/fence.png",
-    "src/assets/images/miniPlayer/paintings/tuckDrive.png",
-    "src/assets/images/miniPlayer/paintings/umbrella.png",
-    "src/assets/images/miniPlayer/paintings/howl.png",
-    "src/assets/images/miniPlayer/paintings/robot.png",
-    "src/assets/images/miniPlayer/paintings/statue.png",
-    "src/assets/images/miniPlayer/paintings/vase.png",
-
-    "src/assets/images/miniPlayer/drawings/bellows.png",
-    "src/assets/images/miniPlayer/drawings/bike1.png",
-    "src/assets/images/miniPlayer/drawings/bike2.png",
-    "src/assets/images/miniPlayer/drawings/bike3.png",
-    "src/assets/images/miniPlayer/drawings/fruit1.png",
-    "src/assets/images/miniPlayer/drawings/fruit2.png",
-    "src/assets/images/miniPlayer/drawings/handG1.png",
-    "src/assets/images/miniPlayer/drawings/handG2.png",
-    "src/assets/images/miniPlayer/drawings/s1.png",
-    "src/assets/images/miniPlayer/drawings/s2.png",
-    "src/assets/images/miniPlayer/drawings/s3.png",
-    "src/assets/images/miniPlayer/drawings/museum.png"
+    daisies, batman, dragon, fence, tuckDrive, umbrella, howl, robot, statue, vase,
+    bellows, bike1, bike2, bike3, fruit1, fruit2, handG1, handG2, s1, s2, s3, museum
   ];
 
 
@@ -49,10 +49,10 @@ const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
   useEffect(() => {
     if (currState === 'nextImage') {
       handleNextImage();
-      setCurrState('none');  // ✅ Reset state to avoid re-triggering
+      setCurrState('none');  // Reset state, needed for useEffect to detect change the next time button is clicked
     } else if (currState === 'prevImage') {
       handlePrevImage();
-      setCurrState('none');  // ✅ Reset state after change
+      setCurrState('none');  // Reset state, needed for useEffect to detect change the next time button is clicked
     }
   }, [currState, setCurrState]);
 

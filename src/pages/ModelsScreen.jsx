@@ -1,24 +1,26 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
+import diorama1 from "../assets/images/modelsScreen/diorama1.png";
+import diorama3 from "../assets/images/modelsScreen/diorama3.png";
+import dioramaWIP from "../assets/images/modelsScreen/dioramaWIP.png";
+import escher from "../assets/images/modelsScreen/escher.png";
+import juice from "../assets/images/modelsScreen/juice.png";
+import kitchenAO from "../assets/images/modelsScreen/kitchenAO.png";
+import plant from "../assets/images/modelsScreen/plant.png";
+import plantTable from "../assets/images/modelsScreen/plantTable.png";
+import room from "../assets/images/modelsScreen/room.png";
+import roomBasicsAngle from "../assets/images/modelsScreen/roomBasicsAngle.png";
+import roomBasicsFront from "../assets/images/modelsScreen/roomBasicsFront.png";
 
-const ModelsScreen = ({currState, setCurrState, onScreenClick }) => {
+const ModelsScreen = ({currState, onScreenClick }) => {
 
   const handleClickVariable = () => {
     onScreenClick('modelsScreen');
   };
 
   const images = [
-    "src/assets/images/modelsScreen/diorama1.png",
-    "src/assets/images/modelsScreen/diorama3.png",
-    "src/assets/images/modelsScreen/dioramaWIP.png",
-    "src/assets/images/modelsScreen/escher.png",
-    "src/assets/images/modelsScreen/juice.png",
-    "src/assets/images/modelsScreen/kitchenAO.png",
-    "src/assets/images/modelsScreen/plant.png",
-    "src/assets/images/modelsScreen/plantTable.png",
-    "src/assets/images/modelsScreen/room.png",
-    "src/assets/images/modelsScreen/roomBasicsAngle.png",
-    "src/assets/images/modelsScreen/roomBasicsFront.png",
+    diorama1, diorama3, dioramaWIP, escher, juice, kitchenAO,
+    plant, plantTable, room, roomBasicsAngle, roomBasicsFront,
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,12 +36,10 @@ const ModelsScreen = ({currState, setCurrState, onScreenClick }) => {
   useEffect(() => {
     if (currState === 'nextImage') {
       handleNextImage();
-      setCurrState('none');  // ✅ Reset state to avoid re-triggering
     } else if (currState === 'prevImage') {
       handlePrevImage();
-      setCurrState('none');  // ✅ Reset state after change
     }
-  }, [currState, setCurrState]);
+  }, [currState]);
 
 
   return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
+import img from "../assets/images/miniPlayer/paintings/daisies.png"
 
 const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
 
@@ -8,7 +9,8 @@ const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
   };
 
   const images = [
-    "src/assets/images/miniPlayer/paintings/daisies.png",
+    img,
+    // "src/assets/images/miniPlayer/paintings/daisies.png",
     "src/assets/images/miniPlayer/paintings/batman.png",
     "src/assets/images/miniPlayer/paintings/dragon.png",
     "src/assets/images/miniPlayer/paintings/fence.png",

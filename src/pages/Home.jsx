@@ -48,6 +48,10 @@ const Home = () => {
       updateCameraPosition([6, -10.3, -57]);
       updateCameraLookAt([-25, -1.5, -36]);
 
+    } else if ( focusState === 'resume' ) {
+      updateCameraPosition([16, -10.5, -58.5]);
+      updateCameraLookAt([0, -400, -35]);
+    
     } else if ( focusState === 'vrShelf' ) {
       updateCameraPosition([11, 10, -41]);
       updateCameraLookAt([35, -12, -36]);

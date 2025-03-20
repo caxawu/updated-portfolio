@@ -10,6 +10,7 @@ import MiniPlayer from '../pages/MiniPlayer';
 import AnimPlayer from '../pages/AnimPlayer';
 import ModelsScreen from '../pages/ModelsScreen';
 import { OtherProjects } from '../pages';
+import Resume from '../pages/Resume';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
   const roomRef = useRef();
@@ -35,7 +36,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
   const [isArrowPressed, setIsArrowPressed] = useState(false);
 
    // Animate the mesh position when the buttons are pressed
-   const { positionLeft, positionRight, positionBallBounce, positionTwoBalls, positionWalkCycle, positionWalkForward, positionJump, positionRun } = useSpring({
+   const { positionLeft, positionRight, positionBallBounce, positionTwoBalls, positionWalkCycle, positionWalkForward, positionJump, positionRun, keycap1, keycap2 } = useSpring({
     positionLeft: isArrowPressed === 'left' ? [0, 0, 0.6] : [0, 0, 0],
     positionRight: isArrowPressed === 'right' ? [0, 0, 0.6] : [0, 0, 0],
     positionBallBounce: isArrowPressed === 'ballBounce' ? [0, -2, 0] : [0, 0, 0],
@@ -44,6 +45,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     positionWalkForward: isArrowPressed === 'walkForward' ? [0, -2, 0] : [0, 0, 0],
     positionJump: isArrowPressed === 'jump' ? [0, -2, 0] : [0, 0, 0],
     positionRun: isArrowPressed === 'run' ? [0, -2, 0] : [0, 0, 0],
+    keycap1: isArrowPressed === 'keycap1' ? [0, -2, 0] : [0, 0, 0],
+    keycap2: isArrowPressed === 'keycap2' ? [0, -2, 0] : [0, 0, 0],
     config: { tension: 170, friction: 26 },  // Smooth animation config
   });
 
@@ -98,12 +101,21 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
            
            if ( INTERSECTED.name == 'table' ) {
             setFocusState('table');
+            setCurrState('table');
           } else if ( INTERSECTED.name == 'screen1' ) {
             setFocusState('screen1');
           } else if ( INTERSECTED.name == 'screen2' ) {
             setFocusState('screen2');
-
-          } else if ( INTERSECTED.name == 'vrShelf' ) {
+          } else if ( INTERSECTED.name == 'resume' ) {
+            setFocusState('resume');
+            setCurrState('resume');
+          } else if ( INTERSECTED.name == 'keycap1' ) {
+            handleButtonAnimation('keycap1');
+          } else if ( INTERSECTED.name == 'keycap2' ) {
+            handleButtonAnimation('keycap2');
+          } 
+          
+          else if ( INTERSECTED.name == 'vrShelf' ) {
             setFocusState('vrShelf');
           } else if ( INTERSECTED.name == 'spaces' ) {
             setFocusState('spaces');
@@ -176,8 +188,10 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
 
           } else if ( INTERSECTED.name == 'home' ) {
             setFocusState('home');
+            setCurrState('home');
           } else {
             setFocusState('none');
+            setCurrState('none');
           }
         }
       } else {
@@ -264,7 +278,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             </Html>
           </group>
           <mesh
-            name="resume1Top"
+            ref={handleMeshRef}
+            name="resume"
             castShadow
             receiveShadow
             geometry={nodes.resume1Top.geometry}
@@ -279,6 +294,9 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             geometry={nodes.resume1Paper.geometry}
             material={materials.m_whitePaperBaked}
           />
+          <Html scale={1} rotation-x={Math.PI/2} rotation-y={Math.PI} position={[-160, 80, 270]} transform occlude>
+              <Resume onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
+            </Html>
           <group name="keyboard">
             <mesh
               name="keyboardShape"
@@ -287,17 +305,19 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               geometry={nodes.keyboardShape.geometry}
               material={materials.m_keyboardBottomBaked}
             />
-            <mesh
-              name="keyboardShape_1"
-              castShadow
-              receiveShadow
+            <a.mesh
+              ref={handleMeshRef}
+              name="keycap1"
+              onPointerDown={handlePointerDown}
+              position={keycap1}
               geometry={nodes.keyboardShape_1.geometry}
               material={materials.m_keycapYellowBaked}
             />
-            <mesh
-              name="keyboardShape_2"
-              castShadow
-              receiveShadow
+            <a.mesh
+              ref={handleMeshRef}
+              name="keycap2"
+              onPointerDown={handlePointerDown}
+              position={keycap2}
               geometry={nodes.keyboardShape_2.geometry}
               material={materials.m_keycapGreenBaked}
             />

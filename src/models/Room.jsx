@@ -17,22 +17,16 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
   const [meshes, setMeshes] = useState([]);
 
   const { gl } = useThree();
-  const { nodes, materials } = useGLTF(roomScene);
-  const { scene, animations } = useGLTF(roomScene);
+  const { nodes, materials, animations } = useGLTF(roomScene);
   const { actions } = useAnimations(animations, roomRef);
 
   const lastX = useRef(0);
-  const rotationSpeed = useRef(0);
-  const dampingFactor = 0.95;
-
   const pointer = new THREE.Vector2();
   const raycaster = new THREE.Raycaster();
-
   const currCamera = defaultCamera;
   let INTERSECTED;
 
   const [ currState, setCurrState ] = useState ('home');    // To pass into HTML children to turn off interactivity before zooming in
-
   const [isArrowPressed, setIsArrowPressed] = useState(false);
 
    // Animate the mesh position when the buttons are pressed
@@ -79,8 +73,37 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
 
     // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
     const handleScreenClick = (location) => {
-      setFocusState(location);
-      setCurrState(location);
+      setCurrState((prevState) => {
+
+        if ((location === 'screen1' || location === 'screen2')) {
+          if (prevState === 'home') {  // if clicking from home, zoom to the table
+            setFocusState('table');
+            return 'table';
+
+          } else if (prevState === 'table') {   // if clicking from table, zoom to clicked screen
+            setFocusState(location);
+            return location;
+          }
+        }
+      
+        // If you're on screen1 and click on screen2, or vice versa, switch directly between them
+        if (location === 'screen2' && prevState === 'screen1') {
+          setFocusState('screen2');
+          return 'screen2';
+        }
+        if (location === 'screen1' && prevState === 'screen2') {
+          setFocusState('screen1');
+          return 'screen1';
+        }
+    
+        // If already focused on the same screen, do nothing
+        if (prevState === location) {
+          return prevState;  // Stay on the current screen
+        }
+    
+        // Default: return the previous state if no condition matched
+        return prevState;
+      });
     };
 
   // handles clicks on 3d objs: meshes in 3d model
@@ -99,21 +122,39 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
          if ( INTERSECTED != intersects[ 0 ].object) {
            INTERSECTED = intersects[ 0 ].object;
            
-           if ( INTERSECTED.name == 'table' ) {
+           if (INTERSECTED.name === 'table') {
+            // If clicking on the table, zoom out to the table
             setFocusState('table');
             setCurrState('table');
-          } else if ( INTERSECTED.name == 'screen1' ) {
-            setFocusState('screen1');
-          } else if ( INTERSECTED.name == 'screen2' ) {
-            setFocusState('screen2');
-          } else if ( INTERSECTED.name == 'resume' ) {
-            setFocusState('resume');
-            setCurrState('resume');
-          } else if ( INTERSECTED.name == 'keycap1' ) {
-            handleButtonAnimation('keycap1');
-          } else if ( INTERSECTED.name == 'keycap2' ) {
-            handleButtonAnimation('keycap2');
-          } 
+          } else if (INTERSECTED.name === 'screen1') {
+            setCurrState((prevState) => {
+              if (prevState === 'table' || prevState === 'screen2') {
+                setFocusState('screen1');
+                return 'screen1';
+              } else if (prevState === 'screen1') {
+                return 'screen1';
+              }
+              return prevState; // Stay on the current state if no change is needed
+            });
+          } else if (INTERSECTED.name === 'screen2') {
+            setCurrState((prevState) => {
+              if (prevState === 'table' || prevState === 'screen1') {
+                setFocusState('screen2'); // Zoom into screen2
+                return 'screen2';
+              }
+              return prevState; // Stay on screen2 if already there
+            });
+          } else if (INTERSECTED.name === 'resume') {
+            setCurrState((prevState) => {
+              if (prevState === 'table') {
+                setFocusState('resume'); // Zoom into resume
+                return 'resume';
+              }
+              return prevState; // Stay on resume if already there
+            });
+          } else if (INTERSECTED.name === 'keycap1' || INTERSECTED.name === 'keycap2') {
+            handleButtonAnimation(INTERSECTED.name); // Animate keycap1 or keycap2
+          }
           
           else if ( INTERSECTED.name == 'vrShelf' ) {
             setFocusState('vrShelf');
@@ -328,8 +369,11 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               geometry={nodes.keyboardShape_3.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="keyboardShape_4"
+            <a.mesh
+              ref={handleMeshRef}
+              name="keycap1"
+              onPointerDown={handlePointerDown}
+              position={keycap1}
               castShadow
               receiveShadow
               geometry={nodes.keyboardShape_4.geometry}

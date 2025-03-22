@@ -88,8 +88,8 @@ const Home = () => {
       updateCameraLookAt([0, -4, -40]);
 
     } else if ( focusState === 'businessCard' ) {
-      updateCameraPosition([-12, 4, -58]);
-      updateCameraLookAt([0, -10, -40]);
+      updateCameraPosition([-14, 3, -65]);
+      updateCameraLookAt([0, -5, -40]);
 
     } else if ( focusState === 'sketchbook' ) {
       updateCameraPosition([-3, 0, -61]);

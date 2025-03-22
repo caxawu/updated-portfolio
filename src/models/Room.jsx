@@ -75,7 +75,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     const handleScreenClick = (location) => {
       setCurrState((prevState) => {
 
-        if ((location === 'screen1' || location === 'screen2')) {
+        // table screen zooms
+        if (location === 'screen1' || location === 'screen2') {
           if (prevState === 'home') {  // if clicking from home, zoom to the table
             setFocusState('table');
             return 'table';
@@ -85,15 +86,37 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             return location;
           }
         }
-      
-        // If you're on screen1 and click on screen2, or vice versa, switch directly between them
-        if (location === 'screen2' && prevState === 'screen1') {
+        if (location === 'screen2' && prevState === 'screen1') {   // If you're on screen1 and click on screen2, or vice versa, switch directly between them
           setFocusState('screen2');
           return 'screen2';
         }
         if (location === 'screen1' && prevState === 'screen2') {
           setFocusState('screen1');
           return 'screen1';
+        }
+
+        // models shelf screen zooms
+        if (location === 'modelsScreen' || location === 'animPlayer') {
+          if (prevState === 'home') { 
+            setFocusState('modelsShelf');
+            return 'modelsShelf';
+
+          } else if (prevState === 'modelsShelf') { 
+            setFocusState(location);
+            return location;
+          }
+        }
+
+        // models shelf screen zooms
+        if (location === 'miniPlayer') {
+          if (prevState === 'home') { 
+            setFocusState('artWall');
+            return 'artWall';
+
+          } else if (prevState === 'artWall') { 
+            setFocusState(location);
+            return location;
+          }
         }
     
         // If already focused on the same screen, do nothing

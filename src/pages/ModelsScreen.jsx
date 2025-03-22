@@ -6,7 +6,6 @@ import dioramaWIP from "../assets/images/modelsScreen/dioramaWIP.png";
 import escher from "../assets/images/modelsScreen/escher.png";
 import juice from "../assets/images/modelsScreen/juice.png";
 import kitchenAO from "../assets/images/modelsScreen/kitchenAO.png";
-import plant from "../assets/images/modelsScreen/plant.png";
 import plantTable from "../assets/images/modelsScreen/plantTable.png";
 import room from "../assets/images/modelsScreen/room.png";
 import roomBasicsAngle from "../assets/images/modelsScreen/roomBasicsAngle.png";
@@ -19,8 +18,7 @@ const ModelsScreen = ({currState, onScreenClick }) => {
   };
 
   const images = [
-    diorama1, diorama3, dioramaWIP, escher, juice, kitchenAO,
-    plant, plantTable, room, roomBasicsAngle, roomBasicsFront,
+    juice, dioramaWIP, diorama3, diorama1, plantTable, escher, kitchenAO, room, roomBasicsAngle, roomBasicsFront
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -11,7 +11,6 @@ import robot from "../assets/images/miniPlayer/paintings/robot.png";
 import statue from "../assets/images/miniPlayer/paintings/statue.png";
 import vase from "../assets/images/miniPlayer/paintings/vase.png";
 
-import bellows from "../assets/images/miniPlayer/drawings/bellows.png";
 import bike1 from "../assets/images/miniPlayer/drawings/bike1.png";
 import bike2 from "../assets/images/miniPlayer/drawings/bike2.png";
 import bike3 from "../assets/images/miniPlayer/drawings/bike3.png";
@@ -21,7 +20,6 @@ import handG1 from "../assets/images/miniPlayer/drawings/handG1.png";
 import handG2 from "../assets/images/miniPlayer/drawings/handG2.png";
 import s1 from "../assets/images/miniPlayer/drawings/s1.png";
 import s2 from "../assets/images/miniPlayer/drawings/s2.png";
-import s3 from "../assets/images/miniPlayer/drawings/s3.png";
 import museum from "../assets/images/miniPlayer/drawings/museum.png";
 
 const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
@@ -31,8 +29,8 @@ const MiniPlayer = ({currState,setCurrState, onScreenClick }) => {
   };
 
   const images = [
-    daisies, batman, dragon, fence, tuckDrive, umbrella, howl, robot, statue, vase,
-    bellows, bike1, bike2, bike3, fruit1, fruit2, handG1, handG2, s1, s2, s3, museum
+    daisies, batman, dragon, tuckDrive, fence, umbrella, howl, robot, statue, vase,
+    fruit1, fruit2, handG1, handG2, bike2, bike3, bike1, s1, s2, museum
   ];
 
 

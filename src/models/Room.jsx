@@ -76,7 +76,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
       setCurrState((prevState) => {
 
         // table screen zooms
-        if (location === 'screen1' || location === 'screen2') {
+        if (location === 'screen1' || location === 'screen2' || location === 'resume') {
           if (prevState === 'home') {  // if clicking from home, zoom to the table
             setFocusState('table');
             return 'table';
@@ -772,7 +772,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
         </group>
         <group name="vrShelf">
           <mesh
-            name="escher"
+            ref={handleMeshRef}
+            name="spaces"
             castShadow
             receiveShadow
             geometry={nodes.escher.geometry}
@@ -853,7 +854,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
                   receiveShadow
                   geometry={nodes.tarsierEyes.geometry}
                   material={materials.m_TarsierEyesBaked}
-                  position={[11.352, 0.7, 14.928]}
+                  position={[11.212, 0.7, 14.748]}
                   rotation={[2.589, -1.541, Math.PI]}
                   scale={0.039}
                 />
@@ -889,7 +890,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
                 scale={0.089}
               />
               <mesh
-                name="baseCombined"
+                ref={handleMeshRef}
+                name="anivision"
                 castShadow
                 receiveShadow
                 geometry={nodes.baseCombined.geometry}

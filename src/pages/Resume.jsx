@@ -13,7 +13,7 @@ const Resume = ({currState, onScreenClick, setCurrState}) => {
   };
 
   return (
-    <div style={{width: "1775px", height: "2354px", fontSize: "14px", overflow:"hidden", backgroundColor: "red"}} onClick={handleClickVariable}>
+    <div style={{width: "1775px", height: "2300px", fontSize: "14px", overflow:"hidden", backgroundColor: "red"}} onClick={handleClickVariable}>
       <div style={{ transform: "scale(1.2)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
         <iframe 
           title="embed" 

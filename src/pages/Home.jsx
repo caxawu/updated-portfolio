@@ -14,8 +14,8 @@ import HomeInfo from '../components/HomeInfo'
 
 const Home = () => {
   const defaultCamera = useRef(new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000));
-  const [cameraPosition, setCameraPosition] = useState([-12, 2, -8]);     // starting position
-  const [cameraLookAt, setCameraRotation] = useState([16, -8, -32]);      //starting rotation
+  const [cameraPosition, setCameraPosition] = useState([-12, 3, -8]);     // starting position
+  const [cameraLookAt, setCameraRotation] = useState([16, -7, -32]);      //starting rotation
   const [ focusState, setFocusState ] = useState ('home');
   let navigateTo = useNavigate();
 
@@ -31,8 +31,8 @@ const Home = () => {
 
   useEffect(() => {
     if ( focusState === 'home' ) {
-      updateCameraPosition([-12, 2, -8]);         // starting position
-      updateCameraLookAt([16, -8, -32]);          //starting rotation
+      updateCameraPosition([-12, 3, -8]);         // starting position
+      updateCameraLookAt([16, -7, -32]);          //starting rotation
       navigateTo('/');
 
     } else if ( focusState === 'table' ) {
@@ -58,14 +58,14 @@ const Home = () => {
       navigateTo('XR');
 
     } else if ( focusState === 'spaces' ) {
-      updateCameraPosition([-16, 6, -28]);
-      updateCameraLookAt([4, -10, -32]);
-      navigateTo('XR/spaces');
+      updateCameraPosition([22, 6, -52]);
+      updateCameraLookAt([35, -12, -36]);
+      // navigateTo('XR/spaces');
 
     } else if ( focusState === 'anivision' ) {
-      updateCameraPosition([-16, -4, -30]);
-      updateCameraLookAt([4, -14, -32]);
-      navigateTo('XR/anivision');
+      updateCameraPosition([22, -4, -52]);
+      updateCameraLookAt([35, -12, -36]);
+      // navigateTo('XR/anivision');
 
      } else if ( focusState === 'artWall' ) {
       updateCameraPosition([-2, 6, -40]);

@@ -282,18 +282,34 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     e.preventDefault();
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      setFocusState("home");
+      setCurrState('home');
+    }
+  };
+
+  const handleKeyUp = (e) => {
+
+  }
+
   useEffect (() => {
     const canvas = gl.domElement;
     canvas.addEventListener('pointerdown', handlePointerDown);
     canvas.addEventListener('pointerup', handlePointerUp);
     canvas.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
 
     return () => {
         canvas.removeEventListener('pointerdown', handlePointerDown);
         canvas.removeEventListener('pointerup', handlePointerUp);
         canvas.removeEventListener('pointermove', handlePointerMove);
+        canvas.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('keyup', handleKeyUp);
     }
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove])
+  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove, handleKeyDown])
 
   return (
     <a.group ref={roomRef}{...props}>

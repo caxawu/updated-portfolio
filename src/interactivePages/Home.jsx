@@ -42,7 +42,7 @@ const Home = () => {
     } else if (focusState === 'screen1') {
       updateCameraPosition([8, -11, -56]);
       updateCameraLookAt([-0.5, -2, -36]);
-      // navigateTo('case-studies');        // route only for static web
+      navigateTo('case-studies');        // route only for static web
 
     } else if ( focusState === 'screen2' ) {
       updateCameraPosition([6, -10.3, -57]);
@@ -143,10 +143,10 @@ const Home = () => {
 
 
   return (
-    <section className="w-full h-screen relative" style={{background: '#FFFFFF'}}>
-      <div className="header">
+    <section className="room" style={{background: '#FFFFFF'}}>
+      {/* <div className="header">
         <Navbar setFocusState={setFocusState}/>
-      </div>
+      </div> */}
 
       {/* <div className="links">
         <Links/>

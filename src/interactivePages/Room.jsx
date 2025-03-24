@@ -5,12 +5,12 @@ import * as THREE from 'three';
 import { a, useSpring } from '@react-spring/three';  // Import 'a' for animated mesh
 
 import roomScene from '../assets/3d/desk8.glb'
-import CaseStudies from '../pages/CaseStudies';
-import MiniPlayer from '../pages/MiniPlayer';
-import AnimPlayer from '../pages/AnimPlayer';
-import ModelsScreen from '../pages/ModelsScreen';
-import { OtherProjects } from '../pages';
-import Resume from '../pages/Resume';
+import CaseStudies from './CaseStudies';
+import MiniPlayer from './MiniPlayer';
+import AnimPlayer from './AnimPlayer';
+import ModelsScreen from './ModelsScreen';
+import { OtherProjects } from '.';
+import Resume from './Resume';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
   const roomRef = useRef();

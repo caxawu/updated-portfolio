@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Outlet, useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import Loader from '../components/Loader'
-import Room from '../models/Room'
+import Room from './Room'
 import Navbar from '../components/Navbar';
 import Links from '../components/Links';
 import { Html, useProgress } from '@react-three/drei'

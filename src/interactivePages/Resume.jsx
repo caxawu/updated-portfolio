@@ -1,9 +1,4 @@
-import React, { useEffect } from 'react';
-import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
-import { RenderTexture, OrbitControls, PerspectiveCamera, Text, ContactShadows } from '@react-three/drei'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef, useState } from 'react'
-import { suspend } from 'suspend-react'
+import React from 'react';
 
 
 const Resume = ({currState, onScreenClick, setCurrState}) => {

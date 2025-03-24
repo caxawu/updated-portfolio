@@ -1,6 +1,7 @@
 import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
 import './App.css'
-import { Home, CaseStudies, OtherProjects, Models, XR, Spaces, Anivision } from './pages';
+import { Home, CaseStudies, OtherProjects, Models, XR, Spaces, Anivision } from './interactivePages';
+import  About  from './staticPages/About.jsx';
 
 function App() {
 

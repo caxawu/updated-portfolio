@@ -31,16 +31,16 @@ export default function AnimText({ delay }) {
     <span className="anim-text">
       <div className="title">
         <motion.span>{displayText}</motion.span>
-    </div>
+      </div>
       {done && (
         <>
           <br /> <br />
         </>
       )}
       <div className="subhead">
-      <RedoAnimTextStatic delay={delay + 1} />
+        <RedoAnimTextStatic delay={delay + 1} />
         <RedoAnimText delay={delay + 1.5} />
-        </div>
+      </div>
       <CursorBlinker />
     </span>
   );

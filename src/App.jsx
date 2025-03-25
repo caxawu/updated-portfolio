@@ -1,7 +1,7 @@
 import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
 import './App.css'
-import { Home, CaseStudies, OtherProjects, Models, XR, Spaces, Anivision } from './interactivePages';
-import About from './staticPages/about';
+import { Home, CaseStudies, OtherProjects, Models, XR, Spaces, Anivision } from '.';
+import About from './staticPages/About';
 function App() {
 
   return (
@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<About/>}/>
-          <Route path="home" element={<Home/>}>
+          <Route path="interactive" element={<Home/>}>
             <Route path="case-studies" element={<CaseStudies/>}/>
             <Route path="other-projects" element={<OtherProjects/>}/>
             <Route path="3d-modeling" element={<Models />} />

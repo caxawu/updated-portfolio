@@ -33,7 +33,6 @@ const Home = () => {
     if ( focusState === 'home' ) {
       updateCameraPosition([-12, 3, -8]);         // starting position
       updateCameraLookAt([16, -7, -32]);          //starting rotation
-      navigateTo('/');
 
     } else if ( focusState === 'table' ) {
       updateCameraPosition([8, -6, -46]);
@@ -42,7 +41,7 @@ const Home = () => {
     } else if (focusState === 'screen1') {
       updateCameraPosition([8, -11, -56]);
       updateCameraLookAt([-0.5, -2, -36]);
-      navigateTo('case-studies');        // route only for static web
+      // navigateTo('case-studies');        // route only for static web
 
     } else if ( focusState === 'screen2' ) {
       updateCameraPosition([6, -10.3, -57]);

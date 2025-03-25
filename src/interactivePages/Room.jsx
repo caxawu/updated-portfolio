@@ -9,7 +9,7 @@ import CaseStudies from './CaseStudies';
 import MiniPlayer from './MiniPlayer';
 import AnimPlayer from './AnimPlayer';
 import ModelsScreen from './ModelsScreen';
-import { OtherProjects } from '.';
+import OtherProjects from './OtherProjects';
 import Resume from './Resume';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {

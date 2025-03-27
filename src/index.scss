@@ -1,5 +1,5 @@
-// $dropshadow: 0px 0px 16px 0px rgba(89, 89, 89, 0.25);
-// $dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
+$dropshadow: 0px 0px 16px 0px rgba(89, 89, 89, 0.25);
+$dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
 // $dropshadow-light: 0px 0px 16px rgba(168, 168, 168, 0.25);
 $highlight-pink: #EADCE0;
 // $lending-teal: #6D8C8E;
@@ -15,7 +15,8 @@ body, html {
   font-family: "Raleway", "Roboto", sans-serif;
   font-weight: 500;
   background-color: #FAFAFA;
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 1.5;
   margin: 0;
   color: $text-primary;
   scroll-behavior: smooth;
@@ -28,20 +29,30 @@ body, html {
   font-size: 1.25em;
   font-weight: 500;
 }
-.text-secondary-light {
-  font-size: 1.25em;
+.light {
   font-weight: 400;
 }
-.text-normal {
-  line-height: 1.5;
-  font-size: 1em;
+.bold {
+  font-weight: 700;
 }
 .centered {
   display: flex;
   justify-content: center;
 }
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
 .spacing-05{
   margin-bottom: 0.5em;
+}
+
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Keeps text color the same as the parent */
+  font: inherit; /* Ensures text follows your global font styles */
 }
 
 .room {
@@ -64,8 +75,8 @@ body, html {
 .top-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-justify-content: space-between;
+  height: 99vh;
+  justify-content: space-between;
 
   .blink-text {
     display: inherit;
@@ -77,9 +88,10 @@ justify-content: space-between;
     .cursor-blinker{
       display: inline-block;
       background-color: $text-primary;
-      height: 30px; 
+      height: 2.25em; 
       width: 2px; 
-      transform: translateY(2px); /* Small vertical adjustment */
+      margin-left: 2px;
+      transform: translateY(6px); /* Small vertical adjustment */
     }
     .title {
       display: inline-block;
@@ -91,7 +103,7 @@ justify-content: space-between;
       display: inline-block;
       font-size: 2em;
       font-weight: 300;
-      padding-left: 4vw;
+      // padding-left: 4vw;
     }
   }
 
@@ -135,7 +147,7 @@ justify-content: space-between;
   $duration: 0.3s;
   .arrow-icon {
     height: 2.8em;
-    width: 2.8em;
+    width: 2.5em;
     display: block;
     padding: 0.5em;
     position: relative;
@@ -154,23 +166,23 @@ justify-content: space-between;
   }
   /* Default positions */
   .left-bar {
-    top: 2em;
+    top: 2.25em;
     left: -6px;
     transform: rotate(35deg);
     transform-origin: bottom right; /* Set anchor to bottom-right */
   }
   .right-bar {
-    top: 2em;
+    top: 2.25em;
     left: 32px;
     transform: rotate(-35deg);
-    transform-origin: bottom left; /* Set anchor to bottom-right */
+    transform-origin: bottom left; /* Set anchor to bottom-left */
   }
   /* Rotate animation */
   .arrow-icon.rotate .left-bar {
     transform: rotate(45deg) translateX(-2px); /* Rotates +10 degrees */
   }
   .arrow-icon.rotate .right-bar {
-    transform: rotate(-45deg) translateX(2px); /* Rotates -10 degrees */
+    transform: rotate(-45deg) translateX(2px);
   }
   .left-bar:after,
   .right-bar:after {
@@ -191,7 +203,10 @@ justify-content: space-between;
   }
 
   .about-me-button {
-    width:84vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
   }
 }
 
@@ -220,43 +235,107 @@ justify-content: space-between;
   }
 }
 
+// static portfolio nav bar
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.5em 12vw;
+  background: #FFFFFF;
+  box-shadow: $dropshadow;
+  overflow: hidden;
+  .logo {
+    display: inherit;
+    align-items: center;
+    font-size: 1.5em;
+    a, a:active, a:visited {
+      text-decoration: none;
+      color: #262626;
+    }
+  }
+  .nav-links {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      list-style-type: none;
+      li > a {
+        display: flex;
+        font-family: inherit;
+        font-size: inherit;
+        text-decoration: none;
+        color: inherit;
+        text-align: right;
+        margin-left: 4vw;
+      }
+    }
+  }
+}
 
+// case study page
+.portfolio-superscript {
 
-// .header {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   padding: 1.5em 12vw;
-//   background: #FFFFFF;
-//   box-shadow: $dropshadow;
-//   overflow: hidden;
-//   .logo {
-//     display: inherit;
-//     align-items: center;
-//     font-size: 1.5em;
-//     a, a:active, a:visited {
-//       text-decoration: none;
-//       color: #262626;
-//     }
-//   }
-//   .nav {
-//     ul {
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: center;
-//       list-style-type: none;
-//       li > a {
-//         display: flex;
-//         font-family: inherit;
-//         font-size: inherit;
-//         text-decoration: none;
-//         color: inherit;
-//         text-align: right;
-//         margin-left: 4vw;
-//       }
-//     }
-//   }
-// }
+}
+.portfolio-title {
+  display: flex;
+  flex-direction: row;
+  width: 87rem;            // width of the cards x 2 + gap (28 x 3 + 1.5 + 1.5)
+  padding-bottom: 2em;
+  margin: 0 auto;
+}
+
+.portfolio-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  .card {
+    display: inherit;
+    flex-direction: column;
+    width: 28rem;
+    box-shadow: $dropshadow;
+    a {
+      display: inherit;
+      flex-direction: column;
+      text-decoration: none;
+      height: 100%;
+      img {
+        display: block;
+        object-fit: cover;
+        height: auto;
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 1em;
+        .tags {
+          display: inherit;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-end;
+          height: 100%;
+          padding-top: 1em;
+          ul {
+            display: inherit;
+            flex-direction: column;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0; 
+            li {
+              color: #838383;
+            }
+          }
+        }
+      }
+    }
+  }
+  .card:hover {
+    box-shadow: $dropshadow-hover;
+  }
+}
 
 // .icons {
 //   position: fixed;
@@ -332,33 +411,8 @@ justify-content: space-between;
 // .back-to-top:hover {
 //   box-shadow:$dropshadow-hover;
 // }
-// .content {
-//   margin: 0 8%;
-//   .secondary-nav {
-//     margin: 3em;
-//     margin-bottom: 1.5em;
-//     ul {
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: center;
-//       list-style-type: none;
-//       li > a {
-//         display: flex;
-//         font-family: inherit;
-//         font-size: inherit;
-//         text-decoration: none;
-//         color: #262626;
-//         text-align: right;
-//         margin: 0 3vw;
-//       }
-//     }
-//     #header {
-//       padding-bottom: 4px;
-//       border-bottom-style:solid;
-//       border-bottom-width: 2px;
-//       border-color: #787878;
-//     }
-//   }
+
+
 //   .img-section {
 //     display: flex;
 //     flex-direction: column;
@@ -449,68 +503,7 @@ justify-content: space-between;
 //       }
 //     }
 //   }
-//   .portfolio-row {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     margin: 0 12vw;
-//     margin-bottom: 0em;
-//     .card {
-//       display: inherit;
-//       flex-direction: column;
-//       width: 19vw;
-//       box-shadow: $dropshadow;
-//       a {
-//         display: inherit;
-//         flex-direction: column;
-//         text-decoration: none;
-//         height: 100%;
-//         img {
-//           display: block;
-//           object-fit: cover;
-//           height: auto;
-//         }
-//         .description {
-//           display: flex;
-//           flex-direction: column;
-//           justify-content: space-between;
-//           height: 100%;
-//           padding: 1em;
-//           .text {
-//             padding-bottom: 1em;
-//             color: #262626;
-//           }
-//           .tags {
-//             display: inherit;
-//             flex-direction: row;
-//             justify-content: space-between;
-//             align-items: flex-end;
-//             height: 100%;
-//             ul {
-//               display: inherit;
-//               flex-direction: column;
-//               justify-content: center;
-//               list-style-type: none;
-//               margin: 0;
-//               padding: 0; 
-//               li {
-//                 color: #838383;
-//               }
-//             }
-//             #left {
-//               text-align: left;
-//             }
-//             #right {
-//               text-align: right;
-//             }
-//           }
-//         }
-//       }
-//     }
-//     .card:hover {
-//       box-shadow: $dropshadow-hover;
-//     }
-//   }
+
 //   .top-card {
 //     background-size: contain;
 //     background-repeat:no-repeat;

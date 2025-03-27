@@ -28,14 +28,14 @@ const About = () => {
 
         <div>
           <div className='blink-text'>
-            <AnimText delay={2} />
+            <AnimText delay={1} />
           </div>
           <div className='options'>
             <div className='option'>
               <div className='option-and-arrow'>
                 <div className='labels'>
                   <div className='highlight-pink text-title spacing-05'>Interactive portfolio</div>
-                  <div className='label-secondary text-secondary-light'> Click around the room to <br />explore my projects</div>
+                  <div className='label-secondary light'> Click around the room to <br />explore my projects</div>
                 </div>
                 <img src={loopyArrow} alt='dotted arrow' loading='eager' className='loopy-arrow' />
               </div>
@@ -50,29 +50,36 @@ const About = () => {
             <div className='option'>
               <div className='labels'>
                 <div className='highlight-pink text-title spacing-05'>Static portfolio</div>
-                <div className='label-secondary text-secondary-light'>Learn about my projects <br />without all the website-iness</div>
+                <div className='label-secondary light'>Learn about my projects <br />without all the website-iness</div>
               </div>
-              <img src={placeholderStatic} alt='Static portfolio' loading='eager' />
+              <img 
+              src={placeholderStatic} 
+              alt='Static portfolio' 
+              loading='eager'
+              onClick={() => navigateTo('static')}
+              style={{ cursor: 'pointer' }}
+              />
             </div>
           </div>
         </div>
 
-        <div className='about-me-button'>
-          <div className='text-secondary centered'>about me</div>
-          <div className='centered'>
-            <a href="#about-me" className={`arrow-icon ${isAnimating ? 'rotate' : ''} `} onClick={triggerRotation}>
-              <span className='left-bar'></span>
-              <span className='right-bar'></span>
-            </a>
-          </div>
+        <div className='centered'>
+          <a className='about-me-button' href="#about-me" onClick={triggerRotation}>
+            <div className='text-secondary centered'>about me</div>
+              <div className={`arrow-icon ${isAnimating ? 'rotate' : ''} `}>
+                <span className='left-bar'></span>
+                <span className='right-bar'></span>
+              </div>
+          </a>
         </div>
+
 
       </div>
       <div className='bottom-container' id='about-me'>
       <img src={profilePic} alt='Profile picture' loading='eager' />
         <div className='text'>
           <div className='highlight-pink text-secondary'>a little about me</div>
-          <div className='bio text-normal'>
+          <div className='bio'>
             I am a designer who loves to solve for the UX problems within any experience. I am driven by curiosity and a 
             love of learning new things, so I am constantly picking up side projects and making things whether that is 
             drawing, painting, pursuing my latest VR endeavor, or trying a new recipe.
@@ -83,7 +90,7 @@ const About = () => {
         </div>
         <div className='text'>
           <div className='highlight-pink text-secondary'>a little about my portfolio</div>
-          <div className='bio text-normal'>
+          <div className='bio'>
           Like any other designer, I always felt the need to update my portfolio but never had the motivation to actually 
           do it. I knew that if I turned it into a fun and challenging project, the motivation would follow.
           With my portfolio as an blank canvas, I had the opportunity to get creative so I decided to make it 

@@ -5,12 +5,12 @@ import * as THREE from 'three';
 import { a, useSpring } from '@react-spring/three';  // Import 'a' for animated mesh
 
 import roomScene from '../assets/3d/desk8.glb'
-import CaseStudies from './CaseStudies';
-import MiniPlayer from './MiniPlayer';
-import AnimPlayer from './AnimPlayer';
-import ModelsScreen from './ModelsScreen';
-import OtherProjects from './OtherProjects';
-import Resume from './Resume';
+import CaseStudies from './CaseStudies3D';
+import MiniPlayer from './MiniPlayer3D';
+import AnimPlayer from './AnimPlayer3D';
+import ModelsScreen from './ModelsScreen3D';
+import OtherProjects from './OtherProjects3D';
+import Resume from './Resume3D';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
   const roomRef = useRef();
@@ -374,7 +374,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             geometry={nodes.resume1Paper.geometry}
             material={materials.m_whitePaperBaked}
           />
-          <Html scale={1} rotation-x={Math.PI/2} rotation-y={Math.PI} position={[-160, 80, 270]} transform occlude>
+          <Html scale={1} rotation-x={Math.PI/2} rotation-y={Math.PI} rotation-z={-0.02} position={[-160, 80, 270]} transform occlude>
               <Resume onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState}/>
             </Html>
           <group name="keyboard">

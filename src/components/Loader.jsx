@@ -1,11 +1,29 @@
 import { Html } from '@react-three/drei'
+import { Bouncy } from 'ldrs/react'
+import 'ldrs/react/Bouncy.css'
+
+
+
 
 const Loader = () => {
   return (
     <Html>
-    <div className="flex justify-center items-center">
-        <div className="w-20 h-20 border-2 border-opacity-20 border-blue-500 border-t-blue-500 rounded-full animate-spin"/>
-        </div>
+      <div style={{ 
+      width: "100vw", height: "100vh", 
+      display:'flex', 
+      flexDirection: 'column',
+      justifyContent: 'center', 
+      alignItems: 'center'
+      }}>
+
+        <Bouncy
+          size="45"
+          speed="1.75"
+          color="#91689B" 
+        />
+
+        Cleaning up room
+      </div>
     </Html>
   )
 }

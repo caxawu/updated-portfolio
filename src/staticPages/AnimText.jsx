@@ -34,7 +34,8 @@ export default function AnimText({ delay }) {
       </div>
       {done && (
         <>
-          <br /> <br />
+          <br /> <br /> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </>
       )}
       <div className="subhead">

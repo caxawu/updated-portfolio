@@ -1,12 +1,8 @@
-import About from './staticPages/About';
+import About from './staticPages/about';
 
-import Home from './interactivePages/Home';
-import CaseStudies from './interactivePages/CaseStudies';
-import OtherProjects from './interactivePages/OtherProjects';
-import Models from './interactivePages/Models';
+import InteractivePortfolio from './interactivePages/InteractivePortfolio';
+import CaseStudies from './interactivePages/CaseStudies3D';
+import OtherProjects from './interactivePages/OtherProjects3D';
 
-import XR from './interactivePages/XR';
-import Spaces from './interactivePages/Spaces';
-import Anivision from './interactivePages/anivision';
 
-export {About, Home, CaseStudies, OtherProjects, Models, XR, Spaces, Anivision};
+export {About, InteractivePortfolio, CaseStudies, OtherProjects};

@@ -1,6 +1,6 @@
 import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
 import './App.css'
-import About from './staticPages/about';
+import About from './staticPages/About';
 import StaticPortfolio from './staticPages/StaticPortfolio';
 import { InteractivePortfolio} from '.';
 

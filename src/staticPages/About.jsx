@@ -56,7 +56,7 @@ const About = () => {
               src={placeholderStatic} 
               alt='Static portfolio' 
               loading='eager'
-              onClick={() => navigateTo('static')}
+              onClick={() => navigateTo('case-studies')}
               style={{ cursor: 'pointer' }}
               />
             </div>
@@ -82,7 +82,7 @@ const About = () => {
           <div className='bio'>
             I am a designer who loves to solve for the UX problems within any experience. I am driven by curiosity and a 
             love of learning new things, so I am constantly picking up side projects and making things whether that is 
-            drawing, painting, pursuing my latest VR endeavor, or trying a new recipe.
+            pursuing my latest VR endeavor, creating art, or trying a new recipe.
             <br /><br />
             I graduated from Dartmouth College with a degree in Cognitive Science focused in Human-Computer Interaction 
             and double minors in Human-Centered Design and Digital Arts. I am currently a UI/UX designer @ Capital One.
@@ -94,7 +94,9 @@ const About = () => {
           Like any other designer, I always felt the need to update my portfolio but never had the motivation to actually 
           do it. I knew that if I turned it into a fun and challenging project, the motivation would follow.
           With my portfolio as an blank canvas, I had the opportunity to get creative so I decided to make it 
-          interactive. Inspired by the point-and-click adventure games I've always loved and all the amazing 3D portfolios 
+          interactive. 
+          <br /><br />
+          Inspired by the point-and-click adventure games I've always loved and all the amazing 3D portfolios 
           out there, this was the perfect opportunity to redesign my portfolio and blend my passion for 3D modeling, 
           design, and development into an immersive showcase of my work.
           </div>

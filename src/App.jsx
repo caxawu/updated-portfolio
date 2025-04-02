@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<About/>}/>
           <Route path="interactive" element={<InteractivePortfolio/>}/>
-            <Route path="static" element={<StaticPortfolio/>}/>
+            <Route path="case-studies" element={<StaticPortfolio/>}/>
         </Routes> 
       </Router>
     </main>

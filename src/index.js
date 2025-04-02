@@ -1,4 +1,4 @@
-import About from './staticPages/about';
+import About from './staticPages/About';
 
 import InteractivePortfolio from './interactivePages/InteractivePortfolio';
 import CaseStudies from './interactivePages/CaseStudies3D';

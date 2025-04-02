@@ -35,7 +35,7 @@ const About = () => {
               <div className='option-and-arrow'>
                 <div className='labels'>
                   <div className='highlight-pink text-title spacing-05'>Interactive portfolio</div>
-                  <div className='label-secondary light'> Click around the room to <br />explore my projects</div>
+                  <div className='label-secondary light'> Click around the room to<br />explore my projects in 3D</div>
                 </div>
                 <img src={loopyArrow} alt='dotted arrow' loading='eager' className='loopy-arrow' />
               </div>
@@ -50,7 +50,7 @@ const About = () => {
             <div className='option'>
               <div className='labels'>
                 <div className='highlight-pink text-title spacing-05'>Static portfolio</div>
-                <div className='label-secondary light'>Learn about my projects <br />without all the website-iness</div>
+                <div className='label-secondary light'>Learn about my projects <br />without the extra dimension</div>
               </div>
               <img 
               src={placeholderStatic} 
@@ -78,27 +78,31 @@ const About = () => {
       <div className='bottom-container' id='about-me'>
       <img src={profilePic} alt='Profile picture' loading='eager' />
         <div className='text'>
-          <div className='highlight-pink text-secondary'>a little about me</div>
+          <div className='highlight-pink text-secondary'>about me</div>
           <div className='bio'>
-            I am a designer who loves to solve for the UX problems within any experience. I am driven by curiosity and a 
-            love of learning new things, so I am constantly picking up side projects and making things whether that is 
-            pursuing my latest VR endeavor, creating art, or trying a new recipe.
+          I am a designer who loves solving for the UX problems within any experience. You can find me in Figma creating 
+          webs of explorations to think through my ideas or mulling over problems asking myself, “What are we actually 
+          solving for here?” 
             <br /><br />
-            I graduated from Dartmouth College with a degree in Cognitive Science focused in Human-Computer Interaction 
-            and double minors in Human-Centered Design and Digital Arts. I am currently a UI/UX designer @ Capital One.
+            I graduated from Dartmouth College with a degree in Cognitive Science focused in
+            <span className='bold'> Human-Computer Interaction</span> along with minors in 
+            <span className='bold'> Human-Centered Design</span> and
+            <span className='bold'> Digital Arts</span>. I am currently a 
+            <span className='bold'> UI/UX designer at Capital One.</span>
+            <br /><br />
+            Driven by curiosity and a love of learning, I’m always picking up side projects and exploring different 
+            creative outlets—whether that’s making art, pursuing my latest VR endeavor, or trying out a new recipe 
+            in the kitchen.
           </div>
         </div>
         <div className='text'>
-          <div className='highlight-pink text-secondary'>a little about my portfolio</div>
+          <div className='highlight-pink text-secondary'>about my portfolio</div>
           <div className='bio'>
-          Like any other designer, I always felt the need to update my portfolio but never had the motivation to actually 
-          do it. I knew that if I turned it into a fun and challenging project, the motivation would follow.
-          With my portfolio as an blank canvas, I had the opportunity to get creative so I decided to make it 
-          interactive. 
-          <br /><br />
-          Inspired by the point-and-click adventure games I've always loved and all the amazing 3D portfolios 
-          out there, this was the perfect opportunity to redesign my portfolio and blend my passion for 3D modeling, 
-          design, and development into an immersive showcase of my work.
+          I was inspired to create my own interactive portfolio after discovering all the amazing 3D portfolios out there. 
+          I wanted to creatively weave together my love for design, 3D modeling, and game design into something that would 
+          showcase my work in a fun, interactive way. Having the creative freedom to design without worrying about 
+          traditional formats really pushed my coding abilities but allowed me to experiment and make my portfolio truly 
+          my own. I’ve had a ton of fun in the process—thanks for taking the time to explore!
           </div>
         </div>
       </div>

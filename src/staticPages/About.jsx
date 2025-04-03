@@ -80,17 +80,14 @@ const About = () => {
         <div className='text'>
           <div className='highlight-pink text-secondary'>about me</div>
           <div className='bio'>
-          I am a designer who loves solving for the UX problems within any experience. You can find me in Figma creating 
-          webs of explorations to think through my ideas or mulling over problems asking myself, “What are we actually 
-          solving for here?” 
-            <br /><br />
+            I’m a designer who loves diving into complex UX challenges, transforming the complex web of user behavior, pain points, and opportunities into simple, meaningful, and delightful experiences. 
             I graduated from Dartmouth College with a degree in Cognitive Science focused in
             <span className='bold'> Human-Computer Interaction</span> along with minors in 
             <span className='bold'> Human-Centered Design</span> and
             <span className='bold'> Digital Arts</span>. I am currently a 
             <span className='bold'> UI/UX designer at Capital One.</span>
             <br /><br />
-            Driven by curiosity and a love of learning, I’m always picking up side projects and exploring different 
+            I am driven by curiosity and love of learning, so I’m always picking up side projects and exploring different 
             creative outlets—whether that’s making art, pursuing my latest VR endeavor, or trying out a new recipe 
             in the kitchen.
           </div>

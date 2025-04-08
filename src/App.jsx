@@ -1,8 +1,11 @@
 import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
 import './App.css'
+import { InteractivePortfolio} from '.';
 import About from './staticPages/About';
 import StaticPortfolio from './staticPages/StaticPortfolio';
-import { InteractivePortfolio} from '.';
+import CaseStudies from './staticPages/CaseStudies';
+import MiniProjects from './staticPages/MiniProjects';
+
 
 function App() {
 
@@ -12,7 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<About/>}/>
           <Route path="interactive" element={<InteractivePortfolio/>}/>
-            <Route path="case-studies" element={<StaticPortfolio/>}/>
+          <Route path="static" element={<StaticPortfolio />}>
+          <Route path="case-studies" element={<CaseStudies />} />
+            <Route path="mini-projects" element={<MiniProjects />} />
+          </Route>
         </Routes> 
       </Router>
     </main>

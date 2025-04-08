@@ -9,7 +9,7 @@ import CaseStudies from './CaseStudies3D';
 import MiniPlayer from './MiniPlayer3D';
 import AnimPlayer from './AnimPlayer3D';
 import ModelsScreen from './ModelsScreen3D';
-import OtherProjects from './OtherProjects3D';
+import MiniProjects from './MiniProjects3D';
 import Resume from './Resume3D';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
@@ -354,7 +354,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               material={materials.m_whiteMonitor}
             />
             <Html scale={[1.5, -1.5, -1.5]} rotation={[0, 0.597, -Math.PI]} position={[5.7, 133.534, 306.7]} transform occlude>
-              <OtherProjects onScreenClick={handleScreenClick} currState={currState}/>
+              <MiniProjects onScreenClick={handleScreenClick} currState={currState}/>
             </Html>
           </group>
           <mesh

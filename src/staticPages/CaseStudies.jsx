@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 
-import burnout from '../assets/images/caseStudies/burnout.png'
+import burnout from '../assets/images/caseStudies/burnoutCover.png'
 import gracePeriod from '../assets/images/caseStudies/gracePeriodCover.png'
 import savingsGoals from '../assets/images/caseStudies/savingsGoalsCover.png'
+import anivision from '../assets/images/caseStudies/anivisionCover.png'
+import spaces from '../assets/images/caseStudies/spacesCover.png'
 
 const trackLinkClick = (category, action, label) => {
   console.log('GA event:', category, ':', action, ':', label);
@@ -23,18 +25,14 @@ const CaseStudies = (props) => {
 
   return (
     <div className="content">
-        <br/>
-        <div className='portfolio-superscript'>
-            Currently at
-        </div>
         <div className="portfolio-title text-title">
             <div className='highlight-pink'>
-                Capital One
+                web/mobile
             </div>
         </div>
         <div className="portfolio-row">
             <div className="card">
-                <a href="/portfolio/clinician-burnout" rel="noreferrer" onClick={trackLinkClick.bind(this, 'Portfolio/Web', 'Burnout Click', 'Portfolio Card Nav')} >
+                <a href="/portfolio/grace-period" rel="noreferrer" onClick={trackLinkClick.bind(this, 'Portfolio/Web', 'Grace Period Click', 'Portfolio Card Nav')} >
                     <img src={gracePeriod} alt="CD grace period" loading="eager" />
                     <div className="description">
                         <div className='bold spacing-05'>CD grace period</div>
@@ -51,8 +49,8 @@ const CaseStudies = (props) => {
                 </a>
             </div>
             <div className="card">
-                <a href="/portfolio/clinician-burnout" rel="noreferrer" onClick={trackLinkClick.bind(this, 'Portfolio/Web', 'Burnout Click', 'Portfolio Card Nav')} >
-                    <img src={savingsGoals} alt="CD grace period" loading="eager" />
+                <a href="/portfolio/savings-goals" rel="noreferrer" onClick={trackLinkClick.bind(this, 'Portfolio/Web', 'Savings Goals Click', 'Portfolio Card Nav')} >
+                    <img src={savingsGoals} alt="Savings goals" loading="eager" />
                     <div className="description">
                         <div className='bold spacing-05'>Savings goals</div>
                         Lorem ipsum
@@ -78,7 +76,50 @@ const CaseStudies = (props) => {
                                 <li>Service design</li>
                             </ul>
                             <ul className="right">
-                                <li>Human-Centered Design<br />Capstone Project</li>
+                                <li>Dartmouth-Hitchcock<br />Medical Center</li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div className="portfolio-title text-title">
+            <div className='highlight-pink'>
+                VR
+            </div>
+        </div>
+        <div className="portfolio-row">
+            <div className="card">
+                <a href="/portfolio/anivision" rel="noreferrer" onClick={trackLinkClick.bind(this, 'Portfolio/Web', 'Anivision Click', 'Portfolio Card Nav')} >
+                    <img src={anivision} alt="Anivision" loading="eager" />
+                    <div className="description">
+                        <div className='bold spacing-05'>Anivision</div>
+                        Learn in a more experiential and delightful way by exploring the world through the eyes of an animal.
+                        <div className="tags">
+                            <ul className="left">
+                                <li>Design</li>
+                                <li>Development</li>
+                            </ul>
+                            <ul className="right">
+                                <li>DALI Lab</li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div className="card">
+                <a href="/portfolio/spaces" rel="noreferrer" onClick={trackLinkClick.bind(this, 'Portfolio/Web', 'Spaces Click', 'Portfolio Card Nav')} >
+                    <img src={spaces} alt="Spaces" loading="eager" />
+                    <div className="description">
+                        <div className='bold spacing-05'>Spaces</div>
+                        A VR perspective puzzle game in an impossible space based on M.C. Escher’s “Relativity” drawing.
+                        <div className="tags">
+                            <ul className="left">
+                                <li>Design</li>
+                            </ul>
+                            <ul className="right">
+                                <li>Digital Arts Capstone</li>
                             </ul>
                         </div>
                     </div>

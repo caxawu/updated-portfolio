@@ -2,6 +2,7 @@ $dropshadow: 0px 0px 16px 0px rgba(89, 89, 89, 0.25);
 $dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
 // $dropshadow-light: 0px 0px 16px rgba(168, 168, 168, 0.25);
 $highlight-pink: #EADCE0;
+$link-purple: #91689B;
 // $lending-teal: #6D8C8E;
 // $lending-light-teal: #C9DDDE;
 // $escher-purple: #5A3CB2;
@@ -10,10 +11,15 @@ $highlight-pink: #EADCE0;
 // $spot-green: #246e1d;
 $text-primary: #262626;
 
+$font-weight-light: 400;
+$font-weight-reg: 500;
+$font-weight-med: 600;
+$font-weight-bold: 700;
+
 
 body, html {
   font-family: "Raleway", "Roboto", sans-serif;
-  font-weight: 500;
+  font-weight: $font-weight-reg;
   background-color: #FAFAFA;
   font-size: 20px;
   line-height: 1.5;
@@ -23,17 +29,17 @@ body, html {
 }
 .text-title {
   font-size: 1.5em;
-  font-weight: 400;
+  font-weight: $font-weight-light;
 }
 .text-secondary {
   font-size: 1.25em;
-  font-weight: 500;
+  font-weight: $font-weight-reg;
 }
 .light {
-  font-weight: 400;
+  font-weight: $font-weight-light;
 }
 .bold {
-  font-weight: 700;
+  font-weight: $font-weight-bold;
 }
 .centered {
   display: flex;
@@ -241,7 +247,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1.5em 12vw;
+  padding: 1em 12vw;
   background: #FFFFFF;
   box-shadow: $dropshadow;
   overflow: hidden;
@@ -249,17 +255,19 @@ a {
     display: inherit;
     align-items: center;
     font-size: 1.5em;
-    a, a:active, a:visited {
-      text-decoration: none;
-      color: #262626;
-    }
+  }
+  .logo:hover {
+    color: $link-purple;
+    transition: color 0.2s;
   }
   .nav-links {
+    position: relative;
     ul {
       display: flex;
       flex-direction: row;
       justify-content: center;
       list-style-type: none;
+      gap: 6rem;
       li > a {
         display: flex;
         font-family: inherit;
@@ -267,22 +275,37 @@ a {
         text-decoration: none;
         color: inherit;
         text-align: right;
-        margin-left: 4vw;
+      }
+      a:hover {
+        color: $link-purple;
+        transition: color 0.2s;
       }
     }
   }
 }
+.sliding-underline {
+  position: absolute;
+  height: 2px;
+  background-color: black;
+  bottom: 5px;
+}
+
+.active-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-style: wavy; /* or solid, dotted, etc. */
+  font-weight: bold;
+}
 
 // case study page
-.portfolio-superscript {
-
-}
 .portfolio-title {
   display: flex;
   flex-direction: row;
-  width: 87rem;            // width of the cards x 2 + gap (28 x 3 + 1.5 + 1.5)
-  padding-bottom: 2em;
+  width: 87rem;            // width of the cards x 2 + gap (28 x 3 + 1.5 + 1.5): if want to center instead
+  padding: 1em 0;
   margin: 0 auto;
+  justify-content: center;
+  // background-color: red;
 }
 
 .portfolio-row {
@@ -303,7 +326,7 @@ a {
       img {
         display: block;
         object-fit: cover;
-        height: auto;
+        height: 100%;
       }
       .description {
         display: flex;
@@ -311,13 +334,14 @@ a {
         justify-content: space-between;
         height: 100%;
         padding: 1em;
+
         .tags {
           display: inherit;
           flex-direction: row;
           justify-content: space-between;
           align-items: flex-end;
           height: 100%;
-          padding-top: 1em;
+          padding-top: 0.5em;
           ul {
             display: inherit;
             flex-direction: column;
@@ -335,6 +359,78 @@ a {
   }
   .card:hover {
     box-shadow: $dropshadow-hover;
+  }
+}
+
+.spacer {
+  padding: 2.75em;
+}
+.mini-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  box-shadow: $dropshadow;
+  margin: 0 auto;
+  margin-bottom: 3em;
+  width: 87rem;
+
+  .top-header {
+    display: inherit;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em 3rem;
+    padding-bottom: 1.5em;
+    .title {
+      font-weight: $font-weight-bold;
+    }      
+  }
+  .body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    .item {
+      display: flex;
+      flex-direction: column;
+      width: 26rem;
+      img {
+        display: block;
+        object-fit: cover;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+      .description {
+        display: inherit;
+        flex-direction: column;
+        .name {
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+        .description1 {
+          font-style: italic;
+          margin-bottom: 0.5rem;
+        }
+        .description2 {
+          margin-bottom: 1rem;
+        }
+        .links {
+          display: inherit;
+          flex-direction: row;
+          font-weight: $font-weight-med;
+          color: $link-purple;
+          gap: 8px;
+          a:hover {
+            font-weight: $font-weight-bold;
+            text-decoration: underline;
+            text-decoration-style: double;
+            text-underline-offset: 5px;
+
+          }
+        }
+      }
+    }
   }
 }
 

@@ -34,8 +34,8 @@ const About = () => {
             <div className='option'>
               <div className='option-and-arrow'>
                 <div className='labels'>
-                  <div className='highlight-pink text-title spacing-05'>Interactive portfolio</div>
-                  <div className='label-secondary light'> Click around the room to<br />explore my projects in 3D</div>
+                  <div className='highlight-pink text-title spacing-05'>go to my interactive portfolio</div>
+                  <div className='label-secondary light'> Explore my projects in 3D<br/>by clicking around the room</div>
                 </div>
                 <img src={loopyArrow} alt='dotted arrow' loading='eager' className='loopy-arrow' />
               </div>
@@ -49,14 +49,14 @@ const About = () => {
             </div>
             <div className='option'>
               <div className='labels'>
-                <div className='highlight-pink text-title spacing-05'>Static portfolio</div>
+                <div className='highlight-pink text-title spacing-05'>go to my static portfolio</div>
                 <div className='label-secondary light'>Learn about my projects <br />without the extra dimension</div>
               </div>
               <img 
               src={placeholderStatic} 
               alt='Static portfolio' 
               loading='eager'
-              onClick={() => navigateTo('case-studies')}
+              onClick={() => navigateTo('static/case-studies')}
               style={{ cursor: 'pointer' }}
               />
             </div>

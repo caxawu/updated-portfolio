@@ -297,7 +297,9 @@ a {
   font-weight: bold;
 }
 
+
 // case study page
+
 .portfolio-title {
   display: flex;
   flex-direction: row;
@@ -305,7 +307,6 @@ a {
   padding: 1em 0;
   margin: 0 auto;
   justify-content: center;
-  // background-color: red;
 }
 
 .portfolio-row {
@@ -434,6 +435,78 @@ a {
   }
 }
 
+// artwork page
+
+.img-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 12vw;
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5em;
+    .img {
+      height: auto;
+      object-fit: cover;
+      overflow: hidden;
+      padding-bottom: 0.5rem;
+    }
+    .resize-img {   // for images smaller than the width, fill the space
+      flex: 1;
+      height: auto;
+      object-fit: cover;
+      overflow: hidden;
+      padding-bottom: 0.5rem;
+    }
+    .inner-column {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.secondary-nav-links {
+  position: relative;
+  padding-top: 1rem;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    padding-bottom: 0.5rem;
+    li {
+      display: flex;
+      align-items: center;
+      a {
+        display: flex;
+        font-family: inherit;
+        font-size: inherit;
+        text-decoration: none;
+        color: inherit;
+        text-align: right;
+      }
+      // Pipe between links
+      & + li::before {
+        content: "|";
+        margin: 0 3rem; // controls space between links
+        font-weight: 400;
+      }
+    }
+
+    a:hover {
+      color: $link-purple;
+      transition: color 0.2s;
+    }
+  }
+}
+
+
 // .icons {
 //   position: fixed;
 //   top: 40%;
@@ -510,32 +583,7 @@ a {
 // }
 
 
-//   .img-section {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     margin: 0 12vw;
-//     .row {
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: center;
-//       img {
-//         height: auto;
-//         object-fit: cover;
-//         overflow: hidden;
-//         padding: 0 0.25vw;
-//         padding-bottom: .5vw;
-//       }
-//       .inner-column {
-//         display: flex;
-//         flex-direction: column;
-//         height: 100%;
-//         img {
-//           width: 97%;
-//         }
-//       }
-//     }
-//   }
+
 //   .spacer {
 //     padding: 2.75em;
 //   }

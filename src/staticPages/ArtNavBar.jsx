@@ -2,7 +2,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const NavBar = () => {
+const ArtNavBar = () => {
     const navigateTo = useNavigate();
     const location = useLocation();
 
@@ -28,18 +28,14 @@ const NavBar = () => {
     }, [location]);
 
     const links = [
-        { to: '/static/case-studies', label: 'case studies' },
-        { to: '/static/mini-projects', label: 'mini projects' },
-        { to: '/static/artwork/3d-modeling', label: 'artwork' },
+        { to: '/static/artwork/3d-modeling', label: '3d modeling' },
+        { to: '/static/artwork/animation', label: 'animation' },
+        { to: '/static/artwork/paintings', label: 'paintings' },
+        { to: '/static/artwork/drawings', label: 'drawings' },
     ];
 
     return (
-        <div className="nav-bar">
-            <div className="logo" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
-                Xinai (Cathy) Wu
-            </div>
-
-            <div className="nav-links">
+            <div className="secondary-nav-links">
                 <ul ref={containerRef}>
                     {links.map(({ to, label }) => (
                         <li key={to}>
@@ -56,8 +52,7 @@ const NavBar = () => {
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
             </div>
-        </div>
     );
 };
 
-export default NavBar;
+export default ArtNavBar;

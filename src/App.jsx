@@ -6,7 +6,7 @@ import StaticPortfolio from './staticPages/StaticPortfolio';
 import CaseStudies from './staticPages/CaseStudies';
 import MiniProjects from './staticPages/MiniProjects';
 import Artwork from './staticPages/artwork';
-import { Modeling, Animation, Paintings, Drawings } from './staticPages/ArtworkTemp';
+import { Modeling, Animation, Paintings, Drawings } from './staticPages/Artwork';
 
 
 function App() {

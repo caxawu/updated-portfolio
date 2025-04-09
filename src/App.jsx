@@ -5,7 +5,7 @@ import About from './staticPages/About';
 import StaticPortfolio from './staticPages/StaticPortfolio';
 import CaseStudies from './staticPages/CaseStudies';
 import MiniProjects from './staticPages/MiniProjects';
-import Artwork from './staticPages/artwork';
+import Artwork from './staticPages/Artwork';
 import { Modeling, Animation, Paintings, Drawings } from './staticPages/Artwork';
 
 

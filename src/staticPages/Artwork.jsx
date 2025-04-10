@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactGA from 'react-ga';
 import { Outlet } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -70,17 +70,23 @@ const trackLinkClick = (category, action, label) => {
   });
 };
 
-const FadeInImage = ({ className, src, alt }) => (
-  <motion.img
-    className={className}
-    src={src}
-    alt={alt}
-    loading="eager"
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
-  />
-);
+
+const FadeInImage = ({ className, src, alt }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <motion.img
+      className={`${className} transition-opacity duration-300 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      src={src}
+      alt={alt}
+      onLoad={() => setLoaded(true)}  // Trigger state change once the image loads
+      loading="eager"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    />
+  );
+};
 
 
 const Artwork = () => {

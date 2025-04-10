@@ -1,4 +1,4 @@
-import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Routes, Navigate} from 'react-router-dom';
 import './App.css'
 import { InteractivePortfolio} from '.';
 import About from './staticPages/About';
@@ -27,6 +27,7 @@ function App() {
               <Route path="drawings" element={<Drawings />} />
               </Route>
           </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes> 
       </Router>
     </main>

@@ -319,7 +319,7 @@ a {
     flex-direction: column;
     width: 28rem;
     box-shadow: $dropshadow;
-    a {
+    a, .card-tile {
       display: inherit;
       flex-direction: column;
       text-decoration: none;

@@ -3,7 +3,8 @@ $dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
 // $dropshadow-light: 0px 0px 16px rgba(168, 168, 168, 0.25);
 $highlight-pink: #EADCE0;
 $link-purple: #91689B;
-// $lending-teal: #6D8C8E;
+$highlight-blue: #ceeeff;   // grace period case study
+$grace-blue: #013D5B;
 // $lending-light-teal: #C9DDDE;
 // $escher-purple: #5A3CB2;
 // $escher-light-purple: #65659F;
@@ -16,12 +17,14 @@ $font-weight-reg: 500;
 $font-weight-med: 600;
 $font-weight-bold: 700;
 
+$corner-rounding: 8px;
+
 
 body, html {
   font-family: "Raleway", "Roboto", sans-serif;
   font-weight: $font-weight-reg;
   background-color: #FAFAFA;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
   margin: 0;
   color: $text-primary;
@@ -54,6 +57,9 @@ body, html {
 .spacing-05{
   margin-bottom: 0.5em;
 }
+#text-white {
+  color: white;
+}
 
 a {
   text-decoration: none; /* Removes underline */
@@ -70,11 +76,15 @@ a {
 }
 
 .content {
-  margin: 0 8vw;
+  margin: 0 16vw;
 }
 
 .highlight-pink {
   background: linear-gradient(180deg,rgba(255,255,255,0) 50%, $highlight-pink 50%);
+  width: fit-content;
+}
+.highlight-blue {   //for grace period case study
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, $highlight-blue 50%);
   width: fit-content;
 }
 
@@ -314,11 +324,13 @@ a {
   flex-direction: row;
   justify-content: center;
   gap: 1.5rem;
+  // background-color: red;
   .card {
     display: inherit;
     flex-direction: column;
-    width: 28rem;
+    width: 31rem;
     box-shadow: $dropshadow;
+    border-radius: $corner-rounding;
     a, .card-tile {
       display: inherit;
       flex-direction: column;
@@ -328,6 +340,8 @@ a {
         display: block;
         object-fit: cover;
         height: 100%;
+        border-top-left-radius: $corner-rounding;
+        border-top-right-radius: $corner-rounding;
       }
       .description {
         display: flex;
@@ -374,13 +388,14 @@ a {
   box-shadow: $dropshadow;
   margin: 0 auto;
   margin-bottom: 3em;
-  width: 87rem;
+  // width: 87rem;
+  border-radius: $corner-rounding;
 
   .top-header {
     display: inherit;
     flex-direction: row;
     justify-content: space-between;
-    padding: 2em 3rem;
+    padding: 2rem 3rem;
     padding-bottom: 1.5em;
     .title {
       font-weight: $font-weight-bold;
@@ -391,14 +406,18 @@ a {
     flex-direction: row;
     justify-content: center;
     gap: 1.5rem;
+    padding: 0 3rem;
     padding-bottom: 1.5rem;
+    flex-wrap: wrap;
     .item {
       display: flex;
       flex-direction: column;
-      width: 26rem;
+      flex: 1;
+      min-width: 300px;
       img {
         display: block;
         object-fit: cover;
+        width: 100%;
         height: auto;
         margin-bottom: 1rem;
       }
@@ -651,80 +670,123 @@ a {
 //     }
 //   }
 
-//   .top-card {
-//     background-size: contain;
-//     background-repeat:no-repeat;
-//     height: 32.4em;
-//     margin: 2em 12vw;
-//     .text {
-//       width: 36%;
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       padding: 3em;
-//       padding-top: 12%;
-//       .title {
-//         font-size: 2em;
-//         padding-bottom: 8px;
-//       }
-//       .role {
-//         padding-bottom: 16px;
-//         font-weight: 400;
-//       }
-//       .headline {
-//         padding-bottom: 24px;
-//         font-weight: 500;
-//       }
-//       a {
-//         text-decoration: none;
-//         width: fit-content;
-//         font-weight: 600;
-//         color: #262626;
-//         padding: 0.5em;
-//         border: 1.5px solid #262626;
-//         border-radius: 5px;
-//       }
-//       .white-button {
-//         color: white;
-//         border: 1.5px solid white;
-//       }
-//     }
-//     #text-white {
-//       color: white;
-//     }
-//   }
-//   #lending-top-background {
-//     background-image: url(./img/portfolio/lending/topBackground.png);
-//   }
-//   #spaces-top-background {
-//     background-image: url(./img/portfolio/spaces/spacesTopBackground.png);
-//   }
+  .top-card {
+    background-size: contain;
+    background-repeat:no-repeat;
+    height: 36rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    .text {
+      width: 36%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      padding-top: 8rem;
+      .title {
+        font-size: 2em;
+        padding-bottom: 8px;
+      }
+      .headline {
+        padding-bottom: 24px;
+        font-weight: 400;
+      }
+      // a {
+      //   text-decoration: none;
+      //   width: fit-content;
+      //   font-weight: 600;
+      //   color: #262626;
+      //   padding: 0.5em;
+      //   border: 1.5px solid #262626;
+      //   border-radius: 5px;
+      // }
+      // .white-button {
+      //   color: white;
+      //   border: 1.5px solid white;
+      // }
+    }
+    .header-img {
+      // background-color: red;
+      width: 50%;
+      height: auto;
+      padding-right: 4rem;
+      align-self: flex-end; /* or flex-end / center depending on layout preference */
+      pointer-events: none; /* so it doesn’t interfere with interactions */
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+  #grace-top-background {
+    background-color: $grace-blue;
+  }
+  #spaces-top-background {
+    background-image: url(./assets/images/caseStudies/spaces/spacesTopBackground.png);
+  }
 //   #spot-top-background {
 //     background-image: url(./img/portfolio/spot/spotTopBackground.png);
 //   }
 //   #burnout-top-background {
 //     background-image: url(./img/portfolio/burnout/burnoutTopBackground.png);
 //   }
-//   .secondary-info {
-//     display: flex;
-//     flex-direction: row;
-//     margin: 2em 20vw;
-//     margin-bottom: -1.1em;
-//     justify-content: center;
-//     border-top: 1px solid #7B7B7B;
-//     border-bottom: 1px solid #7B7B7B;
-//     .list {
-//       padding: 1.5em 4em;
-//       padding-bottom: 2.5em;
-//       text-align: center;
-//       #title {
-//         font-weight: 700;
-//       }
-//       li {
-//         list-style-type: none;
-//       }
-//     }
-//   }
+.case-study-img {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+  img {
+    width: 75%;
+  }
+}
+.summary {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3vw;
+
+  .secondary-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    .list {
+      padding: 1.5rem 1rem;
+      padding-bottom: 2rem;
+      text-align: center;
+      li {
+        list-style-type: none;
+        width: 10vw;
+      }
+    }
+  }
+}
+
+.divider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 3rem;
+}
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #aaa;
+  border: none;
+}
+.label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+ .arrow-case-study {
+  display: flex;
+  width: 2.5em;
+  padding-bottom: 2rem;
+}
+
 //   .jump-button {
 //     display: flex;
 //     margin: auto;
@@ -739,11 +801,6 @@ a {
 //     border-radius: 5px;
 //   }
 //   //color dependent on the case study page
-//   #lending-button:hover {
-//     box-shadow: $dropshadow-light;
-//     background-color: $lending-teal;
-//     color: white;
-//   }
 //   #spaces-button:hover {
 //     box-shadow: $dropshadow-light;
 //     background-color: $escher-light-purple;
@@ -754,49 +811,69 @@ a {
 //     background-color: $spot-bluegray;
 //     color: white;
 //   }
-//   .info-section {
-//     margin: 0 12vw;
-//     margin-bottom: 96px;
-//     .section-title {
-//       font-weight: 600;
-//       margin-bottom: 16px;
-//       width: 2em;
-//       padding-top: 8px;
-//     }
-//     //color dependent on the case study page
-//     #lending-color {
-//       border-top: 3px solid $lending-teal;
-//     }
+  .summary-section {
+    margin-bottom: 2rem;
+  }
+  .detail-section {
+    margin-bottom: 96px;
+
+    .section-title {
+      padding-top: 0.75rem;
+      margin-bottom: 1rem;
+    }
+     //color dependent on the case study page
+      #grace-deco {
+        border-top: 3px solid  $grace-blue;
+        width: 2em;
+      }
 //     #spaces-color {
 //       border-top: 3px solid $escher-purple;
 //     }
 //     #spot-color {
 //       border-top: 3px solid $spot-green;
 //     }
-//     //text styles
-//     .text-block {
-//       margin-bottom: 48px;
-//       ul {
-//         list-style-position: outside;
-//         margin: 16px 0;
-//         li {
-//           margin-bottom: 8px;
-//         }
-//       }
-//     }
-//     .text-callout {
-//       width: 70%;
-//       margin: auto;
-//       text-align: center;
-//       font-weight: 600;
-//       font-size: 1.5em;
-//       margin-top: 72px;
-//       margin-bottom: 96px;
-//     }
-//     //color dependent on the case study page
-//     #lending-text {
-//       color: $lending-teal;
-//     }
+      .deco-white-callout {     //for spacing purposes
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+    .text-callout {
+      margin: auto;
+      width: 75%;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-top: 3rem;
+      margin-bottom: 4rem;
+    }
+    .gray-callouts {
+      display: flex;
+      flex-direction: row;
+      margin: 3rem auto;
+      margin-bottom: 4rem;
+      width: 75%;
+      gap: 2rem;
+      .gray-card {
+        background-color: #EEEEEE;
+        flex: 1;
+        padding: 2rem;
+        border-radius: $corner-rounding;
+      }
+    }
+    .white-callout {
+      display: flex;
+      margin: 3rem auto;
+      margin-bottom: 4rem;
+      width: 75%;
+      box-shadow: $dropshadow;
+      border-radius: $corner-rounding;
+      .white-card {
+        padding: 2rem;
+      }
+    }
+    //color dependent on the case study page
+    #grace-text {
+      color: $grace-blue;
+    }
 //     #spaces-text {
 //       color: $escher-purple;
 //     }
@@ -813,8 +890,18 @@ a {
 //     display: flex;
 //     margin: 4em auto;
 //     width: 50%;
-//   }
+  }
 
+  .text-block {
+    margin-bottom: 2rem;
+    // ul {
+    //   list-style-position: outside;
+    //   margin: 16px 0;
+    //   li {
+    //     margin-bottom: 8px;
+    //   }
+    // }
+  }
 
 //   .footer {
 //     display: flex;

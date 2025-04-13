@@ -34,7 +34,7 @@ export default function AnimText({ delay }) {
       </div>
       {done && (
         <>
-          <br /> <br /> 
+          <div className="spacing-05"/>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </>
       )}

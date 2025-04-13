@@ -35,6 +35,7 @@ const NavBar = () => {
 
     return (
         <div className="nav-bar">
+            <div className="nav-bar-content">
             <div className="logo" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
                 Xinai (Cathy) Wu
             </div>
@@ -55,6 +56,7 @@ const NavBar = () => {
                     animate={{ left: underlineProps.left, width: underlineProps.width }}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
+            </div>
             </div>
         </div>
     );

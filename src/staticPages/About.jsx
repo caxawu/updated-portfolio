@@ -23,7 +23,7 @@ const About = () => {
   };
 
   return (
-    <div className='content'>
+    <div className="home-page">
       <div className='top-container'>
 
         <div>

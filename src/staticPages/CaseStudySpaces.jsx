@@ -1,10 +1,24 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
-// import escherDrawing from '../img/portfolio/spaces/escherDrawing.png';
-// import puzzles from '../img/portfolio/spaces/puzzles.png';
-// import puzzles2 from '../img/portfolio/spaces/puzzles2.png';
+import relativityOrig from '../assets/images/caseStudies/spaces/relativityOrig.png';
+import relativityComp from '../assets/images/caseStudies/spaces/relativityComp.png';
+import puzzle1 from '../assets/images/caseStudies/spaces/puzzle1.png';
+import puzzle2 from '../assets/images/caseStudies/spaces/puzzle2.png';
+import puzzle3 from '../assets/images/caseStudies/spaces/puzzle3.png';
+import puzzle4 from '../assets/images/caseStudies/spaces/puzzle4.png';
+import puzzle5 from '../assets/images/caseStudies/spaces/puzzle5.png';
+import loop1 from '../assets/images/caseStudies/spaces/loop1.png';
+import loop2 from '../assets/images/caseStudies/spaces/loop2.png';
+import loop3 from '../assets/images/caseStudies/spaces/loop3.png';
+import loop4 from '../assets/images/caseStudies/spaces/loop4.png';
+import loop5 from '../assets/images/caseStudies/spaces/loop5.png';
+import final1 from '../assets/images/caseStudies/spaces/final1.png';
+import final2 from '../assets/images/caseStudies/spaces/final2.png';
 // import arch from '../img/portfolio/spaces/arch.png';
+
+import ToTopButton from './ToTopButton';
 
 const trackLinkClick = (category, action, label) => {
     console.log('GA event:', category, ':', action, ':', label);
@@ -22,14 +36,12 @@ const CaseStudySpaces = (props) => {
     }, []);
 
     return (
-        <div className="content">
+        <div className="content-case-study">
+            <ToTopButton />
             <div id="spaces-top-background" className="top-card">
                 <div id="text-white" className="text">
                     <div className="title">
                         Spaces
-                    </div>
-                    <div className="role">
-                        Designer
                     </div>
                     <div className="headline">
                         Spaces is a VR perspective puzzle game based on M.C. Escher’s “Relativity” drawing. Players navigate this impossible
@@ -41,134 +53,242 @@ const CaseStudySpaces = (props) => {
                         rel="noreferrer"
                         target="_blank"
                         onClick={trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces apk Click', 'Portfolio Links')}
-                    >apk for Oculus Quest
+                    >Download for Oculus Quest
                     </a>
                 </div>
             </div>
-            <ul className="secondary-info">
-                <ul className="list">
-                    <li id="title">TEAM</li>
-                    <li>Jasmine Mai</li>
+
+            {/* Summary section */}
+            <div className='summary'>
+                <div>
+                    <div className="summary-section">
+                        <div className="section-title bold">THE CHALLENGE</div>
+                        <div id="spaces-color" className="text-callout">
+                            How might we leverage VR’s unique platform to let players experience something impossible in the real world?
+                        </div>
+                    </div>
+                    <div className="summary-section">
+                        <div className="section-title bold">BACKGROUND</div>
+                        <div className="text-block">
+                            For my Digital Arts capstone, we were given free rein to create anything within the realm of digital arts over the
+                            course of 10 weeks. My teammate and I chose to work in virtual reality—a platform we were both passionate about and 
+                            had prior experience in. We challenged ourselves to create something that could only exist in VR and was fundamentally 
+                            reliant on the medium’s immersive and interactive capabilities.
+                        </div>
+                    </div>
+                    <div className="summary-section">
+                        <div className="section-title bold">THE GAMEPLAY</div>
+                        <div className="text-block">
+                            We build a VR perspective puzzle game set in an impossible space. We recreated M.C. Escher’s <i>Relativity</i> drawing 
+                            in 3D and layered in a perspective puzzle game to add interaction and engagement so players would be encouraged explore the space.
+                            <div className="spacing-075" />
+                            Players begin with a series of photographs, each taken from a different location within the space. Their goal is to find the exact 
+                            vantage point where each photo was taken. When they do, a picture frame appears, inviting them to insert the photo. The image then
+                            transforms, allowing the player to reach into the photograph and pull out a cube as it transforms from a flat 2D image into a tangible 
+                            3D object. Placing this cube on a matching pedestal unlocks the next photograph, moving them one step closer to activating 
+                            the portal that leads to the next level.
+                        </div>
+                    </div>
+                </div>
+
+                <ul className="secondary-info">
+                    <ul className="list">
+                        <li className="bold">TYPE</li>
+                        <li>Digital Arts Capstone</li>
+                    </ul>
+                    <ul className="list">
+                        <li className="bold">ROLE</li>
+                        <li>Designer</li>
+                    </ul>
+                    <ul className="list">
+                        <li className="bold">TIME</li>
+                        <li>10 weeks</li>
+                    </ul>
                 </ul>
-                <ul className="list">
-                    <li id="title">TYPE</li>
-                    <li>Digital Arts<br />Capstone Project</li>
-                </ul>
-                <ul className="list">
-                    <li id="title">TIME</li>
-                    <li>10 weeks</li>
-                </ul>
-                <ul className="list">
-                    <li id="title">TOOLS</li>
-                    <li>Maya</li>
-                    <li>Unity</li>
-                </ul>
-            </ul>
-            <a id="spaces-button"
-                className="jump-button"
-                href="#anchor"
-                rel="noreferrer"
-                onClick={trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces Jump Click', 'Portfolio Jump to Prototype')}
-            >Jump to prototype
-            </a>
-            <div className="detail-section">
-                <div id="spaces-color" className="section-title">ROLE</div>
-                <div className="text-block">
-                    <b>3D Modelling:</b> I creacted the 3D model of the room based off of M.C. Escher’s drawing. I also modelled elements such as the flower
-                    vines and lantern that appear as players progress through the puzzles.
-                    <br /><br />
-                    <b>Animation:</b> I animated the flower vines to “grow” as players completed puzzles in order to add delight and signify progression in the game.
-                    <br /><br />
-                    <b>Lighting:</b> I added colored point lights and light shafts to the room to create to a serene calm environment that made the experience feel polished and complete.
+            </div>
+            <iframe width="100%"
+                height="850"
+                src="https://www.youtube.com/embed/wwxOYKauS6U"
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Spaces Walkthrough"
+            />
+
+            <div class="divider-container">
+                <hr class="line" />
+                <span class="label">Dive into the details</span>
+                <hr class="line" />
+            </div>
+            <div className="centered">
+                <div className="arrow-case-study centered">
+                    <ChevronDownIcon className="h-6 w-6 text-black" />
                 </div>
             </div>
 
+            {/* detail section */}
             <div className="detail-section">
-                <div id="spaces-color" className="section-title">CHALLENGE</div>
-                <div id="spaces-text" className="text-callout">
-                    How might we create something in VR that takes full advantage of the technology in a way that allows a player to experience something
-                    they would not be able to in the real world?
-                </div>
+                <div id="grace-deco" />
+                <div className="section-title text-secondary">role</div>
                 <div className="text-block">
-                    For our capstone project in the Digital Arts Minor, we was given free reign to create anything within the realm of digital arts in 10 weeks.
-                    My partner and I spent the first few weeks brainstorming project ideas that ranged from 2D animations to interactive immersive VR storytelling.
-                    Since we were both interested and had experience in creating VR apps. we decided to challenge ourselves to take full advantage of VR’s capabilities and make something unique.
+                    In a team of two, my partner and I created this experience from concept to implementation. We worked closely in the
+                    conceptual stage to define the experience but split the work so I focused on design with a hint of development while she
+                    did the opposite.
+                    <div className="spacing-075" />
+                    The design included:
+                    <ul>
+                        <li>3D modeling the room based off M.C. Escher’s drawing</li>
+                        <li>Modeling & animating the flower vines that grow as players complete puzzles to add delight and signify progress in the game</li>
+                        <li>Lighting the space to create a serene and polished environment</li>
+                    </ul>
                 </div>
             </div>
-
             <div className="detail-section">
-                <div id="spaces-color" className="section-title">IDEATION</div>
+                <div id="grace-deco" />
+                <div className="section-title text-secondary">ideation</div>
                 <div className="text-block">
-                    Our initial idea was to weave storytelling into an escape room experience. Players would find clues in an old hut and discover the life of the
-                    person who used to live there. These clues would hint at how this desolate wasteland you find yourself in came to be. While planning puzzles for
-                    players to find in this hut, my partner and I stumbled upon M.C. Escher’s “Relativity” drawing. We were inspired by this drawing to incorporate a
-                    perspective shift into a puzzle where a players had to walk on the ceiling to realize a painting on a wall contained an upside-down clue.
+                    Within our 10-week timeframe, the first three weeks were rapid experimentation. We tested ideas ranging from 2D
+                    animation to interactive VR storytelling. One early concept explored a narrative-driven escape room: players would uncover
+                    clues in an old hut and piece together the life of its former inhabitant.
+                    <div className="spacing-075" />
+                    While designing puzzles for players to solve, we stumbled upon M.C. Escher’s art—known for its clever use of perspective
+                    and space. His drawing <i>Relativity</i> in particular immediately resonated with us as a compelling parallel to VR's ability to
+                    challenge perception. It inspired us to create a puzzle where players had to walk on the ceiling to notice an upside-down clue in a painting.
+                    <div className="spacing-075" />
+                    After a few more puzzles we began to realize that while this concept was interesting, it didn’t capture what made VR special. Taking a 
+                    step back, we saw that the one perspective shift was easily the most compelling mechanic we had and one that only worked because of VR’s 
+                    unique spatial abilities.
                 </div>
-                {/* <img src={escherDrawing} alt="Relativity by M.C. Escher" width="65%" /> */}
+                <div id="spaces-color" className="text-callout">
+                    We asked ourselves: what if we focused entirely on this idea of perspective? Rather than it being a supporting mechanic, what if we made this the entire experience?
+                </div>
                 <div className="text-block">
-                    After designing a few more puzzles we realized that most of what we had were just a VR version of a real escape room. We wanted to lean into the affordances
-                    of VR and our idea wasn’t accomplishing that goal. We found that this play on perspective that we had stumbled upon was easily the most compelling component.
-                    <br /><br />
-                    After some more brainstorming of how we could incorporate more perspective shifts into our app and hitting dead ends, we realized—what if we stripped everything
-                    else away and only focused on this idea of perspective? What if we just brought Escher’s drawing to life instead? This way, we can leverage VR technology to allow
-                    players to experience something that would be otherwise impossible in the real world.
+                    This reframe pivoted us away from perspective tricks in an escape room and towards a full-fledged experiment of space and perspective.
+                    As we brought Escher’s drawing to life in 3D, it started to feel closer aligned with our goal. By creating an experience that allows 
+                    players inhabit and interact with impossible spaces, we were creating something truly unique to the medium.
                 </div>
-                <div id="spaces-text" className="text-callout">
-                    Bringing Escher’s drawing to life would allow players to physically move about an impossible space and experience the perspective changes that “Relativity” captures.
+                <div id="spaces-color" className="text-callout">
+                    Bringing Escher’s drawing to life would allow players to physically move about an impossible space and experience the perspective shifts that <i>Relativity</i> captures.
                 </div>
-            </div>
-
-            <div className="detail-section">
-                <div id="spaces-color" className="section-title">GAMEPLAY</div>
-                <div className="text-block">
-                    To add another layer of engagement, we wanted to encourage players to navigate about the space rather than simply observe it. So, we created simple perspective puzzles
-                    where players are given a series of photographs, taken from various locations in the room. Their goal is to find where in the room those photos were taken.
+                <div className="img-row">
+                    <div className="case-study-img">
+                        <img src={relativityOrig} alt="Original Relativity drawing" loading="eager" />
+                        <div className="caption">M.C. Escher’s drawing <span className="text-reg">Relativity</span>.</div>
+                    </div>
+                    <div className="case-study-img">
+                        <img src={relativityComp} alt="Relativity 3D recreation" loading="eager" />
+                        <div className="caption">Our recreation of <span className="text-reg">Relativity</span> in 3D.</div>
+                    </div>
                 </div>
-                {/* <img src={puzzles} alt="The five puzzles" width="100%" /> */}
-                <div className="text-block">
-                    When the player has located where a photo was taken, an picture frame appears near them. Once they place the photo in the frame, the picture is replaced with a 2D cube.
-                    The player can then reach into the frame to pull out the 2D cube which materializes into a 3D object. Holding this cube, the player navigates back to the center where
-                    they place it on an empty podium. This action triggers a flower vine to grow and the next photo to appear.
-                    players to experience something that would be otherwise impossible in the real world.
-                </div>
-                {/* <img src={puzzles2} alt="A puzzle walkthrough" width="100%" /> */}
-                <div className="text-block">
-                    Bringing Escher’s drawing to life would allow players to physically move about an impossible space and experience the perspective changes that “Relativity” captures.
-                </div>
-                {/* <img src={arch} alt="Puzzle solution" width="55%" /> */}
-                <div className="text-block">
-                    After completeing all five puzzles, a portal appears between the flower vines. Going through this portal brings the player to another interesting space with more puzzles (coming soon!)
-                </div>
-            </div>
-
-            <div id="anchor" className="detail-section">
-                <div id="spaces-color" className="section-title">WALKTHROUGH</div>
-                <iframe width="100%"
-                    height="850"
-                    src="https://www.youtube.com/embed/wwxOYKauS6U"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="Spaces Walkthrough"
-                />
             </div>
 
             <div className="detail-section">
-                <div id="spaces-color" className="section-title">TAKEAWAYS</div>
+                <div id="grace-deco" />
+                <div className="section-title text-secondary">design</div>
                 <div className="text-block">
-                    My partner and I set out to create a VR experience that used the technology in a worthwhile and meaningful way. We didn’t want VR to feel gimmicky or that we were building
-                    something in VRfor the sake of building something in VR. It was definitely difficult for us to brainstorm with the affordances of this technology and what we could leverage
-                    it to do that would not be possible in the real world.
-                    <br /><br />
-                    This project really pushed me in my 3D modelling abilities having to construct the impossible space based off a single image. I spent countless hours starting at Escher’s drawing,
-                    aligning edges,and welding vertices. I also pushed myself to understand lighting as I wanted the space to feel as visually polished as possible. Through an assorted collection of
-                    point lights, spot lights,particle systems, directional lights and many many renders, I gained a better understanding and appreciation for how important and difficult lighting is.
-                    <br /><br />
-                    I learned that making something that seems simple is in fact very difficult, but I was able to learn so much along the way. It was definitely not a straightforward path to get to
-                    our final product, but I am proud of the work we’ve accomplished in just 10 short weeks from ideation all the way to implementation.
+                    Just bringing Escher’s drawing to life didn't feel enough. It was cool to marvel at the space, but standing in
+                    an impossible space with VR controllers in hand made you want to <i>do</i> something. Simplicity here was key. We didn’t want
+                    to take away from the central theme of perspective and observing an impossible space. So, we layered in a perspective
+                    puzzle game to create engagement and encourage players to explore.
+                    <div className="spacing-075" />
+                    The gameplay consisted of giving players photographs taken from different locations within the space. Their task was the
+                    navigate the environment and identify the exact vantage point each photo was taken. When they found the correct location,
+                    a picture frame would appear where the player could insert the photo. Once they did, the player could move on to the next photograph.
+                </div>
+                <div className="full-caption">
+                    <div className="img-row-w-caption">
+                        <div className="case-study-img">
+                            <img src={puzzle1} alt="Puzzle 1" loading="eager" />
+                        </div>
+                        <div className="case-study-img">
+                            <img src={puzzle2} alt="Puzzle 2" loading="eager" />
+                        </div>
+                        <div className="case-study-img">
+                            <img src={puzzle3} alt="Puzzle 3" loading="eager" />
+                        </div>
+                        <div className="case-study-img">
+                            <img src={puzzle4} alt="Puzzle 4" loading="eager" />
+                        </div>
+                        <div className="case-study-img">
+                            <img src={puzzle5} alt="Puzzle 5" loading="eager" />
+                        </div>
+                    </div>
+                    <div className="caption">The five puzzles to solve—photos taken from different perspectives in the space.</div>
+                </div>
+                <div className="text-block">
+                    To add another moment of delight, we wanted the process of finishing a puzzle to play on spatial manipulation as well. Once the player 
+                    places the photo into the frame, the photo morphs into an image of a cube. The player would then reach in, grab the image, and pull it 
+                    out into a three dimensional cube. With this 3D object now in hand, they could match the pattern with one of five pedestal in the center 
+                    of the space, and unlock the next photo.
+                </div>
+                <div className="img-row">
+                    <div className="case-study-img">
+                        <img src={loop1} alt="gameplay loop 1" loading="eager" />
+                        <div className="caption">Finding the puzzle solution.</div>
+                    </div>
+                    <div className="case-study-img">
+                        <img src={loop2} alt="gameplay loop 2" loading="eager" />
+                        <div className="caption">Placing the photo in the frame.</div>
+                    </div>
+                    <div className="case-study-img">
+                        <img src={loop3} alt="gameplay loop 3" loading="eager" />
+                        <div className="caption">Reaching into the frame.</div>
+                    </div>
+                    <div className="case-study-img">
+                        <img src={loop4} alt="gameplay loop 4" loading="eager" />
+                        <div className="caption">Pulling out a 3D cube.</div>
+                    </div>
+                    <div className="case-study-img">
+                        <img src={loop5} alt="gameplay loop 5" loading="eager" />
+                        <div className="caption">Placing the cube on the podium to trigger the next puzzle.</div>
+                    </div>
+                </div>
+                <div className="text-block">
+                    Completing each of the five puzzles contributed towards a larger goal of opening a portal to the next level.
+                    To signify progress, each time a cube was placed on a pedestal, vines with flowers would grow, slowing forming the frame of the portal.
+                </div>
+                <div className="img-row">
+                    <div className="case-study-img">
+                        <img src={final1} alt="finished puzzles" loading="eager" />
+                        <div className="caption">The completed portal frame after finishing all 5 puzzles.</div>
+                    </div>
+                    <div className="case-study-img">
+                        <img src={final2} alt="Portal appearing" loading="eager" />
+                        <div className="caption">The portal appearing for the next stage.</div>
+                    </div>
+                </div>
+                <div className="text-block">
+                    Lighting and sound design added polish to the experience. We used soft, ambient lighting alongside atmospheric audio to make
+                    the environment not just spatially interesting, but aesthetically pleasing look at. In creating a peaceful and meditative
+                    atmosphere, we encouraged players to observe their surroundings with intention.
+                </div>
+                <div id="spaces-color" className="text-callout">
+                    We leaned into VR's ability to create presence. The result was a quiet, meditative, and exploratory experience that challenged players
+                    to see the world differently—an idea at the heart of both Escher’s work and the affordances of virtual reality.
                 </div>
             </div>
-
+            <div className="detail-section">
+                <div id="grace-deco" />
+                <div className="section-title text-secondary">takeaways</div>
+                <div className="text-block">
+                    My partner and I set out to create a VR experience that used the medium in a meaningful and intentional way. It 
+                    pushed us to make every interaction feel tactile and grounded so we could establish a sense of physical presence. While 
+                    difficult, it led to some of the most compelling moments: jumping from wall to ceiling, pulling a 3D cube out of 
+                    a 2D picture, watching flower vines grow to signify progress—elements that felt far more interesting and visually 
+                    satisfying than typical floating UI panels and pointing a laser to click through menus.
+                    <div className="spacing-075" />
+                    This project pushed me significantly in my 3D modeling skills. I spent countless hours staring at Escher’s drawing, 
+                    trying to understand this impossible space and how to construct it from a single reference image. From there, I spent 
+                    countless hours in Maya aligning edges, adjusting scale, and welding vertices to bring the illusion to life.
+                    <div className="spacing-075" />
+                    I also challenged myself to deepen my understanding of lighting. Making the space polished and atmospheric meant experimenting 
+                    with point lights, spot lights, directional lights, and particle systems in a series of endless test renders to get the feeling 
+                    exactly right. I came away from it with a much better understanding and appreciation of how important lighting can be.
+                    <div className="spacing-075" />
+                    What stood out the most was how difficult simplicity was. Learning when to stop and strip things back to allow one central idea 
+                    to carry the experience was a challenge but ultimately helped focus our purpose and kept us true to our goal. 
+                </div>
+                </div>
         </div>
 
     );

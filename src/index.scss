@@ -3,10 +3,9 @@ $dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
 // $dropshadow-light: 0px 0px 16px rgba(168, 168, 168, 0.25);
 $highlight-pink: #EADCE0;
 $link-purple: #91689B;
-$highlight-blue: #ceeeff;   // grace period case study
+$highlight-blue: #ceeeff; // case study: grace period
 $grace-blue: #013D5B;
-// $lending-light-teal: #C9DDDE;
-// $escher-purple: #5A3CB2;
+$escher-purple: #5A3CB2;
 // $escher-light-purple: #65659F;
 // $spot-bluegray: #84959F;
 // $spot-green: #246e1d;
@@ -22,7 +21,8 @@ $corner-rounding: 8px;
 $font-family: "Raleway", "Roboto", sans-serif;
 
 
-body, html {
+body,
+html {
   font-family: $font-family;
   font-weight: $font-weight-reg;
   background-color: #FAFAFA;
@@ -32,41 +32,57 @@ body, html {
   color: $text-primary;
   scroll-behavior: smooth;
 }
+
 .text-title {
   font-size: 1.5em;
   font-weight: $font-weight-light;
 }
+
 .text-secondary {
   font-size: 1.25em;
   font-weight: $font-weight-reg;
 }
+
 .light {
   font-weight: $font-weight-light;
 }
+
 .bold {
   font-weight: $font-weight-bold;
 }
+
+.text-reg {
+  font-style: normal;
+}
+
 .centered {
   display: flex;
   justify-content: center;
 }
+
 .left {
   text-align: left;
 }
+
 .right {
   text-align: right;
 }
-.spacing-05{
-  margin-bottom: 0.5em;
+
+.spacing-075 {
+  margin-bottom: 0.75rem;
 }
+
 #text-white {
   color: white;
 }
 
 a {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Keeps text color the same as the parent */
-  font: inherit; /* Ensures text follows your global font styles */
+  text-decoration: none;
+  /* Removes underline */
+  color: inherit;
+  /* Keeps text color the same as the parent */
+  font: inherit;
+  /* Ensures text follows your global font styles */
 }
 
 .room {
@@ -84,43 +100,52 @@ a {
 }
 
 .highlight-pink {
-  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, $highlight-pink 50%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, $highlight-pink 50%);
   width: fit-content;
 }
-.highlight-blue {   //for grace period case study
-  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, $highlight-blue 50%);
+
+.highlight-blue {
+  //for grace period case study
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, $highlight-blue 50%);
   width: fit-content;
 }
+
 .home-page {
   margin: auto;
   padding: 0 8rem;
   // max-width: 120rem;
 }
+
 .top-container {
   display: flex;
   flex-direction: column;
   height: 99.5vh;
   justify-content: space-between;
+
   .blink-text {
     display: inherit;
     flex-direction: column;
     padding-top: 10vh;
     padding-left: 22vw;
     height: 10em;
-    .cursor-blinker{
+
+    .cursor-blinker {
       display: inline-block;
       background-color: $text-primary;
-      height: 2.25em; 
-      width: 2px; 
+      height: 2.25em;
+      width: 2px;
       margin-left: 2px;
-      transform: translateY(6px); /* Small vertical adjustment */
+      transform: translateY(6px);
+      /* Small vertical adjustment */
     }
+
     .title {
       display: inline-block;
       font-size: 3em;
       font-weight: 300;
       margin-bottom: 0;
     }
+
     .subhead {
       display: inline-block;
       font-size: 2em;
@@ -132,30 +157,37 @@ a {
     display: flex;
     justify-content: space-between;
     padding-bottom: 2rem;
+
     .option {
       width: 49%;
+
       .labels {
         padding-top: 3vh;
         padding-bottom: 1em;
         padding-left: 5rem;
+
         .label-secondary {
           padding-left: 2rem;
         }
       }
+
       .option-and-arrow {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
+
         .loopy-arrow {
           width: 10rem;
           height: auto;
           object-fit: cover;
           overflow: hidden;
           pointer-events: none;
-          transform: translateX(0.5vw) translateY(4vh); /* Small vertical adjustment */
+          transform: translateX(0.5vw) translateY(4vh);
+          /* Small vertical adjustment */
         }
       }
     }
+
     img {
       width: 100%;
       height: auto;
@@ -164,8 +196,9 @@ a {
     }
   }
 
-  $easing: cubic-bezier(.25,1.7,.35,.8);
+  $easing: cubic-bezier(.25, 1.7, .35, .8);
   $duration: 0.3s;
+
   .arrow-icon {
     height: 2.8em;
     width: 2.5em;
@@ -175,6 +208,7 @@ a {
     cursor: pointer;
     border-radius: 4px;
   }
+
   .left-bar,
   .right-bar {
     position: absolute;
@@ -183,28 +217,37 @@ a {
     height: 10px;
     display: block;
     float: right;
-    transition: transform $duration $easing; /* Smooth animation */
+    transition: transform $duration $easing;
+    /* Smooth animation */
   }
+
   /* Default positions */
   .left-bar {
     top: 2.25em;
     left: -6px;
     transform: rotate(35deg);
-    transform-origin: bottom right; /* Set anchor to bottom-right */
+    transform-origin: bottom right;
+    /* Set anchor to bottom-right */
   }
+
   .right-bar {
     top: 2.25em;
     left: 32px;
     transform: rotate(-35deg);
-    transform-origin: bottom left; /* Set anchor to bottom-left */
+    transform-origin: bottom left;
+    /* Set anchor to bottom-left */
   }
+
   /* Rotate animation */
   .arrow-icon.rotate .left-bar {
-    transform: rotate(45deg) translateX(-2px); /* Rotates +10 degrees */
+    transform: rotate(45deg) translateX(-2px);
+    /* Rotates +10 degrees */
   }
+
   .arrow-icon.rotate .right-bar {
     transform: rotate(-45deg) translateX(2px);
   }
+
   .left-bar:after,
   .right-bar:after {
     content: "";
@@ -216,9 +259,11 @@ a {
     transition: all $duration $easing;
     z-index: -1;
   }
+
   .left-bar:after {
     border-radius: 6px 10px 10px 6px;
   }
+
   .right-bar:after {
     border-radius: 10px 6px 6px 10px;
   }
@@ -243,6 +288,7 @@ a {
     margin: auto;
     padding-bottom: 5vh;
   }
+
   .text {
     display: flex;
     flex-direction: column;
@@ -251,6 +297,7 @@ a {
     margin-bottom: 4vh;
     padding: 0 8rem;
     max-width: 96rem;
+
     .bio {
       padding-top: 0.5em;
       line-height: 1.75;
@@ -264,6 +311,7 @@ a {
   background: #FFFFFF;
   box-shadow: $dropshadow;
   overflow: hidden;
+
   .nav-bar-content {
     display: flex;
     flex-direction: row;
@@ -271,25 +319,29 @@ a {
     margin: auto;
     padding: 0 8rem;
     max-width: 96rem;
+
     .logo {
       display: inherit;
       align-items: center;
       font-size: 1.5em;
     }
+
     .logo:hover {
       color: $link-purple;
       transition: color 0.2s;
     }
+
     .nav-links {
       position: relative;
-  
+
       ul {
         display: flex;
         flex-direction: row;
         justify-content: center;
         list-style-type: none;
         gap: 6rem;
-        li > a {
+
+        li>a {
           display: flex;
           font-family: inherit;
           font-size: inherit;
@@ -297,6 +349,7 @@ a {
           color: inherit;
           text-align: right;
         }
+
         a:hover {
           color: $link-purple;
           transition: color 0.2s;
@@ -307,6 +360,7 @@ a {
 
 
 }
+
 .sliding-underline {
   position: absolute;
   height: 2px;
@@ -317,7 +371,8 @@ a {
 .active-link {
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-style: wavy; /* or solid, dotted, etc. */
+  text-decoration-style: wavy;
+  /* or solid, dotted, etc. */
   font-weight: bold;
 }
 
@@ -337,21 +392,23 @@ a {
   flex-direction: row;
   justify-content: center;
   gap: 1.5rem;
-  margin: auto;
-  padding: 0 8rem;
-  max-width: 96rem;
+
+  // background-color: red;
   .card {
     display: inherit;
     flex-direction: column;
     flex: 1;
-    max-width: 23vw;
+    max-width: 22vw;
     box-shadow: $dropshadow;
     border-radius: $corner-rounding;
-    a, .card-tile {
+
+    a,
+    .card-tile {
       display: inherit;
       flex-direction: column;
       text-decoration: none;
       height: 100%;
+
       img {
         display: block;
         object-fit: cover;
@@ -359,6 +416,7 @@ a {
         border-top-left-radius: $corner-rounding;
         border-top-right-radius: $corner-rounding;
       }
+
       .description {
         display: flex;
         flex-direction: column;
@@ -373,13 +431,15 @@ a {
           align-items: flex-end;
           height: 100%;
           padding-top: 0.5em;
+
           ul {
             display: inherit;
             flex-direction: column;
             justify-content: center;
             list-style-type: none;
             margin: 0;
-            padding: 0; 
+            padding: 0;
+
             li {
               color: #838383;
             }
@@ -388,6 +448,7 @@ a {
       }
     }
   }
+
   .card:hover {
     box-shadow: $dropshadow-hover;
   }
@@ -396,6 +457,7 @@ a {
 .spacer {
   padding: 2.75em;
 }
+
 .mini-section {
   display: flex;
   flex-direction: column;
@@ -413,10 +475,12 @@ a {
     justify-content: space-between;
     padding: 2rem 3rem;
     padding-bottom: 1.5em;
+
     .title {
       font-weight: $font-weight-bold;
-    }      
+    }
   }
+
   .body {
     display: flex;
     flex-direction: row;
@@ -425,11 +489,13 @@ a {
     padding: 0 3rem;
     padding-bottom: 1.5rem;
     flex-wrap: wrap;
+
     .item {
       display: flex;
       flex-direction: column;
       flex: 1;
       min-width: 300px;
+
       img {
         display: block;
         object-fit: cover;
@@ -437,26 +503,32 @@ a {
         height: auto;
         margin-bottom: 1rem;
       }
+
       .description {
         display: inherit;
         flex-direction: column;
+
         .name {
           font-weight: bold;
           margin-bottom: 0.5rem;
         }
+
         .description1 {
           font-style: italic;
           margin-bottom: 0.5rem;
         }
+
         .description2 {
           margin-bottom: 1rem;
         }
+
         .links {
           display: inherit;
           flex-direction: row;
           font-weight: $font-weight-med;
           color: $link-purple;
           gap: 8px;
+
           a:hover {
             font-weight: $font-weight-bold;
             text-decoration: underline;
@@ -479,19 +551,23 @@ a {
   margin: auto;
   padding: 0 8rem;
   max-width: 96rem;
+
   .row {
     display: flex;
     flex-direction: row;
     justify-content: center;
     // flex-wrap: wrap;
     gap: 0.5em;
+
     .img {
       height: auto;
       object-fit: cover;
       overflow: hidden;
       padding-bottom: 0.5rem;
     }
-    .resize-img {   // for images smaller than the width, fill the space
+
+    .resize-img {
+      // for images smaller than the width, fill the space
       flex: 1;
       height: auto;
       object-fit: cover;
@@ -503,6 +579,7 @@ a {
       display: flex;
       flex-direction: column;
       height: 100%;
+
       img {
         width: 100%;
       }
@@ -514,15 +591,18 @@ a {
 .secondary-nav-links {
   position: relative;
   padding-top: 1rem;
+
   ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
     list-style-type: none;
     padding-bottom: 0.5rem;
+
     li {
       display: flex;
       align-items: center;
+
       a {
         display: flex;
         font-family: inherit;
@@ -531,8 +611,9 @@ a {
         color: inherit;
         text-align: right;
       }
+
       // Pipe between links
-      & + li::before {
+      &+li::before {
         content: "|";
         margin: 0 3rem; // controls space between links
         font-weight: 400;
@@ -600,9 +681,10 @@ a {
   position: fixed;
   bottom: 72px;
   right: 120px;
+
   .icon {
-    display: flex;          
-    align-items: center;     
+    display: flex;
+    align-items: center;
     justify-content: center;
     width: 64px;
     height: 64px;
@@ -612,6 +694,7 @@ a {
     border-radius: 100px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+
     .arrow {
       height: 40px;
       width: 40px;
@@ -620,11 +703,13 @@ a {
       stroke-width: 2;
     }
   }
+
   .back-text {
     margin-top: 16px;
     font-family: $font-family;
     font-size: 1rem;
   }
+
   &:hover {
     .icon {
       background-color: #91689B;
@@ -707,83 +792,131 @@ a {
 //       }
 //     }
 //   }
+
+// case studies
 .content-case-study {
   margin: auto;
   padding: 0 8rem;
-  max-width: 96rem;
+  max-width: 80rem;
 }
 
-  .top-card {
-    background-size: contain;
-    background-repeat:no-repeat;
-    height: 36rem;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
+.top-card {
+  flex: 1;
+  height: 32rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+
+  .text {
+    width: 36%;
     display: flex;
-    justify-content: space-between;
-    .text {
-      width: 36%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem;
-      padding-top: 8rem;
-      .title {
-        font-size: 2em;
-        padding-bottom: 8px;
-      }
-      .headline {
-        padding-bottom: 24px;
-        font-weight: 400;
-      }
-      // a {
-      //   text-decoration: none;
-      //   width: fit-content;
-      //   font-weight: 600;
-      //   color: #262626;
-      //   padding: 0.5em;
-      //   border: 1.5px solid #262626;
-      //   border-radius: 5px;
-      // }
-      // .white-button {
-      //   color: white;
-      //   border: 1.5px solid white;
-      // }
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+    padding-top: 4rem;
+
+    .title {
+      font-size: 2em;
+      padding-bottom: 8px;
     }
-    .header-img {
-      // background-color: red;
-      width: 50%;
-      height: auto;
-      padding-right: 4rem;
-      align-self: flex-end;
-      pointer-events: none;
-      img {
-        width: 100%;
-        display: block;
-      }
+
+    .headline {
+      padding-bottom: 24px;
+      font-weight: 400;
+    }
+
+    a {
+      text-decoration: none;
+      width: fit-content;
+      font-weight: 600;
+      color: #262626;
+      padding: 0.5em;
+      border: 1.5px solid #262626;
+      border-radius: 5px;
+    }
+
+    .white-button {
+      color: white;
+      border: 1.5px solid white;
+      transition: background-color 0.1s ease;
+    }
+    .white-button:hover {
+      color: white;
+      background-color: #00000075;
+      border: 1.5px solid white;
     }
   }
-  #grace-top-background {
-    background-color: $grace-blue;
+
+  .header-img {
+    // background-color: red;
+    width: 50%;
+    height: auto;
+    padding-right: 4rem;
+    align-self: flex-end;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      display: block;
+    }
   }
-  #spaces-top-background {
-    background-image: url(./assets/images/caseStudies/spaces/spacesTopBackground.png);
-  }
+}
+
+#grace-top-background {
+  background-color: $grace-blue;
+}
+
+#spaces-top-background {
+  background-image: url(./assets/images/caseStudies/spaces/spacesTopBackground.png);
+  background-size: cover;       /* or contain, or specific sizes like 100% 100% */
+  background-position: center;  /* or top, bottom, left, right, or custom values */
+  // background-repeat: no-repeat; /* or repeat-x, repeat-y */
+  background-color: #f0f0f0;    /* fallback color if image fails to load */
+}
+
 //   #spot-top-background {
 //     background-image: url(./img/portfolio/spot/spotTopBackground.png);
 //   }
 //   #burnout-top-background {
 //     background-image: url(./img/portfolio/burnout/burnoutTopBackground.png);
 //   }
+.full-caption {
+  padding-bottom: 5rem;
+}
+.img-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+.img-row-w-caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0;
+  padding-bottom: 0;
+}
 .case-study-img {
   display: flex;
-  justify-content: center;
-  padding-bottom: 3rem;
+  flex-direction: column;
+  flex: 1;
   img {
-    margin:auto;
-    width: 65%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+    // flex: 1 0 auto;
+    padding-bottom: 0.5rem;
+
   }
 }
+.caption {
+  font-style: italic;
+}
+
 #grace-chart-img {
   width: 65%;
 }
@@ -800,10 +933,12 @@ a {
     justify-content: center;
     margin: 0;
     padding: 0;
+
     .list {
       padding: 1.5rem 1rem;
       padding-bottom: 2rem;
       text-align: center;
+
       li {
         list-style-type: none;
         width: 12rem;
@@ -819,137 +954,122 @@ a {
   gap: 16px;
   padding-top: 3rem;
 }
+
 .line {
   flex-grow: 1;
   height: 1px;
   background-color: #aaa;
   border: none;
 }
+
 .label {
   font-weight: 600;
   white-space: nowrap;
 }
- .arrow-case-study {
+
+.arrow-case-study {
   display: flex;
   width: 2.5em;
   padding-bottom: 2rem;
 }
 
-  // .jump-button {
-  //   display: flex;
-  //   margin: auto;
-  //   margin-bottom: 6em;
-  //   text-decoration: none;
-  //   width: fit-content;
-  //   font-weight: 600;
-  //   color: #262626;
-  //   background-color: white;
-  //   padding: 0.5em 1em;
-  //   border: 1.5px solid #262626;
-  //   border-radius: 5px;
-  // }
-  // //color dependent on the case study page
-  // #spaces-button:hover {
-  //   box-shadow: $dropshadow;
-  //   background-color: $link-purple;
-  //   color: white;
-  // }
-  // #spot-button:hover {
-  //   box-shadow: $dropshadow-light;
-  //   background-color: $spot-bluegray;
-  //   color: white;
-  // }
-  .summary-section {
-    margin-bottom: 2rem;
+.summary-section {
+  margin-bottom: 2rem;
+}
+
+.detail-section {
+  margin-bottom: 96px;
+
+  .section-title {
+    padding-top: 0.75rem;
+    margin-bottom: 1rem;
   }
-  .detail-section {
-    margin-bottom: 96px;
+}
+  //color dependent on the case study page
+  #grace-deco {
+    border-top: 3px solid $grace-blue;
+    width: 2em;
+  }
 
-    .section-title {
-      padding-top: 0.75rem;
-      margin-bottom: 1rem;
-    }
-     //color dependent on the case study page
-      #grace-deco {
-        border-top: 3px solid  $grace-blue;
-        width: 2em;
-      }
-//     #spaces-color {
-//       border-top: 3px solid $escher-purple;
-//     }
-//     #spot-color {
-//       border-top: 3px solid $spot-green;
-//     }
-      .deco-white-callout {     //for spacing purposes
-        margin-top: 0.5rem;
-        margin-bottom: 0.75rem;
-      }
+  //     #spaces-color {
+  //       border-top: 3px solid $escher-purple;
+  //     }
+  //     #spot-color {
+  //       border-top: 3px solid $spot-green;
+  //     }
+  .deco-white-callout {
+    //for spacing purposes
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
 
-    .text-callout {
-      margin: auto;
-      width: 75%;
-      font-weight: 600;
-      font-size: 1.25rem;
-      margin-top: 3rem;
-      margin-bottom: 4rem;
-    }
-    .gray-callouts {
-      display: flex;
-      flex-direction: row;
-      margin: 3rem auto;
-      margin-bottom: 4rem;
-      width: 75%;
-      gap: 2rem;
-      .gray-card {
-        background-color: #EEEEEE;
-        flex: 1;
-        padding: 2rem;
-        border-radius: $corner-rounding;
-      }
-    }
-    .white-callout {
-      display: flex;
-      margin: 3rem auto;
-      margin-bottom: 4rem;
-      width: 75%;
-      box-shadow: $dropshadow;
+  .text-callout {
+    margin: auto;
+    width: 75%;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .gray-callouts {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4rem;
+    gap: 2rem;
+
+    .gray-card {
+      background-color: #EEEEEE;
+      flex: 1;
+      padding: 2rem;
       border-radius: $corner-rounding;
-      .white-card {
-        padding: 2rem;
-      }
     }
-    //color dependent on the case study page
-    #grace-text {
-      color: $grace-blue;
-    }
-//     #spaces-text {
-//       color: $escher-purple;
-//     }
-//     #spot-text {
-//       color: $spot-green;
-//     }
-//     img {
-//       display: flex;
-//       margin: auto;
-//       margin-bottom: 72px;
-//     }
-//   }
-//   #burnout-img {
-//     display: flex;
-//     margin: 4em auto;
-//     width: 50%;
   }
 
-  .text-block {
-    margin-bottom: 2rem;
-    // ul {
-    //   list-style-position: outside;
-    //   margin: 16px 0;
-    //   li {
-    //     margin-bottom: 8px;
-    //   }
-    // }
+  .white-callout {
+    display: flex;
+    margin-bottom: 4rem;
+    box-shadow: $dropshadow;
+    border-radius: $corner-rounding;
+
+    .white-card {
+      padding: 2rem;
+    }
   }
+
+  //color dependent on the case study page
+  #grace-color {
+    color: $grace-blue;
+  }
+
+  #spaces-color {
+    color: $escher-purple;
+  }
+
+  //     #spaces-text {
+  //       color: $escher-purple;
+  //     }
+  //     #spot-text {
+  //       color: $spot-green;
+  //     }
+  //     img {
+  //       display: flex;
+  //       margin: auto;
+  //       margin-bottom: 72px;
+  //     }
+  //   }
+  //   #burnout-img {
+  //     display: flex;
+  //     margin: 4em auto;
+  //     width: 50%;
+
+
+.text-block {
+  margin-bottom: 2rem;
+  ul {
+    margin-top: 0.5rem;
+  }
+}
 
 //   .footer {
 //     display: flex;

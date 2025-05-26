@@ -63,7 +63,8 @@ const MiniPlayer3D = ({currState,setCurrState, onScreenClick }) => {
             height: "100%", 
             objectFit: "contain",  // ✅ This makes the image fit the container while maintaining aspect ratio
             maxWidth: "100%", 
-            maxHeight: "100%" }} 
+            maxHeight: "100%",
+            pointerEvents: "none" }} 
         />
     </div>
   )

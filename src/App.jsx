@@ -1,6 +1,7 @@
 import {Route, BrowserRouter as Router, Routes, Navigate} from 'react-router-dom';
 import './App.css'
 
+import Home from './staticPages/Home';
 import About from './staticPages/About';
 import { InteractivePortfolio} from '.';
 import StaticPortfolio from './staticPages/StaticPortfolio';
@@ -20,7 +21,8 @@ function App() {
     <main className='bg-slate-300/20'>
       <Router>
         <Routes>
-          <Route path="/" element={<About/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="about" element={<About/>}/>
           <Route path="interactive" element={<InteractivePortfolio/>}/>
 
           <Route path="static" element={<StaticPortfolio />} >

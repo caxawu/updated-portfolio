@@ -35,13 +35,15 @@ const AnimPlayer3D = ({currState, onScreenClick }) => {
   }, [currState]);
 
   return (
-    <div style={{ width: "2000px", height: "1500px", backgroundColor: "red"}} onClick={handleClickVariable} >
+    <div style={{ width: "2240px", height: "1850px", borderRadius: "130px", overflow: "hidden", backgroundColor: "red"}} onClick={handleClickVariable} >
         <img 
           src={currentImage} 
           alt="animation clip" 
-          style={{ width: "auto", 
+          style={{ 
+            width: "100%", 
             height: "100%", 
-            objectFit: "cover" }} 
+            objectFit: "cover",
+            pointerEvents: "none" }} 
         />
     </div>
   )

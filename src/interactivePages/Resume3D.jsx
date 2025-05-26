@@ -8,8 +8,8 @@ const Resume3D = ({currState, onScreenClick, setCurrState}) => {
   };
 
   return (
-    <div style={{width: "1775px", height: "2300px", fontSize: "14px", overflow:"hidden", backgroundColor: "red"}} onClick={handleClickVariable}>
-      <div style={{ transform: "scale(1.2)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
+    <div style={{width: "1760px", height: "2280px", fontSize: "14px", overflow:"hidden", backgroundColor: "white"}} onClick={handleClickVariable}>
+      <div style={{ transform: "scale(1.19)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
         <iframe 
           title="embed" 
           width={1480} 

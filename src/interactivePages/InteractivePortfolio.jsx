@@ -6,10 +6,11 @@ import Loader from '../components/Loader'
 import Room from './Room'
   
 // npm run dev
+//gltfjsx C:\Users\cathy\Desktop\Programs\react\updated-portfolio\src\assets\3d\deskFinal.glb
 
 const InteractivePortfolio = () => {
   const defaultCamera = useRef(new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000));
-  const [cameraPosition, setCameraPosition] = useState([-12, 3, -8]);     // starting position
+  const [cameraPosition, setCameraPosition] = useState([-13, 3, -9]);     // starting position
   const [cameraLookAt, setCameraRotation] = useState([16, -7, -32]);      //starting rotation
   const [ focusState, setFocusState ] = useState ('home');
   let navigateTo = useNavigate();
@@ -26,7 +27,7 @@ const InteractivePortfolio = () => {
 
   useEffect(() => {
     if ( focusState === 'home' ) {
-      updateCameraPosition([-12, 3, -8]);         // starting position
+      updateCameraPosition([-13, 3, -9]);         // starting position
       updateCameraLookAt([16, -7, -32]);          //starting rotation
 
     } else if ( focusState === 'table' ) {
@@ -48,7 +49,7 @@ const InteractivePortfolio = () => {
     } else if ( focusState === 'vrShelf' ) {
       updateCameraPosition([11, 10, -41]);
       updateCameraLookAt([35, -12, -36]);
-      navigateTo('XR');
+      // navigateTo('XR');
 
     } else if ( focusState === 'spaces' ) {
       updateCameraPosition([22, 6, -52]);
@@ -142,7 +143,7 @@ const InteractivePortfolio = () => {
 
         <Suspense fallback={<Loader />}>
           {/* Expense: ambient < hemisphere < directional */}
-          <ambientLight intensity={6}/>
+          <ambientLight intensity={2.5} color="#ffffff"/>
           {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
           {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
           <Room
@@ -157,7 +158,6 @@ const InteractivePortfolio = () => {
             defaultCamera={defaultCamera.current}
             setFocusState={setFocusState}
           />
-
         </Suspense>
   
         <CanvasContent

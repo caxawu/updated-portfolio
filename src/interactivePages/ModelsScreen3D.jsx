@@ -41,17 +41,17 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
 
 
   return (
-    <div style={{ width: "2650px", height: "1900px", backgroundColor: "black"}} onClick={handleClickVariable}>
+    <div style={{ width: "2468px", height: "1390px", backgroundColor: "red"}} onClick={handleClickVariable}>
 
       {/* left arrow */}
       <button 
         onClick={handlePrevImage}
         style={{
           position: "absolute",
-          width: "200px",
-          height: "200px",
+          width: "150px",
+          height: "150px",
           top: "93%",
-          left: "86%",
+          left: "88%",
           transform: "translate(-50%, -50%) rotate(45deg)",
           background: "#FFFFFF",
           borderRadius: "300px",
@@ -62,8 +62,8 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
         >
         <div    // arrow
           style={{
-            width: "100px",
-            height: "100px",
+            width: "50px",
+            height: "50px",
             border: "solid #262626",
             borderWidth: "0 0 30px 30px",
             borderRadius: "20px",
@@ -78,8 +78,8 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
         onClick={handleNextImage}
         style={{
           position: "absolute",
-          width: "200px",
-          height: "200px",
+          width: "150px",
+          height: "150px",
           top: "93%",
           left: "95%",
           transform: "translate(-50%, -50%) rotate(45deg)",
@@ -92,8 +92,8 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
         >
         <div    // arrow
           style={{
-            width: "100px",
-            height: "100px",
+            width: "50px",
+            height: "50px",
             border: "solid #262626",
             borderWidth: "30px 30px 0 0",
             borderRadius: "20px",
@@ -108,7 +108,8 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
           alt="image" 
           style={{ width: "auto", 
             height: "100%", 
-            objectFit: "contain" }} 
+            objectFit: "contain",
+            pointerEvents: "none" }} 
         />
     </div>
   )

@@ -20,7 +20,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
           width={1480} 
           height={2800} 
           // src="https://xinaicathywu.me/other-works" 
-          src="https://unrivaled-lebkuchen.netlify.app/"
+          src="https://unrivaled-lebkuchen.netlify.app/static/mini-projects"
           style={{       
             overflow: currState === 'screen2' ? 'auto' : 'hidden', 
             pointerEvents: currState === 'screen2' ? 'auto' : 'none'  

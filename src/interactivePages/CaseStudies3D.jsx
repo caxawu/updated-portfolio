@@ -14,7 +14,7 @@ const CaseStudies3D = ({currState, onScreenClick }) => {
         width={1445} 
         height={800} 
         // src="https://xinaicathywu.me/portfolio"
-        src="https://unrivaled-lebkuchen.netlify.app/"
+        src="https://unrivaled-lebkuchen.netlify.app/static/case-studies"
         style={{       
           overflow: currState === 'screen1' ? 'auto' : 'hidden', 
           pointerEvents: currState === 'screen1' ? 'auto' : 'none'  

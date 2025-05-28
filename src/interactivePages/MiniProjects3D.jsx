@@ -36,7 +36,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
           transform: "scale(1.2)",
           transformOrigin: "0 0",
           imageRendering: "crisp-edges",
-          backgroundColor: "red",
+          backgroundColor: "black",
           width: "1480px",
           height: "2800px",
           overflow: currState === "screen2" ? "auto" : "hidden",

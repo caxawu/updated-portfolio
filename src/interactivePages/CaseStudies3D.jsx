@@ -11,7 +11,7 @@ const CaseStudies3D = ({ currState, onScreenClick }) => {
           transform: "scale(1.785)",
           transformOrigin: "0 0",
           imageRendering: "crisp-edges",
-          backgroundColor: "red",
+          backgroundColor: "black",
           width: "1445px",
           height: "800px",
           overflow: currState === "screen1" ? "auto" : "hidden",

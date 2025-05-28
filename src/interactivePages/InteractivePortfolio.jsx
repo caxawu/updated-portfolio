@@ -10,7 +10,7 @@ import Room from './Room'
 
 const InteractivePortfolio = () => {
   const defaultCamera = useRef(new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000));
-  const [cameraPosition, setCameraPosition] = useState([-13, 3, -9]);     // starting position
+  const [cameraPosition, setCameraPosition] = useState([-11, 3, -11]);     // starting position
   const [cameraLookAt, setCameraRotation] = useState([16, -7, -32]);      //starting rotation
   const [ focusState, setFocusState ] = useState ('home');
   let navigateTo = useNavigate();
@@ -27,7 +27,7 @@ const InteractivePortfolio = () => {
 
   useEffect(() => {
     if ( focusState === 'home' ) {
-      updateCameraPosition([-13, 3, -9]);         // starting position
+      updateCameraPosition([-11, 3, -11]);         // starting position
       updateCameraLookAt([16, -7, -32]);          //starting rotation
 
     } else if ( focusState === 'table' ) {
@@ -106,7 +106,7 @@ const InteractivePortfolio = () => {
     } else if ( focusState === 'boat' ) {
       updateCameraPosition([33, 3, -40.5]);
       updateCameraLookAt([2000, -1000, -36]);
-    } else if ( focusState === 'plant' ) {
+    } else if ( focusState === 'flower' ) {
       updateCameraPosition([30, 9, -44]);
       updateCameraLookAt([2000, -500, -36]);
     }

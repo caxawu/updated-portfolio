@@ -84,12 +84,12 @@ export function Model(props) {
           </group>
           <mesh name="cushion" geometry={nodes.cushion.geometry} material={materials.m_cushionBaked} />
           <group name="monitor1">
-            <mesh name="monitor1Shape" geometry={nodes.monitor1Shape.geometry} material={materials.m_whiteMonitorBaked} />
-            <mesh name="monitor1Shape_1" geometry={nodes.monitor1Shape_1.geometry} material={materials.m_blackFlat} />
+            <mesh name="monitor1Shape" geometry={nodes.monitor1Shape.geometry} material={materials.m_blackFlat} />
+            <mesh name="monitor1Shape_1" geometry={nodes.monitor1Shape_1.geometry} material={materials.m_whiteMonitorBaked} />
           </group>
           <group name="monitor2">
-            <mesh name="monitor2Shape" geometry={nodes.monitor2Shape.geometry} material={materials.m_whiteMonitorBaked} />
-            <mesh name="monitor2Shape_1" geometry={nodes.monitor2Shape_1.geometry} material={materials.m_blackFlat} />
+            <mesh name="monitor2Shape" geometry={nodes.monitor2Shape.geometry} material={materials.m_blackFlat} />
+            <mesh name="monitor2Shape_1" geometry={nodes.monitor2Shape_1.geometry} material={materials.m_whiteMonitorBaked} />
           </group>
           <mesh name="resume" geometry={nodes.resume.geometry} material={materials.m_whitePaperBaked} />
           <mesh name="table_1" geometry={nodes.table_1.geometry} material={materials.m_tableHeadsetWhiteBaked} position={[0, 1.114, 0]} />
@@ -110,94 +110,94 @@ export function Model(props) {
           <mesh name="modelsScreen" geometry={nodes.modelsScreen.geometry} material={materials.m_digitalFrameBaked} position={[-386.894, 312.47, 26.769]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={[0.108, 0.004, 4.959]} />
           <mesh name="flowerHitbox" geometry={nodes.flowerHitbox.geometry} material={materials.m_hitbox1} position={[-370.295, 293.418, 155.738]} scale={3.793} />
           <group name="flower">
-            <mesh name="flowerShape" geometry={nodes.flowerShape.geometry} material={materials.m_plantPotBaked} />
-            <mesh name="flowerShape_1" geometry={nodes.flowerShape_1.geometry} material={materials.m_lilyBaked} />
-            <mesh name="flowerShape_2" geometry={nodes.flowerShape_2.geometry} material={materials.m_plantBroadLeafBaked} />
-            <mesh name="flowerShape_3" geometry={nodes.flowerShape_3.geometry} material={materials.m_lily1Baked} />
-            <mesh name="flowerShape_4" geometry={nodes.flowerShape_4.geometry} material={materials.m_plantStemBaked} />
-            <mesh name="flowerShape_5" geometry={nodes.flowerShape_5.geometry} material={materials.m_lilyWater} />
-            <mesh name="flowerShape_6" geometry={nodes.flowerShape_6.geometry} material={materials.m_flowerLeafsBaked} />
-            <mesh name="flowerShape_7" geometry={nodes.flowerShape_7.geometry} material={materials.m_flowerCenterBaked} />
+            <mesh name="flowerShape" geometry={nodes.flowerShape.geometry} material={materials.m_plantStemBaked} />
+            <mesh name="flowerShape_1" geometry={nodes.flowerShape_1.geometry} material={materials.m_flowerCenterBaked} />
+            <mesh name="flowerShape_2" geometry={nodes.flowerShape_2.geometry} material={materials.m_flowerLeafsBaked} />
+            <mesh name="flowerShape_3" geometry={nodes.flowerShape_3.geometry} material={materials.m_lilyBaked} />
+            <mesh name="flowerShape_4" geometry={nodes.flowerShape_4.geometry} material={materials.m_plantBroadLeafBaked} />
+            <mesh name="flowerShape_5" geometry={nodes.flowerShape_5.geometry} material={materials.m_plantPotBaked} />
+            <mesh name="flowerShape_6" geometry={nodes.flowerShape_6.geometry} material={materials.m_lily1Baked} />
+            <mesh name="flowerShape_7" geometry={nodes.flowerShape_7.geometry} material={materials.m_lilyWater} />
           </group>
           <group name="boat">
-            <mesh name="boatShape" geometry={nodes.boatShape.geometry} material={materials.m_oarBaked} />
-            <mesh name="boatShape_1" geometry={nodes.boatShape_1.geometry} material={materials.m_lanternHandleBaked} />
-            <mesh name="boatShape_2" geometry={nodes.boatShape_2.geometry} material={materials.m_lanternGlass} />
-            <mesh name="boatShape_3" geometry={nodes.boatShape_3.geometry} material={materials.m_boatBaked} />
+            <mesh name="boatShape" geometry={nodes.boatShape.geometry} material={materials.m_lanternHandleBaked} />
+            <mesh name="boatShape_1" geometry={nodes.boatShape_1.geometry} material={materials.m_boatRust} />
+            <mesh name="boatShape_2" geometry={nodes.boatShape_2.geometry} material={materials.m_boatBaked} />
+            <mesh name="boatShape_3" geometry={nodes.boatShape_3.geometry} material={materials.m_lanternGlass} />
             <mesh name="boatShape_4" geometry={nodes.boatShape_4.geometry} material={materials.m_lanternBaked} />
-            <mesh name="boatShape_5" geometry={nodes.boatShape_5.geometry} material={materials.m_boatRust} />
+            <mesh name="boatShape_5" geometry={nodes.boatShape_5.geometry} material={materials.m_oarBaked} />
           </group>
           <group name="egg">
-            <mesh name="eggShape" geometry={nodes.eggShape.geometry} material={materials.m_dioGrass1Baked1} />
-            <mesh name="eggShape_1" geometry={nodes.eggShape_1.geometry} material={materials.m_dioRockBaked} />
-            <mesh name="eggShape_2" geometry={nodes.eggShape_2.geometry} material={materials.m_dioOarBaked} />
-            <mesh name="eggShape_3" geometry={nodes.eggShape_3.geometry} material={materials.m_eggShellBaked} />
-            <mesh name="eggShape_4" geometry={nodes.eggShape_4.geometry} material={materials.m_eggInsideBaked} />
-            <mesh name="eggShape_5" geometry={nodes.eggShape_5.geometry} material={materials.m_butterflyYellowBaked} />
-            <mesh name="eggShape_6" geometry={nodes.eggShape_6.geometry} material={materials.m_dioStemBaked} />
-            <mesh name="eggShape_7" geometry={nodes.eggShape_7.geometry} material={materials.m_dioLeafSmallBaked} />
-            <mesh name="eggShape_8" geometry={nodes.eggShape_8.geometry} material={materials.m_dioTwigBaked} />
-            <mesh name="eggShape_9" geometry={nodes.eggShape_9.geometry} material={materials.m_dioLilyPadBaked} />
-            <mesh name="eggShape_10" geometry={nodes.eggShape_10.geometry} material={materials.m_dioBoatBaked} />
-            <mesh name="eggShape_11" geometry={nodes.eggShape_11.geometry} material={materials.m_butterflyBlueBaked} />
-            <mesh name="eggShape_12" geometry={nodes.eggShape_12.geometry} material={materials.m_dioLeafBigBaked1} />
-            <mesh name="eggShape_13" geometry={nodes.eggShape_13.geometry} material={materials.m_dioWaterBaked} />
-            <mesh name="eggShape_14" geometry={nodes.eggShape_14.geometry} material={materials.m_eggHolderBaked} />
+            <mesh name="eggShape" geometry={nodes.eggShape.geometry} material={materials.m_eggShellBaked} />
+            <mesh name="eggShape_1" geometry={nodes.eggShape_1.geometry} material={materials.m_dioBoatBaked} />
+            <mesh name="eggShape_2" geometry={nodes.eggShape_2.geometry} material={materials.m_dioWaterBaked} />
+            <mesh name="eggShape_3" geometry={nodes.eggShape_3.geometry} material={materials.m_dioStemBaked} />
+            <mesh name="eggShape_4" geometry={nodes.eggShape_4.geometry} material={materials.m_dioLeafSmallBaked} />
+            <mesh name="eggShape_5" geometry={nodes.eggShape_5.geometry} material={materials.m_dioTwigBaked} />
+            <mesh name="eggShape_6" geometry={nodes.eggShape_6.geometry} material={materials.m_dioLilyPadBaked} />
+            <mesh name="eggShape_7" geometry={nodes.eggShape_7.geometry} material={materials.m_butterflyBlueBaked} />
+            <mesh name="eggShape_8" geometry={nodes.eggShape_8.geometry} material={materials.m_eggHolderBaked} />
+            <mesh name="eggShape_9" geometry={nodes.eggShape_9.geometry} material={materials.m_dioRockBaked} />
+            <mesh name="eggShape_10" geometry={nodes.eggShape_10.geometry} material={materials.m_eggInsideBaked} />
+            <mesh name="eggShape_11" geometry={nodes.eggShape_11.geometry} material={materials.m_dioOarBaked} />
+            <mesh name="eggShape_12" geometry={nodes.eggShape_12.geometry} material={materials.m_dioGrass1Baked1} />
+            <mesh name="eggShape_13" geometry={nodes.eggShape_13.geometry} material={materials.m_butterflyYellowBaked} />
+            <mesh name="eggShape_14" geometry={nodes.eggShape_14.geometry} material={materials.m_dioLeafBigBaked1} />
           </group>
           <mesh name="eggHitbox" geometry={nodes.eggHitbox.geometry} material={materials.m_hitbox1} position={[-364.516, 255.032, 25.599]} scale={0.846} />
           <group name="animPlayer">
-            <mesh name="animPlayerShape" geometry={nodes.animPlayerShape.geometry} material={materials.m_keycapYellowBaked} />
-            <mesh name="animPlayerShape_1" geometry={nodes.animPlayerShape_1.geometry} material={materials.m_animPlayerBaked} />
+            <mesh name="animPlayerShape" geometry={nodes.animPlayerShape.geometry} material={materials.m_animPlayerBaked} />
+            <mesh name="animPlayerShape_1" geometry={nodes.animPlayerShape_1.geometry} material={materials.m_keycapYellowBaked} />
           </group>
         </group>
         <group name="artWall">
           <group name="miniPlayer">
             <group name="miniPlayer_1">
-              <mesh name="miniPlayerShape" geometry={nodes.miniPlayerShape.geometry} material={materials.m_blackBaked} />
-              <mesh name="miniPlayerShape_1" geometry={nodes.miniPlayerShape_1.geometry} material={materials.m_miniPlayerFaceBaked} />
+              <mesh name="miniPlayerShape" geometry={nodes.miniPlayerShape.geometry} material={materials.m_miniPlayerFaceBaked} />
+              <mesh name="miniPlayerShape_1" geometry={nodes.miniPlayerShape_1.geometry} material={materials.m_miniPlayerWoodBaked} />
               <mesh name="miniPlayerShape_2" geometry={nodes.miniPlayerShape_2.geometry} material={materials.m_blackRubberBaked} />
-              <mesh name="miniPlayerShape_3" geometry={nodes.miniPlayerShape_3.geometry} material={materials.m_miniPlayerWoodBaked} />
+              <mesh name="miniPlayerShape_3" geometry={nodes.miniPlayerShape_3.geometry} material={materials.m_blackBaked} />
             </group>
             <mesh name="arrowLeft" geometry={nodes.arrowLeft.geometry} material={materials.m_controlButtonsBaked} />
             <mesh name="arrowRight" geometry={nodes.arrowRight.geometry} material={materials.m_controlButtonsBaked} />
           </group>
           <mesh name="_shelf1" geometry={nodes._shelf1.geometry} material={materials.m_woodShelfBaked} position={[64.396, 212.258, 359.733]} rotation={[Math.PI / 2, 0, 0]} scale={[0.182, 0.039, 0.602]} />
           <group name="inkwell">
-            <mesh name="inkwellShape" geometry={nodes.inkwellShape.geometry} material={materials.m_inkWaxBaked} />
+            <mesh name="inkwellShape" geometry={nodes.inkwellShape.geometry} material={materials.m_inkRibbonBaked} />
             <mesh name="inkwellShape_1" geometry={nodes.inkwellShape_1.geometry} material={materials.m_glass} />
-            <mesh name="inkwellShape_2" geometry={nodes.inkwellShape_2.geometry} material={materials.m_inkRibbonBaked} />
+            <mesh name="inkwellShape_2" geometry={nodes.inkwellShape_2.geometry} material={materials.m_inkWaxBaked} />
             <mesh name="inkwellShape_3" geometry={nodes.inkwellShape_3.geometry} material={materials.m_inkBaked} />
           </group>
           <group name="brushes">
-            <mesh name="brushesShape" geometry={nodes.brushesShape.geometry} material={materials.m_paintbrushHairDarkBrownBaked} />
-            <mesh name="brushesShape_1" geometry={nodes.brushesShape_1.geometry} material={materials.m_ceramicCupBaked} />
-            <mesh name="brushesShape_2" geometry={nodes.brushesShape_2.geometry} material={materials.m_paintbrushHandleBrownBaked} />
-            <mesh name="brushesShape_3" geometry={nodes.brushesShape_3.geometry} material={materials.m_paintbrushMetalGoldBaked} />
-            <mesh name="brushesShape_4" geometry={nodes.brushesShape_4.geometry} material={materials.m_paintbrushMetalSilverBaked} />
-            <mesh name="brushesShape_5" geometry={nodes.brushesShape_5.geometry} material={materials.m_blackBaked} />
-            <mesh name="brushesShape_6" geometry={nodes.brushesShape_6.geometry} material={materials.m_paintbrushHairBrownBaked} />
-            <mesh name="brushesShape_7" geometry={nodes.brushesShape_7.geometry} material={materials.m_paintbrushHandleBaked} />
+            <mesh name="brushesShape" geometry={nodes.brushesShape.geometry} material={materials.m_paintbrushHairBrownBaked} />
+            <mesh name="brushesShape_1" geometry={nodes.brushesShape_1.geometry} material={materials.m_blackBaked} />
+            <mesh name="brushesShape_2" geometry={nodes.brushesShape_2.geometry} material={materials.m_ceramicCupBaked} />
+            <mesh name="brushesShape_3" geometry={nodes.brushesShape_3.geometry} material={materials.m_paintbrushHandleBrownBaked} />
+            <mesh name="brushesShape_4" geometry={nodes.brushesShape_4.geometry} material={materials.m_paintbrushHairDarkBrownBaked} />
+            <mesh name="brushesShape_5" geometry={nodes.brushesShape_5.geometry} material={materials.m_paintbrushMetalGoldBaked} />
+            <mesh name="brushesShape_6" geometry={nodes.brushesShape_6.geometry} material={materials.m_paintbrushHandleBaked} />
+            <mesh name="brushesShape_7" geometry={nodes.brushesShape_7.geometry} material={materials.m_paintbrushMetalSilverBaked} />
           </group>
           <group name="tidalBasin">
-            <mesh name="tidalBasinShape" geometry={nodes.tidalBasinShape.geometry} material={materials.m_blackBaked} />
-            <mesh name="tidalBasinShape_1" geometry={nodes.tidalBasinShape_1.geometry} material={materials.m_artTidalBasin} />
-            <mesh name="tidalBasinShape_2" geometry={nodes.tidalBasinShape_2.geometry} material={materials.m_whitePaperBaked} />
+            <mesh name="tidalBasinShape" geometry={nodes.tidalBasinShape.geometry} material={materials.m_artTidalBasin} />
+            <mesh name="tidalBasinShape_1" geometry={nodes.tidalBasinShape_1.geometry} material={materials.m_whitePaperBaked} />
+            <mesh name="tidalBasinShape_2" geometry={nodes.tidalBasinShape_2.geometry} material={materials.m_blackBaked} />
           </group>
           <group name="door">
             <mesh name="doorShape" geometry={nodes.doorShape.geometry} material={materials.m_artPaintingDoor} />
             <mesh name="doorShape_1" geometry={nodes.doorShape_1.geometry} material={materials.m_paintingFrameBaked} />
           </group>
           <group name="fruit">
-            <mesh name="fruitShape" geometry={nodes.fruitShape.geometry} material={materials.m_paintingFrameBaked} />
-            <mesh name="fruitShape_1" geometry={nodes.fruitShape_1.geometry} material={materials.m_artPaintingFruit} />
+            <mesh name="fruitShape" geometry={nodes.fruitShape.geometry} material={materials.m_artPaintingFruit} />
+            <mesh name="fruitShape_1" geometry={nodes.fruitShape_1.geometry} material={materials.m_paintingFrameBaked} />
           </group>
           <group name="landscape">
-            <mesh name="landscapeShape" geometry={nodes.landscapeShape.geometry} material={materials.m_artPaintingLandscape} />
-            <mesh name="landscapeShape_1" geometry={nodes.landscapeShape_1.geometry} material={materials.m_paintingFrameBaked} />
+            <mesh name="landscapeShape" geometry={nodes.landscapeShape.geometry} material={materials.m_paintingFrameBaked} />
+            <mesh name="landscapeShape_1" geometry={nodes.landscapeShape_1.geometry} material={materials.m_artPaintingLandscape} />
           </group>
           <group name="birds">
-            <mesh name="birdsShape" geometry={nodes.birdsShape.geometry} material={materials.m_artPaintingBirds} />
-            <mesh name="birdsShape_1" geometry={nodes.birdsShape_1.geometry} material={materials.m_paintingFrameBaked} />
+            <mesh name="birdsShape" geometry={nodes.birdsShape.geometry} material={materials.m_paintingFrameBaked} />
+            <mesh name="birdsShape_1" geometry={nodes.birdsShape_1.geometry} material={materials.m_artPaintingBirds} />
           </group>
           <group name="corkboard">
             <mesh name="corkboardShape" geometry={nodes.corkboardShape.geometry} material={materials.m_whiteFrameBaked} />
@@ -214,8 +214,8 @@ export function Model(props) {
             <group name="snake" position={[-222.788, 162.804, 353.509]} rotation={[-Math.PI, 0.552, -Math.PI]} scale={1.241}>
               <primitive object={nodes.joint69} />
               <group name="snakeMesh" position={[-3.494, -131.207, 336.739]} rotation={[-Math.PI, -0.552, -Math.PI]} scale={0.806}>
-                <skinnedMesh name="snakeMeshShape" geometry={nodes.snakeMeshShape.geometry} material={materials.m_snake_eyesBaked} skeleton={nodes.snakeMeshShape.skeleton} />
-                <skinnedMesh name="snakeMeshShape_1" geometry={nodes.snakeMeshShape_1.geometry} material={materials.m_snakeSkinBaked} skeleton={nodes.snakeMeshShape_1.skeleton} />
+                <skinnedMesh name="snakeMeshShape" geometry={nodes.snakeMeshShape.geometry} material={materials.m_snakeSkinBaked} skeleton={nodes.snakeMeshShape.skeleton} />
+                <skinnedMesh name="snakeMeshShape_1" geometry={nodes.snakeMeshShape_1.geometry} material={materials.m_snake_eyesBaked} skeleton={nodes.snakeMeshShape_1.skeleton} />
               </group>
             </group>
             <group name="tarsier" position={[-32.071, 9.257, -32.657]} rotation={[0, 0.104, 0]}>
@@ -239,19 +239,23 @@ export function Model(props) {
           <mesh name="descAnivisionButton" geometry={nodes.descAnivisionButton.geometry} material={materials.m_descAnivisionButtonBaked} position={[-273.87, 135.326, 265.207]} rotation={[0.673, -0.664, 0.451]} scale={1.566} />
           <group name="headset">
             <mesh name="headsetShape" geometry={nodes.headsetShape.geometry} material={materials.m_headsetStandBaked} />
-            <mesh name="headsetShape_1" geometry={nodes.headsetShape_1.geometry} material={materials.m_blackRubberBaked} />
-            <mesh name="headsetShape_2" geometry={nodes.headsetShape_2.geometry} material={materials.m_headsetStrapBaked} />
+            <mesh name="headsetShape_1" geometry={nodes.headsetShape_1.geometry} material={materials.m_headsetStrapBaked} />
+            <mesh name="headsetShape_2" geometry={nodes.headsetShape_2.geometry} material={materials.m_blackRubberBaked} />
             <mesh name="headsetShape_3" geometry={nodes.headsetShape_3.geometry} material={materials.m_tableHeadsetWhiteBaked} />
           </group>
         </group>
-        <group name="aiSkyDomeLight1" />
-        <PerspectiveCamera name="persp" makeDefault={false} far={10000} fov={37.849} position={[501.227, 391.158, -835.979]} rotation={[-2.871, 0.549, 2.998]} />
         <group name="architecture">
-          <mesh name="architectureShape" geometry={nodes.architectureShape.geometry} material={materials.m_woodShelfBaked} />
-          <mesh name="architectureShape_1" geometry={nodes.architectureShape_1.geometry} material={materials.m_wallBaked} />
-          <mesh name="architectureShape_2" geometry={nodes.architectureShape_2.geometry} material={materials.m_rugBaked} />
-          <mesh name="architectureShape_3" geometry={nodes.architectureShape_3.geometry} material={materials.m_floorBaked} />
+          <mesh name="wallLeft" geometry={nodes.wallLeft.geometry} material={materials.m_wallBaked} position={[16.411, 0, -794.885]} rotation={[0, -Math.PI / 2, 0]} scale={[1, 1, -1]} />
+          <group name="architecture_1">
+            <mesh name="architectureShape" geometry={nodes.architectureShape.geometry} material={materials.m_rugBaked} />
+            <mesh name="architectureShape_1" geometry={nodes.architectureShape_1.geometry} material={materials.m_floorBaked} />
+            <mesh name="architectureShape_2" geometry={nodes.architectureShape_2.geometry} material={materials.m_wallBaked} />
+            <mesh name="architectureShape_3" geometry={nodes.architectureShape_3.geometry} material={materials.m_woodShelfBaked} />
+          </group>
         </group>
+        <PerspectiveCamera name="persp" makeDefault={false} far={10000} fov={37.849} position={[120.013, 413.963, -670.33]} rotation={[-2.876, 0.175, 3.094]}>
+          <group name="__DEFAULT_LIGHT__" position={[120.013, 413.963, -670.33]} rotation={[-0.262, 0, 0]} />
+        </PerspectiveCamera>
       </group>
     </group>
   )

@@ -35,7 +35,7 @@ const AnimPlayer3D = ({currState, onScreenClick }) => {
   }, [currState]);
 
   return (
-    <div style={{ width: "2240px", height: "1850px", borderRadius: "130px", overflow: "hidden", backgroundColor: "red"}} onClick={handleClickVariable} >
+    <div style={{ width: "2240px", height: "1850px", borderRadius: "130px", overflow: "hidden", backgroundColor: "black"}} onClick={handleClickVariable} >
         <img 
           src={currentImage} 
           alt="animation clip" 

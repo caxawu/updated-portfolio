@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useMemo } from 'react';
+import { forwardRef, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { shaderMaterial } from '@react-three/drei';
@@ -20,31 +20,31 @@ const FloatiesMaterial = shaderMaterial(
     }
   `,
   `
-varying float vAlpha;
+    varying float vAlpha;
 
-void main() {
-  vec2 coord = gl_PointCoord - vec2(0.5);
-  float dist = length(coord);
+    void main() {
+      vec2 coord = gl_PointCoord - vec2(0.5);
+      float dist = length(coord);
 
-  // Create a hard circular mask
-  if (dist > 0.5) discard;
+      // Create a hard circular mask
+      if (dist > 0.5) discard;
 
-  // Smooth fade near the edges
-  float circle = smoothstep(0.5, 0.4, dist);
+      // Smooth fade near the edges
+      float circle = smoothstep(0.5, 0.4, dist);
 
-  vec3 yellowTint = vec3(1.1, 1.0, 0.85);
-  gl_FragColor = vec4(yellowTint, circle * vAlpha);
-}
+      vec3 yellowTint = vec3(1.1, 1.0, 0.85);
+      gl_FragColor = vec4(yellowTint, circle * vAlpha);
+    }
   `
 );
 extend({ FloatiesMaterial });
 
-const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }, ref) => {
+const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }) => {
   const pointsRef = useRef();
 
   // === ✨ Floaties Config ===
   const count = 200;
-  const spread = 500.0;                 // area particles can spawn in
+  const spread = 500.0;
   const baseAlpha = 0.1;
   const flickerAmplitude = 0.15;
   const flickerSpeed = 2;
@@ -52,7 +52,9 @@ const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }, ref) => {
   const maxSize = 700;
   const speed = 5;
 
-  const { particles, positions, alphas, sizes } = useMemo(() => {
+  // Lock-in particle data
+  const particlesData = useRef(null);
+  if (!particlesData.current) {
     const particles = [];
     const positions = new Float32Array(count * 3);
     const alphas = new Float32Array(count);
@@ -85,8 +87,10 @@ const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }, ref) => {
       sizes[i] = minSize + Math.random() * (maxSize - minSize);
     }
 
-    return { particles, positions, alphas, sizes };
-  }, [count, origin]);
+    particlesData.current = { particles, positions, alphas, sizes };
+  }
+
+  const { particles, positions, alphas, sizes } = particlesData.current;
 
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
@@ -96,16 +100,13 @@ const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }, ref) => {
     for (let i = 0; i < count; i++) {
       const p = particles[i];
 
-      // Wobble movement
       const wobble = Math.sin(p.wobblePhase + time * p.wobbleSpeed) * p.wobbleAmplitude;
 
-      // Apply velocity and wobble
       p.position.addScaledVector(p.velocity, delta);
       posArray[i * 3 + 0] = p.position.x + wobble;
       posArray[i * 3 + 1] = p.position.y + wobble;
       posArray[i * 3 + 2] = p.position.z + wobble;
 
-      // Soft flicker
       alphaArray[i] = baseAlpha + Math.sin(time * flickerSpeed + p.flickerOffset) * flickerAmplitude;
     }
 

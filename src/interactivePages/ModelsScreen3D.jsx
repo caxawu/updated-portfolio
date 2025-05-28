@@ -41,7 +41,7 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
 
 
   return (
-    <div style={{ width: "2468px", height: "1390px", backgroundColor: "red"}} onClick={handleClickVariable}>
+    <div style={{ width: "2580px", height: "1400px", backgroundColor: "black"}} onClick={handleClickVariable}>
 
       {/* left arrow */}
       <button 
@@ -65,10 +65,10 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
             width: "50px",
             height: "50px",
             border: "solid #262626",
-            borderWidth: "0 0 30px 30px",
+            borderWidth: "0 0 24px 24px",
             borderRadius: "20px",
             display: "inline-block",
-            padding: "8px",
+            padding: "2px",
             transform: "translate(10px, -10px)",
         }}/>
       </button>
@@ -95,10 +95,10 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
             width: "50px",
             height: "50px",
             border: "solid #262626",
-            borderWidth: "30px 30px 0 0",
+            borderWidth: "24px 24px 0 0",
             borderRadius: "20px",
             display: "inline-block",
-            padding: "8px",
+            padding: "2px",
             transform: "translate(-10px, 10px)",
         }}/>
       </button>
@@ -106,9 +106,10 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
         <img 
           src={images[currentIndex]} 
           alt="image" 
-          style={{ width: "auto", 
+          style={{ 
+            width: "100%", 
             height: "100%", 
-            objectFit: "contain",
+            objectFit: "cover",
             pointerEvents: "none" }} 
         />
     </div>

@@ -28,7 +28,7 @@ const InteractivePortfolio = () => {
   useEffect(() => {
     if ( focusState === 'home' ) {
       updateCameraPosition([-11, 3, -11]);         // starting position
-      updateCameraLookAt([16, -7, -32]);          //starting rotation
+      updateCameraLookAt([16, -7, -32]);           //starting rotation
 
     } else if ( focusState === 'table' ) {
       updateCameraPosition([8, -6, -46]);
@@ -53,7 +53,11 @@ const InteractivePortfolio = () => {
 
     } else if ( focusState === 'spaces' ) {
       updateCameraPosition([22, 6, -52]);
-      updateCameraLookAt([35, -12, -36]);
+      updateCameraLookAt([35, -10, -36]);
+
+    } else if ( focusState === 'spacesScreen' ) {
+      updateCameraPosition([22, 3, -52]);
+      updateCameraLookAt([35, -0, -36]);
 
     } else if ( focusState === 'anivision' ) {
       updateCameraPosition([22, -4, -52]);
@@ -143,7 +147,7 @@ const InteractivePortfolio = () => {
 
         <Suspense fallback={<Loader />}>
           {/* Expense: ambient < hemisphere < directional */}
-          <ambientLight intensity={2.5} color="#ffffff"/>
+          <ambientLight intensity={3.2} color="#ffffff"/>
           {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
           {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
           <Room
@@ -201,4 +205,4 @@ const CanvasContent = ({ defaultCamera, cameraPosition, cameraLookAt }) => {
   return null;
 };
 
-export default InteractivePortfolio
+export default InteractivePortfolio;

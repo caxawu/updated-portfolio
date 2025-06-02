@@ -1,3 +1,5 @@
+$background-color: #FAFAFA;
+
 $dropshadow: 0px 0px 16px 0px rgba(89, 89, 89, 0.25);
 $dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
 // $dropshadow-light: 0px 0px 16px rgba(168, 168, 168, 0.25);
@@ -25,7 +27,7 @@ body,
 html {
   font-family: $font-family;
   font-weight: $font-weight-reg;
-  background-color: #FAFAFA;
+  background-color: $background-color;
   font-size: 18px;
   line-height: 1.5;
   margin: 0;

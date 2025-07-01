@@ -7,6 +7,7 @@ $highlight-pink: #EADCE0;
 $link-purple: #91689B;
 $highlight-blue: #ceeeff; // case study: grace period
 $grace-blue: #013D5B;
+$goals-blue: #255F82;
 $escher-purple: #5A3CB2;
 // $escher-light-purple: #65659F;
 // $spot-bluegray: #84959F;
@@ -28,7 +29,7 @@ html {
   font-family: $font-family;
   font-weight: $font-weight-reg;
   background-color: $background-color;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   margin: 0;
   color: $text-primary;
@@ -72,6 +73,10 @@ html {
 
 .spacing-075 {
   margin-bottom: 0.75rem;
+}
+
+.spacing-2 {
+  margin-bottom: 2rem;
 }
 
 .spacing-3 {
@@ -897,20 +902,22 @@ $duration: 0.3s;
     }
   }
 }
+  #align-center {
+    align-self: center;
+  }
 
 #grace-top-background {
   background-color: $grace-blue;
+}
+#goals-top-background {
+  background-color: $goals-blue;
 }
 
 #spaces-top-background {
   background-image: url(./assets/images/caseStudies/spaces/spacesTopBackground.png);
   background-size: cover;
-  /* or contain, or specific sizes like 100% 100% */
   background-position: center;
-  /* or top, bottom, left, right, or custom values */
-  // background-repeat: no-repeat; /* or repeat-x, repeat-y */
   background-color: #f0f0f0;
-  /* fallback color if image fails to load */
 }
 
 //   #spot-top-background {
@@ -944,6 +951,7 @@ $duration: 0.3s;
   display: flex;
   flex-direction: column;
   flex: 1;
+  justify-content: center;
 
   img {
     width: 100%;
@@ -960,9 +968,27 @@ $duration: 0.3s;
   font-style: italic;
 }
 
+#goals-setup {
+  justify-content: center;
+  padding: 0 8rem;
+  padding-bottom: 5rem;
+  .img-row-w-caption {
+    justify-content: flex-start;
+    gap: 0;
+    img {
+      width: 25%;
+    }
+  }
+}
+
 #grace-chart-img {
   width: 65%;
 }
+#percentageSplitImg {
+  width: 80%;
+  padding: 2rem 4rem;
+}
+
 
 .summary {
   display: flex;
@@ -1086,6 +1112,11 @@ $duration: 0.3s;
   color: $grace-blue;
 }
 
+#goals-color {
+  color: $goals-blue;
+}
+
+
 #spaces-color {
   color: $escher-purple;
 }
@@ -1113,6 +1144,38 @@ $duration: 0.3s;
 
   ul {
     margin-top: 0.5rem;
+  }
+}
+
+.pie-charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .pie {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      align-items: center;
+      text-align: center;
+      img {
+        width: 50%;
+      }
+  }
+}
+
+.savings-rules {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem;
+  gap: 0.5rem;
+  .savings-rule {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    img {
+      width: 56px;
+    }
   }
 }
 

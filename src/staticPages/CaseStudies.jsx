@@ -51,11 +51,11 @@ const CaseStudies = (props) => {
                     </div>
                 </div>
                 <div className="card">
-                    <div className="card-tile" onClick={() => navigateTo('/static/case-studies/CD-grace-period')}>
+                    <div className="card-tile" onClick={() => navigateTo('/static/case-studies/savings-goals')}>
                         <img src={savingsGoals} alt="Savings goals" loading="eager" />
                         <div className="description">
                             <div className='bold spacing-05'>Savings goals</div>
-                            Lorem ipsum
+                            Helping customers build financial resilience as they save towards tangible savings goals.
                             <div className="tags">
                                 <ul className="left">
                                     <li>UI/UX Design</li>

@@ -253,8 +253,8 @@ export function Model(props) {
             <mesh name="architectureShape_3" geometry={nodes.architectureShape_3.geometry} material={materials.m_wallBaked} />
           </group>
         </group>
-        <PerspectiveCamera name="persp" makeDefault={false} far={10000} fov={37.849} position={[29.488, 397.754, -96.975]} rotation={[-2.552, 1.247, 2.576]}>
-          <group name="__DEFAULT_LIGHT__" position={[29.488, 397.754, -96.975]} rotation={[-0.262, 0, 0]} />
+        <PerspectiveCamera name="persp" makeDefault={false} far={10000} fov={37.849} position={[262.897, 345.586, -729.68]} rotation={[-2.988, 0.297, 3.096]}>
+          <group name="__DEFAULT_LIGHT__" position={[262.897, 345.586, -729.68]} rotation={[-0.262, 0, 0]} />
         </PerspectiveCamera>
       </group>
     </group>

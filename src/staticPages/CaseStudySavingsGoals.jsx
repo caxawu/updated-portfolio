@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import PasswordProtected from './PasswordProtected';
 
 import goalsHeader from '../assets/images/caseStudies/goals/goals-header.png'
 import pie1 from '../assets/images/caseStudies/goals/pie1.png'
@@ -42,7 +43,10 @@ const CaseStudySavingsGoals = (props) => {
         console.log('page=>', window.location.pathname);
     }, []);
 
+    
+
     return (
+            <PasswordProtected>
         <div className="content-case-study">
             <ToTopButton />
             <div id="goals-top-background" className="top-card">
@@ -386,6 +390,7 @@ const CaseStudySavingsGoals = (props) => {
 
 
         </div>
+        </PasswordProtected>
 
     );
 };

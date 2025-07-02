@@ -19,6 +19,11 @@ import funding2 from '../assets/images/caseStudies/goals/funding2.png'
 import funding3 from '../assets/images/caseStudies/goals/funding3.png'
 import manual1 from '../assets/images/caseStudies/goals/manual1.png'
 import manual2 from '../assets/images/caseStudies/goals/manual2.png'
+import goalSelect from '../assets/images/caseStudies/goals/goalSelect.png'
+import details from '../assets/images/caseStudies/goals/details.png'
+import hub from '../assets/images/caseStudies/goals/hub.png'
+import detailsComplete from '../assets/images/caseStudies/goals/detailsComplete.png'
+import hubComplete from '../assets/images/caseStudies/goals/hubComplete.png'
 
 import ToTopButton from './ToTopButton';
 
@@ -151,7 +156,7 @@ const CaseStudySavingsGoals = (props) => {
                 <div className="text-block">
                     <b className='highlight-blue'>Who are we solving for?</b>
                     <br />
-                    The customer base we were solving for were those with low balances and/or no demonstrated history of savings balance growth.
+                    The customer base we are solving for are those with low balances and/or no demonstrated history of savings balance growth.
                     We defined this with three populations:
                     <div className="spacing-2" />
                     <b>Thin margins</b> don’t think savings are worth it because they think that the small amounts remaining after covering
@@ -174,21 +179,21 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="spacing-2" />
                     <b>Motivational needs</b>
                     <ul>
-                        <li>Customers need motivation and accountability to sustain a savings behavior</li>
-                        <li>Customer need something to spark intrinsic motivation to feel that savings is meaningful and worthwhile</li>
-                        <li>Customers need extrinsic motivation that that makes them feel supported and confident that they are on the right track in their savings journey</li>
+                        <li>Motivation and accountability to sustain a savings behavior</li>
+                        <li>Intrinsic motivation to feel that savings is meaningful and worthwhile</li>
+                        <li>Extrinsic motivation that that makes them feel supported and confident that they are on the right track in their savings journey</li>
                     </ul>
                     <div className="spacing-075" />
                     <b>Tool-based needs</b>
                     <ul>
-                        <li>Customers need tools to make savings more tangible and less abstract</li>
-                        <li>Customers need a stable savings cushion as they struggle to increase their financial agency without one</li>
-                        <li>Customers need a simple tool/process as cognitive load and manual work to save for specific goals inhibits success and discourages a sustained savings behavior</li>
+                        <li>Tools to make savings more tangible and less abstract</li>
+                        <li>A stable savings cushion in order to increase their financial agency</li>
+                        <li>A simple tool/process as cognitive load and manual work to save for specific goals inhibits success and discourages a sustained savings behavior</li>
                     </ul>
                 </div>
                 <div id="goals-color" className="text-callout">
-                    Hypothesis: Savings goals would allow customers to organize their savings in a way that relates to their real-world goals,
-                    making saving feel more tangible. Automating this process will make this a low-effort experience for users while giving
+                    Hypothesis: Savings goals would allow customers to organize their savings in a way that relates to their real-world goals—making
+                    saving feel more tangible. Automating this process will make this a low-effort experience for users while giving
                     them control over their savings.
                 </div>
             </div>
@@ -204,17 +209,17 @@ const CaseStudySavingsGoals = (props) => {
                         <li>What happens when they reach their goal? Can they increase the goal amount? </li>
                         <li>What happens when customers withdraw money from their savings? Can goals be “protected” or will a withdrawal take away from their goal progress?</li>
                     </ul>
-                    Each question came with a whole series of experiential implications and sparked their own set of more questions. 
-                    So, we started with the core one that had the most impact over the entire experience: funding a goal.
+                    Each question came with a whole series of experiential implications and sparked their own set of more questions.
+                    So, we started withone that had the most impact over the entire experience: funding a goal.
                 </div>
-                 <div className="spacing-3" />
+                <div className="spacing-3" />
                 <div className="text-block">
                     <b className='highlight-blue'>Goal funding</b>
                     <div className="spacing-075" />
                     <b>Savings rules</b>
                     <br />
-                    As a guiding principle, we wanted to automate as much as possible to make the barrier of entry low for customers unfamiliar with savings. 
-                    Within the suite of savings features, we already had savings rules: 
+                    As a guiding principle, we wanted to automate as much as possible to make the barrier of entry low for customers unfamiliar with savings.
+                    Within the suite of savings features, we already had savings rules:
                     <div className='savings-rules'>
                         <div className='savings-rule'>
                             <img src={autopilot} alt="autopilot icon" loading="eager" />
@@ -241,20 +246,20 @@ const CaseStudySavingsGoals = (props) => {
                             </div>
                         </div>
                     </div>
-                    The idea was to tie these savings rules as the method to automatically fund goals. Maybe you want to save up for a pair of shoes so 
-                    you fund it with Autopilot where you’ll wait until you have enough to make your purchase. Maybe you want to go on vacation by August 
-                    so you fund it with Recurring Transfers to add $50 into your goal every week. Automatically funding a goal this way our the ideal 
+                    The idea was to tie these savings rules as the method to automatically fund goals. Maybe you want to save up for a pair of shoes so
+                    you fund it with Autopilot where you’ll wait until you have enough to make your purchase. Maybe you want to go on vacation by August
+                    so you fund it with Recurring Transfers to add $50 into your goal every week. Automatically funding a goal this way our the ideal
                     customer experience and would leverage an existing savings feature to make the entire suite of savings tools more robust.
                 </div>
                 <div className="white-callout">
                     <div className="white-card">
                         <b >Tech constraints</b>
                         <div id="grace-deco" className="deco-white-callout"></div>
-                        As we pursued this approach further, we discovered that linking savings rules as the method of funding goals would significantly 
-                        increase the build time and time to market. It would require multiple tech teams from across the business to tag transactions appropriately 
-                        so that we would be able to link rules to a specific goal. 
+                        As we pursued this approach further, we discovered that linking savings rules as the method of funding goals would significantly
+                        increase the build time and consequently, time to market. It would require multiple tech teams from across the business to tag transactions appropriately
+                        so that we would be able to link rules to a specific goal.
                         <br /><br />
-                        In working with our product and tech partners, we determined that this ideal approach was not feasible for MVP. So, we had to pivot: how 
+                        In working with our product and tech partners, we determined that this ideal approach was not feasible for MVP. So, we had to pivot: how
                         do we still make this as simple as possible for customers through automation?
                     </div>
                 </div>
@@ -267,14 +272,15 @@ const CaseStudySavingsGoals = (props) => {
                         <img id="percentageSplitImg" src={percentageSplit} alt="percentage split visual" loading="eager" />
                     </div>
                 </div>
-
-                In early user concept testing, savings rules tested better. So, the biggest challenge with using percentages was making it a simple and easy to understand process. 
-                The whole point of automatic funding was to make it easier for customers. We had to be careful not to create a system that was confusing and end up creating more work.
-                <br /><br />
-                Through multiple rounds of iteration and user testing, we landed on a solution. We’d distribute money coming into a savings account evenly into each goal by default but 
-                give the customers the option to change the percentages as they see fit. Truing back to our goal to get customers to start saving, we placed emphasis on the goal creation. 
-                Funding was our main challenge. For customers, it should be nearly invisible. So, our setup sequence consisted of 3 screens followed by a success screen. The only nod to 
-                funding was on the success screen—stating that the goal would be funded automatically, but you have the option to customize if you would like.
+                <div className='text-block'>
+                    In early user concept testing, savings rules tested better. So, the biggest challenge with using percentages was making it a simple and easy to understand process.
+                    The whole point of automatic funding was to make it easier for customers. We had to be careful not to create a system that was confusing and end up creating more work.
+                    <br /><br />
+                    Through multiple rounds of iteration and user testing, we landed on a solution. We’d distribute money coming into a savings account evenly into each goal by default but
+                    give the customers the option to change the percentages as they see fit. Truing back to our goal to get customers to <i>start</i> saving, we placed emphasis on the goal creation.
+                    Funding was our main challenge. But for customers, it should be nearly invisible. So, our setup sequence consisted of only 3 screens and a success screen. The only nod to
+                    funding was on the success screen—stating that the goal would be funded automatically, but you have the option to customize if you would like.
+                </div>
                 <div className="full-caption" id="goals-setup">
                     <div className="img-row-w-caption">
                         <img src={setup1} alt="name your goal screen" loading="eager" />
@@ -285,7 +291,7 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="caption">The set up flow: focused on goal creation with the only nod to funding being on the success screen, after the goal is created.</div>
                 </div>
 
-                If someone wanted a little more control and prioritize a goal over another, they could access the “Edit funding” page and update to their desired percentage distributions. 
+                If someone wanted a little more control and prioritize a goal over another, they could access the “Edit funding” page and update to their desired percentage distributions.
                 With helper texts and error states, we’d help them along the way with the math so funding felt simple and easy to adjust.
                 <div className="full-caption" id="goals-setup">
                     <div className="img-row-w-caption" >
@@ -296,15 +302,67 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="caption">Editing the default percentage distribution to a custom distribution.</div>
                 </div>
 
-                To give customers even more control over funding, we added manual money movement. Customers could move money from their savings account not already in a goal (unallocated) 
+                To give customers even more control over funding, we added manual money movement. Customers could move money from their savings account not already in a goal (unallocated)
                 into any goal of choice. This also gives customers the added flexibility to jumpstart their goal.
-                                <div className="full-caption" id="goals-setup">
+                <div className="full-caption" id="goals-setup">
                     <div className="img-row-w-caption" >
                         <img src={manual1} alt="50/50 split screen" loading="eager" />
                         <img src={manual2} alt="10/50 split screen" loading="eager" />
                     </div>
                     <div className="caption">Manually adding money into a goal.</div>
                 </div>
+
+                <div className='text-block'>
+                    With funding figured out, the other pieces fell into place. Most notable were goal creation, progress tracking, and goal completion.
+                </div>
+                <div className='text-block'>
+                    <b className='highlight-blue'>Goal creation</b>
+                    <div className='lr-img-text'>
+                        <div className='imgs'>
+                            <img src={goalSelect} alt="goal selection screen" loading="eager" />
+                        </div>
+                        <div className='text'>
+                            <b>What to prioritize?</b>
+                            <br/>
+                            To reduce the mental load on knowing how to save, we ran user testing on what people tend to save towards. We distilled this into the most common categories 
+                            for customers to select. This contributes both towards making it easy for customers to set up a goal in this flow and to help them frame what they might want to save for. 
+                            <br/><br/>
+                            We highlight emergency fund as the most prominent item to help customers build financial resilience, but do not force them into it. To start building a savings habit, 
+                            any sort of savings is a step in the right direction: even if its towards a vacation, the act of saving gets customers in the habit and more comfortable with saving. 
+                        </div>
+                    </div>
+                </div>
+                <div className='text-block'>
+                    <b className='highlight-blue'>Progress tracking</b>
+                    <div className='lr-img-text'>
+                        <div className='imgs'>
+                            <img src={hub} alt="savings hub screen" loading="eager" />
+                            <img src={details} alt="saving goals detail screen" loading="eager" />
+                        </div>
+                        <div className='text'>
+                            <b>Progress tracking as motivation</b>
+                            <br/>
+                            The most important thing during the lifespan of a goal was seeing the progress. The visual indicator acts as extrinsic motivation, making customers feel like 
+                            they are accomplishing their goal. It also reinforces intrinsic motivation as seeing the bar fill up makes customers want to work towards completing it.
+                        </div>
+                    </div>
+                </div>
+                <div className='text-block'>
+                    <b className='highlight-blue'>Goal completion</b>
+                    <div className='lr-img-text'>
+                        <div className='imgs'>
+                            <img src={hubComplete} alt="savings hub goal completion screen" loading="eager" />
+                            <img src={detailsComplete} alt="saving goals detail completion screen" loading="eager" />
+                        </div>
+                        <div className='text'>
+                            <b>Celebration to acknowledge achievement</b>
+                            <br/>
+                            Celebration was an important moment of the experience. Once a goal is completed, we use confetti and a clear CTA to acknowledge and emphasize the achievement. 
+                            With the feeling that you’ve not only saved, but <i>completed</i> your goal of saving a particular amount, we urge customers to make saving not just a one-thing thing, but a continued habit.
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div className="detail-section">
                 <div id="grace-deco" />
@@ -312,16 +370,16 @@ const CaseStudySavingsGoals = (props) => {
                 <div className="text-block">
                     <b>The idea parking lot</b>
                     <br />
-                    Throughout the process we generated many ideas that fell outside the scope of MVP. Post-launch, we are working towards the 
-                    destination state that incorporates more of these items. Despite percentage distribution being the method of automatic funding, 
-                    rules funding remains the ideal experience. Other elements such as adding a goal date, logic to get customers to their goals on 
+                    Throughout the process we generated many ideas that fell outside the scope of MVP. Post-launch, we are working towards the
+                    destination state that incorporates more of these items. Though percentage distribution is the method of automatic funding,
+                    rules funding remains the ideal experience. Other elements such as adding a goal date, logic to get customers to their goals on
                     time, and customization/ recommendations based on a customer’s past saving behavior will push this experience to the next level.
                     <br /> <br />
                     <b>Current status</b>
                     <br />
-                    Working closely with product & tech, we detailed the behavior and edge cases of each screen to prep for tech build. I outlined the 
-                    end-to-end designs, behaviors, and interactions for this feature before handing off this project. The build is currently underway, 
-                    set to finish by Q3 2025 with an associate pilot followed by a scaled-up customer pilot. 
+                    Working closely with product & tech, we detailed the behavior and edge cases of each screen to prep for tech build. I outlined the
+                    end-to-end designs, behaviors, and interactions for this feature before handing off this project. The build is currently underway,
+                    set to finish by Q3 2025 with an associate pilot followed by a scaled-up customer pilot.
                 </div>
             </div>
 

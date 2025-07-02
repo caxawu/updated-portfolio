@@ -947,6 +947,23 @@ $duration: 0.3s;
   padding-bottom: 0;
 }
 
+.lr-img-text {
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  padding-top: 1rem;
+  .imgs {
+    display: flex;
+    flex-direction: row;
+    img {
+    width: 264px;
+    }
+  }
+  .text {
+    padding-top: 1rem;
+  }
+}
+
 .case-study-img {
   display: flex;
   flex-direction: column;
@@ -976,7 +993,7 @@ $duration: 0.3s;
     justify-content: flex-start;
     gap: 0;
     img {
-      width: 25%;
+      width: 264px;
     }
   }
 }

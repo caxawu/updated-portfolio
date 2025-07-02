@@ -6,13 +6,6 @@ export default function PasswordProtected({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const unlocked = localStorage.getItem('unlocked');
-    if (unlocked === 'true') {
-      setIsAuthenticated(true);
-    }
-  }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -45,7 +38,7 @@ export default function PasswordProtected({ children }) {
         <h1 className="text-xl font-semibold">Enter password to view this page</h1>
         <form onSubmit={handleSubmit} className="flex flex-col items-center gap-2">
           <input
-            type="password"
+            type="text"
             placeholder="Password"
             value={enteredPassword}
             onChange={(e) => setEnteredPassword(e.target.value)}

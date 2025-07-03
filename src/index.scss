@@ -354,12 +354,54 @@ $duration: 0.3s;
 #color2 {
   background-color: #D0E8D2;
 }
-
 .swatch {
   width: 20%;
-  background-color: green;
-}
+  background-color: white;
+  box-shadow: $dropshadow;
 
+  .swatch-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    .inline-row {
+      display: inline;
+      a {
+        text-decoration: underline;
+      }
+    }
+    .labels {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    #color-light {
+      color: #5CA9AF;
+    }
+    #color-dark {
+      color: #AFE3DF;
+    }
+  }
+  #box1 {
+    background-color: #D0F0EF;
+  }
+  #box2 {
+    background-color: #AFE3DF;
+  }
+  #box3 {
+    background-color: #65AEB3;
+  }
+  #box4 {
+    background-color: #2C6B74;
+  }
+  .swatch-title {
+    height: 7rem;
+    color: #6A6A6A;
+    font-weight: $font-weight-bold;
+  }
+}
 #home-nav-bar {
   background: #ffffff00;
 }

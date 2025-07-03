@@ -7,6 +7,14 @@ import profilePic from '../assets/images/profilePic.png'
 
 const About = () => {
 
+const trackLinkClick = (category, action, label) => {
+  console.log('GA event:', category, ':', action, ':', label);
+  ReactGA.event({
+    category,
+    action,
+    label,
+  });
+};
 
   return (
     <div>
@@ -47,7 +55,47 @@ const About = () => {
             </div>
           </div>
           <div className='swatch'>
-            art doodles
+            <div className="swatch-box" id="box1">
+              <div className="inline-row">
+                In my free time I make art (and sometimes post to my art Instagram <a
+                  href="https://www.instagram.com/firesheepstudio/"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={trackLinkClick.bind(this, 'About/Insta', 'Insta Click', 'About page')}
+                >@firesheepstudio</a>), table art markets with friends, and run an <a
+                  href="https://www.etsy.com/shop/FireSheepStudio"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={trackLinkClick.bind(this, 'About/Insta', 'Insta Click', 'About page')}
+                >Etsy store</a>!
+              </div>
+              <div className='labels' id="color-light">
+                <b>art doodles</b>
+                <div>#D0F0EF</div>
+              </div>
+            </div>
+            <div className="swatch-box" id="box2">
+              I’m easily inspired by the amazing things people make. This portfolio has sufficiently scratched that itch for now, but next is making progress on my open-world game in Unity!
+              <div className='labels' id="color-light">
+                <b>tech shenanigans</b>
+                <div>#AFE3DF</div>
+              </div>
+            </div>
+            <div className="swatch-box" id="box3">
+              I’m a huge foodie and an aspiring home chef. Currently trying to maintain my 103 week Beli streak and making tofu from scratch!
+              <div className='labels' id="color-dark">
+                <b>food adventures</b>
+                <div>#65AEB3</div>
+              </div>
+            </div>
+            <div className="swatch-box" id="box4">
+              Curious about my work or just want to say hi? Please reach out—would love to chat!
+              <div className='labels' id="color-light">
+                <b>say hi!</b>
+                <div>#2C6B74</div>
+              </div>
+            </div>
+            <div className='swatch-title'>Cathy's colors</div>
           </div>
         </div>
       </div>

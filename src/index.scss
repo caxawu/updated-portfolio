@@ -4,6 +4,7 @@ $dropshadow: 0px 0px 16px 0px rgba(89, 89, 89, 0.25);
 $dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
 // $dropshadow-light: 0px 0px 16px rgba(168, 168, 168, 0.25);
 $highlight-pink: #EADCE0;
+$highlight-dark-pink: #D9CBD9;
 $link-purple: #91689B;
 $highlight-blue: #ceeeff; // case study: grace period
 $grace-blue: #013D5B;
@@ -110,8 +111,17 @@ a {
   max-width: 96rem;
 }
 
+#about {
+  padding-left: 2rem;
+}
+
 .highlight-pink {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, $highlight-pink 50%);
+  width: fit-content;
+}
+
+.highlight-dark-pink {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, $highlight-dark-pink 50%);
   width: fit-content;
 }
 
@@ -292,6 +302,7 @@ $duration: 0.3s;
   margin: 12vh 0;
 
   img {
+    width: 30%;
     height: auto;
     object-fit: cover;
     overflow: hidden;
@@ -299,19 +310,54 @@ $duration: 0.3s;
     padding-bottom: 5vh;
   }
 
-  .text {
+  .text-bounding-box {
+    // background-color: blue;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 4vh;
-    padding: 0 4rem;
-    width: 100%;
+    justify-content: space-between;
+    .color-box {
+      display: flex;
+      padding-left: 2rem;
+      padding-bottom: 2rem;
+      width: fit-content;
+      height: fit-content;
+      border-radius: $corner-rounding;
 
-    .bio {
-      padding-top: 0.75em;
-      line-height: 1.75;
-      
+      .bio {
+        position: relative;
+        padding: 1em;
+        line-height: 1.75;
+        width: fit-content;
+        height: fit-content;
+
+        .outline-overlay {
+          position: absolute;
+          padding-right: 2rem;
+          padding-top: 2rem;
+          top: -1.5rem;
+          right: -1.5rem;
+          width: 100%;
+          height: 100%;
+          border: 2px solid black;
+          border-radius: $corner-rounding;
+          z-index: 1;
+          pointer-events: none;
+        }
+      }
     }
   }
+}
+#color1 {
+  background-color: #E8E1E8;
+}
+#color2 {
+  background-color: #D0E8D2;
+}
+
+.swatch {
+  width: 20%;
+  background-color: green;
 }
 
 #home-nav-bar {
@@ -902,13 +948,15 @@ $duration: 0.3s;
     }
   }
 }
-  #align-center {
-    align-self: center;
-  }
+
+#align-center {
+  align-self: center;
+}
 
 #grace-top-background {
   background-color: $grace-blue;
 }
+
 #goals-top-background {
   background-color: $goals-blue;
 }
@@ -952,13 +1000,16 @@ $duration: 0.3s;
   flex-direction: row;
   gap: 64px;
   padding-top: 1rem;
+
   .imgs {
     display: flex;
     flex-direction: row;
+
     img {
-    width: 264px;
+      width: 264px;
     }
   }
+
   .text {
     padding-top: 1rem;
   }
@@ -989,9 +1040,11 @@ $duration: 0.3s;
   justify-content: center;
   padding: 0 8rem;
   padding-bottom: 5rem;
+
   .img-row-w-caption {
     justify-content: flex-start;
     gap: 0;
+
     img {
       width: 264px;
     }
@@ -1001,6 +1054,7 @@ $duration: 0.3s;
 #grace-chart-img {
   width: 65%;
 }
+
 #percentageSplitImg {
   width: 80%;
   padding: 2rem 4rem;
@@ -1168,15 +1222,17 @@ $duration: 0.3s;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   .pie {
-      display: flex;
-      flex-direction: column;
-      width: 30%;
-      align-items: center;
-      text-align: center;
-      img {
-        width: 50%;
-      }
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    text-align: center;
+
+    img {
+      width: 50%;
+    }
   }
 }
 
@@ -1185,11 +1241,13 @@ $duration: 0.3s;
   flex-direction: column;
   padding: 2.5rem 2rem;
   gap: 0.5rem;
+
   .savings-rule {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
+
     img {
       width: 56px;
     }

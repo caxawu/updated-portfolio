@@ -171,11 +171,11 @@ const CaseStudySpaces = (props) => {
                     Bringing Escher’s drawing to life would allow players to physically move about an impossible space and experience the perspective shifts that <i>Relativity</i> captures.
                 </div>
                 <div className="img-row">
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={relativityOrig} alt="Original Relativity drawing" loading="eager" />
                         <div className="caption">M.C. Escher’s drawing <span className="text-reg">Relativity</span>.</div>
                     </div>
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={relativityComp} alt="Relativity 3D recreation" loading="eager" />
                         <div className="caption">Our recreation of <span className="text-reg">Relativity</span> in 3D.</div>
                     </div>
@@ -197,19 +197,19 @@ const CaseStudySpaces = (props) => {
                 </div>
                 <div className="full-caption">
                     <div className="img-row-w-caption">
-                        <div className="case-study-img">
+                        <div className="img-single">
                             <img src={puzzle1} alt="Puzzle 1" loading="eager" />
                         </div>
-                        <div className="case-study-img">
+                        <div className="img-single">
                             <img src={puzzle2} alt="Puzzle 2" loading="eager" />
                         </div>
-                        <div className="case-study-img">
+                        <div className="img-single">
                             <img src={puzzle3} alt="Puzzle 3" loading="eager" />
                         </div>
-                        <div className="case-study-img">
+                        <div className="img-single">
                             <img src={puzzle4} alt="Puzzle 4" loading="eager" />
                         </div>
-                        <div className="case-study-img">
+                        <div className="img-single">
                             <img src={puzzle5} alt="Puzzle 5" loading="eager" />
                         </div>
                     </div>
@@ -221,26 +221,26 @@ const CaseStudySpaces = (props) => {
                     out into a three dimensional cube. With this 3D object now in hand, they could match the pattern with one of five pedestal in the center 
                     of the space, and unlock the next photo.
                 </div>
-                <div className="img-row">
-                    <div className="case-study-img">
+                <div className="img-row" >
+                    <div className="img-single">
                         <img src={loop1} alt="gameplay loop 1" loading="eager" />
-                        <div className="caption">Finding the puzzle solution.</div>
+                        <div className="caption" id='spaces-caption'>Finding the puzzle solution.</div>
                     </div>
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={loop2} alt="gameplay loop 2" loading="eager" />
-                        <div className="caption">Placing the photo in the frame.</div>
+                        <div className="caption" id='spaces-caption'>Placing the photo in the frame.</div>
                     </div>
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={loop3} alt="gameplay loop 3" loading="eager" />
-                        <div className="caption">Reaching into the frame.</div>
+                        <div className="caption" id='spaces-caption'>Reaching into the frame.</div>
                     </div>
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={loop4} alt="gameplay loop 4" loading="eager" />
-                        <div className="caption">Pulling out a 3D cube.</div>
+                        <div className="caption" id='spaces-caption'>Pulling out a 3D cube.</div>
                     </div>
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={loop5} alt="gameplay loop 5" loading="eager" />
-                        <div className="caption">Placing the cube on the podium to trigger the next puzzle.</div>
+                        <div className="caption" id='spaces-caption'>Placing the cube on the podium to trigger the next puzzle.</div>
                     </div>
                 </div>
                 <div className="text-block">
@@ -248,11 +248,11 @@ const CaseStudySpaces = (props) => {
                     To signify progress, each time a cube was placed on a pedestal, vines with flowers would grow, slowing forming the frame of the portal.
                 </div>
                 <div className="img-row">
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={final1} alt="finished puzzles" loading="eager" />
                         <div className="caption">The completed portal frame after finishing all 5 puzzles.</div>
                     </div>
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img src={final2} alt="Portal appearing" loading="eager" />
                         <div className="caption">The portal appearing for the next stage.</div>
                     </div>

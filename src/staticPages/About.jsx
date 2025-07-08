@@ -20,7 +20,7 @@ const trackLinkClick = (category, action, label) => {
     <div>
       <NavBar />
       <div className='content' id="about">
-        <div className='about-section' id='about-me'>
+        <div className='about-section'>
           <img src={profilePic} alt='Profile picture' loading='eager' />
           <div className='text-bounding-box'>
             <div className='color-box' id="color1">
@@ -43,11 +43,11 @@ const trackLinkClick = (category, action, label) => {
               <div className='bio'>
                 <div class="outline-overlay"></div>
                 <div className='text-secondary'>about my portfolio</div>
-                This journey started off with me as a designer, unable to find the motivation to update my portfolio. I’ve always struggled
-                to fit my work within a traditional portfolio format. So when I stumbled upon the amazing 3D portfolios out there, something clicked.
+                This journey started off with me as a designer, unable to find the motivation to update my portfolio. I struggled
+                to fit my work within a traditional portfolio format, so when I stumbled upon the amazing 3D portfolios out there, something clicked.
                 <br /><br />
-                I wanted to create my own interactive showcase—weaving together my love for design, 3D modeling, and game design. The freedom allowed
-                me to experiment and make my portfolio truly my own. The ideas were easy, though the coding definitely was not. But, seeing the room
+                I wanted to create my own interactive showcase—weaving together my love for design, 3D modeling, and game design. The ideas were easy, 
+                though the coding definitely was not. But, seeing the room
                 I concepted, designed, and developed come together made it well worth it—and gave me the motivation to finally write a case study or two.
                 <br /><br />
                 I’ve had a ton of fun in the process. Thanks for taking the time to explore! ❤️
@@ -75,7 +75,7 @@ const trackLinkClick = (category, action, label) => {
               </div>
             </div>
             <div className="swatch-box" id="box2">
-              I’m easily inspired by the amazing things people make. This portfolio has sufficiently scratched that itch for now, but next is making progress on my open-world game in Unity!
+              I’m easily inspired by the amazing things people make. This portfolio scratched that itch for now, but next is making progress on my open-world game in Unity!
               <div className='labels' id="color-light">
                 <b>tech shenanigans</b>
                 <div>#AFE3DF</div>
@@ -89,7 +89,30 @@ const trackLinkClick = (category, action, label) => {
               </div>
             </div>
             <div className="swatch-box" id="box4">
+              <div>
               Curious about my work or just want to say hi? Please reach out—would love to chat!
+              <div className='spacing-025'/>
+              <ul>
+                  <li><a href="https://drive.google.com/file/d/11bBEf4DXBEegXaYLejCiFg3O86Q9wAJ2/view?usp=sharing"
+                    target="_blank"
+                    rel="noreferrer"
+                    id="resume"
+                    onClick={trackLinkClick.bind(this, 'Contact Links', 'Resume Click', 'About page')}
+                  >Resume</a></li>
+                  <li><a href="https://www.linkedin.com/in/xinai-cathy-wu"
+                    target="_blank"
+                    rel="noreferrer"
+                    id="linkedin"
+                    onClick={trackLinkClick.bind(this, 'Contact Links', 'LinkedIn Click', 'About page')}
+                  >Linkedin</a></li>
+                  <li><a href="mailto:xinai.cathy.wu@gmail.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    id="mail"
+                    onClick={trackLinkClick.bind(this, 'Contact Links', 'Mail Click', 'About page')}
+                  >Email</a></li>
+              </ul>
+              </div>
               <div className='labels' id="color-light">
                 <b>say hi!</b>
                 <div>#2C6B74</div>

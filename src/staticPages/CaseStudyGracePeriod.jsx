@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import graceHeader from '../assets/images/caseStudies/grace/grace-header.png'
 import comparisonChart from '../assets/images/caseStudies/grace/comparison-chart.png'
 import banner from '../assets/images/caseStudies/grace/banner.png'
+import orig from '../assets/images/caseStudies/grace/GracePeriodOrig.png'
 import tile from '../assets/images/caseStudies/grace/tile.png'
 import highlights from '../assets/images/caseStudies/grace/highlights.png'
 
@@ -88,7 +89,7 @@ const CaseStudyGracePeriod = (props) => {
                         </div>
                     </div>
                     <div className="img-row">
-                        <div className="case-study-img">
+                        <div className="img-single">
                             <img id="grace-chart-img" src={comparisonChart} alt="functionality comparison chart" loading="eager" />
                         </div>
                     </div>
@@ -220,10 +221,11 @@ const CaseStudyGracePeriod = (props) => {
                     looking for grace period options are immediately guided to the right location, preventing misinterpretation and
                     unnecessary changes.
                 </div>
-                <div className="img-row">
-                    <div className="case-study-img">
-                        <img src={banner} alt="grace period banner" loading="eager" />
+                <div className="full-caption">
+                    <div className="img-row-w-caption">
+                        <img id='smaller' src={banner} alt="grace period banner" loading="eager" />
                     </div>
+                    <div id='smaller' className="caption">The grace period banner at the top of the page: attention-grabbing for those looking for it, but not intrusive for those who aren’t.</div>
                 </div>
                 <div className="text-block">
                     <b>Informational clarity</b>
@@ -233,17 +235,26 @@ const CaseStudyGracePeriod = (props) => {
                     blended into the background of the page. Meanwhile, maturity options which took up almost the entire page were presented
                     in a stripped-down format that worked for experienced CD customers but left those needing more guidance unsure what to
                     do next.
-                    <div className="spacing-075" />
+                </div>
+                <div className="full-caption">
+                    <div className="img-row-w-caption">
+                        <img id='smaller' src={orig} alt="original CD management page" loading="eager" />
+                    </div>
+                    <div id='smaller' className="caption">The old design that needed a UX revamp.</div>
+                </div>
+                <div className="text-block">
                     Key details like APY, deposit amount, and estimated earnings were scattered across different pages, making it hard for
                     customers to get a complete view of their CD account. Since the CD management page was central to the experience, we
                     aimed to make it a one-stop shop for all CD-related information. To achieve this, we consolidated key details into a
                     single, easy-to-read table. This was further enhanced by a new key dates timeline, allowing customers to quickly see
                     important milestones and understand if any action was needed.
                 </div>
-                <div className="img-row">
-                    <div className="case-study-img">
-                        <img src={tile} alt="grace period summary tile" loading="eager" />
+
+                <div className="full-caption">
+                    <div className="img-row-w-caption">
+                        <img id='smaller' src={tile} alt="grace period summary tile" loading="eager" />
                     </div>
+                    <div id='smaller' className="caption">The grace period banner at the top of the page: attention-grabbing for those looking for it, but not intrusive for those who aren’t.</div>
                 </div>
                 <div className="text-block">
                     <b>Hierarchy</b>
@@ -251,10 +262,14 @@ const CaseStudyGracePeriod = (props) => {
                     To create a more balanced and cohesive page, we adjusted the layout to more evenly emphasize the current account
                     details and the future maturity sections.
                 </div>
-                <div className="img-row">
-                    <div className="case-study-img">
-                        <img src={highlights} alt="grace period before and after" loading="eager" />
+                <div className="full-caption">
+                    <div className="img-row-w-caption">
+                        <div className='img-single'>
+                            <img src={highlights} alt="grace period before and after" loading="eager" />
+                        </div>
+                        
                     </div>
+                    <div className="caption">The grace period banner at the top of the page: attention-grabbing for those looking for it, but not intrusive for those who aren’t.</div>
                 </div>
                 <div className="text-block">
                     <b>Considering the holistic experience</b>

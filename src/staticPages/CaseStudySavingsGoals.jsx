@@ -272,7 +272,7 @@ const CaseStudySavingsGoals = (props) => {
                 We turned to another method of automatic goal funding: whenever money entered your savings account, distribute a certain percentage of that into a goal.
 
                 <div className="img-row">
-                    <div className="case-study-img">
+                    <div className="img-single">
                         <img id="percentageSplitImg" src={percentageSplit} alt="percentage split visual" loading="eager" />
                     </div>
                 </div>

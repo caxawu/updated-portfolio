@@ -43,7 +43,7 @@ const trackLinkClick = (category, action, label) => {
               <div className='bio'>
                 <div class="outline-overlay"></div>
                 <div className='text-secondary'>about my portfolio</div>
-                This journey started off with me as a designer, unable to find the motivation to update my portfolio. I struggled
+                This journey started off with me unable to find the motivation to update my portfolio. I struggled
                 to fit my work within a traditional portfolio format, so when I stumbled upon the amazing 3D portfolios out there, something clicked.
                 <br /><br />
                 I wanted to create my own interactive showcase—weaving together my love for design, 3D modeling, and game design. The ideas were easy, 

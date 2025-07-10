@@ -355,11 +355,11 @@ $duration: 0.3s;
 }
 #color1 {
   background-color: #E8E1E8;
-  margin-right: 11rem;
+  margin-right: 10rem;
 }
 #color2 {
   background-color: #D0E8D2;
-  margin-left: 11rem;
+  margin-left: 10rem;
 }
 .swatch {
   width: 25%;
@@ -943,7 +943,58 @@ $duration: 0.3s;
 //     }
 //   }
 
+
 // case studies
+#passwordImg {
+  position: absolute;
+  left: 50%; // center
+  transform: translateX(-120%); // shift left from center
+  top: 50%;
+  transform: translate(-144%, -55%);
+  width: 400px; // or any size you want
+  z-index: 0;
+  pointer-events: none; // ensures image doesn't block clicks
+}
+.password {
+  display: flex;
+  flex-direction: column;
+  height: 78vh;
+  justify-content: center;
+  align-items: center;
+  .passTitle {
+    font-size: 1.75rem;
+    padding-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  .inputBox {
+    display: flex;
+    border: 3px solid $goals-blue;
+    border-radius: 8px;
+    overflow: hidden;
+    input {
+      border: 0;
+      padding: 0 1rem;
+      overflow: hidden;
+      background-color: rgb(255, 255, 255);
+      width: 16rem;
+    }
+    button {
+      border: 0;
+      background-color: $goals-blue;
+      color: white;
+      height: 2.5rem;
+      padding: 0 0.7rem;
+    }
+  }
+  .pass-back-button {
+    text-decoration: underline;
+    padding-top: 1.5rem;
+    font-weight: 600;
+  }
+  .pass-back-button:hover {
+    color: $goals-blue;
+  }
+}
 .content-case-study {
   margin: auto;
   padding: 0 8rem;

@@ -1,10 +1,14 @@
 // components/PasswordProtected.jsx
 import { useState, useEffect } from 'react';
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { LoaderCircle, ArrowRight } from 'lucide-react';
+import PasswordIllustration from '../assets/images/caseStudies/password.png'
 
 export default function PasswordProtected({ children }) {
   const [enteredPassword, setEnteredPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigateTo = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,24 +38,37 @@ export default function PasswordProtected({ children }) {
 
   if (!isAuthenticated) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen gap-4 p-4 bg-gray-100">
-        <h1 className="text-xl font-semibold">Enter password to view this page</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col items-center gap-2">
-          <input
-            type="text"
-            placeholder="Password"
-            value={enteredPassword}
-            onChange={(e) => setEnteredPassword(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
-          />
-          <button
-            type="submit"
-            className="px-4 py-2 text-white bg-black rounded disabled:opacity-50"
-            disabled={loading}
-          >
-            {loading ? 'Checking...' : 'Submit'}
-          </button>
-        </form>
+      <div>
+        <img id="passwordImg" src={PasswordIllustration} alt="password illustration" loading="eager" />
+
+        <div className="password">
+          <div className="passTitle">
+            Enter password to see page
+          </div>
+          <form onSubmit={handleSubmit} className="inputBox">
+            <input
+              type="text"
+              placeholder="Password"
+              value={enteredPassword}
+              onChange={(e) => setEnteredPassword(e.target.value)}
+              className=""
+            />
+            <button
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? (
+                <LoaderCircle className="animate-spin" size={24} />
+              ) : (
+                <ArrowRight size={24} />
+              )}
+            </button>
+          </form>
+          <div className="pass-back-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+            back to case studies
+          </div>
+        </div>
+
       </div>
     );
   }

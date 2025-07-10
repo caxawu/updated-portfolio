@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { useNavigate } from "react-router-dom";
+import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 
 import relativityOrig from '../assets/images/caseStudies/spaces/relativityOrig.png';
 import relativityComp from '../assets/images/caseStudies/spaces/relativityComp.png';
@@ -35,10 +36,16 @@ const CaseStudySpaces = (props) => {
         console.log('page=>', window.location.pathname);
     }, []);
 
+    const navigateTo = useNavigate();
+
     return (
         <div className="content-case-study">
             <ToTopButton />
             <div id="spaces-top-background" className="top-card">
+                <div className="back-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+                    <ChevronLeftIcon className="chevron" /> 
+                    <div className='back-text'>back</div>
+                </div>
                 <div id="text-white" className="text">
                     <div className="title">
                         Spaces

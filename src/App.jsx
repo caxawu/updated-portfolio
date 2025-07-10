@@ -2,7 +2,7 @@ import {Route, BrowserRouter as Router, Routes, Navigate} from 'react-router-dom
 import './App.css'
 
 import Home from './staticPages/Home';
-import About from './staticPages/About';
+import About from './staticPages/about';
 import { InteractivePortfolio} from '.';
 import StaticPortfolio from './staticPages/StaticPortfolio';
 

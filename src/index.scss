@@ -5,7 +5,7 @@ $dropshadow-hover: 0px 0px 20px 0px rgba(89, 89, 89, 0.50);
 // $dropshadow-light: 0px 0px 16px rgba(168, 168, 168, 0.25);
 $highlight-pink: #EADCE0;
 $highlight-dark-pink: #D9CBD9;
-$link-purple: #91689B;
+// $link-purple: #91689B;
 $highlight-blue: #ceeeff; // case study: grace period
 $grace-blue: #013D5B;
 $goals-blue: #255F82;
@@ -454,7 +454,7 @@ $duration: 0.3s;
     }
 
     .logo:hover {
-      color: $link-purple;
+      color: $escher-purple;
       transition: color 0.2s;
     }
 
@@ -485,7 +485,7 @@ $duration: 0.3s;
         }
 
         a:hover {
-          color: $link-purple;
+          color: $escher-purple;
           transition: color 0.2s;
         }
       }
@@ -497,16 +497,16 @@ $duration: 0.3s;
       align-items: center;
       padding: 0rem 1rem;
       color: $escher-purple;
-      border: 2px solid $escher-purple;
+      border: 3px solid $escher-purple;
       transition: background-color 0.25s ease;
-      border-radius: 5px;
+      border-radius: 8px;
       height: 2.8rem;
       font-weight: $font-weight-med;
     }
 
     .nav-button:hover {
-      // color: white;
-      background-color: #EADCE0;
+      color: white;
+      background-color: $escher-purple;
       // border: 1.5px solid white;
     }
   }
@@ -676,7 +676,7 @@ $duration: 0.3s;
           display: inherit;
           flex-direction: row;
           font-weight: $font-weight-med;
-          color: $link-purple;
+          color: $escher-purple;
           gap: 8px;
 
           a:hover {
@@ -771,7 +771,7 @@ $duration: 0.3s;
     }
 
     a:hover {
-      color: $link-purple;
+      color: $escher-purple;
       transition: color 0.2s;
     }
   }
@@ -840,7 +840,7 @@ $duration: 0.3s;
     height: 64px;
     margin: auto;
     background: rgb(255, 255, 255);
-    border: 3px solid #e2e2e2;
+    border: 2px solid #5A3CB2;
     border-radius: 100px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -849,7 +849,7 @@ $duration: 0.3s;
       height: 40px;
       width: 40px;
       margin: auto;
-      color: #8b8b8b;
+      color: $escher-purple;
       stroke-width: 2;
     }
   }
@@ -858,14 +858,16 @@ $duration: 0.3s;
     margin-top: 16px;
     font-family: $font-family;
     font-size: 1rem;
+    font-weight: 600;
+    color: $escher-purple;
   }
 
   &:hover {
     .icon {
-      background-color: #91689B;
+      background-color: $escher-purple;
       transform: scale(1.05) translateY(-4px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-      border: 4px solid #91689B;
+      border: 4px solid $escher-purple;
 
       .arrow {
         color: white;
@@ -947,13 +949,13 @@ $duration: 0.3s;
 // case studies
 #passwordImg {
   position: absolute;
-  left: 50%; // center
-  transform: translateX(-120%); // shift left from center
+  left: 50%;
+  transform: translateX(-120%);
   top: 50%;
   transform: translate(-144%, -55%);
-  width: 400px; // or any size you want
+  width: 400px;
   z-index: 0;
-  pointer-events: none; // ensures image doesn't block clicks
+  pointer-events: none;
 }
 .password {
   display: flex;
@@ -1003,11 +1005,31 @@ $duration: 0.3s;
 
 .top-card {
   flex: 1;
+  position: relative;
   height: 32rem;
   margin-top: 2rem;
   margin-bottom: 4rem;
   display: flex;
   justify-content: space-between;
+
+  .back-button {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 4rem;  
+    left: 4rem;  
+    color: white;
+    gap: 2px;
+      .chevron {
+        width: 1rem;
+      }
+      .back-text {
+        text-decoration: underline;
+      }
+      .back-text:hover {
+        font-weight: 700;
+      }
+  }
 
   .text {
     width: 36%;
@@ -1016,6 +1038,8 @@ $duration: 0.3s;
     justify-content: center;
     padding: 0 4rem;
     padding-top: 4rem;
+
+
 
     .title {
       font-size: 2em;

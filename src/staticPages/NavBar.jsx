@@ -67,9 +67,6 @@ useEffect(() => {
                             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                         />
                     </div>
-                    <div className="nav-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
-                        go to static portfolio
-                    </div>
                 </div>
 
             </div>

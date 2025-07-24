@@ -138,25 +138,23 @@ a {
   flex-direction: row;
   height: 92vh;
   max-width: 96rem;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
   margin: auto;
-  // padding: 10rem 8rem;
-  // background-color: red;
   overflow: hidden;
 
   .home-left {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    // background-color: red;
 
     .blink-text {
       display: inherit;
       flex-direction: column;
-      width: 30rem;
+      width: 31rem;
       height: 10rem;
 
-      // background-color: red;
       .cursor-blinker {
         display: inline-block;
         background-color: $text-primary;
@@ -180,41 +178,87 @@ a {
       }
     }
 
-    .labels {
-      padding-top: 3vh;
-      padding-bottom: 1em;
-      padding-left: 3rem;
 
-      .label-secondary {
-        padding-left: 2rem;
-      }
+  .labels {
+    padding-top: 3vh;
+    padding-bottom: 1em;
+    padding-left: 3rem;
+
+    .label-secondary {
+      padding-left: 2rem;
     }
+  }
 
-    .option-and-arrow {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
+}
+  .loopy-arrow {
+    position: absolute;
+    width: 8rem;
+    height: auto;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    transform: translateX(22rem) translateY(5rem);
+  }
 
-      .loopy-arrow {
-        width: 10rem;
+.home-right {
+  .img-w-outline {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border-radius: $corner-rounding;
+    margin-right: 2rem;
+
+    .img-container {
+      position: relative;
+      width: 68rem;
+      img {
+        width: 100%;
         height: auto;
         object-fit: cover;
         overflow: hidden;
+        border-radius: $corner-rounding;
+      }
+
+      .outline-overlay {
+        position: absolute;
+        top: -2rem;
+        right: -2rem;
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        border-radius: $corner-rounding;
+        z-index: 1;
         pointer-events: none;
-        transform: translateX(0.5vw) translateY(4vh);
-        /* Small vertical adjustment */
       }
     }
   }
 
-  .home-right {
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      overflow: hidden;
+  .to-static {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    .nav-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0rem 1rem;
+      color: $escher-purple;
+      border: 2px solid $escher-purple;
+      transition: background-color 0.25s ease;
+      border-radius: 8px;
+      height: 2.8rem;
+      font-weight: $font-weight-med;
+    }
+
+    .nav-button:hover {
+      color: white;
+      background-color: $escher-purple;
+      // border: 1.5px solid white;
     }
   }
+}
 }
 
 
@@ -301,7 +345,7 @@ $duration: 0.3s;
 .about-section {
   display: flex;
   flex-direction: row;
-  margin-top: 4vh;
+  margin-top: 2vh;
 
   img {
     width: 27%;
@@ -313,7 +357,6 @@ $duration: 0.3s;
   }
 
   .text-bounding-box {
-    // background-color: blue;
     width: 65%;
     display: flex;
     flex-direction: column;
@@ -438,6 +481,7 @@ $duration: 0.3s;
 .nav-bar {
   padding: 1em 0;
   overflow: hidden;
+  background-color: red;
 
   .nav-bar-content {
     display: flex;
@@ -448,9 +492,11 @@ $duration: 0.3s;
     max-width: 96rem;
 
     .logo {
+      font-family: "Covered By Your Grace";
+      color: $escher-purple;
       display: inherit;
       align-items: center;
-      font-size: 1.5em;
+      font-size: 2em;
     }
 
     .logo:hover {
@@ -489,25 +535,6 @@ $duration: 0.3s;
           transition: color 0.2s;
         }
       }
-    }
-
-    .nav-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0rem 1rem;
-      color: $escher-purple;
-      border: 3px solid $escher-purple;
-      transition: background-color 0.25s ease;
-      border-radius: 8px;
-      height: 2.8rem;
-      font-weight: $font-weight-med;
-    }
-
-    .nav-button:hover {
-      color: white;
-      background-color: $escher-purple;
-      // border: 1.5px solid white;
     }
   }
 }

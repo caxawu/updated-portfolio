@@ -44,10 +44,10 @@ const CaseStudySavingsGoals = (props) => {
         console.log('page=>', window.location.pathname);
     }, []);
 
-    
+    const navigateTo = useNavigate();
 
     return (
-            <PasswordProtected>
+    <PasswordProtected>
         <div className="content-case-study">
             <ToTopButton />
             <div id="goals-top-background" className="top-card">

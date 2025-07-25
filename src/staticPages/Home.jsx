@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 import AnimText from './AnimText';
 import placeholderInteractive from '../assets/images/placeholderInteractive.png'
@@ -54,15 +55,15 @@ const About = () => {
             </div>
           </div>
           <div className='to-static text-secondary light'>
-            Learn about my projects in a classic format
-            <span className="nav-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+            Want to see my projects in a classic format?
+            <span className="link-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
               go to static portfolio
             </span>
           </div>
         </div>
         <img src={loopyArrow} alt='dotted arrow' loading='eager' className='loopy-arrow' />
       </div>
-                
+      <Footer />     
     </div>
   );
 }

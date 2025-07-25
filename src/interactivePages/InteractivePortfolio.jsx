@@ -35,8 +35,8 @@ const InteractivePortfolio = () => {
       updateCameraLookAt([0, -18, -35]);
 
     } else if (focusState === 'screen1') {
-      updateCameraPosition([8, -11, -56]);
-      updateCameraLookAt([-0.5, -2, -36]);
+      updateCameraPosition([8, -11.1, -57.5]);
+      updateCameraLookAt([0, -1, -36]);
 
     } else if ( focusState === 'screen2' ) {
       updateCameraPosition([6, -10.3, -57]);
@@ -49,7 +49,6 @@ const InteractivePortfolio = () => {
     } else if ( focusState === 'vrShelf' ) {
       updateCameraPosition([11, 10, -41]);
       updateCameraLookAt([35, -12, -36]);
-      // navigateTo('XR');
 
     } else if ( focusState === 'spaces' ) {
       updateCameraPosition([22, 6, -52]);
@@ -99,8 +98,8 @@ const InteractivePortfolio = () => {
       updateCameraPosition([20, 6, -40]);
       updateCameraLookAt([2000, -500, -36]);
     } else if ( focusState === 'modelsScreen' ) {
-      updateCameraPosition([30, 7, -34]);
-      updateCameraLookAt([2000, -50, -36]);
+      updateCameraPosition([32, 7, -36]);
+      updateCameraLookAt([10000, -500, -36]);
     } else if ( focusState === 'animPlayer' ) {
       updateCameraPosition([33, -2.5, -40]);
       updateCameraLookAt([2000, -800, -36]);

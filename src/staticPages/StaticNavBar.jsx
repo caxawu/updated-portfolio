@@ -57,7 +57,7 @@ const StaticNavBar = () => {
                             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                         />
                     </div>
-                    <div className="nav-button" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
+                    <div className="nav-button" onClick={() => navigateTo('/interactive')} style={{ cursor: 'pointer' }}>
                         go to interactive portfolio
                     </div>
                 </div>

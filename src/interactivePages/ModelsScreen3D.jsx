@@ -110,7 +110,7 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
             width: "100%", 
             height: "100%", 
             objectFit: "cover",
-            pointerEvents: "none" }} 
+            pointerEvents: currState === "modelsScreen" ? "auto" : "none", }} 
         />
     </div>
   )

@@ -149,8 +149,7 @@ useEffect(() => {
          if ( INTERSECTED != intersects[ 0 ].object) {
            INTERSECTED = intersects[ 0 ].object;
            
-           if (INTERSECTED.name === 'table') {
-            // If clicking on the table, zoom out to the table
+           if (INTERSECTED.name === 'table') {  // If clicking on the table, zoom out to the table
             setFocusState('table');
             setCurrState('table');
           } else if (INTERSECTED.name === 'screen1') {
@@ -188,9 +187,9 @@ useEffect(() => {
           } else if ( INTERSECTED.name == 'spaces' ) {
             setFocusState('spaces');
           } else if (INTERSECTED.name == 'descSpacesButton') {
-            setFocusState('spacesScreen');
-            setShowSpacesBlock(true);
-            setStartVRAnim(true);
+            setFocusState('screen1');
+            // setShowSpacesBlock(true);
+            // setStartVRAnim(true);
           }
           else if ( INTERSECTED.name == 'anivision' ) {
             setFocusState('anivision');

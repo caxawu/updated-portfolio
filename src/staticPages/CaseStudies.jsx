@@ -86,6 +86,8 @@ const CaseStudies = (props) => {
                 </div>
             </div>
 
+            <div className='spacing-2'/>
+
             <div className="portfolio-title text-title">
                 <div className='highlight-pink'>
                     VR
@@ -128,6 +130,7 @@ const CaseStudies = (props) => {
                     </div>
                 </div>
             </div>
+            <div className='spacing-3'/>
         </div>
     );
 };

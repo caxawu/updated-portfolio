@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useMemo } from 'react'
 import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import * as THREE from 'three';
@@ -42,8 +42,12 @@ const [htmlReady, setHtmlReady] = useState(false);
 
   const particleSystemRef = useRef();  // Keep the reference of the ParticleSystem
 
+  const keycapCount = 62;
+
    // Animate the mesh position when the buttons are pressed
-   const { positionLeft, positionRight, positionBallBounce, positionTwoBalls, positionWalkCycle, positionWalkForward, positionJump, positionRun, keycap1, keycap2 } = useSpring({
+
+const springConfig = useMemo(() => {
+  const base = {
     positionLeft: isArrowPressed === 'left' ? [0, 0, 0.6] : [0, 0, 0],
     positionRight: isArrowPressed === 'right' ? [0, 0, 0.6] : [0, 0, 0],
     positionBallBounce: isArrowPressed === 'ballBounce' ? [0, -2, 0] : [0, 0, 0],
@@ -52,10 +56,20 @@ const [htmlReady, setHtmlReady] = useState(false);
     positionWalkForward: isArrowPressed === 'walkForward' ? [0, -2, 0] : [0, 0, 0],
     positionJump: isArrowPressed === 'jump' ? [0, -2, 0] : [0, 0, 0],
     positionRun: isArrowPressed === 'run' ? [0, -2, 0] : [0, 0, 0],
-    keycap1: isArrowPressed === 'keycap1' ? [0, -2, 0] : [0, 0, 0],
-    keycap2: isArrowPressed === 'keycap2' ? [0, -2, 0] : [0, 0, 0],
-    config: { tension: 170, friction: 26 },  // Smooth animation config
-  });
+  };
+
+  for (let i = 1; i <= keycapCount; i++) {
+    const key = `keycap${i}`;
+    base[key] = isArrowPressed === key ? [0, -2, 0] : [0, 0, 0];
+  }
+
+  return base;
+}, [isArrowPressed]);
+
+const springs = useSpring({
+  ...springConfig,
+  config: { tension: 170, friction: 26 },
+});
 
   const handleButtonAnimation = (arrow) => {
     setIsArrowPressed(arrow); // Set the state to either 'left' or 'right'
@@ -178,9 +192,13 @@ useEffect(() => {
               }
               return prevState; // Stay on resume if already there
             });
-          } else if (INTERSECTED.name === 'keycap1' || INTERSECTED.name === 'keycap2') {
-            handleButtonAnimation(INTERSECTED.name); // Animate keycap1 or keycap2
-          }
+          } 
+          else if (/^keycap\d+$/.test(INTERSECTED.name)) {
+  handleButtonAnimation(INTERSECTED.name);
+}
+          // else if (INTERSECTED.name === 'keycap1' || INTERSECTED.name === 'keycap2') {
+          //   handleButtonAnimation(INTERSECTED.name); // Animate keycap1 or keycap2
+          // }
           
           else if ( INTERSECTED.name == 'vrShelf' ) {
             setFocusState('vrShelf');
@@ -188,8 +206,6 @@ useEffect(() => {
             setFocusState('spaces');
           } else if (INTERSECTED.name == 'descSpacesButton') {
             setFocusState('screen1');
-            // setShowSpacesBlock(true);
-            // setStartVRAnim(true);
           }
           else if ( INTERSECTED.name == 'anivision' ) {
             setFocusState('anivision');
@@ -312,35 +328,6 @@ useEffect(() => {
 
   return (
     <>
-    {/* {!showHtmlUI && (
-      <Html
-        center
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          pointerEvents: "none",
-          zIndex: 100,
-        }}
-      >
-<motion.div
-  initial={{ opacity: 1, clipPath: "circle(0% at 50% 50%)" }}
-  animate={{ opacity: 0, clipPath: "circle(150% at 50% 50%)" }}
-  transition={{ duration: 2, ease: "easeInOut" }}
-  style={{
-    backgroundColor: "red",
-    width: "100vw",
-    height: "100vh",
-    position: "absolute",  // Ensure it fills the viewport
-    top: 0, 
-    left: 0,
-    borderRadius: "50%",   // Adding border radius for the circular effect
-  }}
-/>
-      </Html>
-    )} */}
     <a.group ref={roomRef}{...props}>
       <group rotation={[0, -0.02, 0]} scale={0.1}>
         <ParticleSystemFloaties origin={[-20, 200, -30]} />
@@ -408,443 +395,260 @@ useEffect(() => {
             scale={[29.994, 18.589, 20.924]}
           />
           <group name="keycaps">
-            <mesh
-              name="key1"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap1" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap1}
               geometry={nodes.key1.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key2"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap2" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap2}
               geometry={nodes.key2.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key3"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap3" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap3}
               geometry={nodes.key3.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key4"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap4" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap4}
               geometry={nodes.key4.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key5"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap5" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap5}
               geometry={nodes.key5.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key6"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap6" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap6}
               geometry={nodes.key6.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key7"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap7" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap7}
               geometry={nodes.key7.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key8"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap8" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap8}
               geometry={nodes.key8.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key9"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap9" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap9}
               geometry={nodes.key9.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key10"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap10" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap10}
               geometry={nodes.key10.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key11"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap11" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap11}
               geometry={nodes.key11.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key12"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap12" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap12}
               geometry={nodes.key12.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key13"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap13" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap13}
               geometry={nodes.key13.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key14"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap14" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap14}
               geometry={nodes.key14.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key15"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap15" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap15}
               geometry={nodes.key15.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key16"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap16" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap16}
               geometry={nodes.key16.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key17"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap17" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap17}
               geometry={nodes.key17.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key18"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap18" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap18}
               geometry={nodes.key18.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key19"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap19" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap19}
               geometry={nodes.key19.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key20"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap20" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap20}
               geometry={nodes.key20.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key21"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap21" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap21}
               geometry={nodes.key21.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key22"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap22" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap22}
               geometry={nodes.key22.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key23"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap23" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap23}
               geometry={nodes.key23.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key24"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap24" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap24}
               geometry={nodes.key24.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key25"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap25" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap25}
               geometry={nodes.key25.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key26"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap26" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap26}
               geometry={nodes.key26.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key27"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap27" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap27}
               geometry={nodes.key27.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key28"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap28" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap28}
               geometry={nodes.key28.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key29"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap29" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap29}
               geometry={nodes.key29.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key30"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap30" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap30}
               geometry={nodes.key30.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key31"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap31" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap31}
               geometry={nodes.key31.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key32"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap32" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap32}
               geometry={nodes.key32.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key33"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap33" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap33}
               geometry={nodes.key33.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key34"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap34" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap34}
               geometry={nodes.key34.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key35"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap35" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap35}
               geometry={nodes.key35.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key36"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap36" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap36}
               geometry={nodes.key36.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key37"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap37" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap37}
               geometry={nodes.key37.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key38"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap38" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap38}
               geometry={nodes.key38.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key39"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap39" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap39}
               geometry={nodes.key39.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key40"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap40" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap40}
               geometry={nodes.key40.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key41"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap41" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap41}
               geometry={nodes.key41.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key42"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap42" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap42}
               geometry={nodes.key42.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key43"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap43" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap43}
               geometry={nodes.key43.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key44"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap44" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap44}
               geometry={nodes.key44.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key45"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap45" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap45}
               geometry={nodes.key45.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key46"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap46" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap46}
               geometry={nodes.key46.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key47"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap47" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap47}
               geometry={nodes.key47.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key48"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap48" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap48}
               geometry={nodes.key48.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key49"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap49" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap49}
               geometry={nodes.key49.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key50"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap50" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap50}
               geometry={nodes.key50.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key51"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap51" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap51}
               geometry={nodes.key51.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key52"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap52" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap52}
               geometry={nodes.key52.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key53"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap53" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap53}
               geometry={nodes.key53.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key54"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap54" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap54}
               geometry={nodes.key54.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key55"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap55" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap55}
               geometry={nodes.key55.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key56"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap56" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap56}
               geometry={nodes.key56.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key57"
-              castShadow
-              receiveShadow
+            <a.mesh name="keycap57" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap57}
               geometry={nodes.key57.geometry}
               material={materials.m_keycapWhiteBaked}
             />
-            <mesh
-              name="key58"
-              castShadow
-              receiveShadow
-              geometry={nodes.key58.geometry}
-              material={materials.m_keycapPinkBaked}
-              position={[-56.695, 79.456, 276.885]}
-              scale={[4.671, 2.207, 4.671]}
-            />
-            <mesh
-              name="key59"
-              castShadow
-              receiveShadow
+            <group position={[-56.695, 79.456, 276.885]}>
+              <a.mesh name="keycap58" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap58}
+                geometry={nodes.key58.geometry}
+                material={materials.m_keycapPinkBaked}
+                scale={[4.671, 2.207, 4.671]}
+              />
+            </group>
+            <a.mesh name="keycap59" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap59}
               geometry={nodes.key59.geometry}
               material={materials.m_keycapYellowBaked}
             />
-            <mesh
-              name="key60"
-              castShadow
-              receiveShadow
-              geometry={nodes.key60.geometry}
-              material={materials.m_keycapGreenBaked}
-              position={[-124.057, 79.456, 267.27]}
-              scale={[4.671, 2.207, 4.671]}
-            />
-            <mesh
-              name="key61"
-              castShadow
-              receiveShadow
-              geometry={nodes.key61.geometry}
-              material={materials.m_keycapPurpleBaked}
-              position={[-109.499, 79.456, 257.574]}
-              scale={[4.671, 2.207, 4.671]}
-            />
-            <mesh
-              name="key62"
-              castShadow
-              receiveShadow
+            <group position={[-124.057, 79.456, 267.27]}>
+              <a.mesh name="keycap60" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap60}
+                geometry={nodes.key60.geometry}
+                material={materials.m_keycapGreenBaked}
+                scale={[4.671, 2.207, 4.671]}
+              />
+            </group>
+            <group position={[-109.499, 79.456, 257.574]}>
+              <a.mesh name="keycap61" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap61}
+                geometry={nodes.key61.geometry}
+                material={materials.m_keycapPurpleBaked}
+                scale={[4.671, 2.207, 4.671]}
+              />
+            </group>
+            <a.mesh name="keycap62" ref={handleMeshRef} onPointerDown={handlePointerDown} position={springs.keycap62}
               geometry={nodes.key62.geometry}
               material={materials.m_keycapBlueBaked}
             />
@@ -1098,12 +902,12 @@ useEffect(() => {
             />
           </group>
             <group name="AnimKeys">
-              <a.mesh name="keyWalkForward" ref={handleMeshRef} position={positionWalkForward} geometry={nodes.keyWalkForward.geometry} material={materials.m_controlButtonsBaked} />
-              <a.mesh name="keyRun" ref={handleMeshRef} position={positionRun} geometry={nodes.keyRun.geometry} material={materials.m_controlButtonsBaked} />
-              <a.mesh name="keyTwoBalls" ref={handleMeshRef} position={positionTwoBalls} geometry={nodes.keyTwoBalls.geometry} material={materials.m_controlButtonsBaked} />
-              <a.mesh name="keyJump" ref={handleMeshRef} position={positionJump} geometry={nodes.keyJump.geometry} material={materials.m_controlButtonsBaked} />
-              <a.mesh name="keyWalkCycle" ref={handleMeshRef} position={positionWalkCycle} geometry={nodes.keyWalkCycle.geometry} material={materials.m_controlButtonsBaked} />
-              <a.mesh name="keyBallBounce" ref={handleMeshRef} position={positionBallBounce} geometry={nodes.keyBallBounce.geometry} material={materials.m_controlButtonsBaked} />
+              <a.mesh name="keyWalkForward" ref={handleMeshRef} position={springs.positionWalkForward} geometry={nodes.keyWalkForward.geometry} material={materials.m_controlButtonsBaked} />
+              <a.mesh name="keyRun" ref={handleMeshRef} position={springs.positionRun} geometry={nodes.keyRun.geometry} material={materials.m_controlButtonsBaked} />
+              <a.mesh name="keyTwoBalls" ref={handleMeshRef} position={springs.positionTwoBalls} geometry={nodes.keyTwoBalls.geometry} material={materials.m_controlButtonsBaked} />
+              <a.mesh name="keyJump" ref={handleMeshRef} position={springs.positionJump} geometry={nodes.keyJump.geometry} material={materials.m_controlButtonsBaked} />
+              <a.mesh name="keyWalkCycle" ref={handleMeshRef} position={springs.positionWalkCycle} geometry={nodes.keyWalkCycle.geometry} material={materials.m_controlButtonsBaked} />
+              <a.mesh name="keyBallBounce" ref={handleMeshRef} position={springs.positionBallBounce} geometry={nodes.keyBallBounce.geometry} material={materials.m_controlButtonsBaked} />
               <Html scale={0.4} rotation-y={Math.PI / 2} position={[-366.1, 206.8, 80.25]} transform occlude>
                 <AnimPlayer onScreenClick={handleScreenClick} currState={currState} />
               </Html>
@@ -1144,12 +948,12 @@ useEffect(() => {
               />
             </group>
             <a.mesh
-              name="arrowLeft" ref={handleMeshRef} position={positionLeft} onPointerDown={handlePointerDown}
+              name="arrowLeft" ref={handleMeshRef} position={springs.positionLeft} onPointerDown={handlePointerDown}
               geometry={nodes.arrowLeft.geometry}
               material={materials.m_controlButtonsBaked}
             />
             <a.mesh
-              name="arrowRight" ref={handleMeshRef} position={positionRight} onPointerDown={handlePointerDown}
+              name="arrowRight" ref={handleMeshRef} position={springs.positionRight} onPointerDown={handlePointerDown}
               geometry={nodes.arrowRight.geometry}
               material={materials.m_controlButtonsBaked}
             />
@@ -1405,96 +1209,6 @@ useEffect(() => {
             rotation={[0.673, -0.664, 0.451]}
             scale={1.566}
           />
-          {showHtmlUI && (
-            <Html
-              scale={[2, -2, -2]}
-              rotation={[0, -0.78, -Math.PI]}
-              position={[-214, 302, 283]}
-              transform
-              occlude
-              zIndexRange={[1, 0]}
-            >
-              {/* 1. Full black wipe */}
-              {!blackWipeDone && (
-                <motion.div
-                  initial={{ height: 0 }}
-                  animate={{ height: "300vh" }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
-                  style={{
-                    position: "absolute",
-                    width: "1000vw",
-                    backgroundColor: "black",
-                    top: 0,
-                    left: -1000,
-                    zIndex: 30,
-                  }}
-                  onAnimationComplete={() => setBlackWipeDone(true)}
-                />
-              )}
-          
-              {/* 2. Masked content with expanding circles as mask */}
-              {blackWipeDone && (
-                <>
-                  <svg
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 3000 2000"
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      zIndex: 20,
-                      pointerEvents: "none",
-                    }}
-                  >
-                    <defs>
-                      <mask id="vrMask">
-                        {/* Start fully black */}
-                        <rect width="500vw" height="100%" fill="black" />
-                        {/* Animated holes (revealing content) */}
-                        <motion.circle
-                          cx="30%"
-                          cy="50%"
-                          r="0"
-                          fill="white"
-                          animate={{ r: 2000 }}
-                          transition={{ duration: 2, ease: "easeInOut" }}
-                        />
-                        <motion.circle
-                          cx="70%"
-                          cy="50%"
-                          r="0"
-                          fill="white"
-                          animate={{ r: 2000 }}
-                          transition={{ duration: 2, ease: "easeInOut" }}
-                          onAnimationComplete={() => setHtmlReady(true)}
-                        />
-                      </mask>
-                    </defs>
-                  </svg>
-          
-                  {/* Final UI masked by the animated holes */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100vw",
-                      height: "100vh",
-                      mask: "url(#vrMask)",
-                      WebkitMask: "url(#vrMask)",
-                      zIndex: 10,
-                    }}
-                  >
-                    <Spaces3D onScreenClick={handleScreenClick} currState={currState} />
-                  </motion.div>
-                </>
-              )}
-            </Html>
-          )}
           <mesh
             name="spaces" ref={handleMeshRef}
             geometry={nodes.escher.geometry}

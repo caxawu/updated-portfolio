@@ -4,6 +4,8 @@ import { Outlet } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 import ArtNavBar from './ArtNavBar';
+import ToTopButton from './ToTopButton';
+import Footer from './Footer';
 
 import diorama1 from '../assets/images/artwork/modeling/diorama1.jpg';
 import diorama2 from '../assets/images/artwork/modeling/diorama2.png';
@@ -96,9 +98,13 @@ const Artwork = () => {
   }, []);
 
   return (
-    <div>
+    <div className='page-wrapper'>
       <ArtNavBar />
-      <Outlet />
+      <ToTopButton />
+      <main className="page-content">
+        <Outlet />
+      </main>
+      <Footer/>
     </div>
   );
 
@@ -151,7 +157,7 @@ const Animation = (props) => {
   }, []);
 
   return (
-    <div className="img-section">
+    <div className="img-section" id="not-full-page">
       <div className="row">
         <FadeInImage className="resize-img" src="https://media3.giphy.com/media/VOlbJCYXe3WbdIeIed/giphy.gif" alt="Jin Final" loading="eager" />
         <FadeInImage className="resize-img" src="https://media4.giphy.com/media/HZvUGFeDJVvCvTKT9I/giphy.gif" alt="Elven walk cycle" loading="eager" />

@@ -46,6 +46,7 @@ const About = () => {
             <div className='img-container'>
               <img
                 src={placeholderInteractive}
+                data-pin-nopin="true"
                 alt='Interactive portfolio'
                 loading='eager'
                 onClick={handleImageClick}  // Handle the click to navigate

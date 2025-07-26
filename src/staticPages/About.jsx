@@ -23,7 +23,7 @@ const trackLinkClick = (category, action, label) => {
       <NavBar />
       <div className='content' id="about">
         <div className='about-section'>
-          <img src={profilePic} alt='Profile picture' loading='eager' />
+          <img src={profilePic} data-pin-nopin="true" alt='Profile picture' loading='eager' />
           <div className='text-bounding-box'>
             <div className='color-box' id="color1">
               <div className='bio'>

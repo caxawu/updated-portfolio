@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { Outlet } from 'react-router-dom';
+import Footer from './Footer';
 
 import beyond from '../assets/images/miniProjects/beyond.png'
 import journey from '../assets/images/miniProjects/journey.png'
@@ -69,7 +70,7 @@ const MiniProjects = () => {
               <div className="description2">Raising awareness about climate-related challenges facing the Arctic.</div>
               <div className="links">
                 <a href="https://caxawu.itch.io/journey" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/Ga,esJourney', 'Play Journey Click', 'Mini Projects Links')}>
+                  onClick={trackLinkClick.bind(this, 'Other/GamesJourney', 'Play Journey Click', 'Mini Projects Links')}>
                   Play Journey
                 </a>
               </div>
@@ -202,6 +203,7 @@ const MiniProjects = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 

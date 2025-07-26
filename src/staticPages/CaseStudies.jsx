@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 import burnout from '../assets/images/caseStudies/burnoutCover.png'
 import gracePeriod from '../assets/images/caseStudies/gracePeriodCover.png'
@@ -131,6 +132,7 @@ const CaseStudies = (props) => {
                 </div>
             </div>
             <div className='spacing-3'/>
+            <Footer />
         </div>
     );
 };

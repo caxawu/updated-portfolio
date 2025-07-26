@@ -139,11 +139,18 @@ const InteractivePortfolio = () => {
   return (
     <section className="room" style={{background: '#FFFFFF'}}>
 
+<div className='paper-effect'/>
+
+<div className='interactive-back-container'>
+      <div className="link-button text-secondary" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
+        back
+      </div>
+</div>
+
       <Canvas 
       className= {`canvas-content ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
       camera={defaultCamera.current}
       >
-
         <Suspense fallback={<Loader />}>
           {/* Expense: ambient < hemisphere < directional */}
           <ambientLight intensity={4.5} color="#ffffff"/>

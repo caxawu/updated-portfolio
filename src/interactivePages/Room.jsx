@@ -194,22 +194,20 @@ useEffect(() => {
             });
           } 
           else if (/^keycap\d+$/.test(INTERSECTED.name)) {
-  handleButtonAnimation(INTERSECTED.name);
-}
-          // else if (INTERSECTED.name === 'keycap1' || INTERSECTED.name === 'keycap2') {
-          //   handleButtonAnimation(INTERSECTED.name); // Animate keycap1 or keycap2
-          // }
-          
+            handleButtonAnimation(INTERSECTED.name);
+          }
           else if ( INTERSECTED.name == 'vrShelf' ) {
             setFocusState('vrShelf');
           } else if ( INTERSECTED.name == 'spaces' ) {
             setFocusState('spaces');
           } else if (INTERSECTED.name == 'descSpacesButton') {
             setFocusState('screen1');
-          }
-          else if ( INTERSECTED.name == 'anivision' ) {
+          } else if ( INTERSECTED.name == 'anivision' ) {
             setFocusState('anivision');
-          } else if ( INTERSECTED.name == 'artWall' ) {
+          } else if (INTERSECTED.name == 'descAnivisionButton') {
+            setFocusState('screen1');
+          } 
+          else if ( INTERSECTED.name == 'artWall' ) {
             setFocusState('artWall');
           } else if ( INTERSECTED.name == 'corkboard' ) {
             setFocusState('corkboard');
@@ -221,7 +219,16 @@ useEffect(() => {
             setFocusState('drawingFish');
           } else if ( INTERSECTED.name == 'businessCard' ) {
             setFocusState('businessCard');
-          } else if ( INTERSECTED.name == 'sketchbook' ) {
+          } else if ( INTERSECTED.name == 'paintingDoor' ) {
+            setFocusState('paintingDoor');
+          } else if ( INTERSECTED.name == 'paintingFruit' ) {
+            setFocusState('paintingFruit');
+          } else if ( INTERSECTED.name == 'paintingLandscape' ) {
+            setFocusState('paintingLandscape');
+          } else if ( INTERSECTED.name == 'paintingBirds' ) {
+            setFocusState('paintingBirds');
+          } 
+          else if ( INTERSECTED.name == 'sketchbook' ) {
             setFocusState('sketchbook');
           } else if ( INTERSECTED.name == 'miniPlayer' ) {
             setFocusState('miniPlayer');
@@ -233,7 +240,8 @@ useEffect(() => {
             setFocusState('miniPlayer');
             setCurrState('prevImage');
             handleButtonAnimation('left');
-          } else if ( INTERSECTED.name == 'modelsShelf' ) {
+          } 
+          else if ( INTERSECTED.name == 'modelsShelf' ) {
             setFocusState('modelsShelf');
           } else if ( INTERSECTED.name == 'modelsScreen' ) {
             setFocusState('modelsScreen');
@@ -263,7 +271,8 @@ useEffect(() => {
             setFocusState('animPlayer');
             setCurrState('run');
             handleButtonAnimation('run'); 
-          } else if ( INTERSECTED.name == 'egg' ) {
+          } 
+          else if ( INTERSECTED.name == 'egg' ) {
             setFocusState('egg');
           } else if ( INTERSECTED.name == 'boat' ) {
             setFocusState('boat');
@@ -915,9 +924,7 @@ useEffect(() => {
             </group>
             <group name="artWall">
               <mesh
-                name="_shelf1"
-                castShadow
-                receiveShadow
+                name="artWall" ref={handleMeshRef}
                 geometry={nodes._shelf1.geometry}
                 material={materials.m_woodShelfBaked}
                 position={[64.396, 212.258, 359.733]}
@@ -1068,64 +1075,48 @@ useEffect(() => {
               </group>
               <group name="door">
                 <mesh
-                  name="doorShape"
-                  castShadow
-                  receiveShadow
+                  name="paintingDoor" ref={handleMeshRef}
                   geometry={nodes.doorShape.geometry}
                   material={materials.m_artPaintingDoor}
                 />
                 <mesh
-                  name="doorShape_1"
-                  castShadow
-                  receiveShadow
+                  name="paintingDoor" ref={handleMeshRef}
                   geometry={nodes.doorShape_1.geometry}
                   material={materials.m_paintingFrameBaked}
                 />
               </group>
               <group name="fruit">
                 <mesh
-                  name="fruitShape"
-                  castShadow
-                  receiveShadow
+                  name="paintingFruit" ref={handleMeshRef}
                   geometry={nodes.fruitShape.geometry}
                   material={materials.m_artPaintingFruit}
                 />
                 <mesh
-                  name="fruitShape_1"
-                  castShadow
-                  receiveShadow
+                  name="paintingFruit" ref={handleMeshRef}
                   geometry={nodes.fruitShape_1.geometry}
                   material={materials.m_paintingFrameBaked}
                 />
               </group>
               <group name="landscape">
                 <mesh
-                  name="landscapeShape"
-                  castShadow
-                  receiveShadow
+                  name="paintingLandscape" ref={handleMeshRef}
                   geometry={nodes.landscapeShape.geometry}
                   material={materials.m_artPaintingLandscape}
                 />
                 <mesh
-                  name="landscapeShape_1"
-                  castShadow
-                  receiveShadow
+                  name="paintingLandscape" ref={handleMeshRef}
                   geometry={nodes.landscapeShape_1.geometry}
                   material={materials.m_paintingFrameBaked}
                 />
               </group>
               <group name="birds">
                 <mesh
-                  name="birdsShape"
-                  castShadow
-                  receiveShadow
+                  name="paintingBirds" ref={handleMeshRef}
                   geometry={nodes.birdsShape.geometry}
                   material={materials.m_artPaintingBirds}
                 />
                 <mesh
-                  name="birdsShape_1"
-                  castShadow
-                  receiveShadow
+                  name="paintingBirds" ref={handleMeshRef}
                   geometry={nodes.birdsShape_1.geometry}
                   material={materials.m_paintingFrameBaked}
                 />
@@ -1226,9 +1217,7 @@ useEffect(() => {
                 scale={[65.029, 23.66, 21.305]}
               />
               <mesh
-                name="descAnivisionButton"
-                castShadow
-                receiveShadow
+                name="descAnivisionButton" ref={handleMeshRef}
                 geometry={nodes.descAnivisionButton.geometry}
                 material={materials.m_descAnivisionButtonBaked}
                 position={[-273.87, 135.326, 265.207]}

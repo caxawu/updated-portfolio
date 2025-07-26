@@ -71,7 +71,7 @@ const InteractivePortfolio = () => {
       updateCameraLookAt([0, 0, -40]);
 
     } else if ( focusState === 'drawingHand' ) {
-      updateCameraPosition([-24, 6.7, -58]);
+      updateCameraPosition([-25, 6.7, -58]);
       updateCameraLookAt([0, -3, -40]);
 
     } else if ( focusState === 'drawingDavid' ) {
@@ -85,6 +85,22 @@ const InteractivePortfolio = () => {
     } else if ( focusState === 'businessCard' ) {
       updateCameraPosition([-14, 3, -65]);
       updateCameraLookAt([0, -5, -40]);
+
+    } else if ( focusState === 'paintingDoor' ) {
+      updateCameraPosition([-4, 10.5, -56]);
+      updateCameraLookAt([0, -1, -40]);
+
+    } else if ( focusState === 'paintingFruit' ) {
+      updateCameraPosition([6.5, 1, -56]);
+      updateCameraLookAt([0, -1, -40]);
+
+    } else if ( focusState === 'paintingBirds' ) {
+      updateCameraPosition([16, 2.25, -61]);
+      updateCameraLookAt([0, -1, -40]);
+
+    } else if ( focusState === 'paintingLandscape' ) {
+      updateCameraPosition([10, 13.75, -59]);
+      updateCameraLookAt([0, -1, -40]);
 
     } else if ( focusState === 'sketchbook' ) {
       updateCameraPosition([-3, 0, -61]);

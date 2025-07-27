@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect, useMemo } from 'react'
+import { useLocation } from 'react-router-dom';
 import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import * as THREE from 'three';
-import { a, useSpring } from '@react-spring/three';  // Import 'a' for animated mesh
+import { a, useSpring } from '@react-spring/three';
 import { motion } from "framer-motion";
 import ParticleSystemTea from "./ParticleSystemTea";
 import ParticleSystemFloaties from "./ParticleSystemFloaties";
@@ -13,7 +14,6 @@ import MiniPlayer from './MiniPlayer3D';
 import AnimPlayer from './AnimPlayer3D';
 import ModelsScreen from './ModelsScreen3D';
 import MiniProjects from './MiniProjects3D';
-import Spaces3D from './VRSpaces3D';
 import Resume from './Resume3D';
 
 const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
@@ -33,19 +33,14 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
   const [ currState, setCurrState ] = useState ('home');    // To pass into HTML children to turn off interactivity before zooming in
   const [isArrowPressed, setIsArrowPressed] = useState(false);
 
-  const [showSpacesBlock, setShowSpacesBlock] = useState(false);
-  const [startVRAnim, setStartVRAnim] = useState(false);
-    const [showHtmlUI, setShowHtmlUI] = useState(false);
-    const [blackWipeDone, setBlackWipeDone] = useState(false);
-const [htmlReady, setHtmlReady] = useState(false);
 
+  const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
 
   const particleSystemRef = useRef();  // Keep the reference of the ParticleSystem
 
   const keycapCount = 62;
 
    // Animate the mesh position when the buttons are pressed
-
 const springConfig = useMemo(() => {
   const base = {
     positionLeft: isArrowPressed === 'left' ? [0, 0, 0.6] : [0, 0, 0],
@@ -76,7 +71,7 @@ const springs = useSpring({
     setTimeout(() => {
       setIsArrowPressed(false);  // Reset the animation after 200ms
     }, 100);
-  };
+};
 
   // loop animations in scene
 useEffect(() => {
@@ -172,9 +167,6 @@ useEffect(() => {
                 setFocusState('screen1');
                 return 'screen1';
               } 
-              // else if (prevState === 'screen1') {
-              //   return 'screen1';
-              // }
               return prevState; // Stay on the current state if no change is needed
             });
           } else if (INTERSECTED.name === 'screen2') {
@@ -208,14 +200,23 @@ useEffect(() => {
             setFocusState('vrShelf');
           } else if ( INTERSECTED.name == 'spaces' ) {
             setFocusState('spaces');
-          } else if (INTERSECTED.name == 'descSpacesButton') {
+          } else if (INTERSECTED.name === 'descSpacesButton') {
             setFocusState('screen1');
-          } else if ( INTERSECTED.name == 'anivision' ) {
-            setFocusState('anivision');
-          } else if (INTERSECTED.name == 'descAnivisionButton') {
+            setCurrState('screen1');
+            setIframeSrc("");
+            setTimeout(() => {
+              setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/spaces");
+            }, 50); // Small delay
+           } else if (INTERSECTED.name == 'anivision') {
+             setFocusState('anivision');
+           } else if (INTERSECTED.name === 'descAnivisionButton') {
             setFocusState('screen1');
-          } 
-          else if ( INTERSECTED.name == 'artWall' ) {
+            setCurrState('screen1');
+            setIframeSrc("");
+            setTimeout(() => {
+              setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/anivision");
+            }, 50); // Small delay
+          } else if ( INTERSECTED.name == 'artWall' ) {
             setFocusState('artWall');
           } else if ( INTERSECTED.name == 'corkboard' ) {
             setFocusState('corkboard');
@@ -323,11 +324,6 @@ useEffect(() => {
 
 
   useEffect (() => {
-      if (startVRAnim) {
-    const timeout = setTimeout(() => setShowHtmlUI(true), 1000); // match transition duration
-    return () => clearTimeout(timeout);
-  }
-
     const canvas = gl.domElement;
     canvas.addEventListener('pointerdown', handlePointerDown);
     canvas.addEventListener('pointerup', handlePointerUp);
@@ -341,7 +337,7 @@ useEffect(() => {
         document.removeEventListener('keydown', handleKeyDown);
         document.removeEventListener('keyup', handleKeyUp);
     }
-  }, [gl, handlePointerDown, handlePointerUp, handleKeyDown, startVRAnim])
+  }, [gl, handlePointerDown, handlePointerUp, handleKeyDown])
 
   return (
     <>
@@ -370,7 +366,7 @@ useEffect(() => {
                   material={materials.m_whiteMonitorBaked}
                 />
                 <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.4, 327]} transform occlude>
-                  <CaseStudies onScreenClick={handleScreenClick} currState={currState} />
+                  <CaseStudies onScreenClick={handleScreenClick} currState={currState} iframeSrc={iframeSrc}/>
                 </Html>
               </group>
               <group name="monitor2">

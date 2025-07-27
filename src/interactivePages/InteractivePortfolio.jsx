@@ -168,9 +168,9 @@ const InteractivePortfolio = () => {
       >
         <Suspense fallback={<Loader />}>
           {/* Expense: ambient < hemisphere < directional */}
-          <ambientLight intensity={4.5} color="#ffffff" />
           {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
           {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
+          <ambientLight intensity={4.5} color="#ffffff" />
           <Room
             position={RoomPosition}
             scale={RoomScale}

@@ -10,6 +10,7 @@ import CaseStudies from './staticPages/CaseStudies';
 import CaseStudyGracePeriod from './staticPages/CaseStudyGracePeriod';
 import CaseStudySavingsGoals from './staticPages/CaseStudySavingsGoals';
 import CaseStudySpaces from './staticPages/CaseStudySpaces';
+import CaseStudyAnivision from './staticPages/CaseStudyAnivision';
 
 import MiniProjects from './staticPages/MiniProjects';
 import Artwork from './staticPages/Artwork';
@@ -31,6 +32,7 @@ function App() {
             <Route path="case-studies/CD-grace-period" element={<CaseStudyGracePeriod />} />
             <Route path="case-studies/savings-goals" element={<CaseStudySavingsGoals />} />
             <Route path="case-studies/spaces" element={<CaseStudySpaces />} />
+            <Route path="case-studies/anivision" element={<CaseStudyAnivision />} />
 
             <Route path="mini-projects" element={<MiniProjects />} />
 

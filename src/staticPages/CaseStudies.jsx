@@ -20,10 +20,10 @@ const trackLinkClick = (category, action, label) => {
 
 
 const CaseStudies = (props) => {
-    //   useEffect(() => {
-    //     ReactGA.pageview(window.location.pathname);
-    //     console.log('page=>', window.location.pathname);
-    //   }, []);
+      useEffect(() => {
+        ReactGA.pageview(window.location.pathname);
+        console.log('page=>', window.location.pathname);
+      }, []);
     const navigateTo = useNavigate();
 
     return (
@@ -35,7 +35,11 @@ const CaseStudies = (props) => {
             </div>
             <div className="portfolio-row">
                 <div className="card">
-                    <div className="card-tile" onClick={() => navigateTo('/static/case-studies/CD-grace-period')}>
+                    <div className="card-tile" 
+                    onClick={() => {
+                        navigateTo('/static/case-studies/CD-grace-period');
+                        trackLinkClick.bind(this, 'Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
+                    }}>
                         <img src={gracePeriod} alt="CD grace period" loading="eager" />
                         <div className="description">
                             <div className="bold spacing-05">CD grace period</div>
@@ -52,7 +56,11 @@ const CaseStudies = (props) => {
                     </div>
                 </div>
                 <div className="card">
-                    <div className="card-tile" onClick={() => navigateTo('/static/case-studies/savings-goals')}>
+                    <div className="card-tile" 
+                    onClick={() => {
+                        navigateTo('/static/case-studies/savings-goals');
+                        trackLinkClick.bind(this, 'Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
+                    }}>
                         <img src={savingsGoals} alt="Savings goals" loading="eager" />
                         <div className="description">
                             <div className='bold spacing-05'>Savings goals</div>
@@ -69,7 +77,11 @@ const CaseStudies = (props) => {
                     </div>
                 </div>
                 <div className="card">
-                    <div className="card-tile" onClick={() => navigateTo('/static/case-studies/CD-grace-period')}>
+                    <div className="card-tile" 
+                    onClick={() => {
+                        navigateTo('/static/case-studies/CD-grace-period');
+                        trackLinkClick.bind(this, 'Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
+                    }}>
                         <img src={burnout} alt="Clinician burnout" loading="eager" />
                         <div className="description">
                             <div className='bold spacing-05'>Clinician burnout</div>
@@ -96,7 +108,11 @@ const CaseStudies = (props) => {
             </div>
             <div className="portfolio-row">
                 <div className="card">
-                    <div className="card-tile" onClick={() => navigateTo('/static/case-studies/CD-grace-period')}>
+                    <div className="card-tile" 
+                    onClick={() => {
+                        navigateTo('/static/case-studies/anivision');
+                        trackLinkClick.bind(this, 'Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
+                    }}>
                         <img src={anivision} alt="Anivision" loading="eager" />
                         <div className="description">
                             <div className='bold spacing-05'>Anivision</div>
@@ -114,7 +130,11 @@ const CaseStudies = (props) => {
                     </div>
                 </div>
                 <div className="card">
-                    <div className="card-tile" onClick={() => navigateTo('/static/case-studies/spaces')}>
+                    <div className="card-tile" 
+                    onClick={() => {
+                        navigateTo('/static/case-studies/spaces');
+                        trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces Click', 'Portfolio Nav');
+                    }}>
                         <img src={spaces} alt="Spaces" loading="eager" />
                         <div className="description">
                             <div className='bold spacing-05'>Spaces</div>

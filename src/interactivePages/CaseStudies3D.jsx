@@ -1,4 +1,6 @@
-const CaseStudies3D = ({ currState, onScreenClick }) => {
+import { useRef, useState, useEffect, useMemo } from 'react'
+
+const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
 
   const handleClickVariable = () => {
     onScreenClick('screen1');
@@ -32,7 +34,7 @@ const CaseStudies3D = ({ currState, onScreenClick }) => {
             title="embed"
             width="100%"
             height="990" // Make it taller than the visible area
-            src="https://unrivaled-lebkuchen.netlify.app/static/case-studies"
+            src={iframeSrc}
             style={{
               border: "none",
               position: "absolute",

@@ -386,7 +386,7 @@ useEffect(() => {
                   geometry={nodes.monitor2Shape_1.geometry}
                   material={materials.m_whiteMonitorBaked}
                 />
-                <Html scale={[1.5, -1.5, -1.5]} rotation={[0, 0.597, -Math.PI]} position={[5.7, 133.534, 306.7]} transform occlude>
+                <Html scale={[1.5, 1.5, 1.5]} rotation={[Math.PI, -0.597, Math.PI]} position={[5.7, 133.534, 306.7]} transform>
                   <MiniProjects onScreenClick={handleScreenClick} currState={currState} />
                 </Html>
               </group>

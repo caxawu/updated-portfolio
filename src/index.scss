@@ -101,6 +101,7 @@ a {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  z-index: 0;
 }
 
 .content {
@@ -267,11 +268,11 @@ a {
 }
 }
 .paper-effect {
-  z-index: 5;
+  z-index: 1;
   position: absolute;
   bottom: 0;
-  width: 210px;
-  height: 150px;
+  width: 160px;
+  height: 100px;
   background-color: $background-color;
   overflow: hidden;
 }
@@ -279,22 +280,21 @@ a {
 .paper-effect::before {
   content: "";
   position: absolute;
-  bottom: -23px;
+  bottom: -55px;
   left: 26px;
   width: 260px;
   height: 130px;
   background-color: #857861;
   transform-origin: 100% 0;
-  transform: rotate(35deg);
+  transform: rotate(31.5deg);
   box-shadow: -2px 2px 12px #b4b4b4;
 }
 
 .interactive-back-container {
   z-index: 6;
   position: absolute;
-  // background-color: rgb(133, 27, 27);
   bottom: 4px;
-  padding: 1rem 2rem;
+  padding: 0.6rem 0.5rem;
 
 }
 

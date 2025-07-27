@@ -153,23 +153,22 @@ const InteractivePortfolio = () => {
 
 
   return (
-    <section className="room" style={{background: '#FFFFFF'}}>
-
-<div className='paper-effect'/>
-
-<div className='interactive-back-container'>
-      <div className="link-button text-secondary" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
-        back
+    <div>
+          <div className='paper-effect' />
+      <div className='interactive-back-container'>
+        <div className="link-button text-secondary" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
+          back
+        </div>
       </div>
-</div>
+    <section className="room" style={{ background: '#FFFFFF' }}>
 
-      <Canvas 
-      className= {`canvas-content ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-      camera={defaultCamera.current}
+      <Canvas
+        className={`canvas-content ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
+        camera={defaultCamera.current}
       >
         <Suspense fallback={<Loader />}>
           {/* Expense: ambient < hemisphere < directional */}
-          <ambientLight intensity={4.5} color="#ffffff"/>
+          <ambientLight intensity={4.5} color="#ffffff" />
           {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
           {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
           <Room
@@ -185,7 +184,7 @@ const InteractivePortfolio = () => {
             setFocusState={setFocusState}
           />
         </Suspense>
-  
+
         <CanvasContent
           defaultCamera={defaultCamera}
           cameraPosition={cameraPosition}
@@ -198,6 +197,7 @@ const InteractivePortfolio = () => {
       </Canvas>
       <Outlet />
     </section>
+    </div>
   )
 };
 

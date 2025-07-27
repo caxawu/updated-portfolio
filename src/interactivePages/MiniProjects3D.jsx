@@ -13,11 +13,11 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
   };
 
   return (
-    <div style={{width: "1775px", height: "2354px", fontSize: "14px", overflow:"hidden", backgroundColor: "black"}} onClick={handleClickVariable}>
+    <div style={{width: "1775px", height: "2354px", overflow:"hidden", backgroundColor: "red", zIndex:"0"}} onClick={handleClickVariable}>
       <div
         style={{
-          transform: "scale(1.2)",
-          transformOrigin: "0 0",
+          transform: "scale(1.33)",
+          transformOrigin: "20% 0",
           imageRendering: "crisp-edges",
           backgroundColor: "black",
           width: "1480px",
@@ -25,6 +25,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
           overflow: currState === "screen2" ? "auto" : "hidden",
           pointerEvents: currState === "screen2" ? "auto" : "none",
           position: "relative",
+          zIndex:"1"
         }}
       >
         <div style={{

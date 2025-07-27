@@ -171,9 +171,10 @@ useEffect(() => {
               if (prevState === 'table' || prevState === 'screen2') {
                 setFocusState('screen1');
                 return 'screen1';
-              } else if (prevState === 'screen1') {
-                return 'screen1';
-              }
+              } 
+              // else if (prevState === 'screen1') {
+              //   return 'screen1';
+              // }
               return prevState; // Stay on the current state if no change is needed
             });
           } else if (INTERSECTED.name === 'screen2') {
@@ -195,6 +196,13 @@ useEffect(() => {
           } 
           else if (/^keycap\d+$/.test(INTERSECTED.name)) {
             handleButtonAnimation(INTERSECTED.name);
+              setCurrState((prevState) => {
+              if (prevState === 'home') {
+                setFocusState('table');
+                return 'table';
+              }
+              return prevState;
+            });
           }
           else if ( INTERSECTED.name == 'vrShelf' ) {
             setFocusState('vrShelf');

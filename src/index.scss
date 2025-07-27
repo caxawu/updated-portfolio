@@ -92,16 +92,15 @@ html {
 
 a {
   text-decoration: none;
-  /* Removes underline */
   color: inherit;
-  /* Keeps text color the same as the parent */
   font: inherit;
-  /* Ensures text follows your global font styles */
 }
 
 .room {
   width: 100vw;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .content {

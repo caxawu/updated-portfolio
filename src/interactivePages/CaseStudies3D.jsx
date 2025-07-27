@@ -5,7 +5,7 @@ const CaseStudies3D = ({ currState, onScreenClick }) => {
   };
 
   return (
-    <div style={{ width: "2580px", height: "1445px", overflow: "hidden" }} onClick={handleClickVariable}>
+    <div style={{ width: "2580px", height: "1445px", overflow: "hidden", zIndex:"0" }} onClick={handleClickVariable}>
       <div
         style={{
           transform: "scale(1.6)",
@@ -17,6 +17,7 @@ const CaseStudies3D = ({ currState, onScreenClick }) => {
           overflow: currState === "screen1" ? "auto" : "hidden",
           pointerEvents: currState === "screen1" ? "auto" : "none",
           position: "relative",
+          zIndex:"0"
         }}
       >
         <div style={{
@@ -24,7 +25,8 @@ const CaseStudies3D = ({ currState, onScreenClick }) => {
           height: "100%",
           overflow: "hidden",
           position: "relative",
-          left: "10px"
+          left: "10px",
+          zIndex:"0"
         }}>
           <iframe
             title="embed"
@@ -35,7 +37,8 @@ const CaseStudies3D = ({ currState, onScreenClick }) => {
               border: "none",
               position: "absolute",
               top: "-88px", // Push iframe up to crop top
-              left: "-180px"
+              left: "-180px",
+              zIndex:"0"
             }}
           />
         </div>

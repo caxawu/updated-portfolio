@@ -8,21 +8,19 @@ const Resume3D = ({currState, onScreenClick, setCurrState}) => {
   };
 
   return (
-    <div style={{width: "1760px", height: "2280px", fontSize: "14px", overflow:"hidden", backgroundColor: "white"}} onClick={handleClickVariable}>
-      <div style={{ transform: "scale(1.19)", transformOrigin: "0 0", imageRendering: "crisp-edges" }}>
-        <iframe 
-          title="embed" 
-          width={1480} 
-          height={2800} 
-          src="https://drive.google.com/file/d/11bBEf4DXBEegXaYLejCiFg3O86Q9wAJ2/preview" 
-          style={{       
-            overflow: currState === 'resume' ? 'auto' : 'hidden', 
-            pointerEvents: currState === 'resume' ? 'auto' : 'none'  
-          }}
-          // sandbox="allow-scripts allow-same-origin"
-          
-        />
-      </div>
+    <div style={{ width: "1760px", height: "2280px", position: "relative", overflow: 'hidden', backgroundColor: "white" }} onClick={handleClickVariable}>
+        <div style={{ transform: "scale(2.2) translateY(260px)", height: "980px", overflow: 'hidden', imageRendering: "crisp-edges", position: "absolute" }}>
+          <iframe
+            title="embed"
+            width={1755}
+            height={1050}
+            src="https://drive.google.com/file/d/11bBEf4DXBEegXaYLejCiFg3O86Q9wAJ2/preview"
+            style={{
+              overflow: currState === 'resume' ? 'auto' : 'hidden',
+              pointerEvents: currState === 'resume' ? 'auto' : 'none',
+            }}
+          />
+        </div>
     </div>
   )
 }

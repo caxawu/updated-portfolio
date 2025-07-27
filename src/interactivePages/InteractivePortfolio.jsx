@@ -35,7 +35,7 @@ const InteractivePortfolio = () => {
       updateCameraLookAt([0, -18, -35]);
 
     } else if (focusState === 'screen1') {
-      updateCameraPosition([8, -11.1, -57.5]);
+      updateCameraPosition([8.5, -11.3, -57]);
       updateCameraLookAt([0, -1, -36]);
 
     } else if ( focusState === 'screen2' ) {

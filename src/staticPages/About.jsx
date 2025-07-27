@@ -29,7 +29,7 @@ const trackLinkClick = (category, action, label) => {
               <div className='bio'>
                 <div class="outline-overlay"></div>
                 <div className='text-secondary'>about me</div>
-                Hii there! I’m Cathy. I’m a designer who loves to chase wherever my creativity and curiosity take me. By day,
+                Hi there! I’m Cathy. I’m a designer who loves to chase wherever my creativity and curiosity take me. By day,
                 I’m a UX designer diving into complex problems and transforming them into simple, meaningful experiences.
                 By night, you’ll find me sketching, cooking new recipes, or obsessing over getting the interactions just
                 right in my latest VR project.

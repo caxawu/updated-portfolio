@@ -22,7 +22,7 @@ import s1 from "../assets/images/miniPlayer/drawings/s1.png";
 import s2 from "../assets/images/miniPlayer/drawings/s2.png";
 import museum from "../assets/images/miniPlayer/drawings/museum.png";
 
-const MiniPlayer3D = ({currState,setCurrState, onScreenClick }) => {
+const MiniPlayer3D = ({imgState,setImgState, onScreenClick }) => {
 
   const handleClickVariable = () => {
     onScreenClick('miniPlayer');
@@ -45,26 +45,27 @@ const MiniPlayer3D = ({currState,setCurrState, onScreenClick }) => {
   };
 
   useEffect(() => {
-    if (currState === 'nextImage') {
+    if (imgState === 'arrowRight') {
       handleNextImage();
-      setCurrState('none');  // Reset state, needed for useEffect to detect change the next time button is clicked
-    } else if (currState === 'prevImage') {
+      setImgState('none');  // Reset state, needed for useEffect to detect change the next time button is clicked
+    } else if (imgState === 'arrowLeft') {
       handlePrevImage();
-      setCurrState('none');  // Reset state, needed for useEffect to detect change the next time button is clicked
+      setImgState('none');  // Reset state, needed for useEffect to detect change the next time button is clicked
     }
-  }, [currState, setCurrState]);
+  }, [imgState, setImgState]);
 
   return (
-    <div style={{ width: "1510px", height: "1130px"}} onClick={handleClickVariable} >
+    <div style={{ width: "1510px", height: "1130px", overflow: "hidden"}} onClick={handleClickVariable} >
         <img 
           src={images[currentIndex]} 
           alt="Art image" 
           style={{ width: "100%", 
             height: "100%", 
-            objectFit: "contain",  // ✅ This makes the image fit the container while maintaining aspect ratio
+            objectFit: "contain",
             maxWidth: "100%", 
             maxHeight: "100%",
-            pointerEvents: currState === "miniPlayer" ? "auto" : "none", }} 
+            // pointerEvents: currState === "miniPlayer" ? "auto" : "none"
+           }} 
         />
     </div>
   )

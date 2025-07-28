@@ -118,16 +118,16 @@ const InteractivePortfolio = () => {
       updateCameraLookAt([10000, -500, -36]);
     } else if ( focusState === 'animPlayer' ) {
       updateCameraPosition([33, -2.5, -40]);
-      updateCameraLookAt([2000, -800, -36]);
+      updateCameraLookAt([2000, -900, -36]);
     } else if ( focusState === 'egg' ) {
-      updateCameraPosition([33, 4.5, -35]);
-      updateCameraLookAt([2000, -1000, -36]);
+      updateCameraPosition([33, 4.25, -34.75]);
+      updateCameraLookAt([2000, -900, -36]);
     } else if ( focusState === 'boat' ) {
       updateCameraPosition([33, 3, -40.5]);
-      updateCameraLookAt([2000, -1000, -36]);
+      updateCameraLookAt([2000, -1100, -36]);
     } else if ( focusState === 'flower' ) {
-      updateCameraPosition([30, 9, -44]);
-      updateCameraLookAt([2000, -500, -36]);
+      updateCameraPosition([30.5, 9.25, -44.55]);
+      updateCameraLookAt([10000, -3800, -36]);
     }
     setFocusState('null');
   });

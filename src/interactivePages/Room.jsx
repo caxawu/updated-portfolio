@@ -31,75 +31,75 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
   let INTERSECTED;
 
   const [ currState, setCurrState ] = useState ('home');    // To pass into HTML children to turn off interactivity before zooming in
+  const [ imgState, setImgState ] = useState ('none');
   const [isArrowPressed, setIsArrowPressed] = useState(false);
 
 
   const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
 
-  const particleSystemRef = useRef();  // Keep the reference of the ParticleSystem
+  const particleSystemRef = useRef();
 
   const keycapCount = 62;
 
    // Animate the mesh position when the buttons are pressed
-const springConfig = useMemo(() => {
-  const base = {
-    positionLeft: isArrowPressed === 'left' ? [0, 0, 0.6] : [0, 0, 0],
-    positionRight: isArrowPressed === 'right' ? [0, 0, 0.6] : [0, 0, 0],
-    positionBallBounce: isArrowPressed === 'ballBounce' ? [0, -2, 0] : [0, 0, 0],
-    positionTwoBalls: isArrowPressed === 'twoBalls' ? [0, -2, 0] : [0, 0, 0],
-    positionWalkCycle: isArrowPressed === 'walkCycle' ? [0, -2, 0] : [0, 0, 0],
-    positionWalkForward: isArrowPressed === 'walkForward' ? [0, -2, 0] : [0, 0, 0],
-    positionJump: isArrowPressed === 'jump' ? [0, -2, 0] : [0, 0, 0],
-    positionRun: isArrowPressed === 'run' ? [0, -2, 0] : [0, 0, 0],
-  };
+  const springConfig = useMemo(() => {
+    const base = {
+      positionLeft: isArrowPressed === 'arrowLeft' ? [0, 0, 0.6] : [0, 0, 0],
+      positionRight: isArrowPressed === 'arrowRight' ? [0, 0, 0.6] : [0, 0, 0],
+      positionBallBounce: isArrowPressed === 'ballBounce' ? [0, -2, 0] : [0, 0, 0],
+      positionTwoBalls: isArrowPressed === 'twoBalls' ? [0, -2, 0] : [0, 0, 0],
+      positionWalkCycle: isArrowPressed === 'walkCycle' ? [0, -2, 0] : [0, 0, 0],
+      positionWalkForward: isArrowPressed === 'walkForward' ? [0, -2, 0] : [0, 0, 0],
+      positionJump: isArrowPressed === 'jump' ? [0, -2, 0] : [0, 0, 0],
+      positionRun: isArrowPressed === 'run' ? [0, -2, 0] : [0, 0, 0],
+    };
 
-  for (let i = 1; i <= keycapCount; i++) {
-    const key = `keycap${i}`;
-    base[key] = isArrowPressed === key ? [0, -2, 0] : [0, 0, 0];
-  }
+    for (let i = 1; i <= keycapCount; i++) {
+      const key = `keycap${i}`;
+      base[key] = isArrowPressed === key ? [0, -2, 0] : [0, 0, 0];
+    }
 
-  return base;
-}, [isArrowPressed]);
+    return base;
+  }, [isArrowPressed]);
 
-const springs = useSpring({
-  ...springConfig,
-  config: { tension: 170, friction: 26 },
-});
+  const springs = useSpring({
+    ...springConfig,
+    config: { tension: 170, friction: 26 },
+  });
 
   const handleButtonAnimation = (arrow) => {
     setIsArrowPressed(arrow); // Set the state to either 'left' or 'right'
     setTimeout(() => {
       setIsArrowPressed(false);  // Reset the animation after 200ms
     }, 100);
-};
+  };
 
   // loop animations in scene
-useEffect(() => {
-  // Play all relevant animations
-  if (animations.length > 0 && actions) {
-    animations.forEach((clip) => {
-      if (clip.name !== 'tail1' && actions[clip.name]) {
-        actions[clip.name].play();
-      }
-    });
-  }
-  // Start or resume the particle system if it exists
-  particleSystemRef.current?.play();
-}, [actions, animations]);
+  useEffect(() => {
+    // Play all relevant animations
+    if (animations.length > 0 && actions) {
+      animations.forEach((clip) => {
+        if (clip.name !== 'tail1' && actions[clip.name]) {
+          actions[clip.name].play();
+        }
+      });
+    }
+    // Start or resume the particle system if it exists
+    particleSystemRef.current?.play();
+  }, [actions, animations]);
 
   const handleMeshRef = (mesh) => {
     if (mesh && !meshes.includes(mesh)) {
-       setMeshes(prevMeshes => [...prevMeshes, mesh]);
+      setMeshes(prevMeshes => [...prevMeshes, mesh]);
     }
   };
 
     // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
     const handleScreenClick = (location) => {
       setCurrState((prevState) => {
-
         // table screen zooms
         if (location === 'screen1' || location === 'screen2' || location === 'resume') {
-          if (prevState === 'home') {  // if clicking from home, zoom to the table
+          if (prevState === 'home' || prevState === 'artWall') {
             setFocusState('table');
             return 'table';
           } else if (prevState === 'table') {   // if clicking from table, zoom to clicked screen
@@ -116,21 +116,21 @@ useEffect(() => {
           return 'screen1';
         }
         // models shelf screen zooms
-        if (location === 'modelsScreen' || location === 'animPlayer') {
+        if (location === 'modelsScreen' || location === 'animPlayer' || location === 'modelsShelf') {
           if (prevState === 'home') { 
             setFocusState('modelsShelf');
             return 'modelsShelf';
-          } else if (prevState === 'modelsShelf') { 
+          } else if (prevState === 'modelsShelf' || prevState === 'modelsScreen' || prevState === 'animPlayer') { 
             setFocusState(location);
             return location;
           }
         }
-        // models shelf screen zooms
-        if (location === 'miniPlayer') {
+        // art shelf screen zooms
+        if (location === 'miniPlayer' || location === 'artWall' ) {
           if (prevState === 'home') { 
             setFocusState('artWall');
             return 'artWall';
-          } else if (prevState === 'artWall') { 
+          } else if (prevState === 'artWall' || prevState === 'miniPlayer') { 
             setFocusState(location);
             return location;
           }
@@ -157,35 +157,24 @@ useEffect(() => {
        if ( intersects.length > 0 ) {
          if ( INTERSECTED != intersects[ 0 ].object) {
            INTERSECTED = intersects[ 0 ].object;
-           
-           if (INTERSECTED.name === 'table') {  // If clicking on the table, zoom out to the table
+
+           if (INTERSECTED.name === 'table') {
             setFocusState('table');
             setCurrState('table');
-          } else if (INTERSECTED.name === 'screen1') {
+          } 
+          else if (INTERSECTED.name === 'screen1' || INTERSECTED.name === 'screen2' || INTERSECTED.name === 'resume') {
             setCurrState((prevState) => {
-              if (prevState === 'table' || prevState === 'screen2') {
-                setFocusState('screen1');
-                return 'screen1';
+              if (prevState === 'home' || prevState === 'artWall') {
+                setFocusState('table');
+                setCurrState('table');
+              }
+              if (prevState === 'table' || prevState === 'screen1' || prevState === 'screen2'|| prevState === 'resume') {
+                setFocusState(INTERSECTED.name);
+              return INTERSECTED.name;
               } 
               return prevState; // Stay on the current state if no change is needed
             });
-          } else if (INTERSECTED.name === 'screen2') {
-            setCurrState((prevState) => {
-              if (prevState === 'table' || prevState === 'screen1') {
-                setFocusState('screen2'); // Zoom into screen2
-                return 'screen2';
-              }
-              return prevState; // Stay on screen2 if already there
-            });
-          } else if (INTERSECTED.name === 'resume') {
-            setCurrState((prevState) => {
-              if (prevState === 'table') {
-                setFocusState('resume'); // Zoom into resume
-                return 'resume';
-              }
-              return prevState; // Stay on resume if already there
-            });
-          } 
+          }
           else if (/^keycap\d+$/.test(INTERSECTED.name)) {
             handleButtonAnimation(INTERSECTED.name);
               setCurrState((prevState) => {
@@ -216,42 +205,63 @@ useEffect(() => {
             setTimeout(() => {
               setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/anivision");
             }, 50); // Small delay
-          } else if ( INTERSECTED.name == 'artWall' ) {
-            setFocusState('artWall');
-          } else if ( INTERSECTED.name == 'corkboard' ) {
+          } 
+          else if ( INTERSECTED.name == 'corkboard' ) {
             setFocusState('corkboard');
-          } else if ( INTERSECTED.name == 'drawingHand' ) {
-            setFocusState('drawingHand');
-          } else if ( INTERSECTED.name == 'drawingDavid' ) {
-            setFocusState('drawingDavid');
-          } else if ( INTERSECTED.name == 'drawingFish' ) {
-            setFocusState('drawingFish');
-          } else if ( INTERSECTED.name == 'businessCard' ) {
-            setFocusState('businessCard');
-          } else if ( INTERSECTED.name == 'paintingDoor' ) {
-            setFocusState('paintingDoor');
-          } else if ( INTERSECTED.name == 'paintingFruit' ) {
-            setFocusState('paintingFruit');
-          } else if ( INTERSECTED.name == 'paintingLandscape' ) {
-            setFocusState('paintingLandscape');
-          } else if ( INTERSECTED.name == 'paintingBirds' ) {
-            setFocusState('paintingBirds');
+            setCurrState('corkboard');
           } 
-          else if ( INTERSECTED.name == 'sketchbook' ) {
-            setFocusState('sketchbook');
-          } else if ( INTERSECTED.name == 'miniPlayer' ) {
-            setFocusState('miniPlayer');
-          } else if ( INTERSECTED.name == 'arrowRight' ) {
-            setFocusState('miniPlayer');
-            setCurrState('nextImage');
-            handleButtonAnimation('right');
-          } else if ( INTERSECTED.name == 'arrowLeft' ) {
-            setFocusState('miniPlayer');
-            setCurrState('prevImage');
-            handleButtonAnimation('left');
+          else if ( INTERSECTED.name == 'drawingHand' || INTERSECTED.name === 'drawingDavid' || INTERSECTED.name === 'drawingFish' || INTERSECTED.name === 'businessCard') {
+            setCurrState((prevState) => {
+              if (prevState === 'home' || prevState === 'artWall' || prevState === 'paintingDoor' || prevState === 'paintingFruit' || prevState === 'paintingLandscape' || prevState === 'paintingBirds' || prevState === 'sketchbook' || prevState == 'miniPlayer') {
+                setFocusState('corkboard');
+                setCurrState('corkboard');
+              }
+              else if (prevState === 'corkboard' || prevState === 'drawingHand' || prevState === 'drawingDavid' || prevState === 'drawingFish' || prevState === 'businessCard') {
+              setFocusState(INTERSECTED.name);
+              return INTERSECTED.name;
+              } 
+              return prevState; // Stay on the current state if no change is needed
+            });
           } 
+          else if ( INTERSECTED.name == 'artWall' ) {
+            setFocusState('artWall');
+            setCurrState('artWall');
+          } 
+          else if (INTERSECTED.name == 'paintingDoor' || INTERSECTED.name == 'paintingFruit' || INTERSECTED.name == 'paintingLandscape' || INTERSECTED.name == 'paintingBirds' || INTERSECTED.name == 'sketchbook' || 
+            INTERSECTED.name == 'miniPlayer' || INTERSECTED.name == 'arrowRight' || INTERSECTED.name == 'arrowLeft'){
+              
+            setCurrState((prevState) => {
+              if (prevState === 'home' || prevState === 'table' || prevState === 'screen1' || prevState === 'screen2') {
+                setFocusState('artWall');
+                setCurrState('artWall');
+              } 
+              else if (prevState === 'artWall' || prevState === 'paintingDoor' || prevState === 'paintingFruit' || prevState === 'paintingLandscape' || prevState === 'paintingBirds' || prevState === 'sketchbook' || prevState == 'miniPlayer' || prevState === 'corkboard' || prevState === 'drawingDavid' || prevState === 'drawingFish' || prevState === 'businessCard' ||
+                prevState === 'miniPlayer') {
+                  if (INTERSECTED.name === 'arrowRight' || INTERSECTED.name === 'arrowLeft' ) {
+                    if (prevState === 'miniPlayer') {
+                      setImgState(INTERSECTED.name);
+                      handleButtonAnimation(INTERSECTED.name);
+                      setFocusState('miniPlayer');
+                      return 'miniPlayer';
+                    } else {
+                      setFocusState('miniPlayer');
+                      return 'miniPlayer';
+                    }
+                  }
+                setFocusState(INTERSECTED.name);
+                return INTERSECTED.name;
+              } 
+              return prevState; // Stay on the current state if no change is needed
+            });
+          }
+          // else if ( INTERSECTED.name == 'arrowLeft' ) {
+          //   setFocusState('miniPlayer');
+          //   setCurrState('prevImage');
+          //   handleButtonAnimation('left');
+          // } 
           else if ( INTERSECTED.name == 'modelsShelf' ) {
             setFocusState('modelsShelf');
+            setCurrState('modelsShelf');
           } else if ( INTERSECTED.name == 'modelsScreen' ) {
             setFocusState('modelsScreen');
           } else if ( INTERSECTED.name == 'animPlayer' ) {
@@ -354,14 +364,12 @@ useEffect(() => {
               />
               <group name="monitor1">
                 <mesh
-                  ref={handleMeshRef}
-                  name="screen1"
+                  name="screen1" ref={handleMeshRef}
                   geometry={nodes.monitor1Shape.geometry}
                   material={materials.m_blackFlat}
                 />
                 <mesh
-                  ref={handleMeshRef}
-                  name="screen1"
+                  name="screen1" ref={handleMeshRef}
                   geometry={nodes.monitor1Shape_1.geometry}
                   material={materials.m_whiteMonitorBaked}
                 />
@@ -371,14 +379,12 @@ useEffect(() => {
               </group>
               <group name="monitor2">
                 <mesh
-                  ref={handleMeshRef}
-                  name="screen2"
+                  name="screen2" ref={handleMeshRef}
                   geometry={nodes.monitor2Shape.geometry}
                   material={materials.m_blackFlat}
                 />
                 <mesh
-                  ref={handleMeshRef}
-                  name="screen2"
+                  name="screen2" ref={handleMeshRef}
                   geometry={nodes.monitor2Shape_1.geometry}
                   material={materials.m_whiteMonitorBaked}
                 />
@@ -695,11 +701,11 @@ useEffect(() => {
                 name="modelsScreen" ref={handleMeshRef}
                 geometry={nodes.modelsScreen.geometry}
                 material={materials.m_digitalFrameBaked}
-                position={[-386.894, 312.47, 26.769]}
+                position={[-386.894, 312.6, 26.769]}
                 rotation={[Math.PI / 2, 0, Math.PI / 2]}
-                scale={[0.108, 0.004, 4.959]}
+                scale={[0.106, 0.004, 4.86]}
               />
-              <Html scale={1} rotation-y={Math.PI / 2} position={[-387, 314.8, 26.7]} transform occlude>
+              <Html scale={0.94} rotation-y={Math.PI / 2} position={[-387, 314.8, 26.7]} transform occlude>
                 <ModelsScreen onScreenClick={handleScreenClick} currState={currState} />
               </Html>
               <mesh
@@ -709,7 +715,7 @@ useEffect(() => {
                 position={[-370.295, 293.418, 155.738]}
                 scale={3.793}
               />
-              <group name="flower">
+              <group name="flower" rotation={[0,0.01,0]}>
                 <mesh
                   name="flower" ref={handleMeshRef}
                   geometry={nodes.flowerShape.geometry}
@@ -969,7 +975,7 @@ useEffect(() => {
                   material={materials.m_controlButtonsBaked}
                 />
                 <Html scale={0.4} rotation-y={-Math.PI} position={[94.47, 232.21, 354]} transform occlude>
-                  <MiniPlayer onScreenClick={handleScreenClick} currState={currState} setCurrState={setCurrState} />
+                  <MiniPlayer onScreenClick={handleScreenClick} imgState={imgState} setImgState={setImgState} />
                 </Html>
               </group>
               <group name="inkwell">

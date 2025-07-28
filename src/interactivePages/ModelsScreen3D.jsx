@@ -41,7 +41,7 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
 
 
   return (
-    <div style={{ width: "2580px", height: "1400px", backgroundColor: "black"}} onClick={handleClickVariable}>
+    <div style={{ width: "2580px", height: "1370px", backgroundColor: "black", zIndex: -1}} onClick={handleClickVariable} >
 
       {/* left arrow */}
       <button 
@@ -57,7 +57,7 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
           borderRadius: "300px",
           boxShadow: "0px 0px 50px 0px rgba(89, 89, 89, 1)",
           cursor: "pointer",
-          zIndex: 10 // Ensures it's above other content
+          zIndex: 10
           }}
         >
         <div    // arrow
@@ -87,7 +87,7 @@ const ModelsScreen3D = ({currState, onScreenClick }) => {
           borderRadius: "300px",
           boxShadow: "0px 0px 50px 0px rgba(89, 89, 89, 1)",
           cursor: "pointer",
-          zIndex: 10 // Ensures it's above other content
+          zIndex: 10
           }}
         >
         <div    // arrow

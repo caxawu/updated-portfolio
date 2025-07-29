@@ -130,7 +130,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
           if (prevState === 'home') { 
             setFocusState('artWall');
             return 'artWall';
-          } else if (prevState === 'artWall' || prevState === 'miniPlayer') { 
+          } else if (prevState === 'artWall' || prevState === 'miniPlayer' || prevState === 'corkboard' || prevState === 'sketchbook') { 
             setFocusState(location);
             return location;
           }
@@ -254,19 +254,33 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
               return prevState; // Stay on the current state if no change is needed
             });
           }
-          // else if ( INTERSECTED.name == 'arrowLeft' ) {
-          //   setFocusState('miniPlayer');
-          //   setCurrState('prevImage');
-          //   handleButtonAnimation('left');
-          // } 
           else if ( INTERSECTED.name == 'modelsShelf' ) {
             setFocusState('modelsShelf');
             setCurrState('modelsShelf');
-          } else if ( INTERSECTED.name == 'modelsScreen' ) {
-            setFocusState('modelsScreen');
-          } else if ( INTERSECTED.name == 'animPlayer' ) {
-            setFocusState('animPlayer');
-          } else if ( INTERSECTED.name == 'keyBallBounce' ) {
+          } 
+          else if (INTERSECTED.name == 'flower' || INTERSECTED.name == 'boat' || INTERSECTED.name == 'egg' || INTERSECTED.name == 'animPlayer' || INTERSECTED.name == 'modelsScreen'){
+              
+            setCurrState((prevState) => {
+              if (prevState === 'home') {
+                setFocusState('modelsShelf');
+                setCurrState('modelsShelf');
+              } 
+              else if (prevState === 'modelsShelf' || prevState === 'flower' || prevState === 'egg' || prevState === 'boat' || prevState === 'animPlayer' || prevState == 'modelsScreen') {
+                setFocusState(INTERSECTED.name);
+                return INTERSECTED.name;
+              } 
+              return prevState; // Stay on the current state if no change is needed
+            });
+          }
+
+            // "keyWalkForward" ref={handleMeshRef} position={springs.positionWalkForward} geometry={nodes.keyWalkForward.geometry} material={materials.m_controlButtonsBaked} />
+            //     <a.mesh name="keyRun" ref={handleMeshRef} position={springs.positionRun} geometry={nodes.keyRun.geometry} material={materials.m_controlButtonsBaked} />
+            //     <a.mesh name="keyTwoBalls" ref={handleMeshRef} position={springs.positionTwoBalls} geometry={nodes.keyTwoBalls.geometry} material={materials.m_controlButtonsBaked} />
+            //     <a.mesh name="keyJump" ref={handleMeshRef} position={springs.positionJump} geometry={nodes.keyJump.geometry} material={materials.m_controlButtonsBaked} />
+            //     <a.mesh name="keyWalkCycle" ref={handleMeshRef} position={springs.positionWalkCycle} geometry={nodes.keyWalkCycle.geometry} material={materials.m_controlButtonsBaked} />
+            //     <a.mesh name="keyBallBounce"
+          
+          else if ( INTERSECTED.name == 'keyBallBounce' ) {
             setFocusState('animPlayer');
             setCurrState('ballBounce');
             handleButtonAnimation('ballBounce');

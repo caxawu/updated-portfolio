@@ -71,15 +71,15 @@ const InteractivePortfolio = () => {
       updateCameraLookAt([0, 0, -40]);
 
     } else if ( focusState === 'drawingHand' ) {
-      updateCameraPosition([-25, 6.7, -58]);
+      updateCameraPosition([-25, 6.9, -58.5]);
       updateCameraLookAt([0, -3, -40]);
 
     } else if ( focusState === 'drawingDavid' ) {
-      updateCameraPosition([-15, 11, -60]);
+      updateCameraPosition([-15, 11, -62]);
       updateCameraLookAt([0, -4, -40]);
 
     } else if ( focusState === 'drawingFish' ) {
-      updateCameraPosition([-19, 4, -60]);
+      updateCameraPosition([-18, 3, -62]);
       updateCameraLookAt([0, -4, -40]);
 
     } else if ( focusState === 'businessCard' ) {

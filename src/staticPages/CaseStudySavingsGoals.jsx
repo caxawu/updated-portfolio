@@ -28,15 +28,8 @@ import detailsComplete from '../assets/images/caseStudies/goals/detailsComplete.
 import hubComplete from '../assets/images/caseStudies/goals/hubComplete.png'
 
 import ToTopButton from './ToTopButton';
+import Footer from './Footer';
 
-const trackLinkClick = (category, action, label) => {
-    console.log('GA event:', category, ':', action, ':', label);
-    ReactGA.event({
-        category,
-        action,
-        label,
-    });
-};
 
 const CaseStudySavingsGoals = (props) => {
     useEffect(() => {
@@ -391,9 +384,7 @@ const CaseStudySavingsGoals = (props) => {
                     set to finish by Q3 2025 with an associate pilot followed by a scaled-up customer pilot.
                 </div>
             </div>
-
-
-
+        <Footer />
         </div>
         </PasswordProtected>
 

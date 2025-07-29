@@ -90,34 +90,11 @@ const FadeInImage = ({ className, src, alt }) => {
   );
 };
 
-
-const Artwork = () => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-    console.log('page=>', window.location.pathname);
-  }, []);
-
-  return (
-    <div className='page-wrapper'>
-      <ArtNavBar />
-      <ToTopButton />
-      <main className="page-content">
-        <Outlet />
-      </main>
-      <Footer/>
-    </div>
-  );
-
-}
-
-export default Artwork;
-
 const Modeling = (props) => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
     console.log('page=>', window.location.pathname);
   }, []);
-
   return (
     <div className="img-section">
       <div className="row">
@@ -155,7 +132,6 @@ const Animation = (props) => {
     ReactGA.pageview(window.location.pathname);
     console.log('page=>', window.location.pathname);
   }, []);
-
   return (
     <div className="img-section" id="not-full-page">
       <div className="row">
@@ -177,7 +153,6 @@ const Paintings = (props) => {
     ReactGA.pageview(window.location.pathname);
     console.log('page=>', window.location.pathname);
   }, []);
-
   return (
     <div className="img-section">
       <div className="row">
@@ -223,7 +198,6 @@ const Drawings = (props) => {
     ReactGA.pageview(window.location.pathname);
     console.log('page=>', window.location.pathname);
   }, []);
-
   return (
     <div className="img-section">
       <div className="row">
@@ -261,6 +235,23 @@ const Drawings = (props) => {
     </div>
   );
 };
-export {
-  Modeling, Animation, Paintings, Drawings
-};
+export {Modeling, Animation, Paintings, Drawings};
+
+const Artwork = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+    console.log('page=>', window.location.pathname);
+  }, []);
+
+  return (
+    <div className='page-wrapper'>
+      <ArtNavBar />
+      <ToTopButton />
+      <main className="page-content">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+export default Artwork;

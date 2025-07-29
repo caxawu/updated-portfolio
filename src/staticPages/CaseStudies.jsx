@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
@@ -27,6 +27,7 @@ const CaseStudies = (props) => {
     const navigateTo = useNavigate();
 
     return (
+        <div id='case-studies-spacing'>
         <div className="content">
             <div className="portfolio-title text-title">
                 <div className='highlight-pink'>
@@ -79,7 +80,7 @@ const CaseStudies = (props) => {
                 <div className="card">
                     <div className="card-tile" 
                     onClick={() => {
-                        navigateTo('/static/case-studies/CD-grace-period');
+                        navigateTo('/static/case-studies/clinician-burnout');
                         trackLinkClick.bind(this, 'Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
                     }}>
                         <img src={burnout} alt="Clinician burnout" loading="eager" />
@@ -152,7 +153,8 @@ const CaseStudies = (props) => {
                 </div>
             </div>
             <div className='spacing-3'/>
-            <Footer />
+        </div>
+                    <Footer />
         </div>
     );
 };

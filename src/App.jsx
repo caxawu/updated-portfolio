@@ -9,6 +9,7 @@ import StaticPortfolio from './staticPages/StaticPortfolio';
 import CaseStudies from './staticPages/CaseStudies';
 import CaseStudyGracePeriod from './staticPages/CaseStudyGracePeriod';
 import CaseStudySavingsGoals from './staticPages/CaseStudySavingsGoals';
+import CaseStudyBurnout from './staticPages/CaseStudyBurnout';
 import CaseStudySpaces from './staticPages/CaseStudySpaces';
 import CaseStudyAnivision from './staticPages/CaseStudyAnivision';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="case-studies" element={<CaseStudies />} />
             <Route path="case-studies/CD-grace-period" element={<CaseStudyGracePeriod />} />
             <Route path="case-studies/savings-goals" element={<CaseStudySavingsGoals />} />
+            <Route path="case-studies/clinician-burnout" element={<CaseStudyBurnout />} />
             <Route path="case-studies/spaces" element={<CaseStudySpaces />} />
             <Route path="case-studies/anivision" element={<CaseStudyAnivision />} />
 

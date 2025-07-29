@@ -108,12 +108,9 @@ a {
   margin: auto;
   padding: 0 8rem;
   max-width: 96rem;
+  // margin-top: 0;
 }
 
-#about {
-  padding: 0;
-  max-width: 128rem;
-}
 
 .highlight-pink {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, $highlight-pink 50%);
@@ -141,12 +138,22 @@ a {
   display: flex;
   flex-direction: column;
 }
-
+#case-studies-spacing {
+    height: 93vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#home-spacing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .home-page {
   display: flex;
   flex-direction: row;
-  height: 86.3vh;
-  // max-width: 96rem;
+  min-height: 53rem;
   justify-content: center;
   align-items: center;
   margin-left: 2rem;
@@ -347,12 +354,21 @@ a {
     }
   }
 }
-
+#about-spacing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#about {
+  padding: 0;
+  max-width: 112rem;
+    transform: translateX(-50px) translateY(10px);
+}
 .about-section {
   display: flex;
   flex-direction: row;
-  margin-top: 2vh;
-  height: 80vh;
+  align-items: center;
 
   img {
     width: 27%;
@@ -364,13 +380,12 @@ a {
   }
 
   .text-bounding-box {
-    width: 65%;
+    width: 83rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    margin-top: 6vh;
     padding-left: 2rem;
-    padding-right: 5rem;
+    padding-right: 6rem;
     .color-box {
       display: flex;
       padding-left: 2rem;
@@ -405,15 +420,15 @@ a {
 }
 #color1 {
   background-color: #E8E1E8;
-  margin-right: 10rem;
+  margin-right: 7rem;
 }
 #color2 {
   background-color: #D0E8D2;
-  margin-left: 10rem;
+  margin-left: 7rem;
 }
 .color-swatches {
-  width: 25%;
-  margin-right: 12.5%;
+  width: 32rem;
+  // margin-right: 12.5rem;
 
   .swatch {
     position: relative;
@@ -490,7 +505,6 @@ a {
   #decorative {
     position: absolute;
     width: 20rem;
-    right: 19rem;
     z-index: 0;
     transform: rotate(2.7deg) translate(20px, -16px);
     #box1 {
@@ -520,6 +534,7 @@ a {
 
 // static portfolio nav bar
 .nav-bar {
+  min-height: 4rem;
   padding: 1em 0;
   overflow: hidden;
 
@@ -871,7 +886,7 @@ a {
 .back-to-top {
   position: fixed;
   bottom: 72px;
-  right: 120px;
+  right: 160px;
 
   .icon {
     display: flex;
@@ -1137,18 +1152,21 @@ a {
 #grace-top-background {
   background-color: $grace-blue;
 }
-
 #goals-top-background {
   background-color: $goals-blue;
 }
-
+#burnout-top-background {
+  background-image: url(./assets/images/caseStudies/burnout/burnoutTopBackground.png);
+  background-size: cover;
+  background-position: center;
+  background-color: #f0f0f0;
+}
 #spaces-top-background {
   background-image: url(./assets/images/caseStudies/spaces/spacesTopBackground.png);
   background-size: cover;
   background-position: center;
   background-color: #f0f0f0;
 }
-
 #anivision-top-background {
   background-image: url(./assets/images/caseStudies/anivision/anivisionTopBackground.gif);
   background-size: cover;
@@ -1255,26 +1273,48 @@ a {
   flex-direction: row;
   align-items: flex-start;
   gap: 3vw;
+}
+.secondary-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 
-  .secondary-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+  .list {
+    padding: 1.5rem 1rem;
+    padding-bottom: 2rem;
+    text-align: center;
 
-    .list {
-      padding: 1.5rem 1rem;
-      padding-bottom: 2rem;
-      text-align: center;
-
-      li {
-        list-style-type: none;
-        width: 12rem;
-      }
+    li {
+      list-style-type: none;
+      width: 12rem;
     }
   }
 }
+.only-secondary {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+    .list {
+    padding: 1.5rem 3.5rem;
+    padding-bottom: 1.25rem;
+    text-align: center;
+    }
+}
+#horizontal {
+display: flex;
+  flex-direction: row;
+  margin: auto;
+  border-top: 1px solid #7B7B7B;
+  border-bottom: 1px solid #7B7B7B;
+}
+#burnout-img {
+  display: flex;
+  margin: auto;
+}
+
+
 
 .divider-container {
   display: flex;

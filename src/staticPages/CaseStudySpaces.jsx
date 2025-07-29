@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
 import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
@@ -17,9 +17,9 @@ import loop4 from '../assets/images/caseStudies/spaces/loop4.png';
 import loop5 from '../assets/images/caseStudies/spaces/loop5.png';
 import final1 from '../assets/images/caseStudies/spaces/final1.png';
 import final2 from '../assets/images/caseStudies/spaces/final2.png';
-// import arch from '../img/portfolio/spaces/arch.png';
 
 import ToTopButton from './ToTopButton';
+import Footer from './Footer';
 
 const trackLinkClick = (category, action, label) => {
     console.log('GA event:', category, ':', action, ':', label);
@@ -295,7 +295,8 @@ const CaseStudySpaces = (props) => {
                     What stood out the most was how difficult simplicity was. Learning when to stop and strip things back to allow one central idea 
                     to carry the experience was a challenge but ultimately helped focus our purpose and kept us true to our goal. 
                 </div>
-                </div>
+            </div>
+        <Footer/>
         </div>
 
     );

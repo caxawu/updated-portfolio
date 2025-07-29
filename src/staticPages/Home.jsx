@@ -1,15 +1,12 @@
-import React, { Component, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
 
 import NavBar from './NavBar';
 import Footer from './Footer';
 
 import AnimText from './AnimText';
 import placeholderInteractive from '../assets/images/placeholderInteractive.png'
-import placeholderStatic from '../assets/images/placeholderStatic.png'
 import loopyArrow from '../assets/images/loopyArrow.png'
-import profilePic from '../assets/images/profilePic.png'
 
 const About = () => {
 
@@ -28,7 +25,7 @@ const About = () => {
   };
 
   return (
-    <div>
+    <div id='home-spacing'>
       <NavBar />
       <div className="home-page">
         <div className="home-left">

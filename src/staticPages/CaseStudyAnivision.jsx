@@ -17,9 +17,9 @@ import loop4 from '../assets/images/caseStudies/spaces/loop4.png';
 import loop5 from '../assets/images/caseStudies/spaces/loop5.png';
 import final1 from '../assets/images/caseStudies/spaces/final1.png';
 import final2 from '../assets/images/caseStudies/spaces/final2.png';
-// import arch from '../img/portfolio/spaces/arch.png';
 
 import ToTopButton from './ToTopButton';
+import Footer from './Footer';
 
 const trackLinkClick = (category, action, label) => {
     console.log('GA event:', category, ':', action, ':', label);
@@ -296,6 +296,7 @@ const CaseStudyAnivision = (props) => {
                     to carry the experience was a challenge but ultimately helped focus our purpose and kept us true to our goal. 
                 </div>
                 </div>
+                <Footer/>
         </div>
 
     );

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
 import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
@@ -11,15 +11,7 @@ import tile from '../assets/images/caseStudies/grace/tile.png'
 import highlights from '../assets/images/caseStudies/grace/highlights.png'
 
 import ToTopButton from './ToTopButton';
-
-const trackLinkClick = (category, action, label) => {
-    console.log('GA event:', category, ':', action, ':', label);
-    ReactGA.event({
-        category,
-        action,
-        label,
-    });
-};
+import Footer from './Footer';
 
 const CaseStudyGracePeriod = (props) => {
     useEffect(() => {
@@ -346,9 +338,7 @@ const CaseStudyGracePeriod = (props) => {
                     and reliable resource at the core of the CD space.
                 </div>
             </div>
-
-
-
+        <Footer />
         </div>
 
     );

@@ -19,7 +19,7 @@ const trackLinkClick = (category, action, label) => {
 };
 
   return (
-    <div>
+    <div id="about-spacing"> 
       <NavBar />
       <div className='content' id="about">
         <div className='about-section'>
@@ -62,7 +62,7 @@ const trackLinkClick = (category, action, label) => {
               <div className="swatch-box" id="box2" />
               <div className="swatch-box" id="box3" />
               <div className="swatch-box" id="box4" />
-              <div className='swatch-title'>Cathy's colors</div>
+              <div className='swatch-title'>&nbsp;</div>
             </div>
             <div className='swatch'>
               <div className="swatch-box" id="box1">
@@ -132,7 +132,6 @@ const trackLinkClick = (category, action, label) => {
             </div>
           </div>
         </div>
-                  <div className='spacing-3'/>
       </div>
       <Footer />  
     </div>

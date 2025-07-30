@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react'
 import daisies from "../assets/images/miniPlayer/paintings/daisies.png";
 import batman from "../assets/images/miniPlayer/paintings/batman.png";
@@ -64,7 +63,6 @@ const MiniPlayer3D = ({imgState,setImgState, onScreenClick }) => {
             objectFit: "contain",
             maxWidth: "100%", 
             maxHeight: "100%",
-            // pointerEvents: currState === "miniPlayer" ? "auto" : "none"
            }} 
         />
     </div>

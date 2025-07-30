@@ -1,10 +1,8 @@
 import { useRef, useState, useEffect, useMemo } from 'react'
-import { useLocation } from 'react-router-dom';
 import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import * as THREE from 'three';
 import { a, useSpring } from '@react-spring/three';
-import { motion } from "framer-motion";
 import ParticleSystemTea from "./ParticleSystemTea";
 import ParticleSystemFloaties from "./ParticleSystemFloaties";
 
@@ -16,7 +14,7 @@ import ModelsScreen from './ModelsScreen3D';
 import MiniProjects from './MiniProjects3D';
 import Resume from './Resume3D';
 
-const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
+const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
   const roomRef = useRef();
   const [meshes, setMeshes] = useState([]);
 
@@ -32,9 +30,8 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
 
   const [ currState, setCurrState ] = useState ('home');    // To pass into HTML children to turn off interactivity before zooming in
   const [ imgState, setImgState ] = useState ('none');
+  const [ animState, setAnimState ] = useState ('none');
   const [isArrowPressed, setIsArrowPressed] = useState(false);
-
-
   const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
 
   const particleSystemRef = useRef();
@@ -46,12 +43,12 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
     const base = {
       positionLeft: isArrowPressed === 'arrowLeft' ? [0, 0, 0.6] : [0, 0, 0],
       positionRight: isArrowPressed === 'arrowRight' ? [0, 0, 0.6] : [0, 0, 0],
-      positionBallBounce: isArrowPressed === 'ballBounce' ? [0, -2, 0] : [0, 0, 0],
-      positionTwoBalls: isArrowPressed === 'twoBalls' ? [0, -2, 0] : [0, 0, 0],
-      positionWalkCycle: isArrowPressed === 'walkCycle' ? [0, -2, 0] : [0, 0, 0],
-      positionWalkForward: isArrowPressed === 'walkForward' ? [0, -2, 0] : [0, 0, 0],
-      positionJump: isArrowPressed === 'jump' ? [0, -2, 0] : [0, 0, 0],
-      positionRun: isArrowPressed === 'run' ? [0, -2, 0] : [0, 0, 0],
+      positionBallBounce: isArrowPressed === 'keyBallBounce' ? [0, -2, 0] : [0, 0, 0],
+      positionTwoBalls: isArrowPressed === 'keyTwoBalls' ? [0, -2, 0] : [0, 0, 0],
+      positionWalkCycle: isArrowPressed === 'keyWalkCycle' ? [0, -2, 0] : [0, 0, 0],
+      positionWalkForward: isArrowPressed === 'keyWalkForward' ? [0, -2, 0] : [0, 0, 0],
+      positionJump: isArrowPressed === 'keyJump' ? [0, -2, 0] : [0, 0, 0],
+      positionRun: isArrowPressed === 'keyRun' ? [0, -2, 0] : [0, 0, 0],
     };
 
     for (let i = 1; i <= keycapCount; i++) {
@@ -135,207 +132,174 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
             return location;
           }
         }
-        // If already focused on the same screen, do nothing
-        if (prevState === location) {
-          return prevState;  // Stay on the current screen
+        if (prevState === location) { // If already focused on the same screen, do nothing
+          return prevState;
         }
-        // Default: return the previous state if no condition matched
-        return prevState;
+        return prevState; // Default: return the previous state if no condition matched
       });
     };
 
   // handles clicks on 3d objs: meshes in 3d model
   const handlePointerDown = (e) => {
-    pointer.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-    pointer.y = - ( e.clientY / window.innerHeight ) * 2 + 1;
+    pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = - (e.clientY / window.innerHeight) * 2 + 1;
 
-       // find intersections
-       raycaster.setFromCamera( pointer, currCamera );
-       // Use meshes array for raycasting
-       const intersects = raycaster.intersectObjects(meshes, false);
-   
-       if ( intersects.length > 0 ) {
-         if ( INTERSECTED != intersects[ 0 ].object) {
-           INTERSECTED = intersects[ 0 ].object;
+    // find intersections
+    raycaster.setFromCamera(pointer, currCamera);
+    // Use meshes array for raycasting
+    const intersects = raycaster.intersectObjects(meshes, false);
 
-           if (INTERSECTED.name === 'table') {
-            setFocusState('table');
-            setCurrState('table');
-          } 
-          else if (INTERSECTED.name === 'screen1' || INTERSECTED.name === 'screen2' || INTERSECTED.name === 'resume') {
-            setCurrState((prevState) => {
-              if (prevState === 'home' || prevState === 'artWall') {
-                setFocusState('table');
-                setCurrState('table');
-              }
-              if (prevState === 'table' || prevState === 'screen1' || prevState === 'screen2'|| prevState === 'resume') {
-                setFocusState(INTERSECTED.name);
-              return INTERSECTED.name;
-              } 
-              return prevState; // Stay on the current state if no change is needed
-            });
-          }
-          else if (/^keycap\d+$/.test(INTERSECTED.name)) {
-            handleButtonAnimation(INTERSECTED.name);
-              setCurrState((prevState) => {
-              if (prevState === 'home') {
-                setFocusState('table');
-                return 'table';
-              }
-              return prevState;
-            });
-          }
-          else if ( INTERSECTED.name == 'vrShelf' ) {
-            setFocusState('vrShelf');
-          } else if ( INTERSECTED.name == 'spaces' ) {
-            setFocusState('spaces');
-          } else if (INTERSECTED.name === 'descSpacesButton') {
-            setFocusState('screen1');
-            setCurrState('screen1');
-            setIframeSrc("");
-            setTimeout(() => {
-              setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/spaces");
-            }, 50); // Small delay
-           } else if (INTERSECTED.name == 'anivision') {
-             setFocusState('anivision');
-           } else if (INTERSECTED.name === 'descAnivisionButton') {
-            setFocusState('screen1');
-            setCurrState('screen1');
-            setIframeSrc("");
-            setTimeout(() => {
-              setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/anivision");
-            }, 50); // Small delay
-          } 
-          else if ( INTERSECTED.name == 'corkboard' ) {
-            setFocusState('corkboard');
-            setCurrState('corkboard');
-          } 
-          else if ( INTERSECTED.name == 'drawingHand' || INTERSECTED.name === 'drawingDavid' || INTERSECTED.name === 'drawingFish' || INTERSECTED.name === 'businessCard') {
-            setCurrState((prevState) => {
-              if (prevState === 'home' || prevState === 'artWall' || prevState === 'paintingDoor' || prevState === 'paintingFruit' || prevState === 'paintingLandscape' || prevState === 'paintingBirds' || prevState === 'sketchbook' || prevState == 'miniPlayer') {
-                setFocusState('corkboard');
-                setCurrState('corkboard');
-              }
-              else if (prevState === 'corkboard' || prevState === 'drawingHand' || prevState === 'drawingDavid' || prevState === 'drawingFish' || prevState === 'businessCard') {
+    if (intersects.length > 0) {
+      if (INTERSECTED != intersects[0].object) {
+        INTERSECTED = intersects[0].object;
+
+        if (INTERSECTED.name === 'table') {
+          setFocusState('table');
+          setCurrState('table');
+        }
+        else if (INTERSECTED.name === 'screen1' || INTERSECTED.name === 'screen2' || INTERSECTED.name === 'resume') {
+          setCurrState((prevState) => {
+            if (prevState === 'home' || prevState === 'artWall') {
+              setFocusState('table');
+              setCurrState('table');
+            }
+            if (prevState === 'table' || prevState === 'screen1' || prevState === 'screen2' || prevState === 'resume') {
               setFocusState(INTERSECTED.name);
               return INTERSECTED.name;
-              } 
-              return prevState; // Stay on the current state if no change is needed
-            });
-          } 
-          else if ( INTERSECTED.name == 'artWall' ) {
-            setFocusState('artWall');
-            setCurrState('artWall');
-          } 
-          else if (INTERSECTED.name == 'paintingDoor' || INTERSECTED.name == 'paintingFruit' || INTERSECTED.name == 'paintingLandscape' || INTERSECTED.name == 'paintingBirds' || INTERSECTED.name == 'sketchbook' || 
-            INTERSECTED.name == 'miniPlayer' || INTERSECTED.name == 'arrowRight' || INTERSECTED.name == 'arrowLeft'){
-              
-            setCurrState((prevState) => {
-              if (prevState === 'home' || prevState === 'table' || prevState === 'screen1' || prevState === 'screen2') {
-                setFocusState('artWall');
-                setCurrState('artWall');
-              } 
-              else if (prevState === 'artWall' || prevState === 'paintingDoor' || prevState === 'paintingFruit' || prevState === 'paintingLandscape' || prevState === 'paintingBirds' || prevState === 'sketchbook' || prevState == 'miniPlayer' || prevState === 'corkboard' || prevState === 'drawingDavid' || prevState === 'drawingFish' || prevState === 'businessCard' ||
-                prevState === 'miniPlayer') {
-                  if (INTERSECTED.name === 'arrowRight' || INTERSECTED.name === 'arrowLeft' ) {
-                    if (prevState === 'miniPlayer') {
-                      setImgState(INTERSECTED.name);
-                      handleButtonAnimation(INTERSECTED.name);
-                      setFocusState('miniPlayer');
-                      return 'miniPlayer';
-                    } else {
-                      setFocusState('miniPlayer');
-                      return 'miniPlayer';
-                    }
-                  }
-                setFocusState(INTERSECTED.name);
-                return INTERSECTED.name;
-              } 
-              return prevState; // Stay on the current state if no change is needed
-            });
-          }
-          else if ( INTERSECTED.name == 'modelsShelf' ) {
-            setFocusState('modelsShelf');
-            setCurrState('modelsShelf');
-          } 
-          else if (INTERSECTED.name == 'flower' || INTERSECTED.name == 'boat' || INTERSECTED.name == 'egg' || INTERSECTED.name == 'animPlayer' || INTERSECTED.name == 'modelsScreen'){
-              
-            setCurrState((prevState) => {
-              if (prevState === 'home') {
-                setFocusState('modelsShelf');
-                setCurrState('modelsShelf');
-              } 
-              else if (prevState === 'modelsShelf' || prevState === 'flower' || prevState === 'egg' || prevState === 'boat' || prevState === 'animPlayer' || prevState == 'modelsScreen') {
-                setFocusState(INTERSECTED.name);
-                return INTERSECTED.name;
-              } 
-              return prevState; // Stay on the current state if no change is needed
-            });
-          }
-
-            // "keyWalkForward" ref={handleMeshRef} position={springs.positionWalkForward} geometry={nodes.keyWalkForward.geometry} material={materials.m_controlButtonsBaked} />
-            //     <a.mesh name="keyRun" ref={handleMeshRef} position={springs.positionRun} geometry={nodes.keyRun.geometry} material={materials.m_controlButtonsBaked} />
-            //     <a.mesh name="keyTwoBalls" ref={handleMeshRef} position={springs.positionTwoBalls} geometry={nodes.keyTwoBalls.geometry} material={materials.m_controlButtonsBaked} />
-            //     <a.mesh name="keyJump" ref={handleMeshRef} position={springs.positionJump} geometry={nodes.keyJump.geometry} material={materials.m_controlButtonsBaked} />
-            //     <a.mesh name="keyWalkCycle" ref={handleMeshRef} position={springs.positionWalkCycle} geometry={nodes.keyWalkCycle.geometry} material={materials.m_controlButtonsBaked} />
-            //     <a.mesh name="keyBallBounce"
-          
-          else if ( INTERSECTED.name == 'keyBallBounce' ) {
-            setFocusState('animPlayer');
-            setCurrState('ballBounce');
-            handleButtonAnimation('ballBounce');
-          } else if ( INTERSECTED.name == 'keyTwoBalls' ) {
-            setFocusState('animPlayer');
-            setCurrState('twoBalls');
-            handleButtonAnimation('twoBalls');
-          } else if ( INTERSECTED.name == 'keyWalkCycle' ) {
-            setFocusState('animPlayer');
-            setCurrState('walkCycle');
-            handleButtonAnimation('walkCycle');
-          } else if ( INTERSECTED.name == 'keyWalkForward' ) {
-            setFocusState('animPlayer');
-            setCurrState('walkForward');
-            handleButtonAnimation('walkForward');
-          } else if ( INTERSECTED.name == 'keyJump' ) {
-            setFocusState('animPlayer');
-            setCurrState('jump');
-            handleButtonAnimation('jump');
-          } else if ( INTERSECTED.name == 'keyRun' ) {
-            setFocusState('animPlayer');
-            setCurrState('run');
-            handleButtonAnimation('run'); 
-          } 
-          else if ( INTERSECTED.name == 'egg' ) {
-            setFocusState('egg');
-          } else if ( INTERSECTED.name == 'boat' ) {
-            setFocusState('boat');
-          } else if ( INTERSECTED.name == 'flower' ) {
-            setFocusState('flower');
-          } else if ( INTERSECTED.name == 'home' ) {
-            setFocusState('home');
-            setCurrState('home');
-          } else {
-            setFocusState('none');
-            setCurrState('none');
-          }
+            }
+            return prevState; // Stay on the current state if no change is needed
+          });
         }
-      } else {
-         INTERSECTED = null;
+        else if (/^keycap\d+$/.test(INTERSECTED.name)) {
+          handleButtonAnimation(INTERSECTED.name);
+          setCurrState((prevState) => {
+            if (prevState === 'home') {
+              setFocusState('table');
+              return 'table';
+            }
+            return prevState;
+          });
+        }
+        else if (INTERSECTED.name == 'vrShelf') {
+          setFocusState('vrShelf');
+        } else if (INTERSECTED.name == 'spaces') {
+          setFocusState('spaces');
+        } else if (INTERSECTED.name === 'descSpacesButton') {
+          setFocusState('screen1');
+          setCurrState('screen1');
+          setIframeSrc("");
+          setTimeout(() => {
+            setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/spaces");
+          }, 50); // Small delay
+        } else if (INTERSECTED.name == 'anivision') {
+          setFocusState('anivision');
+        } else if (INTERSECTED.name === 'descAnivisionButton') {
+          setFocusState('screen1');
+          setCurrState('screen1');
+          setIframeSrc("");
+          setTimeout(() => {
+            setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/anivision");
+          }, 50); // Small delay
+        }
+        else if (INTERSECTED.name == 'corkboard') {
+          setFocusState('corkboard');
+          setCurrState('corkboard');
+        }
+        else if (INTERSECTED.name == 'drawingHand' || INTERSECTED.name === 'drawingDavid' || INTERSECTED.name === 'drawingFish' || INTERSECTED.name === 'businessCard') {
+          setCurrState((prevState) => {
+            if (prevState === 'home' || prevState === 'artWall' || prevState === 'paintingDoor' || prevState === 'paintingFruit' || prevState === 'paintingLandscape' || prevState === 'paintingBirds' || prevState === 'sketchbook' || prevState == 'miniPlayer') {
+              setFocusState('corkboard');
+              setCurrState('corkboard');
+            }
+            else if (prevState === 'corkboard' || prevState === 'drawingHand' || prevState === 'drawingDavid' || prevState === 'drawingFish' || prevState === 'businessCard') {
+              setFocusState(INTERSECTED.name);
+              return INTERSECTED.name;
+            }
+            return prevState; // Stay on the current state if no change is needed
+          });
+        }
+        else if (INTERSECTED.name == 'artWall') {
+          setFocusState('artWall');
+          setCurrState('artWall');
+        }
+        else if (INTERSECTED.name == 'paintingDoor' || INTERSECTED.name == 'paintingFruit' || INTERSECTED.name == 'paintingLandscape' || INTERSECTED.name == 'paintingBirds' || INTERSECTED.name == 'sketchbook' ||
+          INTERSECTED.name == 'miniPlayer' || INTERSECTED.name == 'arrowRight' || INTERSECTED.name == 'arrowLeft') {
+
+          setCurrState((prevState) => {
+            if (prevState === 'home' || prevState === 'table' || prevState === 'screen1' || prevState === 'screen2') {
+              setFocusState('artWall');
+              setCurrState('artWall');
+            }
+            else if (prevState === 'artWall' || prevState === 'paintingDoor' || prevState === 'paintingFruit' || prevState === 'paintingLandscape' || prevState === 'paintingBirds' || prevState === 'sketchbook' || prevState == 'miniPlayer' || prevState === 'corkboard' || prevState === 'drawingDavid' || prevState === 'drawingFish' || prevState === 'businessCard' ||
+              prevState === 'miniPlayer') {
+              if (INTERSECTED.name === 'arrowRight' || INTERSECTED.name === 'arrowLeft') {
+                if (prevState === 'miniPlayer') {
+                  setImgState(INTERSECTED.name);
+                  handleButtonAnimation(INTERSECTED.name);
+                  setFocusState('miniPlayer');
+                  return 'miniPlayer';
+                } else {
+                  setFocusState('miniPlayer');
+                  return 'miniPlayer';
+                }
+              }
+              setFocusState(INTERSECTED.name);
+              return INTERSECTED.name;
+            }
+            return prevState; // Stay on the current state if no change is needed
+          });
+        }
+        else if (INTERSECTED.name == 'modelsShelf') {
+          setFocusState('modelsShelf');
+          setCurrState('modelsShelf');
+        }
+        else if (INTERSECTED.name == 'flower' || INTERSECTED.name == 'boat' || INTERSECTED.name == 'egg' || INTERSECTED.name == 'animPlayer' || INTERSECTED.name == 'modelsScreen' ||
+          INTERSECTED.name == 'keyRun' || INTERSECTED.name == 'keyWalkForward' || INTERSECTED.name == 'keyTwoBalls' || INTERSECTED.name == 'keyJump' || INTERSECTED.name == 'keyWalkCycle' || INTERSECTED.name == 'keyBallBounce') {
+          setCurrState((prevState) => {
+            if (prevState === 'home') {
+              setFocusState('modelsShelf');
+              setCurrState('modelsShelf');
+            }
+            else if (prevState === 'modelsShelf' || prevState === 'flower' || prevState === 'egg' || prevState === 'boat' || prevState === 'animPlayer' || prevState == 'modelsScreen') {
+              if (INTERSECTED.name == 'keyRun' || INTERSECTED.name == 'keyWalkForward' || INTERSECTED.name == 'keyTwoBalls' || INTERSECTED.name == 'keyJump' || INTERSECTED.name == 'keyWalkCycle' || INTERSECTED.name == 'keyBallBounce') {
+                if (prevState === 'animPlayer') {
+                  setAnimState(INTERSECTED.name);
+                  handleButtonAnimation(INTERSECTED.name);
+                  setFocusState('animPlayer');
+                  return 'animPlayer';
+                }
+                else {
+                  setFocusState('animPlayer');
+                  return 'animPlayer';
+                }
+              }
+            }
+            return prevState; // Stay on the current state if no change is needed
+          });
+        }
+        else if (INTERSECTED.name == 'home') {
+          setFocusState('home');
+          setCurrState('home');
+        } else {
+          setFocusState('none');
+          setCurrState('none');
+        }
       }
+    } else {
+      INTERSECTED = null;
+    }
     e.stopPropagation();
     e.preventDefault();
-    setIsRotating(true);
 
-    const clientX = e.touches 
-        ? e.touches[0].clientX 
-        : e.clientX;
+    const clientX = e.touches
+      ? e.touches[0].clientX
+      : e.clientX;
     lastX.current = clientX;
   }
 
   const handlePointerUp = (e) => {
     e.stopPropagation();
     e.preventDefault();
-    setIsRotating(false);
   }
   const handleKeyDown = (e) => {
     if (e.key === "Escape") {
@@ -720,7 +684,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
                 scale={[0.106, 0.004, 4.86]}
               />
               <Html scale={0.94} rotation-y={Math.PI / 2} position={[-387, 314.8, 26.7]} transform occlude>
-                <ModelsScreen onScreenClick={handleScreenClick} currState={currState} />
+                <ModelsScreen onScreenClick={handleScreenClick} />
               </Html>
               <mesh
                 name="flower" ref={handleMeshRef}
@@ -942,7 +906,7 @@ const Room = ({isRotating, setIsRotating, setCurrentStage, updateCameraPosition,
                 <a.mesh name="keyWalkCycle" ref={handleMeshRef} position={springs.positionWalkCycle} geometry={nodes.keyWalkCycle.geometry} material={materials.m_controlButtonsBaked} />
                 <a.mesh name="keyBallBounce" ref={handleMeshRef} position={springs.positionBallBounce} geometry={nodes.keyBallBounce.geometry} material={materials.m_controlButtonsBaked} />
                 <Html scale={0.4} rotation-y={Math.PI / 2} position={[-366.1, 206.8, 80.25]} transform occlude>
-                  <AnimPlayer onScreenClick={handleScreenClick} currState={currState} />
+                  <AnimPlayer onScreenClick={handleScreenClick} animState={animState} />
                 </Html>
               </group>
             </group>

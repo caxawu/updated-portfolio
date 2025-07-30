@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react'
 import bounceGif from "../assets/images/animPlayer/Bounce.gif";
 import twoBallsGif from "../assets/images/animPlayer/Balls.gif";
@@ -7,7 +6,7 @@ import walkForwardGif from "../assets/images/animPlayer/elvenWalk.gif";
 import jumpGif from "../assets/images/animPlayer/jump.gif";
 import runGif from "../assets/images/animPlayer/final.gif";
 
-const AnimPlayer3D = ({currState, onScreenClick }) => {
+const AnimPlayer3D = ({animState, onScreenClick }) => {
 
   const handleClickVariable = () => {
     onScreenClick('animPlayer');
@@ -17,22 +16,22 @@ const AnimPlayer3D = ({currState, onScreenClick }) => {
   
 
   useEffect(() => {
-    if (currState === "ballBounce") {
+    if (animState === "keyBallBounce") {
       setCurrentImage(bounceGif);
-    } else if (currState === "twoBalls") {
+    } else if (animState === "keyTwoBalls") {
       setCurrentImage(twoBallsGif);
-    } else if (currState === "walkCycle") {
+    } else if (animState === "keyWalkCycle") {
       setCurrentImage(walkCycleGif);
-    } else if (currState === "walkForward") {
+    } else if (animState === "keyWalkForward") {
       setCurrentImage(walkForwardGif);
-    } else if (currState === "jump") {
+    } else if (animState === "keyJump") {
       setCurrentImage(jumpGif);
-    } else if (currState === "run") {
+    } else if (animState === "keyRun") {
       setCurrentImage(runGif);
     } else {
       setCurrentImage(runGif);
     }
-  }, [currState]);
+  }, [animState]);
 
   return (
     <div style={{ width: "2240px", height: "1850px", borderRadius: "130px", overflow: "hidden", backgroundColor: "black"}} onClick={handleClickVariable} >

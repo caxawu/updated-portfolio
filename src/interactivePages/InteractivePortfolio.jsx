@@ -132,10 +132,6 @@ const InteractivePortfolio = () => {
     setFocusState('null');
   });
 
-
-  const [ isRotating, setIsRotating ] = useState (false);
-  const [currentStage, setCurrentStage] = useState(1);
-
   const adjustRoomForScreenSize = () => {
     let screenScale = null;
     let screenPosition = [0, -24, -32];
@@ -154,49 +150,43 @@ const InteractivePortfolio = () => {
 
   return (
     <div>
-          <div className='paper-effect' />
+      <div className='paper-effect' />
       <div className='interactive-back-container'>
         <div className="link-button text-secondary" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
           back
         </div>
       </div>
-    <section className="room" style={{ background: '#FFFFFF' }}>
+      <section className="room" style={{ background: '#FFFFFF' }}>
 
-      <Canvas
-        className={`canvas-content ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-        camera={defaultCamera.current}
-      >
-        <Suspense fallback={<Loader />}>
-          {/* Expense: ambient < hemisphere < directional */}
-          {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
-          {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
-          <ambientLight intensity={4.5} color="#ffffff" />
-          <Room
-            position={RoomPosition}
-            scale={RoomScale}
-            rotation={RoomRotation}
-            isRotating={isRotating}
-            setIsRotating={setIsRotating}
-            setCurrentStage={setCurrentStage}
-            updateCameraPosition={updateCameraPosition}
-            updateCameraLookAt={updateCameraLookAt}
-            defaultCamera={defaultCamera.current}
-            setFocusState={setFocusState}
+        <Canvas
+          camera={defaultCamera.current}
+        >
+          <Suspense fallback={<Loader />}>
+            {/* Expense: ambient < hemisphere < directional */}
+            {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
+            {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
+            <ambientLight intensity={4.5} color="#ffffff" />
+            <Room
+              position={RoomPosition}
+              scale={RoomScale}
+              rotation={RoomRotation}
+              updateCameraPosition={updateCameraPosition}
+              updateCameraLookAt={updateCameraLookAt}
+              defaultCamera={defaultCamera.current}
+              setFocusState={setFocusState}
+            />
+          </Suspense>
+
+          <CanvasContent
+            defaultCamera={defaultCamera}
+            cameraPosition={cameraPosition}
+            cameraLookAt={cameraLookAt}
+            setCameraPosition={setCameraPosition}
+            setCameraRotation={setCameraRotation}
           />
-        </Suspense>
-
-        <CanvasContent
-          defaultCamera={defaultCamera}
-          cameraPosition={cameraPosition}
-          cameraLookAt={cameraLookAt}
-          setCameraPosition={setCameraPosition}
-          setCameraRotation={setCameraRotation}
-          setIsRotating={setIsRotating}
-          setCurrentStage={setCurrentStage}
-        />
-      </Canvas>
-      <Outlet />
-    </section>
+        </Canvas>
+        <Outlet />
+      </section>
     </div>
   )
 };
@@ -219,8 +209,6 @@ const CanvasContent = ({ defaultCamera, cameraPosition, cameraLookAt }) => {
       
       // Update the camera's orientation to look towards the intermediate direction
       defaultCamera.current.lookAt(defaultCamera.current.position.clone().add(intermediateDirection));
-
-      // defaultCamera.current.lookAt(x, y, z);
     }
   });
 

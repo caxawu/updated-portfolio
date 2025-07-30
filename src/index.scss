@@ -25,7 +25,6 @@ $corner-rounding: 8px;
 
 $font-family: "Raleway", "Roboto", sans-serif;
 
-
 body,
 html {
   font-family: $font-family;
@@ -380,7 +379,7 @@ a {
   }
 
   .text-bounding-box {
-    width: 83rem;
+    width: 80rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -427,7 +426,7 @@ a {
   margin-left: 7rem;
 }
 .color-swatches {
-  width: 32rem;
+  width: 31.5rem;
   // margin-right: 12.5rem;
 
   .swatch {
@@ -465,6 +464,9 @@ a {
       #color-dark {
         color: #1E6E67;
       }
+      #color-gray {
+        color: #729FA8;
+      }
     }
 
     #box1 {
@@ -474,7 +476,7 @@ a {
       background-color: #AFE3DF;
     }
     #box3 {
-      background-color: #65AEB3; color: white;
+      background-color: #65AEB3;
     }
     #box4 {
       background-color: #2C6B74;
@@ -506,7 +508,7 @@ a {
     position: absolute;
     width: 20rem;
     z-index: 0;
-    transform: rotate(2.7deg) translate(20px, -16px);
+    transform: rotate(2.7deg) translate(40px, -20px);
     #box1 {
       background-color: #F1FEEF;
     }
@@ -790,7 +792,6 @@ a {
     }
   }
 }
-
       }
     }
   }
@@ -932,8 +933,6 @@ a {
   }
 
 }
-
-
 
 
 //   .spacer {

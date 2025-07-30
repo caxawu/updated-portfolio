@@ -1,6 +1,4 @@
-import React, { Component, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -67,12 +65,12 @@ const trackLinkClick = (category, action, label) => {
             <div className='swatch'>
               <div className="swatch-box" id="box1">
                 <div className="inline-row">
-                  In my free time I make art (sometimes post to my Instagram <a
+                  In my free time I like to make art, occasionally post to <a
                     href="https://www.instagram.com/firesheepstudio/"
                     target="_blank"
                     rel="noreferrer"
                     onClick={trackLinkClick.bind(this, 'About/Insta', 'Insta Click', 'About page')}
-                  >@firesheepstudio</a>), table art markets with friends, and run an <a
+                  >@firesheepstudio</a>, sell at art markets with friends, and run an <a
                     href="https://www.etsy.com/shop/FireSheepStudio"
                     target="_blank"
                     rel="noreferrer"
@@ -85,14 +83,14 @@ const trackLinkClick = (category, action, label) => {
                 </div>
               </div>
               <div className="swatch-box" id="box2">
-                I love to take on creative projects. This portfolio scratched that itch for now, but next is making progress on my open-world game in Unity!
+                I love taking on creative projects—this portfolio has scratched that itch for now, but next is making progress on my open-world game in Unity!
                 <div className='labels' id="color-light">
                   <b>tech shenanigans</b>
                   <div>#AFE3DF</div>
                 </div>
               </div>
               <div className="swatch-box" id="box3">
-                I’m a huge foodie and an aspiring home chef. Currently trying to maintain my 103 week Beli streak and making tofu from scratch!
+                I’m a huge foodie and love to cook. Currently on a 113 week Beli streak and making tofu from scratch!
                 <div className='labels' id="color-dark">
                   <b>food adventures</b>
                   <div>#65AEB3</div>
@@ -100,8 +98,8 @@ const trackLinkClick = (category, action, label) => {
               </div>
               <div className="swatch-box" id="box4">
                 <div>
-                  Curious about my work or just want to say hi? Please reach out—would love to chat!
-                  <div className='spacing-025' />
+                  Curious about my work or just want to say hi? Would love to chat!
+                  <div className='spacing-075' />
                   <ul>
                     <li><a href="https://drive.google.com/file/d/11bBEf4DXBEegXaYLejCiFg3O86Q9wAJ2/view?usp=sharing"
                       target="_blank"
@@ -123,7 +121,7 @@ const trackLinkClick = (category, action, label) => {
                     >Email</a></li>
                   </ul>
                 </div>
-                <div className='labels' id="color-light">
+                <div className='labels' id="color-gray">
                   <b>say hi!</b>
                   <div>#2C6B74</div>
                 </div>

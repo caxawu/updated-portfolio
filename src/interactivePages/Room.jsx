@@ -273,6 +273,8 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
                   return 'animPlayer';
                 }
               }
+              setFocusState(INTERSECTED.name);
+              setCurrState(INTERSECTED.name);
             }
             return prevState; // Stay on the current state if no change is needed
           });

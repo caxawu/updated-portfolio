@@ -135,7 +135,7 @@ const CaseStudySpaces = (props) => {
 
             {/* detail section */}
             <div className="detail-section">
-                <div id="grace-deco" />
+                <div id="spaces-deco" />
                 <div className="section-title text-secondary">role</div>
                 <div className="text-block">
                     In a team of two, my partner and I created this experience from concept to implementation. We worked closely in the
@@ -151,7 +151,7 @@ const CaseStudySpaces = (props) => {
                 </div>
             </div>
             <div className="detail-section">
-                <div id="grace-deco" />
+                <div id="spaces-deco" />
                 <div className="section-title text-secondary">ideation</div>
                 <div className="text-block">
                     Within our 10-week timeframe, the first three weeks were rapid experimentation. We tested ideas ranging from 2D
@@ -190,7 +190,7 @@ const CaseStudySpaces = (props) => {
             </div>
 
             <div className="detail-section">
-                <div id="grace-deco" />
+                <div id="spaces-deco" />
                 <div className="section-title text-secondary">design</div>
                 <div className="text-block">
                     Just bringing Escher’s drawing to life didn't feel enough. It was cool to marvel at the space, but standing in
@@ -275,7 +275,7 @@ const CaseStudySpaces = (props) => {
                 </div>
             </div>
             <div className="detail-section">
-                <div id="grace-deco" />
+                <div id="spaces-deco" />
                 <div className="section-title text-secondary">takeaways</div>
                 <div className="text-block">
                     My partner and I set out to create a VR experience that used the medium in a meaningful and intentional way. It 

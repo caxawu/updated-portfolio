@@ -135,7 +135,7 @@ const CaseStudySavingsGoals = (props) => {
 
             {/* detail section */}
             <div className="detail-section">
-                <div id="grace-deco" />
+                <div id="goals-deco" />
                 <div className="section-title text-secondary">define</div>
                 <div className="pie-charts">
                     <div className='pie'>
@@ -200,7 +200,7 @@ const CaseStudySavingsGoals = (props) => {
                 </div>
             </div>
             <div className="detail-section">
-                <div id="grace-deco" />
+                <div id="goals-deco" />
                 <div className="section-title text-secondary">design</div>
                 <div className="text-block">
                     We started with a lot of open questions:
@@ -256,7 +256,7 @@ const CaseStudySavingsGoals = (props) => {
                 <div className="white-callout">
                     <div className="white-card">
                         <b >Tech constraints</b>
-                        <div id="grace-deco" className="deco-white-callout"></div>
+                        <div id="goals-deco" className="deco-white-callout"></div>
                         As we pursued this approach further, we discovered that linking savings rules as the method of funding goals would significantly
                         increase the build time and consequently, time to market. It would require multiple tech teams from across the business to tag transactions appropriately
                         so that we would be able to link rules to a specific goal.
@@ -367,7 +367,7 @@ const CaseStudySavingsGoals = (props) => {
 
             </div>
             <div className="detail-section">
-                <div id="grace-deco" />
+                <div id="goals-deco" />
                 <div className="section-title text-secondary">implementation & next steps</div>
                 <div className="text-block">
                     <b>The idea parking lot</b>

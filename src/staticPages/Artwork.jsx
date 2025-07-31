@@ -246,7 +246,9 @@ const Artwork = () => {
   return (
     <div className='page-wrapper'>
       <ArtNavBar />
+      <div className='artwork-page-to-top'>
       <ToTopButton />
+      </div>
       <main className="page-content">
         <Outlet />
       </main>

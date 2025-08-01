@@ -7,7 +7,7 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
   };
 
   return (
-    <div style={{ width: "2580px", height: "1445px", overflow: "hidden", zIndex:"0" }} onClick={handleClickVariable}>
+    <div style={{ width: "2580px", height: "1440px", overflow: "hidden", zIndex:"0" }} onClick={handleClickVariable}>
       <div
         style={{
           transform: "scale(1.6)",

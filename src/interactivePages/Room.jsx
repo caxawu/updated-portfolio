@@ -353,7 +353,7 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
                   geometry={nodes.monitor1Shape_1.geometry}
                   material={materials.m_whiteMonitorBaked}
                 />
-                <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.4, 327]} transform occlude>
+                <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.5, 326.5]} transform occlude>
                   <CaseStudies onScreenClick={handleScreenClick} currState={currState} iframeSrc={iframeSrc}/>
                 </Html>
               </group>
@@ -368,7 +368,7 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
                   geometry={nodes.monitor2Shape_1.geometry}
                   material={materials.m_whiteMonitorBaked}
                 />
-                <Html scale={[1.5, 1.5, 1.5]} rotation={[Math.PI, -0.597, Math.PI]} position={[5.7, 133.534, 306.7]} transform>
+                <Html scale={[1.5, 1.5, 1.5]} rotation={[Math.PI, -0.597, Math.PI]} position={[5.4, 133.534, 306.5]} transform>
                   <MiniProjects onScreenClick={handleScreenClick} currState={currState} />
                 </Html>
               </group>
@@ -685,7 +685,7 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
                 rotation={[Math.PI / 2, 0, Math.PI / 2]}
                 scale={[0.106, 0.004, 4.86]}
               />
-              <Html scale={0.94} rotation-y={Math.PI / 2} position={[-387, 314.8, 26.7]} transform occlude>
+              <Html scale={0.94} rotation-y={Math.PI / 2} position={[-386, 314.8, 27]} transform occlude>
                 <ModelsScreen onScreenClick={handleScreenClick} />
               </Html>
               <mesh

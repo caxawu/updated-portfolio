@@ -1,27 +1,18 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import NavBar from './NavBar';
 import Footer from './Footer';
 
 import AnimText from './AnimText';
-import placeholderInteractive from '../assets/images/placeholderInteractive.png'
+import interactiveImg from '../assets/images/interactiveImg.png'
 import loopyArrow from '../assets/images/loopyArrow.png'
 
 const About = () => {
 
   let navigateTo = useNavigate();
-  const [isAnimating, setIsAnimating] = useState(false);
 
   const handleImageClick = () => {
     navigateTo('interactive');  // Navigate to the new page
-  };
-
-  const triggerRotation = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 150); // Reset after animation duration
-    }
   };
 
   return (
@@ -42,7 +33,7 @@ const About = () => {
           <div className='img-w-outline'>
             <div className='img-container'>
               <img
-                src={placeholderInteractive}
+                src={interactiveImg}
                 data-pin-nopin="true"
                 alt='Interactive portfolio'
                 loading='eager'

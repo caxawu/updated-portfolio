@@ -28,133 +28,133 @@ const CaseStudies = (props) => {
 
     return (
         <div id='case-studies-spacing'>
-        <div className="content">
-            <div className="portfolio-title text-title">
-                <div className='highlight-pink'>
-                    web/mobile
+            <div className="content">
+                <div className="portfolio-title text-title">
+                    <div className='highlight-pink'>
+                        web/mobile
+                    </div>
                 </div>
-            </div>
-            <div className="portfolio-row">
-                <div className="card">
-                    <div className="card-tile" 
-                    onClick={() => {
-                        navigateTo('/static/case-studies/CD-grace-period');
-                        trackLinkClick.bind(this, 'Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
-                    }}>
-                        <img src={gracePeriod} alt="CD grace period" loading="eager" />
-                        <div className="description">
-                            <div className="bold spacing-05">CD grace period</div>
-                            Reducing customer call volume by 20% through improvements to the customer experience.
-                            <div className="tags">
-                                <ul className="left">
-                                    <li>UI/UX Design</li>
-                                </ul>
-                                <ul className="right">
-                                    <li>Capital One</li>
-                                </ul>
+                <div className="portfolio-row">
+                    <div className="card">
+                        <div className="card-tile" 
+                        onClick={() => {
+                            navigateTo('/static/case-studies/CD-grace-period');
+                            trackLinkClick.bind(this, 'Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
+                        }}>
+                            <img src={gracePeriod} alt="CD grace period" loading="eager" />
+                            <div className="description">
+                                <div className="bold spacing-05">CD grace period</div>
+                                Reducing customer call volume by 20% through improvements to the customer experience.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>UI/UX Design</li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>Capital One</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-tile" 
+                        onClick={() => {
+                            navigateTo('/static/case-studies/savings-goals');
+                            trackLinkClick.bind(this, 'Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
+                        }}>
+                            <img src={savingsGoals} alt="Savings goals" loading="eager" />
+                            <div className="description">
+                                <div className='bold spacing-05'>Savings goals</div>
+                                Helping customers build financial resilience as they save towards tangible savings goals.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>UI/UX Design</li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>Capital One</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-tile" 
+                        onClick={() => {
+                            navigateTo('/static/case-studies/clinician-burnout');
+                            trackLinkClick.bind(this, 'Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
+                        }}>
+                            <img src={burnout} alt="Clinician burnout" loading="eager" />
+                            <div className="description">
+                                <div className='bold spacing-05'>Clinician burnout</div>
+                                Alleviating clinician burnout at the Dartmouth-Hitchcock Medical Center.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>Service design</li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>Dartmouth-Hitchcock<br />Medical Center</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="card">
-                    <div className="card-tile" 
-                    onClick={() => {
-                        navigateTo('/static/case-studies/savings-goals');
-                        trackLinkClick.bind(this, 'Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
-                    }}>
-                        <img src={savingsGoals} alt="Savings goals" loading="eager" />
-                        <div className="description">
-                            <div className='bold spacing-05'>Savings goals</div>
-                            Helping customers build financial resilience as they save towards tangible savings goals.
-                            <div className="tags">
-                                <ul className="left">
-                                    <li>UI/UX Design</li>
-                                </ul>
-                                <ul className="right">
-                                    <li>Capital One</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-tile" 
-                    onClick={() => {
-                        navigateTo('/static/case-studies/clinician-burnout');
-                        trackLinkClick.bind(this, 'Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
-                    }}>
-                        <img src={burnout} alt="Clinician burnout" loading="eager" />
-                        <div className="description">
-                            <div className='bold spacing-05'>Clinician burnout</div>
-                            Alleviating clinician burnout at the Dartmouth-Hitchcock Medical Center.
-                            <div className="tags">
-                                <ul className="left">
-                                    <li>Service design</li>
-                                </ul>
-                                <ul className="right">
-                                    <li>Dartmouth-Hitchcock<br />Medical Center</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div className='spacing-2'/>
+                <div className='spacing-105'/>
 
-            <div className="portfolio-title text-title">
-                <div className='highlight-pink'>
-                    VR
+                <div className="portfolio-title text-title">
+                    <div className='highlight-pink'>
+                        VR
+                    </div>
                 </div>
-            </div>
-            <div className="portfolio-row">
-                <div className="card">
-                    <div className="card-tile" 
-                    onClick={() => {
-                        navigateTo('/static/case-studies/anivision');
-                        trackLinkClick.bind(this, 'Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
-                    }}>
-                        <img src={anivision} alt="Anivision" loading="eager" />
-                        <div className="description">
-                            <div className='bold spacing-05'>Anivision</div>
-                            Learn in a more experiential and delightful way by exploring the world through the eyes of an animal.
-                            <div className="tags">
-                                <ul className="left">
-                                    <li>Design</li>
-                                    <li>Development</li>
-                                </ul>
-                                <ul className="right">
-                                    <li>DALI Lab</li>
-                                </ul>
+                <div className="portfolio-row">
+                    <div className="card">
+                        <div className="card-tile" 
+                        onClick={() => {
+                            navigateTo('/static/case-studies/anivision');
+                            trackLinkClick.bind(this, 'Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
+                        }}>
+                            <img src={anivision} alt="Anivision" loading="eager" />
+                            <div className="description">
+                                <div className='bold spacing-05'>Anivision</div>
+                                Learn in a more experiential and delightful way by exploring the world through the eyes of an animal.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>Design</li>
+                                        <li>Development</li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>DALI Lab</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-tile" 
+                        onClick={() => {
+                            navigateTo('/static/case-studies/spaces');
+                            trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces Click', 'Portfolio Nav');
+                        }}>
+                            <img src={spaces} alt="Spaces" loading="eager" />
+                            <div className="description">
+                                <div className='bold spacing-05'>Spaces</div>
+                                A VR perspective puzzle game in an impossible space based on M.C. Escher’s “Relativity” drawing.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>Design</li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>Digital Arts Capstone</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="card">
-                    <div className="card-tile" 
-                    onClick={() => {
-                        navigateTo('/static/case-studies/spaces');
-                        trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces Click', 'Portfolio Nav');
-                    }}>
-                        <img src={spaces} alt="Spaces" loading="eager" />
-                        <div className="description">
-                            <div className='bold spacing-05'>Spaces</div>
-                            A VR perspective puzzle game in an impossible space based on M.C. Escher’s “Relativity” drawing.
-                            <div className="tags">
-                                <ul className="left">
-                                    <li>Design</li>
-                                </ul>
-                                <ul className="right">
-                                    <li>Digital Arts Capstone</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div className='spacing-2'/>
             </div>
-            <div className='spacing-3'/>
-        </div>
-                    <Footer />
+            <Footer />
         </div>
     );
 };

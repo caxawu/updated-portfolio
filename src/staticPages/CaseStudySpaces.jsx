@@ -75,7 +75,7 @@ const CaseStudySpaces = (props) => {
                         </div>
                     </div>
                     <div className="summary-section">
-                        <div className="section-title bold">BACKGROUND</div>
+                        <div className="section-title bold">CONTEXT</div>
                         <div className="text-block">
                             For my Digital Arts capstone, we were given free rein to create anything within the realm of digital arts over the
                             course of 10 weeks. My teammate and I chose to work in virtual reality—a platform we were both passionate about and 
@@ -84,7 +84,7 @@ const CaseStudySpaces = (props) => {
                         </div>
                     </div>
                     <div className="summary-section">
-                        <div className="section-title bold">THE GAMEPLAY</div>
+                        <div className="section-title bold">GAMEPLAY</div>
                         <div className="text-block">
                             We build a VR perspective puzzle game set in an impossible space. We recreated M.C. Escher’s <i>Relativity</i> drawing 
                             in 3D and layered in a perspective puzzle game to add interaction and engagement so players would be encouraged explore the space.
@@ -124,7 +124,7 @@ const CaseStudySpaces = (props) => {
 
             <div class="divider-container">
                 <hr class="line" />
-                <span class="label">Dive into the details</span>
+                <span class="label">The details</span>
                 <hr class="line" />
             </div>
             <div className="centered">

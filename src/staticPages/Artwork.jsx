@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactGA from 'react-ga';
 import { Outlet } from 'react-router-dom';
 import { motion } from "framer-motion";
+
 
 import ArtNavBar from './ArtNavBar';
 import ToTopButton from './ToTopButton';
@@ -73,22 +74,34 @@ const trackLinkClick = (category, action, label) => {
 };
 
 
-const FadeInImage = ({ className, src, alt }) => {
+
+
+const FadeInImage = ({ className, src, alt, delay = 0 }) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <motion.img
-      className={`${className} transition-opacity duration-300 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`}
-      src={src}
-      alt={alt}
-      onLoad={() => setLoaded(true)}  // Trigger state change once the image loads
-      loading="eager"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    />
+    <>
+      {!loaded && (
+        <div className={`${className} fade-loader`} />
+      )}
+      <motion.img
+        className={`${className} fade-image ${loaded ? 'loaded' : 'loading'}`}
+        src={src}
+        alt={alt}
+        onLoad={() => setLoaded(true)}
+        loading="eager"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 30 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+          delay: loaded ? delay : 0
+        }}
+      />
+    </>
   );
 };
+
 
 const Modeling = (props) => {
   useEffect(() => {
@@ -98,30 +111,35 @@ const Modeling = (props) => {
   return (
     <div className="img-section">
       <div className="row">
-        <FadeInImage className="img" src={diorama1} alt="Diorama 1" loading="eager" />
-        <FadeInImage className="img" src={diorama3} alt="Diorama 3" loading="eager" />
+        <FadeInImage className="img" src={diorama1} alt="Diorama 1" delay = "0.01" />
+        <FadeInImage className="img" src={diorama3} alt="Diorama 3" delay = "0.1" />
       </div>
+        
       <div className="row">
-        <FadeInImage className="img" src={dioramaWIP} alt="dioramaWIP" loading="eager" />
-        <FadeInImage className="img" src={diorama2} alt="Diorama 2" loading="eager" />
-        <FadeInImage className="img" src={boatRender} alt="boatRender" loading="eager" />
+        <FadeInImage className="img" src={dioramaWIP} alt="dioramaWIP" delay = "0.15" />
+        <FadeInImage className="img" src={diorama2} alt="Diorama 2" delay = "0.2" />
+        <FadeInImage className="img" src={boatRender} alt="boatRender" delay = "0.25" />
       </div>
+        
       <div className="row">
-        <FadeInImage className="img" src={boatWIP} alt="boatWIP" loading="eager" />
-        <FadeInImage className="img" src={plant} alt="plant" loading="eager" />
-        <FadeInImage className="img" src={plantTable} alt="plant on table" loading="eager" />
+        <FadeInImage className="img" src={boatWIP} alt="boatWIP" delay = "0.3" />
+        <FadeInImage className="img" src={plant} alt="plant" delay = "0.35" />
+        <FadeInImage className="img" src={plantTable} alt="plant on table" delay = "0.4" />
       </div>
+        
       <div className="row">
-        <FadeInImage className="img" src={juice} alt="juice" loading="eager" />
-        <FadeInImage className="img" src={escher} alt="escher" loading="eager" />
+        <FadeInImage className="img" src={juice} alt="juice" delay = "0.45" />
+        <FadeInImage className="img" src={escher} alt="escher" delay = "0.5" />
       </div>
+        
       <div className="row">
-        <FadeInImage className="resize-img" src={room} alt="room" loading="eager" />
-        <FadeInImage className="resize-img" src={kitchen} alt="kitchen" loading="eager" />
+        <FadeInImage className="resize-img" src={room} alt="room" delay = "0.55" />
+        <FadeInImage className="resize-img" src={kitchen} alt="kitchen" delay = "0.6" />
       </div>
+        
       <div className="row">
-        <FadeInImage className="resize-img" src={roomBasicsFront} alt="room basics front render" loading="eager" />
-        <FadeInImage className="resize-img" src={roomBasicsAngle} alt="room basics angle render" loading="eager" />
+        <FadeInImage className="resize-img" src={roomBasicsFront} alt="room basics front render" delay = "0.65" />
+        <FadeInImage className="resize-img" src={roomBasicsAngle} alt="room basics angle render" delay = "0.7" />
       </div>
     </div>
   );
@@ -135,14 +153,14 @@ const Animation = (props) => {
   return (
     <div className="img-section" id="not-full-page">
       <div className="row">
-        <FadeInImage className="resize-img" src="https://media3.giphy.com/media/VOlbJCYXe3WbdIeIed/giphy.gif" alt="Jin Final" loading="eager" />
-        <FadeInImage className="resize-img" src="https://media4.giphy.com/media/HZvUGFeDJVvCvTKT9I/giphy.gif" alt="Elven walk cycle" loading="eager" />
-        <FadeInImage className="resize-img" src="https://media1.giphy.com/media/tSiLfpR8ET4FO6xS2H/giphy.gif" alt="Ballie walk cycle" loading="eager" />
+        <FadeInImage className="resize-img" src="https://media3.giphy.com/media/VOlbJCYXe3WbdIeIed/giphy.gif" alt="Jin Final" delay = "0.01" />
+        <FadeInImage className="resize-img" src="https://media4.giphy.com/media/HZvUGFeDJVvCvTKT9I/giphy.gif" alt="Elven walk cycle" delay = "0.1" />
+        <FadeInImage className="resize-img" src="https://media1.giphy.com/media/tSiLfpR8ET4FO6xS2H/giphy.gif" alt="Ballie walk cycle" delay = "0.15" />
       </div>
       <div className="row">
-        <FadeInImage className="resize-img" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzZjbTBsNnlncXp6azF5b2NuaWwzMjdjNHZkamM0MzR4OTVxYm5tayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wYWX3Wgyz5QtiVBOba/giphy.gif" alt="Bouncing ball" loading="eager" />
-        <FadeInImage className="resize-img" src="https://media2.giphy.com/media/bBYtlby2PTB5VEsqhp/giphy.gif" alt="Bowling and beach ball" loading="eager" />
-        <FadeInImage className="resize-img" src="https://media0.giphy.com/media/Yah0ms0gI9fxzMvqat/giphy.gif" alt="Bouncing ball" loading="eager" />
+        <FadeInImage className="resize-img" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzZjbTBsNnlncXp6azF5b2NuaWwzMjdjNHZkamM0MzR4OTVxYm5tayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wYWX3Wgyz5QtiVBOba/giphy.gif" alt="Bouncing ball" delay = "0.2" />
+        <FadeInImage className="resize-img" src="https://media2.giphy.com/media/bBYtlby2PTB5VEsqhp/giphy.gif" alt="Bowling and beach ball" delay = "0.25" />
+        <FadeInImage className="resize-img" src="https://media0.giphy.com/media/Yah0ms0gI9fxzMvqat/giphy.gif" alt="Bouncing ball" delay = "0.3" />
       </div>
     </div>
   );
@@ -157,39 +175,39 @@ const Paintings = (props) => {
     <div className="img-section">
       <div className="row">
         <div className="inner-column">
-          <FadeInImage className="img" src={fruit} alt="fruit" loading="eager" />
+          <FadeInImage className="img" src={fruit} alt="fruit" delay={0.05} />
         </div>
         <div className="inner-column">
-          <FadeInImage className="img" src={umbrellaFitted} alt="umbrella" loading="eager" />
-          <FadeInImage className="img" src={daisiesFitted} alt="daisies" loading="eager" />
+          <FadeInImage className="img" src={umbrellaFitted} alt="umbrella" delay={0.10} />
+          <FadeInImage className="img" src={daisiesFitted} alt="daisies" delay={0.15} />
         </div>
         <div className="inner-column">
-          <FadeInImage className="img" src={birds} alt="birds" loading="eager" />
-          <FadeInImage className="img" src={fenceFitted} alt="fence" loading="eager" />
+          <FadeInImage className="img" src={birds} alt="birds" delay={0.20} />
+          <FadeInImage className="img" src={fenceFitted} alt="fence" delay={0.25} />
         </div>
       </div>
       <div className="row">
-        <FadeInImage className="img" src={door} alt="door" loading="eager" />
-        <FadeInImage className="img" src={midnights} alt="midnights" loading="eager" />
+        <FadeInImage className="img" src={dragon} alt="dragon" delay={0.30} />
+        <FadeInImage className="img" src={midnights} alt="midnights" delay={0.35} />
       </div>
       <div className="row">
-        <FadeInImage className="resize-img" src={dragon} alt="dragon" loading="eager" />
-        <FadeInImage className="resize-img" src={vase} alt="vase" loading="eager" />
+        <FadeInImage className="resize-img" src={door} alt="door" delay={0.40} />
+        <FadeInImage className="resize-img" src={vase} alt="vase" delay={0.45} />
       </div>
       <div className="row">
-        <FadeInImage className="resize-img" src={tuckDrive} alt="tuckDrive" loading="eager" />
-        <FadeInImage className="resize-img" src={landscape} alt="landscape" loading="eager" />
+        <FadeInImage className="resize-img" src={tuckDrive} alt="tuckDrive" delay={0.50} />
+        <FadeInImage className="resize-img" src={landscape} alt="landscape" delay={0.55} />
       </div>
       <div className="row">
-        <FadeInImage className="resize-img" src={statue} alt="statue" loading="eager" />
-        <FadeInImage className="resize-img" src={batman} alt="batman" loading="eager" />
+        <FadeInImage className="resize-img" src={statue} alt="statue" delay={0.60} />
+        <FadeInImage className="resize-img" src={batman} alt="batman" delay={0.65} />
       </div>
       <div className="row">
-        <FadeInImage className="resize-img" src={howl} alt="howl" loading="eager" />
-        <FadeInImage className="resize-img" src={robot} alt="robot" loading="eager" />
+        <FadeInImage className="resize-img" src={howl} alt="howl" delay={0.70} />
+        <FadeInImage className="resize-img" src={robot} alt="robot" delay={0.75} />
       </div>
-
     </div>
+
   );
 };
 
@@ -199,40 +217,41 @@ const Drawings = (props) => {
     console.log('page=>', window.location.pathname);
   }, []);
   return (
-    <div className="img-section">
-      <div className="row">
-        <FadeInImage className="resize-img" src={fruit0} alt="fruit0" loading="eager" />
-        <FadeInImage className="resize-img" src={fruit1} alt="fruit1" loading="eager" />
-      </div>
-      <div className="row">
-        <FadeInImage className="resize-img" src={fruit2} alt="fruit2" loading="eager" />
-        <FadeInImage className="resize-img" src={fruit3} alt="fruit3" loading="eager" />
-      </div>
-      <div className="row">
-        <FadeInImage className="img" src={hand1} alt="hand1" loading="eager" />
-        <FadeInImage className="img" src={hand2} alt="hand2" loading="eager" />
-        <FadeInImage className="img" src={hand3} alt="hand3" loading="eager" />
-      </div>
-      <div className="row">
-        <FadeInImage className="resize-img" src={hand4} alt="hand4" loading="eager" />
-        <FadeInImage className="resize-img" src={hand5} alt="hand5" loading="eager" />
-      </div>
-      <div className="row">
-        <FadeInImage className="img" src={bike1} alt="bike1" loading="eager" />
-        <FadeInImage className="img" src={bike2} alt="bike2" loading="eager" />
-        <FadeInImage className="img" src={bike3} alt="bike3" loading="eager" />
-      </div>
-      <div className="row">
-        <FadeInImage className="img" src={fish} alt="fish sketch" loading="eager" />
-        <FadeInImage className="img" src={david} alt="david sketch" loading="eager" />
-        <FadeInImage className="img" src={king} alt="king sketch" loading="eager" />
-      </div>
-      <div className="row">
-        <FadeInImage className="img" src={boy} alt="boy sketch" loading="eager" />
-        <FadeInImage className="img" src={diana} alt="diana sketch" loading="eager" />
-        <FadeInImage className="img" src={statueSketch} alt="statue sketch" loading="eager" />
-      </div>
+  <div className="img-section">
+    <div className="row">
+      <FadeInImage className="resize-img" src={fruit0} alt="fruit0" delay={0.01} />
+      <FadeInImage className="resize-img" src={fruit1} alt="fruit1" delay={0.05} />
     </div>
+    <div className="row">
+      <FadeInImage className="resize-img" src={fruit2} alt="fruit2" delay={0.10} />
+      <FadeInImage className="resize-img" src={fruit3} alt="fruit3" delay={0.15} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={hand1} alt="hand1" delay={0.20} />
+      <FadeInImage className="img" src={hand2} alt="hand2" delay={0.25} />
+      <FadeInImage className="img" src={hand3} alt="hand3" delay={0.30} />
+    </div>
+    <div className="row">
+      <FadeInImage className="resize-img" src={hand4} alt="hand4" delay={0.35} />
+      <FadeInImage className="resize-img" src={hand5} alt="hand5" delay={0.40} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={bike1} alt="bike1" delay={0.45} />
+      <FadeInImage className="img" src={bike2} alt="bike2" delay={0.50} />
+      <FadeInImage className="img" src={bike3} alt="bike3" delay={0.55} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={fish} alt="fish sketch" delay={0.60} />
+      <FadeInImage className="img" src={david} alt="david sketch" delay={0.65} />
+      <FadeInImage className="img" src={king} alt="king sketch" delay={0.70} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={boy} alt="boy sketch" delay={0.75} />
+      <FadeInImage className="img" src={diana} alt="diana sketch" delay={0.80} />
+      <FadeInImage className="img" src={statueSketch} alt="statue sketch" delay={0.85} />
+    </div>
+  </div>
+
   );
 };
 export {Modeling, Animation, Paintings, Drawings};
@@ -250,6 +269,7 @@ const Artwork = () => {
       <ToTopButton />
       </div>
       <main className="page-content">
+        
         <Outlet />
       </main>
       <Footer />

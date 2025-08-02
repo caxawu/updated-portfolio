@@ -10,6 +10,7 @@ $highlight-blue: #ceeeff; // case study: grace period
 $grace-blue: #013D5B;
 $goals-blue: #255F82;
 $escher-purple: #5A3CB2;
+$anivision-blue: #5A7DBD;
 $text-primary: #262626;
 
 $font-weight-light: 400;
@@ -52,6 +53,7 @@ body, html {
 
 .spacing-025 { margin-bottom: 0.25rem; }
 .spacing-075 { margin-bottom: 0.75rem; }
+.spacing-105 { margin-bottom: 1.5rem; }
 .spacing-2 { margin-bottom: 2rem; }
 .spacing-3 { margin-bottom: 3rem; }
 
@@ -96,6 +98,49 @@ a {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, $highlight-blue 50%);
   width: fit-content;
 }
+
+.fade-loader {
+  background: linear-gradient(
+    -90deg,
+    #f0f0f0 0%,
+    #e0e0e0 50%,
+    #f0f0f0 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s infinite;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3; /* or whatever matches your real images */
+  border-radius: 4px;
+}
+
+.fade-image.loading {
+  display: none;
+}
+
+.fade-image.loaded {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+
+
+
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -108,7 +153,7 @@ a {
   flex-direction: column;
 }
 #case-studies-spacing {
-  height: 93vh;
+  height: 92.5vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -960,6 +1005,7 @@ a {
   margin-bottom: 4rem;
   display: flex;
   justify-content: space-between;
+  border-radius: 16px 16px 0 0;
 
   .back-button {
     display: flex;
@@ -1015,25 +1061,49 @@ a {
       border: 1.5px solid white;
       transition: background-color 0.1s ease;
     }
-
     .white-button:hover {
       color: white;
       background-color: #00000075;
       border: 1.5px solid white;
     }
+
+    .white-button-dark { //for anivision, on dark background
+      color: white;
+      border: 1.5px solid white;
+      transition: background-color 0.1s ease;
+    }
+    .white-button-dark:hover {
+      color: white;
+      background-color: #FFFFFF35;
+      border: 1.5px solid white;
+    }
   }
 
+
   .header-img {
-    // background-color: red;
-    width: 50%;
+    max-width: 45%;
     height: auto;
-    padding-right: 4rem;
+    padding-right: 5rem;
+    margin-top: 3rem;
     align-self: flex-end;
     pointer-events: none;
-
     img {
       width: 100%;
       display: block;
+    }
+  }
+  .header-img-anivision {
+    max-width: 53%;
+    height: auto;
+    padding-right: 2rem;
+    margin: auto 0;
+    align-self: flex-end;
+    pointer-events: none;
+    
+    img {
+      width: 100%;
+      display: block;
+      border-radius: $corner-rounding;
     }
   }
 }
@@ -1061,10 +1131,11 @@ a {
   background-color: #f0f0f0;
 }
 #anivision-top-background {
-  background-image: url(./assets/images/caseStudies/anivision/anivisionTopBackground.gif);
-  background-size: cover;
-  background-position: center;
-  background-color: #f0f0f0;
+  background-color: #0A0B0B;
+  // background-color: $anivision-blue;
+  background-color: #1E273D;
+  // background-color: #38579D;
+  display: flex;
 }
 
 .full-caption {
@@ -1261,6 +1332,10 @@ display: flex;
   border-top: 3px solid $escher-purple;
   width: 2em;
 }
+#anivision-deco {
+  border-top: 3px solid $anivision-blue;
+  width: 2em;
+}
 
 .deco-white-callout {
   //for spacing purposes
@@ -1306,13 +1381,14 @@ display: flex;
 #grace-color {
   color: $grace-blue;
 }
-
 #goals-color {
   color: $goals-blue;
 }
-
 #spaces-color {
   color: $escher-purple;
+}
+#anivision-color {
+  color: $anivision-blue;
 }
 
 

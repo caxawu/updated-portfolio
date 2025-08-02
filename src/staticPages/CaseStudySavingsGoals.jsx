@@ -124,7 +124,7 @@ const CaseStudySavingsGoals = (props) => {
 
             <div class="divider-container">
                 <hr class="line" />
-                <span class="label">Dive into the details</span>
+                <span class="label">The details</span>
                 <hr class="line" />
             </div>
             <div className="centered">

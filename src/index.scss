@@ -149,12 +149,6 @@ a {
   display: flex;
   flex-direction: column;
 }
-#case-studies-spacing {
-  height: 92.5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 #home-spacing {
   height: 100vh;
   display: flex;
@@ -276,6 +270,8 @@ a {
     }
   }
 }
+
+// interactive
 .paper-effect {
   z-index: 1;
   position: absolute;
@@ -355,6 +351,8 @@ a {
     }
   }
 }
+
+// about page
 #about-spacing {
   height: 100vh;
   display: flex;
@@ -611,6 +609,15 @@ a {
 
 
 // case study page
+#case-studies-spacing {
+  height: 92.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .content {
+    margin: 0 auto;
+  }
+}
 
 .portfolio-title {
   display: flex;
@@ -692,6 +699,7 @@ a {
   padding: 2.75em;
 }
 
+// mini projects page
 .mini-section {
   display: flex;
   flex-direction: column;
@@ -749,6 +757,7 @@ a {
         .description1 {
           font-style: italic;
           margin-bottom: 0.5rem;
+          height: 3rem;
         }
 
         .description2 {
@@ -802,10 +811,10 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
+  margin: 0 auto;
   padding: 1.5rem 2rem;
   max-width: 96rem;
-  width: 87%;
+  width: 100%;
 
   .row {
     display: flex;
@@ -840,9 +849,6 @@ a {
       }
     }
   }
-}
-#not-full-page {
-  margin-top: 0;
 }
 
 
@@ -933,7 +939,7 @@ a {
   }
 }
 .artwork-page-to-top .back-to-top {
-  right: 48px; // override just the value you want
+  right: 48px;
 }
 
 
@@ -1561,6 +1567,9 @@ display: flex;
     margin: 0 0;
     padding: 0 24px;
   }
+  .page-wrapper {
+    min-height: 86vh;
+  }
   .nav-bar {
   padding: 1em 24px;
   }
@@ -1672,11 +1681,12 @@ display: flex;
   }
 
   // case studies
+  .back-to-top {
+      display: none;
+  }
+
   .content-case-study {
     padding: 0 24px;
-    .back-to-top {
-      display: none;
-    }
     iframe {
       height: 220px;
     }
@@ -1852,5 +1862,54 @@ display: flex;
     border-top: 1px solid #7B7B7B;
     border-bottom: 1px solid #7B7B7B;
     padding: 16px 0;
+  }
+
+  // mini projects page
+  .mini-section {
+    .top-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 16px;
+      padding-bottom: 1.5em;
+    }
+  .body {
+padding: 0 16px;
+  .item {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 8px;
+
+    .description {
+      padding-bottom: 16px;
+  .description1 {
+          font-style: italic;
+          margin-bottom: 0.5rem;
+          height: auto;
+        }
+      }
+    }
+  }
+  }
+
+
+  // artwork page
+  .secondary-nav-links {
+    // Pipe between links
+    ul {
+      width: 100vw;
+      padding-left: 0;
+      li {
+        &+li::before {
+          content: "|";
+          margin: 0 1rem; // controls space between links
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .img-section {
+    margin: 0;
+    width: auto;
   }
 }

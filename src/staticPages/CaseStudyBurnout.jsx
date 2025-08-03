@@ -8,7 +8,7 @@ import FadeInImage from './FadeInImage';
 import ToTopButton from './ToTopButton';
 import Footer from './Footer';
 
-import mobileHeader from '../assets/images/caseStudies/burnout/burnoutTopBackground.png';
+import mobileHeader from '../assets/images/caseStudies/burnout/burnoutTopBackgroundMobile.png';
 import clinicianBurnout from '../assets/images/caseStudies/burnout/clinicianBurnout.png';
 
 const trackLinkClick = (category, action, label) => {

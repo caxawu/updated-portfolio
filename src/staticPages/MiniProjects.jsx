@@ -50,7 +50,7 @@ const MiniProjects = () => {
             <FadeInImage src={beyond} alt="beyond" delay = "0.01" />
             <div className="description">
               <div className="name">Beyond</div>
-              <div className="description1">Find your way out of the Underground.<br /><br /></div>
+              <div className="description1">Find your way out of the Underground.</div>
               <div className="description2">Responding to anxiety by portraying the different ways that it can manifest.</div>
               <div className="links">
                 <a href="https://caxawu.itch.io/beyond" target="_blank" rel="noreferrer"
@@ -125,7 +125,7 @@ const MiniProjects = () => {
             <FadeInImage src={buzzfeed} alt="buzzfeed" delay = "0.2" />
             <div className="description">
               <div className="name">Buzzfeed quiz</div>
-              <div className="description1">Take a quiz and find your next favorite show!<br /><br /></div>
+              <div className="description1">Take a quiz and find your next favorite show!</div>
               <div className="description2">A Buzzfeed-style quiz that uses HTML, CSS, Javascript, and jquery.</div>
               <div className="links">
                 <a href="https://dartmouth-cs52-21s.github.io/lab2-caxawu/" target="_blank" rel="noreferrer"
@@ -166,8 +166,8 @@ const MiniProjects = () => {
             <FadeInImage src={artrek} alt="ARTrek" delay = "0.3" />
             <div className="description">
               <div className="name">ARTrek<br />1st Place @ HackDartmouth V</div>
-              <div className="description1">A “Waze”-like indoor navigation system.<br /></div>
-              <div className="description2">An augmented reality indoor navigation app using user-contributed data and Microsoft's Azure Spatial Anchors to generate AR paths to the destination.<br /><br /></div>
+              <div className="description1">A “Waze”-like indoor navigation system.</div>
+              <div className="description2">An augmented reality indoor navigation app using user-contributed data and Microsoft's Azure Spatial Anchors to generate AR paths to the destination.</div>
               <div className="links">
                 <a href="https://devpost.com/software/artrek" target="_blank" rel="noreferrer"
                   onClick={trackLinkClick.bind(this, 'Other/Hackathon/ARTrek', 'ARTrek Devpost Click', 'Mini Projects Links')}>

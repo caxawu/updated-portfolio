@@ -79,39 +79,67 @@ const Modeling = (props) => {
     console.log('page=>', window.location.pathname);
   }, []);
   return (
-    <div className="img-section">
+    <>
+    <div className="img-section" id="desktop">
       <div className="row">
         <FadeInImage className="img" src={diorama1} alt="Diorama 1" delay = "0.01" />
         <FadeInImage className="img" src={diorama3} alt="Diorama 3" delay = "0.1" />
       </div>
-        
       <div className="row">
         <FadeInImage className="img" src={dioramaWIP} alt="dioramaWIP" delay = "0.15" />
         <FadeInImage className="img" src={diorama2} alt="Diorama 2" delay = "0.2" />
         <FadeInImage className="img" src={boatRender} alt="boatRender" delay = "0.25" />
       </div>
-        
       <div className="row">
         <FadeInImage className="img" src={boatWIP} alt="boatWIP" delay = "0.3" />
         <FadeInImage className="img" src={plant} alt="plant" delay = "0.35" />
         <FadeInImage className="img" src={plantTable} alt="plant on table" delay = "0.4" />
       </div>
-        
       <div className="row">
         <FadeInImage className="img" src={juice} alt="juice" delay = "0.45" />
         <FadeInImage className="img" src={escher} alt="escher" delay = "0.5" />
       </div>
-        
       <div className="row">
         <FadeInImage className="resize-img" src={room} alt="room" delay = "0.55" />
         <FadeInImage className="resize-img" src={kitchen} alt="kitchen" delay = "0.6" />
       </div>
-        
       <div className="row">
         <FadeInImage className="resize-img" src={roomBasicsFront} alt="room basics front render" delay = "0.65" />
         <FadeInImage className="resize-img" src={roomBasicsAngle} alt="room basics angle render" delay = "0.7" />
       </div>
     </div>
+
+    <div className="img-section" id="mobile">
+      <div className="row">
+        <FadeInImage className="img" src={diorama1} alt="Diorama 1" delay = "0.01" />
+        <FadeInImage className="img" src={diorama3} alt="Diorama 3" delay = "0.1" />
+      </div>
+      <div className="row">
+        <FadeInImage className="img" src={dioramaWIP} alt="dioramaWIP" delay = "0.15" />
+        <FadeInImage className="img" src={diorama2} alt="Diorama 2" delay = "0.2" />
+      </div>
+      <div className="row">
+        <FadeInImage className="img" src={boatRender} alt="boatRender" delay = "0.25" />
+        <FadeInImage className="img" src={boatWIP} alt="boatWIP" delay = "0.3" />
+      </div>
+      <div className="row">
+        <FadeInImage className="img" src={plant} alt="plant" delay = "0.35" />
+        <FadeInImage className="img" src={plantTable} alt="plant on table" delay = "0.4" />
+      </div>
+      <div className="row">
+        <FadeInImage className="img" src={juice} alt="juice" delay = "0.45" />
+        <FadeInImage className="img" src={escher} alt="escher" delay = "0.5" />
+      </div>
+      <div className="row">
+        <FadeInImage className="resize-img" src={room} alt="room" delay = "0.55" />
+        <FadeInImage className="resize-img" src={kitchen} alt="kitchen" delay = "0.6" />
+      </div>
+      <div className="row">
+        <FadeInImage className="resize-img" src={roomBasicsFront} alt="room basics front render" delay = "0.65" />
+        <FadeInImage className="resize-img" src={roomBasicsAngle} alt="room basics angle render" delay = "0.7" />
+      </div>
+    </div>
+    </>
   );
 };
 
@@ -121,7 +149,8 @@ const Animation = (props) => {
     console.log('page=>', window.location.pathname);
   }, []);
   return (
-    <div className="img-section" id="not-full-page">
+    <>
+    <div className="img-section" id="desktop">
       <div className="row">
         <FadeInImage className="resize-img" src="https://media3.giphy.com/media/VOlbJCYXe3WbdIeIed/giphy.gif" alt="Jin Final" delay = "0.01" />
         <FadeInImage className="resize-img" src="https://media4.giphy.com/media/HZvUGFeDJVvCvTKT9I/giphy.gif" alt="Elven walk cycle" delay = "0.1" />
@@ -133,6 +162,21 @@ const Animation = (props) => {
         <FadeInImage className="resize-img" src="https://media0.giphy.com/media/Yah0ms0gI9fxzMvqat/giphy.gif" alt="Bouncing ball" delay = "0.3" />
       </div>
     </div>
+    <div className="img-section" id="mobile">
+      <div className="row">
+        <FadeInImage className="resize-img" src="https://media3.giphy.com/media/VOlbJCYXe3WbdIeIed/giphy.gif" alt="Jin Final" delay = "0.01" />
+        <FadeInImage className="resize-img" src="https://media4.giphy.com/media/HZvUGFeDJVvCvTKT9I/giphy.gif" alt="Elven walk cycle" delay = "0.1" />
+        </div>
+      <div className="row">
+        <FadeInImage className="resize-img" src="https://media1.giphy.com/media/tSiLfpR8ET4FO6xS2H/giphy.gif" alt="Ballie walk cycle" delay = "0.15" />
+        <FadeInImage className="resize-img" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzZjbTBsNnlncXp6azF5b2NuaWwzMjdjNHZkamM0MzR4OTVxYm5tayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wYWX3Wgyz5QtiVBOba/giphy.gif" alt="Bouncing ball" delay = "0.2" />
+      </div>
+      <div className="row">
+        <FadeInImage className="resize-img" src="https://media2.giphy.com/media/bBYtlby2PTB5VEsqhp/giphy.gif" alt="Bowling and beach ball" delay = "0.25" />
+        <FadeInImage className="resize-img" src="https://media0.giphy.com/media/Yah0ms0gI9fxzMvqat/giphy.gif" alt="Bouncing ball" delay = "0.3" />
+      </div>
+    </div>
+    </>
   );
 };
 
@@ -187,7 +231,8 @@ const Drawings = (props) => {
     console.log('page=>', window.location.pathname);
   }, []);
   return (
-  <div className="img-section">
+    <>
+  <div className="img-section" id='desktop'>
     <div className="row">
       <FadeInImage className="resize-img" src={fruit0} alt="fruit0" delay={0.01} />
       <FadeInImage className="resize-img" src={fruit1} alt="fruit1" delay={0.05} />
@@ -221,7 +266,45 @@ const Drawings = (props) => {
       <FadeInImage className="img" src={statueSketch} alt="statue sketch" delay={0.85} />
     </div>
   </div>
-
+  <div className="img-section" id='mobile'>
+    <div className="row">
+      <FadeInImage className="resize-img" src={fruit0} alt="fruit0" delay={0.01} />
+      <FadeInImage className="resize-img" src={fruit1} alt="fruit1" delay={0.05} />
+    </div>
+    <div className="row">
+      <FadeInImage className="resize-img" src={fruit2} alt="fruit2" delay={0.10} />
+      <FadeInImage className="resize-img" src={fruit3} alt="fruit3" delay={0.15} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={hand1} alt="hand1" delay={0.20} />
+      <FadeInImage className="img" src={hand2} alt="hand2" delay={0.25} />
+      <FadeInImage className="img" src={hand3} alt="hand3" delay={0.30} />
+    </div>
+    <div className="row">
+      <FadeInImage className="resize-img" src={hand4} alt="hand4" delay={0.35} />
+      <FadeInImage className="resize-img" src={hand5} alt="hand5" delay={0.40} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={bike1} alt="bike1" delay={0.45} />
+      <FadeInImage className="img" src={bike2} alt="bike2" delay={0.50} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={bike3} alt="bike3" delay={0.55} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={fish} alt="fish sketch" delay={0.60} />
+      <FadeInImage className="img" src={david} alt="david sketch" delay={0.65} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={boy} alt="boy sketch" delay={0.70} />      
+      <FadeInImage className="img" src={king} alt="king sketch" delay={0.75} />
+    </div>
+    <div className="row">
+      <FadeInImage className="img" src={diana} alt="diana sketch" delay={0.80} />
+      <FadeInImage className="img" src={statueSketch} alt="statue sketch" delay={0.85} />
+    </div>
+  </div>
+  </>
   );
 };
 export {Modeling, Animation, Paintings, Drawings};
@@ -236,7 +319,7 @@ const Artwork = () => {
     <div className='page-wrapper'>
       <ArtNavBar />
       <div className='artwork-page-to-top'>
-      <ToTopButton />
+      <ToTopButton id='desktop'/>
       </div>
       <main className="page-content">
         

@@ -1,9 +1,8 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 const ArtNavBar = () => {
-    const navigateTo = useNavigate();
     const location = useLocation();
 
     const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });

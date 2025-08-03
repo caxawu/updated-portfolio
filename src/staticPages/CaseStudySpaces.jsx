@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
-import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
+import ReactGA from 'react-ga';
 
+import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
+import FadeInImage from './FadeInImage';
+
+import spacesHeader from '../assets/images/caseStudies/spaces/spacesTopBackground.png';
 import relativityOrig from '../assets/images/caseStudies/spaces/relativityOrig.png';
 import relativityComp from '../assets/images/caseStudies/spaces/relativityComp.png';
 import puzzle1 from '../assets/images/caseStudies/spaces/puzzle1.png';
@@ -46,7 +49,7 @@ const CaseStudySpaces = (props) => {
                     <ChevronLeftIcon className="chevron" /> 
                     <div className='back-text'>back</div>
                 </div>
-                <div id="text-white" className="text">
+                <div className="text">
                     <div className="title">
                         Spaces
                     </div>
@@ -62,6 +65,9 @@ const CaseStudySpaces = (props) => {
                         onClick={trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces apk Click', 'Portfolio Links')}
                     >Download for Oculus Quest
                     </a>
+                </div>
+                <div className="header-img-spaces" id='mobile'>
+                    <FadeInImage src={spacesHeader} alt="grace period header" loading="eager" />
                 </div>
             </div>
 

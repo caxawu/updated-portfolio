@@ -36,7 +36,7 @@ const CaseStudyAnivision = (props) => {
                     <ChevronLeftIcon className="chevron" /> 
                     <div className='back-text'>back</div>
                 </div>
-                <div id="text-white" className="text">
+                <div className="text">
                     <div className="title">
                         Anivision
                     </div>
@@ -111,9 +111,10 @@ const CaseStudyAnivision = (props) => {
                     </ul>
                     <ul className="list">
                         <li className="bold">ROLE</li>
-                        <li>Designer</li>
-                        <li>Developer</li>
-                        <li>Project Manager</li>
+                        <li id='desktop'>Designer</li>
+                        <li id='desktop'>Developer</li>
+                        <li id='desktop'>Project Manager</li>
+                        <li id='mobile'>Designer, Developer, Project anager</li>
                     </ul>
                     <ul className="list">
                         <li className="bold">TIME</li>
@@ -123,7 +124,6 @@ const CaseStudyAnivision = (props) => {
             </div>
             <iframe 
                 width="100%"
-                height="850"
                 src="https://www.youtube.com/embed/Tah1Z87AZhg?modestbranding=1&showinfo=0&rel=0"
                 frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

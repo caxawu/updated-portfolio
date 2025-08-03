@@ -31,7 +31,7 @@ const CaseStudyGracePeriod = (props) => {
                     <ChevronLeftIcon className="chevron" /> 
                     <div className='back-text'>back</div>
                 </div>
-                <div id="text-white" className="text">
+                <div className="text">
 
                     <div className="title">
                         CD Grace Period

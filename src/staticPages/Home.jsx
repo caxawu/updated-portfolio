@@ -34,11 +34,11 @@ const About = () => {
         <div className='home-right'>
           <div className='img-w-outline'>
             <div className='img-container'>
-              <FadeInImage
+              <FadeInImage className='home-nav-img'
                 src={interactiveImg}
                 data-pin-nopin="true"
                 alt='Interactive portfolio'
-                loading='eager'
+                animateTransform={false}
                 onClick={handleImageClick}  // Handle the click to navigate
                 style={{ cursor: 'pointer' }}  // Optional: Makes it clear that the image is clickable
               />

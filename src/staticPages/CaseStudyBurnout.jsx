@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import ReactGA from 'react-ga';
 
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
+import FadeInImage from './FadeInImage';
 
 import ToTopButton from './ToTopButton';
 import Footer from './Footer';
 
+import mobileHeader from '../assets/images/caseStudies/burnout/burnoutTopBackground.png';
 import clinicianBurnout from '../assets/images/caseStudies/burnout/clinicianBurnout.png';
 
 const trackLinkClick = (category, action, label) => {
@@ -34,7 +36,7 @@ const CaseStudyBurnout = (props) => {
                     <ChevronLeftIcon className="chevron" /> 
                     <div className='back-text'>back</div>
                 </div>
-                <div id="text-white" className="text">
+                <div className="text">
                     <div className="title">
                         Clinician Burnout
                     </div>
@@ -50,8 +52,11 @@ const CaseStudyBurnout = (props) => {
                     >See the facilitation guide
                     </a>
                 </div>
+                <div className="mobile-header-img" id='mobile'>
+                    <FadeInImage src={mobileHeader} alt="grace period header" loading="eager" />
+                </div>
             </div>
-            <div className='only-secondary'>
+            <div className='secondary-container'>
                 <ul className="secondary-info" id='horizontal'>
                     <ul className="list">
                         <li className="bold">TYPE</li>

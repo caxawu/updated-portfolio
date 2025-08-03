@@ -30,7 +30,7 @@ body, html {
   line-height: 1.5;
   margin: 0;
   color: $text-primary;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 #mobile {
   display: none;
@@ -235,7 +235,7 @@ a {
         max-width: 70rem;
         width: auto;
         transition: transform .2s;
-        img {
+        .home-nav-img {
           width: 100%;
           height: auto;
           object-fit: cover;
@@ -258,11 +258,11 @@ a {
         }
       }
       .img-container:hover {
-        img {
-          transform: translateX(15px) translateY(-15px);
+        .home-nav-img {
+          transform: translateX(15px) translateY(-18px);
         }
         .outline-overlay {
-          transform: translateX(-14px) translateY(14px);
+          transform: translateX(-14px) translateY(17px);
         }
       }
     }
@@ -1142,6 +1142,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 1rem;
   padding-bottom: 2rem;
 }
@@ -1252,10 +1253,13 @@ a {
     }
   }
 }
-.only-secondary {
+.secondary-container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 3rem;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  
     .list {
     padding: 1.5rem 3.5rem;
     padding-bottom: 1.25rem;
@@ -1711,13 +1715,13 @@ display: flex;
       padding: 20px 24px;
       background-color: $grace-blue;
     }
-    .header-img-anivision, .header-img-spaces {
+    .header-img-anivision, .mobile-header-img {
       max-width: 100%;
       padding: 0;
       margin-top: 3rem;
     }
   }
-  #grace-top-background, #goals-top-background, #anivision-top-background, #spaces-top-background {
+  #grace-top-background, #goals-top-background, #anivision-top-background, #spaces-top-background, #burnout-top-background {
     background-color: transparent;
     background-image: none;
     padding-top: 24px;
@@ -1776,9 +1780,18 @@ display: flex;
   .full-caption {
     padding-top: 24px;
     padding-bottom: 48px;
+    
   }
-  .img-row-w-caption {
+  .img-row-w-caption, .img-row {
     padding: 0;
+    flex-wrap: wrap;
+    .img-single {
+      min-width: 30%;
+    }
+  }
+  .img-row {
+    padding-top: 24px;
+    padding-bottom: 48px;
   }
   #goals-setup {
     padding: 0;
@@ -1828,5 +1841,16 @@ display: flex;
         height: auto;
       }
     }
+  }
+  #burnout-img {
+  width: 100%;
+  }
+  #horizontal {
+  display: flex;
+    flex-direction: column;
+    margin: auto;
+    border-top: 1px solid #7B7B7B;
+    border-bottom: 1px solid #7B7B7B;
+    padding: 16px 0;
   }
 }

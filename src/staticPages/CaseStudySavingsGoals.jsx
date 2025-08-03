@@ -108,21 +108,23 @@ const CaseStudySavingsGoals = (props) => {
                     </div>
                 </div>
 
-                <ul className="secondary-info">
-                    <ul className="list">
-                        <li className="bold">TYPE</li>
-                        <li id='desktop'>Capital One - <br/>Automatic Savings</li>
-                        <li id='mobile'>Capital One - Automatic Savings</li>
+                <div className='secondary-container'>
+                    <ul className="secondary-info" id='horizontal'>
+                        <ul className="list">
+                            <li className="bold">TYPE</li>
+                            <li id='desktop'>Capital One - <br />Automatic Savings</li>
+                            <li id='mobile'>Capital One - Automatic Savings</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">ROLE</li>
+                            <li>Lead UI/UX designer</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">TIME</li>
+                            <li>1 year</li>
+                        </ul>
                     </ul>
-                    <ul className="list">
-                        <li className="bold">ROLE</li>
-                        <li>Lead UI/UX designer</li>
-                    </ul>
-                    <ul className="list">
-                        <li className="bold">TIME</li>
-                        <li>1 year</li>
-                    </ul>
-                </ul>
+                </div>
             </div>
 
             <div class="divider-container">

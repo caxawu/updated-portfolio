@@ -104,23 +104,25 @@ const CaseStudyAnivision = (props) => {
                     </div>
                 </div>
 
-                <ul className="secondary-info">
-                    <ul className="list">
-                        <li className="bold">TYPE</li>
-                        <li>DALI Lab</li>
+                <div className='secondary-container'>
+                    <ul className="secondary-info" id='horizontal'>
+                        <ul className="list">
+                            <li className="bold">TYPE</li>
+                            <li>DALI Lab</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">ROLE</li>
+                            <li id='desktop'>Designer</li>
+                            <li id='desktop'>Developer</li>
+                            <li id='desktop'>Project Manager</li>
+                            <li id='mobile'>Designer, Developer, Project Manager</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">TIME</li>
+                            <li>2019-2024</li>
+                        </ul>
                     </ul>
-                    <ul className="list">
-                        <li className="bold">ROLE</li>
-                        <li id='desktop'>Designer</li>
-                        <li id='desktop'>Developer</li>
-                        <li id='desktop'>Project Manager</li>
-                        <li id='mobile'>Designer, Developer, Project anager</li>
-                    </ul>
-                    <ul className="list">
-                        <li className="bold">TIME</li>
-                        <li>2019-2024</li>
-                    </ul>
-                </ul>
+                </div>
             </div>
             <iframe 
                 width="100%"

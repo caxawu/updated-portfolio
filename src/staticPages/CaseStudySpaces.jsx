@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 import FadeInImage from './FadeInImage';
 
-import spacesHeader from '../assets/images/caseStudies/spaces/spacesTopBackground.png';
+import mobileHeader from '../assets/images/caseStudies/spaces/spacesTopBackground.png';
 import relativityOrig from '../assets/images/caseStudies/spaces/relativityOrig.png';
 import relativityComp from '../assets/images/caseStudies/spaces/relativityComp.png';
 import puzzle1 from '../assets/images/caseStudies/spaces/puzzle1.png';
@@ -66,8 +66,8 @@ const CaseStudySpaces = (props) => {
                     >Download for Oculus Quest
                     </a>
                 </div>
-                <div className="header-img-spaces" id='mobile'>
-                    <FadeInImage src={spacesHeader} alt="grace period header" loading="eager" />
+                <div className="mobile-header-img" id='mobile'>
+                    <FadeInImage src={mobileHeader} alt="grace period header" loading="eager" />
                 </div>
             </div>
 
@@ -104,20 +104,22 @@ const CaseStudySpaces = (props) => {
                     </div>
                 </div>
 
-                <ul className="secondary-info">
-                    <ul className="list">
-                        <li className="bold">TYPE</li>
-                        <li>Digital Arts Capstone</li>
+                <div className='secondary-container'>
+                    <ul className="secondary-info" id='horizontal'>
+                        <ul className="list">
+                            <li className="bold">TYPE</li>
+                            <li>Digital Arts Capstone</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">ROLE</li>
+                            <li>Designer</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">TIME</li>
+                            <li>10 weeks</li>
+                        </ul>
                     </ul>
-                    <ul className="list">
-                        <li className="bold">ROLE</li>
-                        <li>Designer</li>
-                    </ul>
-                    <ul className="list">
-                        <li className="bold">TIME</li>
-                        <li>10 weeks</li>
-                    </ul>
-                </ul>
+                </div>
             </div>
             <iframe width="100%"
                 height="850"
@@ -290,16 +292,14 @@ const CaseStudySpaces = (props) => {
                     a 2D picture, watching flower vines grow to signify progress—elements that felt far more interesting and visually 
                     satisfying than typical floating UI panels and pointing a laser to click through menus.
                     <div className="spacing-075" />
-                    This project pushed me significantly in my 3D modeling skills. I spent countless hours staring at Escher’s drawing, 
-                    trying to understand this impossible space and how to construct it from a single reference image. From there, I spent 
-                    countless hours in Maya aligning edges, adjusting scale, and welding vertices to bring the illusion to life.
-                    <div className="spacing-075" />
-                    I also challenged myself to deepen my understanding of lighting. Making the space polished and atmospheric meant experimenting 
+                    This project pushed my 3D modeling skills significantly. I spent hours staring at Escher’s drawing, 
+                    trying to understand the impossible space and how to construct it from a single reference image. From there, I lived in 
+                    Maya—aligning edges, adjusting scale, and welding vertices to bring the room to life.
+                    I wanted to deepen my understanding of lighting as well. To make the space feel polished and atmospheric, I experimented
                     with point lights, spot lights, directional lights, and particle systems in a series of endless test renders to get the feeling 
-                    exactly right. I came away from it with a much better understanding and appreciation of how important lighting can be.
+                    right. I came away with a much stronger understanding and appreciation of how important lighting can be.
                     <div className="spacing-075" />
-                    What stood out the most was how difficult simplicity was. Learning when to stop and strip things back to allow one central idea 
-                    to carry the experience was a challenge but ultimately helped focus our purpose and kept us true to our goal. 
+                    What stood out the most was how difficult simplicity was. Learning when to stop and strip things back was a challenge but ultimately helped focus our purpose and kept us true to our goal. 
                 </div>
             </div>
         <Footer/>

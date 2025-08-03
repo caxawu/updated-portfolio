@@ -1,5 +1,5 @@
 import {Route, BrowserRouter as Router, Routes, Navigate} from 'react-router-dom';
-import './App.css'
+import StartPageAtTop from './staticPages/StartPageAtTop';
 
 import Home from './staticPages/Home';
 import About from './staticPages/About';
@@ -23,6 +23,7 @@ function App() {
   return (
     <main className='bg-slate-300/20'>
       <Router>
+        <StartPageAtTop />
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="about" element={<About/>}/>

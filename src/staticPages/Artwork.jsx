@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { Outlet } from 'react-router-dom';
-import { motion } from "framer-motion";
-
 
 import ArtNavBar from './ArtNavBar';
 import ToTopButton from './ToTopButton';
 import Footer from './Footer';
+
+import FadeInImage from './FadeInImage';
 
 import diorama1 from '../assets/images/artwork/modeling/diorama1.jpg';
 import diorama2 from '../assets/images/artwork/modeling/diorama2.png';
@@ -39,7 +39,6 @@ import statue from "../assets/images/miniPlayer/paintings/statue.png";
 import vase from "../assets/images/miniPlayer/paintings/vase.png";
 import batman from '../assets/images/miniPlayer/paintings/batman.png';
 
-
 import fruit0 from '../assets/images/miniPlayer/drawings/fruit0.png';
 import fruit1 from '../assets/images/miniPlayer/drawings/fruit1.png';
 import fruit2 from '../assets/images/miniPlayer/drawings/fruit2.png';
@@ -71,35 +70,6 @@ const trackLinkClick = (category, action, label) => {
     action,
     label,
   });
-};
-
-
-
-
-const FadeInImage = ({ className, src, alt, delay = 0 }) => {
-  const [loaded, setLoaded] = useState(false);
-
-  return (
-    <>
-      {!loaded && (
-        <div className={`${className} fade-loader`} />
-      )}
-      <motion.img
-        className={`${className} fade-image ${loaded ? 'loaded' : 'loading'}`}
-        src={src}
-        alt={alt}
-        onLoad={() => setLoaded(true)}
-        loading="eager"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 30 }}
-        transition={{
-          duration: 0.5,
-          ease: "easeOut",
-          delay: loaded ? delay : 0
-        }}
-      />
-    </>
-  );
 };
 
 

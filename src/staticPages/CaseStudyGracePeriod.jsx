@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
+
 import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
+import FadeInImage from './FadeInImage';
 
 import graceHeader from '../assets/images/caseStudies/grace/grace-header.png'
 import comparisonChart from '../assets/images/caseStudies/grace/comparison-chart.png'
@@ -43,7 +45,7 @@ const CaseStudyGracePeriod = (props) => {
                     </div>
                 </div>
                 <div className="header-img">
-                    <img src={graceHeader} alt="grace period header" loading="eager" />
+                    <FadeInImage src={graceHeader} alt="grace period header" loading="eager" />
                 </div>
             </div>
 

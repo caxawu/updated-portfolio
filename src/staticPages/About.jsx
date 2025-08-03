@@ -3,6 +3,8 @@ import ReactGA from 'react-ga';
 import NavBar from './NavBar';
 import Footer from './Footer';
 
+import FadeInImage from './FadeInImage';
+
 import profilePic from '../assets/images/profilePic.png'
 
 const About = () => {
@@ -21,7 +23,7 @@ const trackLinkClick = (category, action, label) => {
       <NavBar />
       <div className='content' id="about">
         <div className='about-section'>
-          <img src={profilePic} data-pin-nopin="true" alt='Profile picture' loading='eager' />
+          <FadeInImage className='about-img' src={profilePic} data-pin-nopin="true" alt='Profile picture' loading='eager' />
           <div className='text-bounding-box'>
             <div className='color-box' id="color1">
               <div className='bio'>

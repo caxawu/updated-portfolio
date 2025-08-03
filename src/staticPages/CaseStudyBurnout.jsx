@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
-import { ChevronLeftIcon } from '@heroicons/react/24/outline';
+import ReactGA from 'react-ga';
 
-import clinicianBurnout from '../assets/images/caseStudies/burnout/clinicianBurnout.png';
+import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 
 import ToTopButton from './ToTopButton';
 import Footer from './Footer';
+
+import clinicianBurnout from '../assets/images/caseStudies/burnout/clinicianBurnout.png';
 
 const trackLinkClick = (category, action, label) => {
     console.log('GA event:', category, ':', action, ':', label);

@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { Outlet } from 'react-router-dom';
+import ReactGA from 'react-ga';
+
 import Footer from './Footer';
+
+import FadeInImage from './FadeInImage';
 
 import beyond from '../assets/images/miniProjects/beyond.png'
 import journey from '../assets/images/miniProjects/journey.png'
@@ -44,7 +47,7 @@ const MiniProjects = () => {
         </div>
         <div className="body">
           <div className="item">
-            <img src={beyond} alt="beyond" loading="lazy" />
+            <FadeInImage src={beyond} alt="beyond" delay = "0.01" />
             <div className="description">
               <div className="name">Beyond</div>
               <div className="description1">Find your way out of the Underground.<br /><br /></div>
@@ -63,7 +66,7 @@ const MiniProjects = () => {
             </div>
           </div>
           <div className="item">
-            <img src={journey} alt="journey" loading="lazy" />
+            <FadeInImage src={journey} alt="journey" delay = "0.05" />
             <div className="description">
               <div className="name">Journey</div>
               <div className="description1">A stranger stumbles into the village. A researcher—separated from the rest of the expedition team.</div>
@@ -77,7 +80,7 @@ const MiniProjects = () => {
             </div>
           </div>
           <div className="item">
-            <img src={storyteller} alt="storyteller" loading="lazy" />
+            <FadeInImage src={storyteller} alt="storyteller" delay = "0.1" />
             <div className="description">
               <div className="name">Storyteller</div>
               <div className="description1">Peppy and Poppy want to be storytellers when they grow up. Help them with grammar as they tell a story.</div>
@@ -105,7 +108,7 @@ const MiniProjects = () => {
         </div>
         <div className="body">
           <div className="item">
-            <img src={stickies} alt="stickies" loading="lazy" />
+            <FadeInImage src={stickies} alt="stickies" delay = "0.15" />
             <div className="description">
               <div className="name">Stickies</div>
               <div className="description1">Capture your thoughts and share them on this collaborative post-it notes board.</div>
@@ -119,7 +122,7 @@ const MiniProjects = () => {
             </div>
           </div>
           <div className="item">
-            <img src={buzzfeed} alt="buzzfeed" loading="lazy" />
+            <FadeInImage src={buzzfeed} alt="buzzfeed" delay = "0.2" />
             <div className="description">
               <div className="name">Buzzfeed quiz</div>
               <div className="description1">Take a quiz and find your next favorite show!<br /><br /></div>
@@ -133,7 +136,7 @@ const MiniProjects = () => {
             </div>
           </div>
           <div className="item">
-            <img src={adventures} alt="adventures" loading="lazy" />
+            <FadeInImage src={adventures} alt="adventures" delay = "0.25" />
             <div className="description">
               <div className="name">Track your adventures</div>
               <div className="description1">Display your photos on digital polaroids attached to blinking string lights.
@@ -160,7 +163,7 @@ const MiniProjects = () => {
         </div>
         <div className="body">
           <div className="item">
-            <img src={artrek} alt="ARTrek" loading="lazy" />
+            <FadeInImage src={artrek} alt="ARTrek" delay = "0.3" />
             <div className="description">
               <div className="name">ARTrek<br />1st Place @ HackDartmouth V</div>
               <div className="description1">A “Waze”-like indoor navigation system.<br /></div>
@@ -174,7 +177,7 @@ const MiniProjects = () => {
             </div>
           </div>
           <div className="item">
-            <img src={jobarchitech} alt="JobArchi.tech" loading="lazy" />
+            <FadeInImage src={jobarchitech} alt="JobArchi.tech" delay = "0.35" />
             <div className="description">
               <div className="name">JobArchi.tech<br />Google Cloud runner-up @ HackDartmouth VI</div>
               <div className="description1">Track your job hunt journey from application to offer.</div>
@@ -188,7 +191,7 @@ const MiniProjects = () => {
             </div>
           </div>
           <div className="item">
-            <img src={rgbox} alt="RGBox" loading="lazy" />
+            <FadeInImage src={rgbox} alt="RGBox" delay = "0.4" />
             <div className="description">
               <div className="name">RGBox<br />2nd Place @ Dartmouth Designathon</div>
               <div className="description1">Reclaim social spaces and build connections over shared interests.</div>

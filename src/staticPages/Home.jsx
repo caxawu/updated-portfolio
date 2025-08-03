@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
 
+import FadeInImage from './FadeInImage';
+
 import AnimText from './AnimText';
 import interactiveImg from '../assets/images/interactiveImg.png'
 import loopyArrow from '../assets/images/loopyArrow.png'
@@ -32,7 +34,7 @@ const About = () => {
         <div className='home-right'>
           <div className='img-w-outline'>
             <div className='img-container'>
-              <img
+              <FadeInImage
                 src={interactiveImg}
                 data-pin-nopin="true"
                 alt='Interactive portfolio'

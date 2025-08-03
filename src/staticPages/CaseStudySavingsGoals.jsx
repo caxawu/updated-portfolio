@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
+
 import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 import PasswordProtected from './PasswordProtected';
+import FadeInImage from './FadeInImage';
 
 import goalsHeader from '../assets/images/caseStudies/goals/goals-header.png'
 import pie1 from '../assets/images/caseStudies/goals/pie1.png'
@@ -40,7 +42,7 @@ const CaseStudySavingsGoals = (props) => {
     const navigateTo = useNavigate();
 
     return (
-    <PasswordProtected>
+        <PasswordProtected>
         <div className="content-case-study">
             <ToTopButton />
             <div id="goals-top-background" className="top-card">
@@ -60,7 +62,7 @@ const CaseStudySavingsGoals = (props) => {
                     </div>
                 </div>
                 <div className="header-img" id="align-center">
-                    <img src={goalsHeader} alt="savings goals header" loading="eager" />
+                    <FadeInImage src={goalsHeader} alt="savings goals header" loading="eager" />
                 </div>
             </div>
 
@@ -387,7 +389,6 @@ const CaseStudySavingsGoals = (props) => {
         <Footer />
         </div>
         </PasswordProtected>
-
     );
 };
 

@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { useNavigate } from 'react-router-dom';
+import ReactGA from 'react-ga';
+
 import Footer from './Footer';
+
+import FadeInImage from './FadeInImage';
+import { motion } from "framer-motion";
 
 import burnout from '../assets/images/caseStudies/burnoutCover.png'
 import gracePeriod from '../assets/images/caseStudies/gracePeriodCover.png'
@@ -35,13 +39,18 @@ const CaseStudies = (props) => {
                     </div>
                 </div>
                 <div className="portfolio-row">
-                    <div className="card">
+                    <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.01 }}
+                        >
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/CD-grace-period');
                             trackLinkClick.bind(this, 'Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
                         }}>
-                            <img src={gracePeriod} alt="CD grace period" loading="eager" />
+                            <img src={gracePeriod} alt="CD grace period" delay = "0.01" />
                             <div className="description">
                                 <div className="bold spacing-05">CD grace period</div>
                                 Reducing customer call volume by 20% through improvements to the customer experience.
@@ -55,14 +64,19 @@ const CaseStudies = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="card">
+                    </motion.div>
+                    <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+                        >
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/savings-goals');
                             trackLinkClick.bind(this, 'Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
                         }}>
-                            <img src={savingsGoals} alt="Savings goals" loading="eager" />
+                            <img src={savingsGoals} alt="Savings goals" delay = "0.05" />
                             <div className="description">
                                 <div className='bold spacing-05'>Savings goals</div>
                                 Helping customers build financial resilience as they save towards tangible savings goals.
@@ -76,14 +90,19 @@ const CaseStudies = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="card">
+                    </motion.div>
+                    <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                        >
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/clinician-burnout');
                             trackLinkClick.bind(this, 'Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
                         }}>
-                            <img src={burnout} alt="Clinician burnout" loading="eager" />
+                            <img src={burnout} alt="Clinician burnout" delay = "0.1" />
                             <div className="description">
                                 <div className='bold spacing-05'>Clinician burnout</div>
                                 Alleviating clinician burnout at the Dartmouth-Hitchcock Medical Center.
@@ -97,7 +116,7 @@ const CaseStudies = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className='spacing-105'/>
@@ -108,13 +127,18 @@ const CaseStudies = (props) => {
                     </div>
                 </div>
                 <div className="portfolio-row">
-                    <div className="card">
+                    <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                        >
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/anivision');
                             trackLinkClick.bind(this, 'Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
                         }}>
-                            <img src={anivision} alt="Anivision" loading="eager" />
+                            <img src={anivision} alt="Anivision" delay = "0.15" />
                             <div className="description">
                                 <div className='bold spacing-05'>Anivision</div>
                                 Learn in a more experiential and delightful way by exploring the world through the eyes of an animal.
@@ -129,14 +153,19 @@ const CaseStudies = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="card">
+                    </motion.div>
+                    <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                        >
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/spaces');
                             trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces Click', 'Portfolio Nav');
                         }}>
-                            <img src={spaces} alt="Spaces" loading="eager" />
+                            <img src={spaces} alt="Spaces" delay = "0.2" />
                             <div className="description">
                                 <div className='bold spacing-05'>Spaces</div>
                                 A VR perspective puzzle game in an impossible space based on M.C. Escher’s “Relativity” drawing.
@@ -150,7 +179,7 @@ const CaseStudies = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className='spacing-2'/>
             </div>

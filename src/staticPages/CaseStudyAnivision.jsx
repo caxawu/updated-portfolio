@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
+import ReactGA from 'react-ga';
+
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
+import FadeInImage from './FadeInImage';
 
 
 import ToTopButton from './ToTopButton';
@@ -53,7 +55,7 @@ const CaseStudyAnivision = (props) => {
                     </a>
                 </div>
                 <div className="header-img-anivision">
-                    <img src={anivisionHeader} alt="anivision header" loading="eager" />
+                    <FadeInImage src={anivisionHeader} alt="anivision header" loading="eager" />
                 </div>
             </div>
 

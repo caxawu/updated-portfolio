@@ -6,7 +6,8 @@ const FadeInImage = ({
   src,
   alt,
   delay = 0,
-  animateTransform = true, // new prop
+  animateTransform = true,
+  ...rest // 👈 this will catch onClick, style, etc.
 }) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -34,9 +35,11 @@ const FadeInImage = ({
           ease: "easeOut",
           delay: loaded ? delay : 0,
         }}
+        {...rest} // 👈 this spreads the rest of the props (onClick, style, etc.)
       />
     </>
   );
 };
+
 
 export default FadeInImage;

@@ -58,7 +58,7 @@ const StaticNavBar = () => {
                         />
                     </div>
                     <div className="nav-button" onClick={() => navigateTo('/interactive')} style={{ cursor: 'pointer' }}>
-                        go to interactive portfolio
+                        step inside my room
                     </div>
                 </div>
             </div>

@@ -104,7 +104,23 @@ const CaseStudySpaces = (props) => {
                     </div>
                 </div>
 
-                <div className='secondary-container'>
+                <div className='secondary-container' id='desktop'>
+                    <ul className="secondary-info">
+                        <ul className="list">
+                            <li className="bold">TYPE</li>
+                            <li>Digital Arts Capstone</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">ROLE</li>
+                            <li>Designer</li>
+                        </ul>
+                        <ul className="list">
+                            <li className="bold">TIME</li>
+                            <li>10 weeks</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div className='secondary-container' id='mobile'>
                     <ul className="secondary-info" id='horizontal'>
                         <ul className="list">
                             <li className="bold">TYPE</li>

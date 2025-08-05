@@ -425,7 +425,7 @@ a {
 
   .swatch {
     position: relative;
-    width: 19rem;
+    width: 20rem;
     background-color: white;
     box-shadow: $dropshadow;
     z-index: 1;
@@ -501,7 +501,7 @@ a {
   }
   #decorative {
     position: absolute;
-    width: 19rem;
+    width: 20rem;
     z-index: 0;
     transform: rotate(2.7deg) translate(35px, -20px);
     #box1 {
@@ -805,16 +805,14 @@ a {
   }
 }
 
-// artwork page
 
 .img-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 6rem;
   max-width: 96rem;
-  width: 100%;
 
   .row {
     display: flex;
@@ -1473,7 +1471,14 @@ display: flex;
 }
 
 // smaller desktop screens
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 2100px) {
+  .back-to-top {
+    position: fixed;
+    bottom: 72px;
+    right: 48px;
+  }
+}
+@media only screen and (max-width: 1920px) {    //MAIN
   .home-page {
     .home-left .labels {
       padding-left: 1rem;
@@ -1511,34 +1516,8 @@ display: flex;
   transform: translateX(3rem);
 }
 }
-@media only screen and (max-width: 1700px) {
-  .home-page {
-    .home-left .labels {
-      padding-left: 1rem;
-      .label-secondary {
-        padding-left: 1rem;
-      }
-    }
-    .loopy-arrow {
-      transform: translateX(-22rem) translateY(5rem);
-    }
-  }
-  .indent {
-    width: 1rem;
-  }
-}
-@media only screen and (max-width: 1590px) {
-  .home-page {
-    min-height: 50rem;
-
-    .loopy-arrow {
-    width: 8rem;
-    transform: translateX(-20rem) translateY(5rem);
-    }
-  }
-}
-@media only screen and (max-width: 1470px) {
-  body, html {
+@media only screen and (max-width: 1820px) {
+      body, html {
     font-size: 14px;
     line-height: 1.5;
   }
@@ -1556,9 +1535,12 @@ display: flex;
     }
     .loopy-arrow {
       width: 8rem;
-      transform: translateX(-20rem) translateY(5rem);
+      transform: translateX(-24rem) translateY(5rem);
     }
   }
+}
+@media only screen and (max-width: 1590px) {
+
 }
 
 // mobilescreens
@@ -1606,15 +1588,15 @@ display: flex;
       .labels {
         display: flex;
         flex-direction: column;
-        gap: 48px;
-      .label {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        padding: 0;
-      }
+        gap: 72px;
+        .label {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          padding: 0;
+        }
       }
 
     }
@@ -1999,5 +1981,29 @@ display: flex;
   .img-section {
     margin: 0;
     width: auto;
+  }
+}
+
+// super tiny screens fixes
+@media only screen and (max-width: 375px) {
+   // nav bar
+  .nav-bar-content {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    .logo {
+      margin: auto;
+    }
+    .links-and-button {
+      margin: auto;
+      .nav-links ul {
+      gap: 40px;
+      // background-color: red;
+      padding-left: 0px;
+      align-items: flex-end;
+    }
+  }
   }
 }

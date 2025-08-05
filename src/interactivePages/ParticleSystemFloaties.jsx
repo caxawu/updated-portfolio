@@ -39,7 +39,7 @@ const FloatiesMaterial = shaderMaterial(
 );
 extend({ FloatiesMaterial });
 
-const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }) => {
+const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }, ref) => {
   const pointsRef = useRef();
 
   // === ✨ Floaties Config ===

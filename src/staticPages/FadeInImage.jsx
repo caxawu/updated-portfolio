@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const FadeInImage = ({
-  className,
-  src,
-  alt,
-  delay = 0,
-  animateTransform = true,
-  ...rest // 👈 this will catch onClick, style, etc.
-}) => {
+const FadeInImage = (props) => {
+  const {
+    className,
+    src,
+    alt,
+    delay = 0,
+    animatetransform = true, // this is now local only
+    ...rest
+  } = props;
+
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -21,12 +23,12 @@ const FadeInImage = ({
         onLoad={() => setLoaded(true)}
         loading="eager"
         initial={
-          animateTransform
+          animatetransform
             ? { opacity: 0, y: 25 }
             : { opacity: 0 }
         }
         animate={
-          animateTransform
+          animatetransform
             ? { opacity: loaded ? 1 : 0, y: loaded ? 0 : 25 }
             : { opacity: loaded ? 1 : 0 }
         }
@@ -35,11 +37,12 @@ const FadeInImage = ({
           ease: "easeOut",
           delay: loaded ? delay : 0,
         }}
-        {...rest} // 👈 this spreads the rest of the props (onClick, style, etc.)
+        {...rest} // ✅ clean — doesn't include animatetransform
       />
     </>
   );
 };
+
 
 
 export default FadeInImage;

@@ -146,7 +146,7 @@ const CaseStudySpaces = (props) => {
                 title="Spaces Walkthrough"
             />
 
-            <div class="divider-container">
+            <div className="divider-container">
                 <hr class="line" />
                 <span class="label">The details</span>
                 <hr class="line" />

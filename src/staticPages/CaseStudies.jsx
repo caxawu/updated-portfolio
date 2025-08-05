@@ -79,7 +79,7 @@ const CaseStudies = (props) => {
                             <img src={savingsGoals} alt="Savings goals" delay = "0.05" />
                             <div className="description">
                                 <div className='bold spacing-05'>Savings goals</div>
-                                Helping customers build financial resilience as they save towards tangible savings goals.
+                                Helping customers build financial resilience through saving for tangible goals.
                                 <div className="tags">
                                     <ul className="left">
                                         <li>UI/UX Design</li>
@@ -141,7 +141,7 @@ const CaseStudies = (props) => {
                             <img src={anivision} alt="Anivision" delay = "0.15" />
                             <div className="description">
                                 <div className='bold spacing-05'>Anivision</div>
-                                Learn in a more experiential and delightful way by exploring the world through the eyes of an animal.
+                                Learn in an experiential and delightful way by exploring the world through the eyes of an animal.
                                 <div className="tags">
                                     <ul className="left">
                                         <li>Design</li>
@@ -168,7 +168,7 @@ const CaseStudies = (props) => {
                             <img src={spaces} alt="Spaces" delay = "0.2" />
                             <div className="description">
                                 <div className='bold spacing-05'>Spaces</div>
-                                A VR perspective puzzle game in an impossible space based on M.C. Escher’s “Relativity” drawing.
+                                A VR perspective puzzle game set in an impossible space based on M.C. Escher’s “Relativity” drawing.
                                 <div className="tags">
                                     <ul className="left">
                                         <li>Design</li>

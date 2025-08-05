@@ -45,11 +45,11 @@ const About = () => {
                 src={interactiveImg}
                 data-pin-nopin="true"
                 alt='Interactive portfolio'
-                animateTransform={false}
+                animatetransform="false"
                 onClick={handleImageClick}  // Handle the click to navigate
                 style={{ cursor: 'pointer' }}  // Optional: Makes it clear that the image is clickable
               />
-              <div class="outline-overlay" />
+              <div className="outline-overlay" />
             </div>
           </div>
           <div className='to-static text-secondary light'>
@@ -89,7 +89,7 @@ const About = () => {
                 src={interactiveImg}
                 data-pin-nopin="true"
                 alt='Interactive portfolio'
-                animateTransform={false}
+                animatetransform="false"
                 style={{ cursor: 'pointer' }}  // Optional: Makes it clear that the image is clickable
               />
             </div>
@@ -156,7 +156,7 @@ const About = () => {
                 src={pointerHand}
                 data-pin-nopin="true"
                 alt='pointer hand'
-                animateTransform={false}
+                animatetransform="false"
               />
         </div>
       </div>

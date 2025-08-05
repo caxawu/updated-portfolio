@@ -27,12 +27,12 @@ const trackLinkClick = (category, action, label) => {
           <div className='text-bounding-box'>
             <div className='color-box' id="color1">
               <div className='bio'>
-                <div class="outline-overlay"></div>
+                <div className="outline-overlay"></div>
                 <div className='text-secondary'>about me</div>
-                Hi there! I’m Cathy. I’m a designer who loves to chase wherever my creativity and curiosity take me. By day,
-                I’m a UX designer diving into complex problems and transforming them into simple, meaningful experiences.
-                By night, you’ll find me sketching, cooking new recipes, or obsessing over getting the interactions just
-                right in my latest VR project.
+                Hi! I’m Cathy. I’m a designer who loves to chase wherever my curiosity takes me. By day,
+                I’m a UX designer tackling complex problems and transforming them into simple, meaningful experiences.
+                By night, I'm sketching, cooking new recipes, or obsessing over getting the interactions just
+                right in my latest side project.
                 <br /><br />
                 I fell in love with design at Dartmouth College where I graduated with a degree in Cognitive Science focused in
                 <span className='bold highlight-dark-pink'> Human-Computer Interaction</span> along with minors in
@@ -43,13 +43,13 @@ const trackLinkClick = (category, action, label) => {
               </div>
               <div className='color-box' id="color2">
               <div className='bio'>
-                <div class="outline-overlay"></div>
+                <div className="outline-overlay"></div>
                 <div className='text-secondary'>about my portfolio</div>
-                This journey started off with me unable to find the motivation to update my portfolio. I struggled to fit 
-                my work within a traditional format, so when I stumbled upon the amazing 3D portfolios out there, something clicked.
+                This journey started the way it does for most designers—unable to find the motivation to update my portfolio. I struggled to fit 
+                my work within a traditional format, so when I stumbled upon amazing 3D portfolios, something clicked.
                 <br /><br />
                  I’ve always loved point-and-click puzzle games so I wanted to create something interactive and explorable that weaved 
-                 together my love for design, 3D modeling, and game design. The ideas were easy, the coding was not. but seeing the room 
+                 together my love for design, 3D modeling, and game design. The ideas were easy, the coding was not, but seeing the room 
                  I concepted, designed, and developed come together made it well worth it. It even gave me the motivation to finally write a 
                  case study or two.
                 <br /><br />
@@ -86,14 +86,14 @@ const trackLinkClick = (category, action, label) => {
                 </div>
               </div>
               <div className="swatch-box" id="box2">
-                I love taking on creative projects—this portfolio has scratched that itch for now, but next is making progress on my open-world game in Unity!
+                I love taking on creative projects—this portfolio has scratched that itch for now, but next is making progress on my open-world VR game in Unity!
                 <div className='labels' id="color-light">
                   <b>tech shenanigans</b>
                   <div>#AFE3DF</div>
                 </div>
               </div>
               <div className="swatch-box" id="box3">
-                I’m a huge foodie and love to cook. Currently on a 113 week Beli streak and making tofu from scratch!
+                I’m a huge foodie and love to cook. Currently feeling the pressure to keep my 114 week Beli streak alive, and learning to make tofu from scratch!
                 <div className='labels' id="color-dark">
                   <b>food adventures</b>
                   <div>#65AEB3</div>

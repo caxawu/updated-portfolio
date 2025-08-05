@@ -34,7 +34,7 @@ const SmokeMaterial = shaderMaterial(
 );
 extend({ SmokeMaterial });
 
-const ParticleSystemTea = forwardRef(({ origin = [0, 1, 0] }) => {
+const ParticleSystemTea = forwardRef(({ origin = [0, 1, 0] }, ref) => {
   const pointsRef = useRef();
   const texture = useLoader(THREE.TextureLoader, textureURL);
 

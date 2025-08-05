@@ -235,7 +235,7 @@ a {
           object-fit: cover;
           overflow: hidden;
           user-select: none;
-          border-radius: 200px;
+          border-radius: 1000px;
           transition: transform .2s;
         }
         .outline-overlay {
@@ -245,7 +245,7 @@ a {
           width: 100%;
           height: 99%;
           border: 2px solid $text-primary;
-          border-radius: 200px;
+          border-radius: 1000px;
           z-index: 1;
           pointer-events: none;
           transition: transform .2s;
@@ -1260,7 +1260,6 @@ a {
 .secondary-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
   padding-top: 2rem;
   padding-bottom: 2.5rem;
   
@@ -1609,25 +1608,23 @@ display: flex;
         display: inline-block;
     
         .img-container {
-          border-radius: 200px;
+          border-radius: 1000px;
           overflow: hidden;
           border: 2px solid $text-primary;
-        }
+          position: relative;
+          width: 100%;
+       
     
         .overlay-text {
           position: absolute;
           display: flex;
           flex-direction: column;
-          top: 50%;
-          left: 50%;
-          width: 87%;
-          height: 90%;
-          transform: translate(-50%, -50%);
+          top: 0%;
+          width: 100%;
+          height: 100%;
           background: rgba(0, 0, 0, 0.55);
           color: white;
-          padding: 1rem 2rem;
-          border-radius: 400px;
-          font-size: 1.2rem;
+          border-radius: 1000px;
           pointer-events: none;
           z-index: 2;
           justify-content: center;
@@ -1635,7 +1632,11 @@ display: flex;
           font-size: 1.25rem;
           gap: 8px;
           animation: fadeIn 0.3s ease;
+          .text-block {
+            padding: 2rem;
+          }
         }
+         }
       }
       .nav-button {
           display: inline-flex;
@@ -1808,21 +1809,28 @@ display: flex;
     flex-direction: column-reverse;
     gap: 0;
   }
-  .secondary-info {
-    width: 100%;
-    padding-top: 24px;
-    padding-bottom: 32px;
-    gap: 4px;
-    .list {
-      display: flex;
-      padding: 0;
-      justify-content: flex-start;
-      gap: 12px;
-      li {
-        width: auto;
+    .secondary-container {
+      width: 100%;
+  
+      .secondary-info {
+        width: 100%;
+        padding-top: 24px;
+        padding-bottom: 32px;
+        gap: 4px;
+  
+        .list {
+          display: flex;
+          padding: 0;
+          justify-content: flex-start;
+          gap: 12px;
+  
+          li {
+            width: auto;
+          }
+        }
       }
     }
-  }
+
   .detail-section {
     margin-bottom: 64px;
   }

@@ -45,7 +45,7 @@ const About = () => {
                 src={interactiveImg}
                 data-pin-nopin="true"
                 alt='Interactive portfolio'
-                animatetransform="false"
+                animatetransform={false}
                 onClick={handleImageClick}  // Handle the click to navigate
                 style={{ cursor: 'pointer' }}  // Optional: Makes it clear that the image is clickable
               />
@@ -89,75 +89,78 @@ const About = () => {
                 src={interactiveImg}
                 data-pin-nopin="true"
                 alt='Interactive portfolio'
-                animatetransform="false"
+                animatetransform={false}
                 style={{ cursor: 'pointer' }}  // Optional: Makes it clear that the image is clickable
               />
+
+              {clickStep > 0 && (
+                <div className="overlay-text">
+                  <div className="text-block">
+                    {clickStep === 1 && (
+                      <>
+                        <div className="overlay-text-block">
+                          <b>You approach the door to the room and see a sign:</b>
+                        </div>
+                        <div className="overlay-text-block">
+                          <i>"Please use desktop to enter."</i>
+                        </div>
+                      </>
+                    )}
+                    {clickStep === 2 && (
+                      <>
+                        <div className="overlay-text-block">
+                          <b>Every great adventurer needs a companion</b>
+                        </div>
+                        <div className="overlay-text-block">
+                          You'll need a pet mouse to start this adventure.
+                        </div>
+                      </>
+                    )}
+                    {clickStep === 3 && (
+                      <>
+                        <div className="overlay-text-block">
+                          <b>A riddle slides out from under the door:</b>
+                        </div>
+                        <div className="overlay-text-block">
+                          <i>“This door only opens on screens wider than your hand.”</i>
+                        </div>
+                      </>
+                    )}
+                    {clickStep === 4 && (
+                      <>
+                        <div className="overlay-text-block">
+                          <b>You try the doorknob</b>
+                        </div>
+                        <div className="overlay-text-block">
+                          It's locked. You hear someone muttering about viewport ratios inside.
+                        </div>
+                      </>
+                    )}
+                    {clickStep === 5 && (
+                      <>
+                        <div className="overlay-text-block">
+                          <b>You attempt to squeeze through</b>
+                        </div>
+                        <div className="overlay-text-block">
+                          <i>Your screen is too small.</i>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
-            {clickStep > 0 && (
-              <div className="overlay-text">
-                {clickStep === 1 && (
-                  <>
-                    <div className="overlay-text-block">
-                      <b>You approach the door to the room and see a sign:</b>
-                    </div>
-                    <div className="overlay-text-block">
-                      <i>"Please use desktop to enter."</i>
-                    </div>
-                  </>
-                )}
-                {clickStep === 2 && (
-                  <>
-                    <div className="overlay-text-block">
-                      <b>Every great adventurer needs a companion</b>
-                    </div>
-                    <div className="overlay-text-block">
-                      You'll need a pet mouse to start this adventure.
-                    </div>
-                  </>
-                )}
-                {clickStep === 3 && (
-                  <>
-                    <div className="overlay-text-block">
-                      <b>A riddle slides out from under the door:</b>
-                    </div>
-                    <div className="overlay-text-block">
-                      <i>“This door only opens on screens wider than your hand.”</i>
-                    </div>
-                  </>
-                )}
-                {clickStep === 4 && (
-                  <>
-                    <div className="overlay-text-block">
-                      <b>You try the doorknob</b>
-                    </div>
-                    <div className="overlay-text-block">
-                      It's locked. You hear someone muttering about viewport ratios inside.
-                    </div>
-                  </>
-                )}
-                {clickStep === 5 && (
-                  <>
-                    <div className="overlay-text-block">
-                      <b>You attempt to squeeze through</b>
-                    </div>
-                    <div className="overlay-text-block">
-                      <i>Your screen is too small.</i>
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
 
           </div>
           <div className="nav-button overlay-trigger" onClick={handleButtonClick} style={{ cursor: 'pointer' }}>
             {clickStep === 0 ? 'enter room' : 'try again'}
           </div>
           <img className="pointer-hand"
-                src={pointerHand}
-                data-pin-nopin="true"
-                alt='pointer hand'
-                animatetransform="false"
-              />
+            src={pointerHand}
+            data-pin-nopin="true"
+            alt='pointer hand'
+            animatetransform="false"
+          />
         </div>
       </div>
       <Footer />

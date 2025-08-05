@@ -275,17 +275,17 @@ const CaseStudyGracePeriod = (props) => {
                         </div>
                         
                     </div>
-                    <div className="caption">Redistribution of emphasis from the old design (heavy emphasis on maturity details) to the new design (even emphasis between current CD details and maturity details.</div>
+                    <div className="caption">Redistribution of emphasis from the old design (heavy emphasis on maturity details) to the new design (even emphasis 
+                        between current CD details and maturity details.)</div>
                 </div>
                 <div className="text-block">
                     <b>Considering the holistic experience</b>
                     <div className='spacing-105'/>
                     <b>Extending capabilities to call center agents</b>
                     <br />
-                    With customers able to self-service their grace period options, we focused on giving our customer support team the
-                    same tools within the internal support platform. To create a more cohesive and seamless experience, we aligned the
-                    internal platform with the customer-facing interface. This allowed agents to assist customers who still needed help
-                    or preferred to have an agent make changes on their behalf.
+                    With customers able to self-service their grace period options, we focused on giving our customer support team the same tools in the internal support 
+                    platform. To create a more cohesive and seamless experience, we built additional functionality in the internal platform to match the customer-facing 
+                    interface. This allowed agents to assist customers who still needed help or preferred to have an agent make changes on their behalf. 
                     <br /><br />
                     <b>Updating servicing emails</b>
                     <br />
@@ -299,11 +299,11 @@ const CaseStudyGracePeriod = (props) => {
                 <div id="grace-deco" />
                 <div className="section-title text-secondary">refining & implementation</div>
                 <div className="text-block">
-                    At key moments throughout the process, we conducted usability tests with customers to guide our design iterations. Through
+                    At key moments, we conducted usability tests with customers to guide our design iterations. Through
                     critiques and feedback sessions with leadership, product, and tech partners, we landed on these final designs.
                     <div className="spacing-075" />
-                    To help with handoff to the product and tech team, we developed an step-by step release plan of how to get from the
-                    current state to the new proposed design. This allowed the tech team to break the work into manageable pieces and
+                    To help with handoff, we developed an step-by step release plan of how to get from the
+                    current state to the new design. This plan helped the tech team break the work into manageable pieces and
                     enabled the product team to roll out parts of the experience, monitor performance, and ensure everything worked as
                     expected before scaling the release to all customers. This approach also allowed us to deliver parts of the experience
                     to customers more quickly, enabling them to start using the new tools sooner.
@@ -315,10 +315,10 @@ const CaseStudyGracePeriod = (props) => {
                 <div className="text-block">
                     <b>Results</b>
                     <br />
-                    With the introduction of new grace period options, customers now have greater flexibility over their account. Call center
+                    With the introduction of new grace period options, customers now have greater flexibility over their accounts. Call center
                     agents are also better equipped with updated tools to assist those who still prefer to call in. The refreshed design
                     improved usability by consolidating CD details onto a single page, making information clearer and easier to find.
-                    By aligning with industry standards, we better match customer expectations, reduce confusion.
+                    By aligning with industry standards, we better match customer expectations and reduce confusion.
                     <div className="spacing-075" />
                     From a business perspective, this new experience has successfully decreased reliance on customer support, leading to a
                     20% reduction in call volume and lower operational costs. Additionally, this improved user experience resulted in an
@@ -326,17 +326,17 @@ const CaseStudyGracePeriod = (props) => {
                     <br /> <br />
                     <b>The idea parking lot</b>
                     <br />
-                    As we iterated throughout the project, we uncovered many valuable ideas that fell outside the scope of grace period enhancements.
-                    To ensure they weren’t lost, we documented them in an idea parking lot and revisited them at the end of the project. Reviewing the
-                    list, we identified the need for enhancements across the CD experience. This list became the foundation for an end-to-end
-                    redesign workshop, sparking conversations that informed future product roadmaps and spun off into a new CD enhancement workstream.
+                    As we iterated, we uncovered many valuable ideas that fell outside the scope of grace period enhancements. To ensure they weren’t lost, 
+                    we documented them in an idea parking lot. Upon revisited them at the end of the project, we identified the need for enhancements across 
+                    the CD experience. This list became the foundation for an end-to-end redesign workshop, sparking conversations that informed future product 
+                    roadmaps and spun off a new CD enhancement workstream.
                     <br /> <br />
                     <b>A new design artifact</b>
                     <br />
-                    When we began the project, CD-related resources were scattered, and there were no historical screens to reference.
+                    When we began the project, CD-related resources were scattered and there were no historical screens to reference.
                     To help us better manage resources and preserve institutional knowledge for future designers or stakeholders, we created
                     a living CD library—a single source of truth documenting the end-to-end customer journey with detailed screen
-                    specifications of all possible states of a given screen.
+                    specifications of all possible screen states.
                     <div className="spacing-075" />
                     This library made it easy for anyone to pinpoint a specific area of the experience, improving efficiency and eliminating
                     the frustration of searching for scattered information or relying on production to find the most up-to-date screens.

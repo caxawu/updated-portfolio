@@ -890,8 +890,8 @@ a {
 
 .back-to-top {
   position: fixed;
-  bottom: 72px;
-  right: 184px;
+  bottom: 40px;
+  right: 40px;
 
   .icon {
     display: flex;
@@ -935,9 +935,6 @@ a {
       }
     }
   }
-}
-.artwork-page-to-top .back-to-top {
-  right: 48px;
 }
 
 
@@ -994,7 +991,7 @@ a {
 }
 .content-case-study {
   margin: auto;
-  padding: 0 6rem;
+  padding: 0 8rem;
   max-width: 96rem;
   iframe {
     height: 850px;
@@ -1471,11 +1468,7 @@ display: flex;
 
 // smaller desktop screens
 @media only screen and (max-width: 2100px) {
-  .back-to-top {
-    position: fixed;
-    bottom: 72px;
-    right: 48px;
-  }
+
 }
 @media only screen and (max-width: 1920px) {    //MAIN
   .home-page {

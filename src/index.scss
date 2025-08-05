@@ -891,7 +891,7 @@ a {
 .back-to-top {
   position: fixed;
   bottom: 40px;
-  right: 40px;
+  right: 184px;
 
   .icon {
     display: flex;
@@ -991,7 +991,7 @@ a {
 }
 .content-case-study {
   margin: auto;
-  padding: 0 8rem;
+  padding: 0 6rem;
   max-width: 96rem;
   iframe {
     height: 850px;
@@ -1468,7 +1468,11 @@ display: flex;
 
 // smaller desktop screens
 @media only screen and (max-width: 2100px) {
-
+  .back-to-top {
+    position: fixed;
+      bottom: 40px;
+      right: 40px;
+  }
 }
 @media only screen and (max-width: 1920px) {    //MAIN
   .home-page {

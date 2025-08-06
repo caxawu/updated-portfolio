@@ -93,7 +93,7 @@ const trackLinkClick = (category, action, label) => {
                 </div>
               </div>
               <div className="swatch-box" id="box3">
-                I’m a huge foodie and love to cook. Currently feeling the pressure to keep my 114 week Beli streak alive, and learning to make tofu from scratch!
+                I’m a huge foodie and love to cook. Currently trying to maintain my 114 week Beli streak and making tofu from scratch!
                 <div className='labels' id="color-dark">
                   <b>food adventures</b>
                   <div>#65AEB3</div>

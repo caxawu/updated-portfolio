@@ -1,6 +1,6 @@
 // components/PasswordProtected.jsx
-import { useState, useEffect } from 'react';
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { LoaderCircle, ArrowRight } from 'lucide-react';
 import PasswordIllustration from '../assets/images/caseStudies/password.png'
 
@@ -39,7 +39,7 @@ export default function PasswordProtected({ children }) {
   if (!isAuthenticated) {
     return (
       <div>
-        <img id="passwordImg" src={PasswordIllustration} alt="password illustration" loading="eager" />
+        {/* <img id="passwordImg" src={PasswordIllustration} alt="password illustration" loading="eager" /> */}
 
         <div className="password">
           <div className="passTitle">

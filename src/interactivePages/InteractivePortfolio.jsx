@@ -149,7 +149,7 @@ const InteractivePortfolio = () => {
 
 
   return (
-    <div>
+    <div className='room-and-paper'>
       <div className='paper-effect' />
       <div className='interactive-back-container'>
         <div className="link-button text-secondary" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>

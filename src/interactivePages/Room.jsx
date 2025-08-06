@@ -6,6 +6,9 @@ import { a, useSpring } from '@react-spring/three';
 import ParticleSystemTea from "./ParticleSystemTea";
 import ParticleSystemFloaties from "./ParticleSystemFloaties";
 
+import keyClickSound from "../assets/audio/key-click2.mp3";
+import ambientSound from "../assets/audio/birds3.mp3";
+
 import roomScene from '../assets/3d/deskFinalInt1.glb'
 import CaseStudies from './CaseStudies3D';
 import MiniPlayer from './MiniPlayer3D';
@@ -40,6 +43,8 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
   const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
 
   const particleSystemRef = useRef();
+  const clickAudioRef = useRef(null);
+  const ambientAudioRef = useRef(null);
 
   const keycapCount = 62;
 
@@ -89,6 +94,54 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
     // Start or resume the particle system if it exists
     particleSystemRef.current?.play();
   }, [actions, animations]);
+
+
+  // audio 
+  useEffect(() => {
+    // Setup click sound
+    clickAudioRef.current = new Audio(keyClickSound);
+    clickAudioRef.current.volume = 1.0;
+
+    // Setup ambient sound
+    const ambientAudio = new Audio(ambientSound);
+    ambientAudio.loop = true;
+    ambientAudio.volume = 0.4;
+    ambientAudioRef.current = ambientAudio;
+
+    const playAmbient = () => {
+      ambientAudio.play().catch(() => {
+        console.log("Autoplay blocked. Waiting for user interaction.");
+      });
+    };
+
+    playAmbient();
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      ambientAudio.pause();
+      ambientAudio.currentTime = 0;
+    };
+  }, []);
+
+  // Define a function to play the click sound
+  const playClickSound = () => {
+    if (clickAudioRef.current) {
+      clickAudioRef.current.currentTime = 0; // Restart sound if already playing
+      clickAudioRef.current.play(); // Play the click sound
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = () => {
+      playClickSound(); // Play click sound on key press
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+
 
   const handleMeshRef = (mesh) => {
     if (mesh && !meshes.includes(mesh)) {
@@ -182,6 +235,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
         }
         else if (/^keycap\d+$/.test(INTERSECTED.name)) {
           handleButtonAnimation(INTERSECTED.name);
+          playClickSound();
           setCurrState((prevState) => {
             if (prevState === 'home') {
               setFocusState('table');
@@ -275,6 +329,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
                 if (prevState === 'animPlayer') {
                   setAnimState(INTERSECTED.name);
                   handleButtonAnimation(INTERSECTED.name);
+                  playClickSound();
                   setFocusState('animPlayer');
                   return 'animPlayer';
                 }

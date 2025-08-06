@@ -35,11 +35,6 @@ body, html {
 #mobile {
   display: none;
 }
-.html-overlay {
-  overflow: auto;                      /* Enables scroll within this block */
-  -webkit-overflow-scrolling: touch;  /* iOS inertia */
-  touch-action: auto;                 /* Allow gestures */
-}
 
 .text-title {
   font-size: 1.5em;

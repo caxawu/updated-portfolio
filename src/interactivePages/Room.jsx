@@ -15,6 +15,11 @@ import MiniProjects from './MiniProjects3D';
 import Resume from './Resume3D';
 
 const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props }) => {
+  const isIPad = /iPad|Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
+  const htmlY = useMemo(() => {
+  return isIPad ? 204.1 : 206.65; // Adjust iPad value as needed
+}, []);
+
   const roomRef = useRef();
   const [meshes, setMeshes] = useState([]);
 
@@ -33,7 +38,6 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
   const [animState, setAnimState] = useState('none');
   const [isArrowPressed, setIsArrowPressed] = useState(false);
   const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
-
 
   const particleSystemRef = useRef();
 
@@ -913,7 +917,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
                 <a.mesh name="keyJump" ref={handleMeshRef} position={springs.positionJump} geometry={nodes.keyJump.geometry} material={materials.m_controlButtonsBaked} />
                 <a.mesh name="keyWalkCycle" ref={handleMeshRef} position={springs.positionWalkCycle} geometry={nodes.keyWalkCycle.geometry} material={materials.m_controlButtonsBaked} />
                 <a.mesh name="keyBallBounce" ref={handleMeshRef} position={springs.positionBallBounce} geometry={nodes.keyBallBounce.geometry} material={materials.m_controlButtonsBaked} />
-                <Html scale={0.4} rotation-y={Math.PI / 2} position={[-364, 206.8, 80.25]} transform occlude>
+                <Html scale={1.9} rotation-y={Math.PI / 2} position={[-366, htmlY, 80.25]} transform occlude>
                   <AnimPlayer onScreenClick={handleScreenClick} animState={animState} />
                 </Html>
               </group>
@@ -960,7 +964,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
                   geometry={nodes.arrowRight.geometry}
                   material={materials.m_controlButtonsBaked}
                 />
-                <Html scale={0.4} rotation-x={0.01} rotation-y={-Math.PI} position={[94.47, 232.21, 354]} transform occlude>
+                <Html scale={0.44} rotation-y={-Math.PI} position={[94.47, 232.21, 354]} transform occlude>
                   <MiniPlayer onScreenClick={handleScreenClick} imgState={imgState} setImgState={setImgState} />
                 </Html>
               </group>

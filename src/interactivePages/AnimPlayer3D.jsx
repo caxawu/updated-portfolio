@@ -34,16 +34,25 @@ const AnimPlayer3D = ({animState, onScreenClick }) => {
   }, [animState]);
 
   return (
-    <div style={{ width: "2240px", height: "1850px", borderRadius: "130px", overflow: "hidden", backgroundColor: "black"}} onClick={handleClickVariable} >
-        <img 
-          src={currentImage} 
-          alt="animation clip" 
-          style={{ 
-            width: "100%", 
-            height: "100%", 
-            objectFit: "cover",
-            pointerEvents: "none" }} 
-        />
+    <div style={{
+      width: "100%",
+      maxWidth: "100vw",
+      height: "auto",
+      aspectRatio: "2240 / 1790", // maintains aspect ratio
+      borderRadius: "2rem",
+      overflow: "hidden",
+      backgroundColor: "red"
+    }} onClick={handleClickVariable} >
+      <img
+        src={currentImage}
+        alt="animation clip"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          pointerEvents: "none"
+        }}
+      />
     </div>
   )
 }

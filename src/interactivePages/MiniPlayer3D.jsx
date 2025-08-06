@@ -54,7 +54,7 @@ const MiniPlayer3D = ({imgState,setImgState, onScreenClick }) => {
   }, [imgState, setImgState]);
 
   return (
-    <div style={{ width: "1510px", height: "1130px", overflow: "hidden"}} onClick={handleClickVariable} >
+    <div style={{ width: "1510px", height: "1010px", overflow: "hidden"}} onClick={handleClickVariable} >
         <img 
           src={images[currentIndex]} 
           alt="Art image" 

@@ -149,7 +149,7 @@ const About = () => {
                     {clickStep === 6 && (
                       <>
                         <div className="overlay-text-block">
-                          <b>This door <i>will not</i> open on mobile</b>
+                          <b>This door <span style={{ textDecoration: "underline" }}><i>will not</i></span> open on mobile</b>
                         </div>
                         <div className="overlay-text-block">
                           <i>Switch to a computer to enter this room.</i>

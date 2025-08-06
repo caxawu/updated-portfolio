@@ -42,7 +42,7 @@ const CaseStudySavingsGoals = (props) => {
     const navigateTo = useNavigate();
 
     return (
-        // <PasswordProtected>
+        <PasswordProtected>
         <div className="content-case-study">
             <ToTopButton />
             <div id="goals-top-background" className="top-card">
@@ -407,7 +407,7 @@ const CaseStudySavingsGoals = (props) => {
             </div>
         <Footer />
         </div>
-        //</PasswordProtected>
+        </PasswordProtected>
     );
 };
 

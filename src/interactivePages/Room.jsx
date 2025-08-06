@@ -34,6 +34,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
   const [isArrowPressed, setIsArrowPressed] = useState(false);
   const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
 
+
   const particleSystemRef = useRef();
 
   const keycapCount = 62;
@@ -317,13 +318,6 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
   const handleKeyUp = (e) => {
   }
 
-useEffect(() => {
-  if (currState === 'screen1') {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'auto';
-  }
-}, [currState]);
 
   useEffect(() => {
     const canvas = gl.domElement;
@@ -919,7 +913,7 @@ useEffect(() => {
                 <a.mesh name="keyJump" ref={handleMeshRef} position={springs.positionJump} geometry={nodes.keyJump.geometry} material={materials.m_controlButtonsBaked} />
                 <a.mesh name="keyWalkCycle" ref={handleMeshRef} position={springs.positionWalkCycle} geometry={nodes.keyWalkCycle.geometry} material={materials.m_controlButtonsBaked} />
                 <a.mesh name="keyBallBounce" ref={handleMeshRef} position={springs.positionBallBounce} geometry={nodes.keyBallBounce.geometry} material={materials.m_controlButtonsBaked} />
-                <Html scale={0.4} rotation-y={Math.PI / 2} position={[-366.1, 206.8, 80.25]} transform occlude>
+                <Html scale={0.4} rotation-y={Math.PI / 2} position={[-365.9, 206.8, 80.25]} transform occlude>
                   <AnimPlayer onScreenClick={handleScreenClick} animState={animState} />
                 </Html>
               </group>

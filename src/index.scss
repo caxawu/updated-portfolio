@@ -36,9 +36,9 @@ body, html {
   display: none;
 }
 .html-overlay {
-  touch-action: auto;
-  -webkit-overflow-scrolling: touch;
-  pointer-events: auto;
+  overflow: auto;                      /* Enables scroll within this block */
+  -webkit-overflow-scrolling: touch;  /* iOS inertia */
+  touch-action: auto;                 /* Allow gestures */
 }
 
 .text-title {
@@ -135,6 +135,7 @@ a {
   position: relative;
   overflow: hidden;
   z-index: 0;
+  touch-action: none; /* Prevent scroll + gestures */
 }
 
 .content {

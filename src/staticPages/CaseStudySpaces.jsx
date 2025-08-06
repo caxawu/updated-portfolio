@@ -54,8 +54,8 @@ const CaseStudySpaces = (props) => {
                         Spaces
                     </div>
                     <div className="headline">
-                        Spaces is a VR perspective puzzle game based on M.C. Escher’s “Relativity” drawing. Players navigate this impossible
-                        space to match their perspective to the perspective shown in a series of pictures.
+                        Spaces is a VR perspective puzzle game based on M.C. Escher’s drawing <i>Relativity</i>. Players navigate this impossible
+                        space to match their perspective to the perspective shown in a series of photographs.
                     </div>
                     <a id="spaces-button"
                         className="white-button"
@@ -92,13 +92,13 @@ const CaseStudySpaces = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">GAMEPLAY</div>
                         <div className="text-block">
-                            We build a VR perspective puzzle game set in an impossible space. We recreated M.C. Escher’s <i>Relativity</i> drawing 
-                            in 3D and layered in a perspective puzzle game to add interaction and engagement so players would be encouraged explore the space.
+                            Spaces is a VR perspective puzzle game set in an impossible space. We recreated M.C. Escher’s <i>Relativity</i> drawing 
+                            in 3D and layered in a perspective puzzle game to add interaction and engagement, encouraging players to explore the space.
                             <div className="spacing-075" />
                             Players begin with a series of photographs, each taken from a different location within the space. Their goal is to find the exact 
                             vantage point where each photo was taken. When they do, a picture frame appears, inviting them to insert the photo. The image then
                             transforms, allowing the player to reach into the photograph and pull out a cube as it transforms from a flat 2D image into a tangible 
-                            3D object. Placing this cube on a matching pedestal unlocks the next photograph, moving them one step closer to activating 
+                            3D object. Placing this cube on a pedestal in the middle of the room unlocks the next photograph, moving them one step closer to activating 
                             the portal that leads to the next level.
                         </div>
                     </div>
@@ -162,14 +162,13 @@ const CaseStudySpaces = (props) => {
                 <div id="spaces-deco" />
                 <div className="section-title text-secondary">role</div>
                 <div className="text-block">
-                    In a team of two, my partner and I created this experience from concept to implementation. We worked closely in the
-                    conceptual stage to define the experience but split the work so I focused on design with a hint of development while she
-                    did the opposite.
+                    In a team of two, my partner and I created this experience from concept to implementation. We worked together during conceptual stage 
+                    to define the experience, then  then divided responsibilities: I focused on design and supported development while she did the opposite.
                     <div className="spacing-075" />
                     The design included:
                     <ul>
                         <li>3D modeling the room based off M.C. Escher’s drawing</li>
-                        <li>Modeling & animating the flower vines that grow as players complete puzzles to add delight and signify progress in the game</li>
+                        <li>Modeling & animating the flower vines that grow as players complete puzzles to add delight and signify game progress</li>
                         <li>Lighting the space to create a serene and polished environment</li>
                     </ul>
                 </div>
@@ -178,12 +177,12 @@ const CaseStudySpaces = (props) => {
                 <div id="spaces-deco" />
                 <div className="section-title text-secondary">ideation</div>
                 <div className="text-block">
-                    Within our 10-week timeframe, the first three weeks were rapid experimentation. We tested ideas ranging from 2D
+                    Within our 10-week timeframe, the first three weeks we spent on rapid experimentation. We tested ideas ranging from 2D
                     animation to interactive VR storytelling. One early concept explored a narrative-driven escape room: players would uncover
                     clues in an old hut and piece together the life of its former inhabitant.
                     <div className="spacing-075" />
                     While designing puzzles for players to solve, we stumbled upon M.C. Escher’s art—known for its clever use of perspective
-                    and space. His drawing <i>Relativity</i> in particular immediately resonated with us as a compelling parallel to VR's ability to
+                    and space. His drawing <i>Relativity</i> particularly resonated with us as a compelling parallel to VR's ability to
                     challenge perception. It inspired us to create a puzzle where players had to walk on the ceiling to notice an upside-down clue in a painting.
                     <div className="spacing-075" />
                     After a few more puzzles we began to realize that while this concept was interesting, it didn’t capture what made VR special. Taking a 
@@ -196,7 +195,7 @@ const CaseStudySpaces = (props) => {
                 <div className="text-block">
                     This reframe pivoted us away from perspective tricks in an escape room and towards a full-fledged experiment of space and perspective.
                     As we brought Escher’s drawing to life in 3D, it started to feel closer aligned with our goal. By creating an experience that allows 
-                    players inhabit and interact with impossible spaces, we were creating something truly unique to the medium.
+                    players to inhabit and interact with impossible spaces, we were creating something truly unique to the medium.
                 </div>
                 <div id="spaces-color" className="text-callout">
                     Bringing Escher’s drawing to life would allow players to physically move about an impossible space and experience the perspective shifts that <i>Relativity</i> captures.
@@ -217,7 +216,7 @@ const CaseStudySpaces = (props) => {
                 <div id="spaces-deco" />
                 <div className="section-title text-secondary">design</div>
                 <div className="text-block">
-                    Just bringing Escher’s drawing to life didn't feel enough. It was cool to marvel at the space, but standing in
+                    Just bringing Escher’s drawing to life didn't feel like enough. It was cool to marvel at the space, but standing in
                     an impossible space with VR controllers in hand made you want to <i>do</i> something. Simplicity here was key. We didn’t want
                     to take away from the central theme of perspective and observing an impossible space. So, we layered in a perspective
                     puzzle game to create engagement and encourage players to explore.
@@ -263,7 +262,7 @@ const CaseStudySpaces = (props) => {
                     </div>
                     <div className="img-single">
                         <img src={loop3} alt="gameplay loop 3" loading="eager" />
-                        <div className="caption" id='spaces-caption'>Reaching into the frame.</div>
+                        <div className="caption" id='spaces-caption'>Reaching into the 2D image.</div>
                     </div>
                     <div className="img-single">
                         <img src={loop4} alt="gameplay loop 4" loading="eager" />
@@ -276,7 +275,7 @@ const CaseStudySpaces = (props) => {
                 </div>
                 <div className="text-block">
                     Completing each of the five puzzles contributed towards a larger goal of opening a portal to the next level.
-                    To signify progress, each time a cube was placed on a pedestal, vines with flowers would grow, slowing forming the frame of the portal.
+                    To signify progress, each time a cube was placed on a pedestal, flower vines would grow, slowing forming the frame of the portal.
                 </div>
                 <div className="img-row">
                     <div className="img-single">
@@ -291,11 +290,11 @@ const CaseStudySpaces = (props) => {
                 <div className="text-block">
                     Lighting and sound design added polish to the experience. We used soft, ambient lighting alongside atmospheric audio to make
                     the environment not just spatially interesting, but aesthetically pleasing look at. In creating a peaceful and meditative
-                    atmosphere, we encouraged players to observe their surroundings with intention.
+                    atmosphere, players are encouraged to intentionally observe their surroundings.
                 </div>
                 <div id="spaces-color" className="text-callout">
-                    We leaned into VR's ability to create presence. The result was a quiet, meditative, and exploratory experience that challenged players
-                    to see the world differently—an idea at the heart of both Escher’s work and the affordances of virtual reality.
+                    We leaned into VR's ability to create presence. The result was an experience that challenged players to see the world differently—an idea at 
+                    the heart of both Escher’s work and the affordances of virtual reality.
                 </div>
             </div>
             <div className="detail-section">
@@ -306,9 +305,9 @@ const CaseStudySpaces = (props) => {
                     pushed us to make every interaction feel tactile and grounded so we could establish a sense of physical presence. While 
                     difficult, it led to some of the most compelling moments: jumping from wall to ceiling, pulling a 3D cube out of 
                     a 2D picture, watching flower vines grow to signify progress—elements that felt far more interesting and visually 
-                    satisfying than typical floating UI panels and pointing a laser to click through menus.
+                    satisfying than traditional UI panels and pointing a laser to click through menus.
                     <div className="spacing-075" />
-                    This project pushed my 3D modeling skills significantly. I spent hours staring at Escher’s drawing, 
+                    This project pushed my 3D modeling skills. I spent hours staring at Escher’s drawing, 
                     trying to understand the impossible space and how to construct it from a single reference image. From there, I lived in 
                     Maya—aligning edges, adjusting scale, and welding vertices to bring the room to life.
                     I wanted to deepen my understanding of lighting as well. To make the space feel polished and atmospheric, I experimented

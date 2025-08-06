@@ -891,7 +891,7 @@ a {
 .back-to-top {
   position: fixed;
   bottom: 40px;
-  right: 184px;
+  right: 184px; // needed to keep button in frame on interactive screen
 
   .icon {
     display: flex;
@@ -1681,6 +1681,21 @@ display: flex;
       padding-right: 24px;
       transform: translateX(-8px);
       margin: 3rem 0;
+      .color-box {
+        padding-left: 1.5rem;
+        padding-bottom: 1.5rem;
+      
+      .bio {
+        padding-right: 0.75em;
+        padding-left: 0.25em;
+        .outline-overlay {
+        padding-right: 1.5rem;
+          padding-top: 1.5rem;
+          top: -1rem;
+          right: -1rem;
+      }
+    }
+    }
     }
     .color-swatches {
       display: flex;
@@ -1986,6 +2001,7 @@ display: flex;
   .img-section {
     margin: 0;
     width: auto;
+    padding: 1.5rem 24px;
   }
 }
 

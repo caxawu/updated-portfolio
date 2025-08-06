@@ -41,8 +41,8 @@ const CaseStudyBurnout = (props) => {
                         Clinician Burnout
                     </div>
                     <div className="headline">
-                        A facilitation guide designed to help hospital administrators at Dartmouth-Hitchcock Medical Center run 
-                        collaborative sessions with clinicians to ensure they have a voice in departmental changes aimed at reducing feelings of burnout.
+                        A facilitation guide designed to help hospital administrators lead collaborative brainstorming sessions with 
+                        clinicians, giving them a voice in departmental changes to reduce feelings of burnout.
                     </div>
                     <a className="white-button"
                         href="https://drive.google.com/file/d/19Fan3qfljtUrDG37EbjOYMStpVL_XohO/view?usp=sharing"

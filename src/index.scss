@@ -1814,7 +1814,10 @@ display: flex;
           gap: 8px;
           animation: fadeIn 0.3s ease;
           .text-block {
+            display: flex;
+            flex-direction: column;
             padding: 2rem;
+            gap: 0.5rem;
           }
         }
          }
@@ -1857,15 +1860,17 @@ display: flex;
     flex-direction: column;
     .about-img {
       width: 60%;
+      padding: 0;
+      margin: 0;
       height: auto;
       object-fit: contain;
     }
         .text-bounding-box {
-          // width: auto;
-          padding-right: 16px;
+          padding-right: 0px;
           padding-left: 0px;
           transform: translateX(-8px);
           margin: 3rem 0;
+          width: auto;
     
           .color-box {
             padding-left: 1.5rem;
@@ -1888,6 +1893,7 @@ display: flex;
       display: flex;
       width: 28rem;
       margin: 2rem auto;
+      transform: translateX(16px);
     }
   }
 
@@ -2127,7 +2133,6 @@ display: flex;
           flex-direction: row;
           padding-bottom: 8px;
           min-width: 500px;
-          // justify-content: space-between;
           gap: 16px;
 
           img {
@@ -2183,8 +2188,6 @@ display: flex;
           img {
             width: 100%;
           }
-
-
         }
       }
     }
@@ -2209,5 +2212,45 @@ display: flex;
       align-items: flex-end;
     }
   }
+  }
+  .home-page {
+    .home-left {
+      .blink-text {
+        width: 20rem;
+      }
+      .labels {
+        width: auto;
+        padding-left: 0;
+        padding-right: 0;
+        .label {
+          .text-title, .highlight-pink {
+            text-wrap: wrap;
+          }
+        }
+      }
+    }
+  }
+    .about-section {
+      overflow-x: hidden;
+      margin-left: 16px;
+      margin-right: 4px;
+      .text-bounding-box {
+        margin-right: 1rem;
+      }
+    .color-swatches {
+      width: 20rem;
+      transform: translateX(-32px);
+    }
+  }
+}
+@media only screen and (max-width: 340px) {
+      .about-section {
+      overflow-x: hidden;
+      margin-left: 16px;
+      margin-right: 4px;
+    .color-swatches {
+      width: 20rem;
+      transform: translateX(-4px);
+    }
   }
 }

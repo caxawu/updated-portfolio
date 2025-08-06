@@ -21,7 +21,7 @@ const About = () => {
   };
 
   const handleButtonClick = () => {
-    setClickStep(prev => (prev >= 5 ? 1 : prev + 1));
+    setClickStep(prev => (prev >= 6 ? 1 : prev + 1));
   };
 
   return (
@@ -70,7 +70,7 @@ const About = () => {
           </div>
           <div className='labels'>
             <div className='label'>
-              <div className='highlight-pink text-title spacing-05'>see my projects in a classic 2D format</div>
+              <span className='highlight-pink text-title spacing-05'>see my projects in 2D</span>
               <div className="nav-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
                 go to static portfolio
               </div>
@@ -143,6 +143,16 @@ const About = () => {
                         </div>
                         <div className="overlay-text-block">
                           <i>Your screen is too small.</i>
+                        </div>
+                      </>
+                    )}
+                    {clickStep === 6 && (
+                      <>
+                        <div className="overlay-text-block">
+                          <b>This door <i>will not</i> open on mobile</b>
+                        </div>
+                        <div className="overlay-text-block">
+                          <i>Switch to a computer to enter this room.</i>
                         </div>
                       </>
                     )}

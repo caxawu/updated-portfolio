@@ -35,6 +35,11 @@ body, html {
 #mobile {
   display: none;
 }
+.html-overlay {
+  touch-action: auto;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
+}
 
 .text-title {
   font-size: 1.5em;

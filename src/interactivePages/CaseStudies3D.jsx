@@ -7,7 +7,8 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
   };
 
   return (
-    <div style={{ width: "2580px", height: "1440px", overflow: "hidden", zIndex:"0" }} onClick={handleClickVariable}>
+    <div className="html-overlay"
+    style={{ width: "2580px", height: "1440px", overflow: "hidden", zIndex:"0" }} onClick={handleClickVariable}>
       <div
         style={{
           transform: "scale(1.38)",
@@ -40,7 +41,9 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
               position: "absolute",
               top: "-96px", // Push iframe up to crop top
               left: "-180px",
-              zIndex:"0"
+              zIndex:"0",
+              WebkitOverflowScrolling: 'touch', // 👈 important for iOS scroll inertia
+    touchAction: 'auto', // 👈 allow touch gestures
             }}
           />
         </div>

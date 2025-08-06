@@ -141,6 +141,11 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
 
   // handles clicks on 3d objs: meshes in 3d model
   const handlePointerDown = (e) => {
+      // 👇 Skip if click/tap is on an iframe or any HTML overlay
+  if (e.target.closest('iframe') || e.target.closest('.html-overlay')) {
+    return;
+  }
+
     pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
     pointer.y = - (e.clientY / window.innerHeight) * 2 + 1;
 

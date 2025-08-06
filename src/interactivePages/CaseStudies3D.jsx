@@ -19,6 +19,8 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
           height: "1200px",
           overflow: currState === "screen1" ? "auto" : "hidden",
           pointerEvents: currState === "screen1" ? "auto" : "none",
+          WebkitOverflowScrolling: "touch", // ✅ iOS inertia scroll
+      touchAction: "auto", // ✅ allow scroll gestures
           position: "relative",
           zIndex:"0"
         }}

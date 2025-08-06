@@ -14,11 +14,11 @@ import ModelsScreen from './ModelsScreen3D';
 import MiniProjects from './MiniProjects3D';
 import Resume from './Resume3D';
 
-const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props}) => {
+const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props }) => {
   const roomRef = useRef();
   const [meshes, setMeshes] = useState([]);
 
-  const { gl } = useThree(); 
+  const { gl } = useThree();
   const { nodes, materials, animations } = useGLTF(roomScene);
   const { actions } = useAnimations(animations, roomRef);
 
@@ -28,9 +28,9 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
   const currCamera = defaultCamera;
   let INTERSECTED;
 
-  const [ currState, setCurrState ] = useState ('home');    // To pass into HTML children to turn off interactivity before zooming in
-  const [ imgState, setImgState ] = useState ('none');
-  const [ animState, setAnimState ] = useState ('none');
+  const [currState, setCurrState] = useState('home');    // To pass into HTML children to turn off interactivity before zooming in
+  const [imgState, setImgState] = useState('none');
+  const [animState, setAnimState] = useState('none');
   const [isArrowPressed, setIsArrowPressed] = useState(false);
   const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
 
@@ -38,7 +38,7 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
 
   const keycapCount = 62;
 
-   // Animate the mesh position when the buttons are pressed
+  // Animate the mesh position when the buttons are pressed
   const springConfig = useMemo(() => {
     const base = {
       positionLeft: isArrowPressed === 'arrowLeft' ? [0, 0, 0.6] : [0, 0, 0],
@@ -91,60 +91,60 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
     }
   };
 
-    // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
-    const handleScreenClick = (location) => {
-      setCurrState((prevState) => {
-        // table screen zooms
-        if (location === 'screen1' || location === 'screen2' || location === 'resume') {
-          if (prevState === 'home' || prevState === 'artWall') {
-            setFocusState('table');
-            return 'table';
-          } else if (prevState === 'table') {   // if clicking from table, zoom to clicked screen
-            setFocusState(location);
-            return location;
-          }
+  // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
+  const handleScreenClick = (location) => {
+    setCurrState((prevState) => {
+      // table screen zooms
+      if (location === 'screen1' || location === 'screen2' || location === 'resume') {
+        if (prevState === 'home' || prevState === 'artWall') {
+          setFocusState('table');
+          return 'table';
+        } else if (prevState === 'table') {   // if clicking from table, zoom to clicked screen
+          setFocusState(location);
+          return location;
         }
-        if (location === 'screen2' && prevState === 'screen1') {   // If you're on screen1 and click on screen2, or vice versa, switch directly between them
-          setFocusState('screen2');
-          return 'screen2';
+      }
+      if (location === 'screen2' && prevState === 'screen1') {   // If you're on screen1 and click on screen2, or vice versa, switch directly between them
+        setFocusState('screen2');
+        return 'screen2';
+      }
+      if (location === 'screen1' && prevState === 'screen2') {
+        setFocusState('screen1');
+        return 'screen1';
+      }
+      // models shelf screen zooms
+      if (location === 'modelsScreen' || location === 'animPlayer' || location === 'modelsShelf') {
+        if (prevState === 'home') {
+          setFocusState('modelsShelf');
+          return 'modelsShelf';
+        } else if (prevState === 'modelsShelf' || prevState === 'modelsScreen' || prevState === 'animPlayer') {
+          setFocusState(location);
+          return location;
         }
-        if (location === 'screen1' && prevState === 'screen2') {
-          setFocusState('screen1');
-          return 'screen1';
+      }
+      // art shelf screen zooms
+      if (location === 'miniPlayer' || location === 'artWall') {
+        if (prevState === 'home') {
+          setFocusState('artWall');
+          return 'artWall';
+        } else if (prevState === 'artWall' || prevState === 'miniPlayer' || prevState === 'corkboard' || prevState === 'sketchbook') {
+          setFocusState(location);
+          return location;
         }
-        // models shelf screen zooms
-        if (location === 'modelsScreen' || location === 'animPlayer' || location === 'modelsShelf') {
-          if (prevState === 'home') { 
-            setFocusState('modelsShelf');
-            return 'modelsShelf';
-          } else if (prevState === 'modelsShelf' || prevState === 'modelsScreen' || prevState === 'animPlayer') { 
-            setFocusState(location);
-            return location;
-          }
-        }
-        // art shelf screen zooms
-        if (location === 'miniPlayer' || location === 'artWall' ) {
-          if (prevState === 'home') { 
-            setFocusState('artWall');
-            return 'artWall';
-          } else if (prevState === 'artWall' || prevState === 'miniPlayer' || prevState === 'corkboard' || prevState === 'sketchbook') { 
-            setFocusState(location);
-            return location;
-          }
-        }
-        if (prevState === location) { // If already focused on the same screen, do nothing
-          return prevState;
-        }
-        return prevState; // Default: return the previous state if no condition matched
-      });
-    };
+      }
+      if (prevState === location) { // If already focused on the same screen, do nothing
+        return prevState;
+      }
+      return prevState; // Default: return the previous state if no condition matched
+    });
+  };
 
   // handles clicks on 3d objs: meshes in 3d model
   const handlePointerDown = (e) => {
-      // 👇 Skip if click/tap is on an iframe or any HTML overlay
-  if (e.target.closest('iframe') || e.target.closest('.html-overlay')) {
-    return;
-  }
+    // 👇 Skip if click/tap is on an iframe or any HTML overlay
+    if (e.target.closest('iframe') || e.target.closest('.html-overlay')) {
+      return;
+    }
 
     pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
     pointer.y = - (e.clientY / window.innerHeight) * 2 + 1;
@@ -317,8 +317,15 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
   const handleKeyUp = (e) => {
   }
 
+useEffect(() => {
+  if (currState === 'screen1') {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+}, [currState]);
 
-  useEffect (() => {
+  useEffect(() => {
     const canvas = gl.domElement;
     canvas.addEventListener('pointerdown', handlePointerDown);
     canvas.addEventListener('pointerup', handlePointerUp);
@@ -326,11 +333,11 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
     document.addEventListener('keyup', handleKeyUp);
 
     return () => {
-        canvas.removeEventListener('pointerdown', handlePointerDown);
-        canvas.removeEventListener('pointerup', handlePointerUp);
-        canvas.removeEventListener('keydown', handleKeyDown);
-        document.removeEventListener('keydown', handleKeyDown);
-        document.removeEventListener('keyup', handleKeyUp);
+      canvas.removeEventListener('pointerdown', handlePointerDown);
+      canvas.removeEventListener('pointerup', handlePointerUp);
+      canvas.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
     }
   }, [gl, handlePointerDown, handlePointerUp, handleKeyDown])
 
@@ -359,7 +366,7 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
                   material={materials.m_whiteMonitorBaked}
                 />
                 <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.5, 326.5]} transform occlude>
-                  <CaseStudies onScreenClick={handleScreenClick} currState={currState} iframeSrc={iframeSrc}/>
+                  <CaseStudies onScreenClick={handleScreenClick} currState={currState} iframeSrc={iframeSrc} />
                 </Html>
               </group>
               <group name="monitor2">
@@ -700,7 +707,7 @@ const Room = ({updateCameraPosition, updateCameraLookAt, defaultCamera, setFocus
                 position={[-370.295, 293.418, 155.738]}
                 scale={3.793}
               />
-              <group name="flower" rotation={[0,0.01,0]}>
+              <group name="flower" rotation={[0, 0.01, 0]}>
                 <mesh
                   name="flower" ref={handleMeshRef}
                   geometry={nodes.flowerShape.geometry}

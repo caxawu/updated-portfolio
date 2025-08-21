@@ -4,7 +4,6 @@ import ReactGA from 'react-ga';
 
 import Footer from './Footer';
 
-import FadeInImage from './FadeInImage';
 import { motion } from "framer-motion";
 
 import burnout from '../assets/images/caseStudies/burnoutCover.png'
@@ -52,7 +51,7 @@ const CaseStudies = (props) => {
                         }}>
                             <img src={gracePeriod} alt="CD grace period" delay = "0.01" />
                             <div className="description">
-                                <div className="bold spacing-05">CD grace period</div>
+                                <div className="bold spacing-05">CD Grace Period</div>
                                 Reducing customer call volume by 20% through improvements to the customer experience.
                                 <div className="tags">
                                     <ul className="left">
@@ -78,7 +77,7 @@ const CaseStudies = (props) => {
                         }}>
                             <img src={savingsGoals} alt="Savings goals" delay = "0.05" />
                             <div className="description">
-                                <div className='bold spacing-05'>Savings goals</div>
+                                <div className='bold spacing-05'>Savings Goals</div>
                                 Helping customers build financial resilience through saving for tangible goals.
                                 <div className="tags">
                                     <ul className="left">
@@ -104,11 +103,11 @@ const CaseStudies = (props) => {
                         }}>
                             <img src={burnout} alt="Clinician burnout" delay = "0.1" />
                             <div className="description">
-                                <div className='bold spacing-05'>Clinician burnout</div>
+                                <div className='bold spacing-05'>Clinician Burnout</div>
                                 Alleviating clinician burnout at the Dartmouth-Hitchcock Medical Center.
                                 <div className="tags">
                                     <ul className="left">
-                                        <li>Service design</li>
+                                        <li>Service Design</li>
                                     </ul>
                                     <ul className="right">
                                         <li>Dartmouth-Hitchcock<br />Medical Center</li>
@@ -144,8 +143,8 @@ const CaseStudies = (props) => {
                                 Learn in an experiential and delightful way by exploring the world through the eyes of an animal.
                                 <div className="tags">
                                     <ul className="left">
-                                        <li>Design</li>
-                                        <li>Development</li>
+                                        <li>Design & Development</li>
+                                        <li></li>
                                     </ul>
                                     <ul className="right">
                                         <li>DALI Lab</li>

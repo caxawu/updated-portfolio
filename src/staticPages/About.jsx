@@ -29,13 +29,13 @@ const trackLinkClick = (category, action, label) => {
               <div className='bio'>
                 <div className="outline-overlay"></div>
                 <div className='text-secondary'>about me</div>
-                Hi! I’m Cathy. I’m a designer who loves to chase wherever my curiosity takes me. By day,
+                Hi, I’m Cathy! I’m a designer who loves to chase my curiousity. By day,
                 I’m a UX designer tackling complex problems and transforming them into simple, meaningful experiences.
                 By night, I'm sketching, cooking new recipes, or obsessing over getting the interactions just
                 right in my latest side project.
                 <br /><br />
-                I fell in love with design at Dartmouth College where I graduated with a degree in Cognitive Science focused in
-                <span className='bold highlight-dark-pink'> Human-Computer Interaction</span> along with minors in
+                I fell in love with design at Dartmouth College where I graduated with a degree in 
+                <span className='bold highlight-dark-pink'> Cognitive Science focused in Human-Computer Interaction</span> along with minors in
                 <span className='bold highlight-dark-pink'> Human-Centered Design</span> and
                 <span className='bold highlight-dark-pink'> Digital Arts</span>. I'm currently a
                 <span className='bold highlight-dark-pink'> UI/UX designer at Capital One.</span>
@@ -68,7 +68,7 @@ const trackLinkClick = (category, action, label) => {
             <div className='swatch'>
               <div className="swatch-box" id="box1">
                 <div className="inline-row">
-                  In my free time I like to make art, occasionally post to <a
+                  In my free time I like to make art, share to <a
                     href="https://www.instagram.com/firesheepstudio/"
                     target="_blank"
                     rel="noreferrer"
@@ -93,7 +93,7 @@ const trackLinkClick = (category, action, label) => {
                 </div>
               </div>
               <div className="swatch-box" id="box3">
-                I’m a huge foodie and love to cook. Currently trying to maintain my 114 week Beli streak and making tofu from scratch!
+                I’m a huge foodie and I love to cook. Currently trying to maintain my 117 week Beli streak and making soymilk and tofu from scratch!
                 <div className='labels' id="color-dark">
                   <b>food adventures</b>
                   <div>#65AEB3</div>

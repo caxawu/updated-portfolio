@@ -1,5 +1,3 @@
-import { useRef, useState, useEffect, useMemo } from 'react'
-
 const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
 
   const handleClickVariable = () => {

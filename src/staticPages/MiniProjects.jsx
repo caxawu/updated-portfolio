@@ -124,7 +124,7 @@ const MiniProjects = () => {
           <div className="item">
             <FadeInImage src={buzzfeed} alt="buzzfeed" delay = "0.2" />
             <div className="description">
-              <div className="name">Buzzfeed quiz</div>
+              <div className="name">Buzzfeed Quiz</div>
               <div className="description1">Take a quiz and find your next favorite show!</div>
               <div className="description2">A Buzzfeed-style quiz that uses HTML, CSS, Javascript, and jquery.</div>
               <div className="links">
@@ -138,7 +138,7 @@ const MiniProjects = () => {
           <div className="item">
             <FadeInImage src={adventures} alt="adventures" delay = "0.25" />
             <div className="description">
-              <div className="name">Track your adventures</div>
+              <div className="name">Track Your Adventures</div>
               <div className="description1">Display your photos on digital polaroids attached to blinking string lights.
               </div>
               <div className="description2">A CRUD-style content app that uses React, Redux and React-Router.</div>
@@ -179,7 +179,7 @@ const MiniProjects = () => {
           <div className="item">
             <FadeInImage src={jobarchitech} alt="JobArchi.tech" delay = "0.35" />
             <div className="description">
-              <div className="name">JobArchi.tech<br />Google Cloud runner-up @ HackDartmouth VI</div>
+              <div className="name">JobArchi.tech<br />Google Cloud Runner-Up @ HackDartmouth VI</div>
               <div className="description1">Track your job hunt journey from application to offer.</div>
               <div className="description2">A Chrome extension and web app that tracks application and helps with interview prep with personalized feedback using Google's NLP and speech-to-text APIs.</div>
               <div className="links">

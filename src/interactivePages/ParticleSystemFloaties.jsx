@@ -42,7 +42,7 @@ extend({ FloatiesMaterial });
 const ParticleSystemFloaties = forwardRef(({ origin = [0, 2, 0] }, ref) => {
   const pointsRef = useRef();
 
-  // === ✨ Floaties Config ===
+  // Floaties Config
   const count = 200;
   const spread = 500.0;
   const baseAlpha = 0.1;

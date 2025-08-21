@@ -7,7 +7,7 @@ const FadeInImage = (props) => {
     src,
     alt,
     delay = 0,
-    animatetransform = true, // this is now local only
+    animatetransform = true, // local prop
     ...rest
   } = props;
 
@@ -37,7 +37,7 @@ const FadeInImage = (props) => {
           ease: "easeOut",
           delay: loaded ? delay : 0,
         }}
-        {...rest} // ✅ clean — doesn't include animatetransform
+        {...rest} // doesn't include animatetransform
       />
     </>
   );

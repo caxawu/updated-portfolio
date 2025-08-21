@@ -1,11 +1,3 @@
-import React, { useEffect } from 'react';
-import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
-import { RenderTexture, OrbitControls, PerspectiveCamera, Text, ContactShadows } from '@react-three/drei'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef, useState } from 'react'
-import { suspend } from 'suspend-react'
-
-
 const OtherProjects3D = ({currState, onScreenClick }) => {
 
   const handleClickVariable = () => {
@@ -19,7 +11,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
           transform: "scale(1.33)",
           transformOrigin: "20% 0",
           imageRendering: "crisp-edges",
-          backgroundColor: "black",
+          backgroundColor: "red",
           width: "1480px",
           height: "2800px",
           overflow: currState === "screen2" ? "auto" : "hidden",
@@ -42,7 +34,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
             style={{
               border: "none",
               position: "absolute",
-              top: "-160px", // Push iframe up to crop top
+              top: "-115px", // Push iframe up to crop top
               left: 0
             }}
           />

@@ -1,12 +1,9 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const Footer = () => {
-    const navigateTo = useNavigate();
     const location = useLocation();
 
-    const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
     const linkRefs = useRef({});
     const containerRef = useRef(null);
 

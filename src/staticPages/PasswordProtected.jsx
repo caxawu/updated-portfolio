@@ -1,4 +1,3 @@
-// components/PasswordProtected.jsx
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { LoaderCircle, ArrowRight } from 'lucide-react';

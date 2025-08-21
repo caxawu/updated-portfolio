@@ -5,7 +5,7 @@ import textureURL from '../assets/images/smoke.png';
 import { shaderMaterial } from '@react-three/drei';
 import { extend } from '@react-three/fiber';
 
-// ✨ Custom shader for soft transparent particles with alpha control
+
 const SmokeMaterial = shaderMaterial(
   { map: null },
   // Vertex Shader

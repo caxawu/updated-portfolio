@@ -1,11 +1,3 @@
-import React, { useEffect } from 'react';
-import {Route, BrowserRouter as Router, Routes, Outlet} from 'react-router-dom';
-import { RenderTexture, OrbitControls, PerspectiveCamera, Text, ContactShadows } from '@react-three/drei'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef, useState } from 'react'
-import { suspend } from 'suspend-react'
-
-
 const VRSpaces3D = ({currState, onScreenClick }) => {
 
   const handleClickVariable = () => {
@@ -52,26 +44,5 @@ const VRSpaces3D = ({currState, onScreenClick }) => {
     </div>
   )
 }
-      // <div style={{
-      //     transform: "scale(1.785)",
-      //     transformOrigin: "0 0",
-      //     imageRendering: "crisp-edges",
-      //     backgroundColor: "#FAFAFA",
-      //     width: "1445px",
-      //     height: "800px",
-      //     overflow: "hidden",
-      //     pointerEvents: currState === "screen1" ? "auto" : "none",
-      //     position: "relative",
-      //     display: "flex",
-      //     flexDirection: "column", 
-      //     justifyContent: "flex-end",
-      //   }}>
-      //   <div style={{
-      //     width: "100%",
-      //     height: "88%",
-      //     backgroundColor: "#FAFAFA",
-      //     overflow: "hidden",
-      //     position: "relative",
-      //   }}></div>
 
 export default VRSpaces3D

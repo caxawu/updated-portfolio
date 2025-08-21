@@ -36,7 +36,6 @@ export default function AnimText({ delay }) {
         <>
           <div className="spacing-05"/>
           <div className="indent"/>
-          {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
         </>
       )}
       <div className="subhead">

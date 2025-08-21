@@ -1,6 +1,3 @@
-import React from 'react';
-
-
 const Resume3D = ({currState, onScreenClick, setCurrState}) => {
 
   const handleClickVariable = () => {

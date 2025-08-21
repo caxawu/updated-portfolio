@@ -33,7 +33,7 @@ const About = () => {
             <AnimText delay={1} />
           </div>
           <div className='labels'>
-            <div className='highlight-pink text-title spacing-05'>step inside my room</div>
+            <div className='highlight-pink text-title spacing-05'>Step inside my room</div>
             <div className='text-secondary light label-secondary'> Explore my projects in 3D<br />by clicking around the space</div>
           </div>
         </div>
@@ -52,11 +52,14 @@ const About = () => {
               <div className="outline-overlay" />
             </div>
           </div>
-          <div className='to-static text-secondary light'>
-            Want to see my projects in a classic format?
-            <span className="link-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
-              go to static portfolio
-            </span>
+          <div className='to-static '>
+            <div className='highlight-pink text-secondary light'>Want to see my projects in a classic format?</div>
+            {/* <span className="link-button text-title" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+              Go to static portfolio
+            </span> */}
+            <div className="nav-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+                        Go to static portfolio
+                    </div>
           </div>
         </div>
         <img src={loopyArrow} alt='dotted arrow' loading='eager' className='loopy-arrow' />

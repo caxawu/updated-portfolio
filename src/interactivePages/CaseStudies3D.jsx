@@ -9,10 +9,11 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
     style={{ width: "2580px", height: "1440px", overflow: "hidden", zIndex:"0" }} onClick={handleClickVariable}>
       <div
         style={{
-          transform: "scale(1.38)",
+          transform: "scale(1.84)",
           transformOrigin: "0 0",
           imageRendering: "crisp-edges",
           backgroundColor: "#FAFAFA",
+          // backgroundColor: "red",
           width: "2210px",
           height: "1200px",
           overflow: currState === "screen1" ? "auto" : "hidden",
@@ -26,19 +27,18 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
           height: "100%",
           overflow: "hidden",
           position: "relative",
-          left: "10px",
           zIndex:"0"
         }}>
           <iframe
             title="embed"
-            width="100%"
-            height="1150" // Make it taller than the visible area
+            width="1400px"
+            height="902" // Make it taller than the visible area
             src={iframeSrc}
             style={{
               border: "none",
               position: "absolute",
-              top: "-96px", // Push iframe up to crop top
-              left: "-180px",
+              top: "-84px", // Push iframe up to crop top
+              // left: "-180px",
               zIndex:"0",
             }}
           />

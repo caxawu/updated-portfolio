@@ -835,9 +835,10 @@ a {
         }
 
         .description1 {
+          display: flex;
           font-style: italic;
           margin-bottom: 0.5rem;
-          height: 3rem;
+          min-height: 3rem;
         }
 
         .description2 {

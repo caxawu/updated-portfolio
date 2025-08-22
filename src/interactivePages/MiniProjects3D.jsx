@@ -8,7 +8,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
     <div style={{width: "1780px", height: "2358px", overflow:"hidden", backgroundColor: "red", zIndex:"0"}} onClick={handleClickVariable}>
       <div
         style={{
-          transform: "scale(1.33)",
+          transform: "scale(2.1)",
           transformOrigin: "20% 0",
           imageRendering: "crisp-edges",
           backgroundColor: "red",
@@ -24,17 +24,18 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
           width: "100%",
           height: "100%",
           overflow: "hidden",
-          position: "relative"
+          position: "relative",
+          left: "85px"
         }}>
           <iframe
             title="embed"
-            width="100%"
-            height="2150" // Make it taller than the visible area
+            width="1000px"
+            height="1350px" // Make it taller than the visible area
             src="https://unrivaled-lebkuchen.netlify.app/static/mini-projects"
             style={{
               border: "none",
               position: "absolute",
-              top: "-115px", // Push iframe up to crop top
+              top: "-185px", // Push iframe up to crop top
               left: 0
             }}
           />

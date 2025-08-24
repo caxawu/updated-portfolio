@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import ReactGA from 'react-ga';
+import { trackEvent } from './Analytics';
 
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import FadeInImage from './FadeInImage';
@@ -11,20 +10,8 @@ import Footer from './Footer';
 
 import anivisionHeader from '../assets/images/caseStudies/anivision/anivisionTopBackground.gif'
 
-const trackLinkClick = (category, action, label) => {
-    console.log('GA event:', category, ':', action, ':', label);
-    ReactGA.event({
-        category,
-        action,
-        label,
-    });
-};
 
 const CaseStudyAnivision = (props) => {
-    useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
-        console.log('page=>', window.location.pathname);
-    }, []);
 
     const navigateTo = useNavigate();
 
@@ -50,7 +37,7 @@ const CaseStudyAnivision = (props) => {
                         href="https://www.meta.com/experiences/anivision/7236812916426323/"
                         rel="noreferrer"
                         target="_blank"
-                        onClick={trackLinkClick.bind(this, 'Portfolio/Anivision', 'Anivision apk Click', 'Portfolio Links')}
+                        onClick={() => trackEvent('Portfolio/Anivision', 'Anivision apk Click', 'Portfolio Links')}
                     >Download on the Meta store
                     </a>
                 </div>

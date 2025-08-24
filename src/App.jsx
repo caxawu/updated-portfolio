@@ -1,5 +1,6 @@
 import {Route, BrowserRouter as Router, Routes, Navigate} from 'react-router-dom';
 import StartPageAtTop from './staticPages/StartPageAtTop';
+import PageTracking from './staticPages/PageTracking';
 
 import Home from './staticPages/Home';
 import About from './staticPages/About';
@@ -23,6 +24,7 @@ function App() {
   return (
     <main className='bg-slate-300/20'>
       <Router>
+        <PageTracking />
         <StartPageAtTop />
         <Routes>
           <Route path="/" element={<Home/>}/>
@@ -54,4 +56,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

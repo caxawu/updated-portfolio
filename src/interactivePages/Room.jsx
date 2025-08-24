@@ -2,7 +2,9 @@ import { useRef, useState, useEffect, useMemo } from 'react'
 import { useGLTF, useAnimations, Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import * as THREE from 'three';
+import { trackEvent } from '../staticPages/Analytics';
 import { a, useSpring } from '@react-spring/three';
+
 import ParticleSystemTea from "./ParticleSystemTea";
 import ParticleSystemFloaties from "./ParticleSystemFloaties";
 
@@ -151,6 +153,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
 
   // handles clicks on 2d objs: html blocks, iFrames, etc. (Variable passed in from child jsx)
   const handleScreenClick = (location) => {
+    trackEvent('InteractivePortfolio', location, '3D Room Interaction');
     setCurrState((prevState) => {
       // table screen zooms
       if (location === 'screen1' || location === 'screen2' || location === 'resume') {
@@ -215,6 +218,8 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
     if (intersects.length > 0) {
       if (INTERSECTED != intersects[0].object) {
         INTERSECTED = intersects[0].object;
+
+        trackEvent('InteractivePortfolio', INTERSECTED.name, '3D Room Interaction');
 
         if (INTERSECTED.name === 'table') {
           setFocusState('table');

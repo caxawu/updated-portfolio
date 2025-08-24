@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { Outlet } from 'react-router-dom';
 
 import ArtNavBar from './ArtNavBar';
@@ -63,21 +62,8 @@ import david from '../assets/images/miniPlayer/drawings/david.png';
 // import creature from '../assets/images/miniPlayer/drawings/creature.png';
 // import statues from '../assets/images/miniPlayer/drawings/statues.png';
 
-const trackLinkClick = (category, action, label) => {
-  console.log('GA event:', category, ':', action, ':', label);
-  ReactGA.event({
-    category,
-    action,
-    label,
-  });
-};
-
 
 const Modeling = (props) => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-    console.log('page=>', window.location.pathname);
-  }, []);
   return (
     <>
     <div className="img-section" id="desktop">
@@ -144,10 +130,6 @@ const Modeling = (props) => {
 };
 
 const Animation = (props) => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-    console.log('page=>', window.location.pathname);
-  }, []);
   return (
     <>
     <div className="img-section" id="desktop">
@@ -181,10 +163,6 @@ const Animation = (props) => {
 };
 
 const Paintings = (props) => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-    console.log('page=>', window.location.pathname);
-  }, []);
   return (
     <div className="img-section">
       <div className="row">
@@ -226,10 +204,6 @@ const Paintings = (props) => {
 };
 
 const Drawings = (props) => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-    console.log('page=>', window.location.pathname);
-  }, []);
   return (
     <>
   <div className="img-section" id='desktop'>
@@ -310,10 +284,6 @@ const Drawings = (props) => {
 export {Modeling, Animation, Paintings, Drawings};
 
 const Artwork = () => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-    console.log('page=>', window.location.pathname);
-  }, []);
 
   return (
     <div className='page-wrapper'>

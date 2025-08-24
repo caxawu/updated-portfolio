@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import ReactGA from 'react-ga';
+import { trackEvent } from './Analytics';
 
 import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 import FadeInImage from './FadeInImage';
@@ -24,20 +23,8 @@ import final2 from '../assets/images/caseStudies/spaces/final2.png';
 import ToTopButton from './ToTopButton';
 import Footer from './Footer';
 
-const trackLinkClick = (category, action, label) => {
-    console.log('GA event:', category, ':', action, ':', label);
-    ReactGA.event({
-        category,
-        action,
-        label,
-    });
-};
 
 const CaseStudySpaces = (props) => {
-    useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
-        console.log('page=>', window.location.pathname);
-    }, []);
 
     const navigateTo = useNavigate();
 
@@ -62,7 +49,7 @@ const CaseStudySpaces = (props) => {
                         href="https://drive.google.com/file/d/1V3baQxHDy1BNthDxZu1wgLeL0Z_KNnFy/view?usp=sharing"
                         rel="noreferrer"
                         target="_blank"
-                        onClick={trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces apk Click', 'Portfolio Links')}
+                        onClick={() => trackEvent('Portfolio/Spaces', 'Spaces apk Click', 'Portfolio Links')}
                     >Download for Oculus Quest
                     </a>
                 </div>
@@ -144,6 +131,7 @@ const CaseStudySpaces = (props) => {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title="Spaces Walkthrough"
+                onClick={() => trackEvent('Portfolio/Spaces', 'Spaces video play', 'Portfolio Links')}
             />
 
             <div className="divider-container">

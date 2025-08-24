@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ReactGA from 'react-ga';
+import { trackEvent } from './Analytics';
 
 import Footer from './Footer';
 
@@ -12,21 +11,8 @@ import savingsGoals from '../assets/images/caseStudies/savingsGoalsCover.png'
 import anivision from '../assets/images/caseStudies/anivisionCover.png'
 import spaces from '../assets/images/caseStudies/spacesCover.png'
 
-const trackLinkClick = (category, action, label) => {
-    console.log('GA event:', category, ':', action, ':', label);
-    ReactGA.event({
-        category,
-        action,
-        label,
-    });
-};
-
 
 const CaseStudies = (props) => {
-      useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
-        console.log('page=>', window.location.pathname);
-      }, []);
     const navigateTo = useNavigate();
 
     return (
@@ -47,7 +33,7 @@ const CaseStudies = (props) => {
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/CD-grace-period');
-                            trackLinkClick.bind(this, 'Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
+                            trackEvent('Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
                         }}>
                             <img src={gracePeriod} alt="CD grace period" delay = "0.01" />
                             <div className="description">
@@ -73,7 +59,7 @@ const CaseStudies = (props) => {
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/savings-goals');
-                            trackLinkClick.bind(this, 'Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
+                            trackEvent('Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
                         }}>
                             <img src={savingsGoals} alt="Savings goals" delay = "0.05" />
                             <div className="description">
@@ -99,7 +85,7 @@ const CaseStudies = (props) => {
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/clinician-burnout');
-                            trackLinkClick.bind(this, 'Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
+                            trackEvent('Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
                         }}>
                             <img src={burnout} alt="Clinician burnout" delay = "0.1" />
                             <div className="description">
@@ -135,7 +121,7 @@ const CaseStudies = (props) => {
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/anivision');
-                            trackLinkClick.bind(this, 'Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
+                            trackEvent('Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
                         }}>
                             <img src={anivision} alt="Anivision" delay = "0.15" />
                             <div className="description">
@@ -162,7 +148,7 @@ const CaseStudies = (props) => {
                         <div className="card-tile" 
                         onClick={() => {
                             navigateTo('/static/case-studies/spaces');
-                            trackLinkClick.bind(this, 'Portfolio/Spaces', 'Spaces Click', 'Portfolio Nav');
+                            trackEvent('Portfolio/Spaces', 'Spaces Click', 'Portfolio Nav');
                         }}>
                             <img src={spaces} alt="Spaces" delay = "0.2" />
                             <div className="description">

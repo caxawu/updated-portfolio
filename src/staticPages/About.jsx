@@ -1,22 +1,12 @@
-import ReactGA from 'react-ga';
-
 import NavBar from './NavBar';
 import Footer from './Footer';
+import { trackEvent } from './Analytics';
 
 import FadeInImage from './FadeInImage';
 
 import profilePic from '../assets/images/profilePic.png'
 
 const About = () => {
-
-const trackLinkClick = (category, action, label) => {
-  console.log('GA event:', category, ':', action, ':', label);
-  ReactGA.event({
-    category,
-    action,
-    label,
-  });
-};
 
   return (
     <div id="about-spacing"> 
@@ -72,12 +62,12 @@ const trackLinkClick = (category, action, label) => {
                     href="https://www.instagram.com/firesheepstudio/"
                     target="_blank"
                     rel="noreferrer"
-                    onClick={trackLinkClick.bind(this, 'About/Insta', 'Insta Click', 'About page')}
+                    onClick={() => trackEvent('About/Insta', 'Insta Click', 'About page')}
                   >@firesheepstudio</a>, sell at art markets with friends, and run an <a
                     href="https://www.etsy.com/shop/FireSheepStudio"
                     target="_blank"
                     rel="noreferrer"
-                    onClick={trackLinkClick.bind(this, 'About/Insta', 'Insta Click', 'About page')}
+                    onClick={() => trackEvent('About/Insta', 'Insta Click', 'About page')}
                   >Etsy store</a>!
                 </div>
                 <div className='labels' id="color-light">
@@ -108,19 +98,19 @@ const trackLinkClick = (category, action, label) => {
                       target="_blank"
                       rel="noreferrer"
                       id="resume"
-                      onClick={trackLinkClick.bind(this, 'Contact Links', 'Resume Click', 'About page')}
+                      onClick={() => trackEvent('Contact Links', 'Resume Click', 'About page')}
                     >Resume</a></li>
                     <li><a href="https://www.linkedin.com/in/xinai-cathy-wu"
                       target="_blank"
                       rel="noreferrer"
                       id="linkedin"
-                      onClick={trackLinkClick.bind(this, 'Contact Links', 'LinkedIn Click', 'About page')}
+                      onClick={() => trackEvent('Contact Links', 'LinkedIn Click', 'About page')}
                     >Linkedin</a></li>
                     <li><a href="mailto:xinai.cathy.wu@gmail.com"
                       target="_blank"
                       rel="noreferrer"
                       id="mail"
-                      onClick={trackLinkClick.bind(this, 'Contact Links', 'Mail Click', 'About page')}
+                      onClick={() => trackEvent('Contact Links', 'Mail Click', 'About page')}
                     >Email</a></li>
                   </ul>
                 </div>

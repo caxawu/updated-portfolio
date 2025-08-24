@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { useNavigate } from "react-router-dom";
 
 import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
@@ -16,10 +14,6 @@ import ToTopButton from './ToTopButton';
 import Footer from './Footer';
 
 const CaseStudyGracePeriod = (props) => {
-    useEffect(() => {
-        ReactGA.pageview(window.location.pathname);
-        console.log('page=>', window.location.pathname);
-    }, []);
 
     const navigateTo = useNavigate();
 

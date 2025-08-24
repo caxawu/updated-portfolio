@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import { Outlet } from 'react-router-dom';
 import { motion } from "framer-motion";
 

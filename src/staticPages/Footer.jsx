@@ -1,20 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { trackEvent } from './Analytics';
 
 const Footer = () => {
     const location = useLocation();
 
     const linkRefs = useRef({});
     const containerRef = useRef(null);
-
-    const trackLinkClick = (category, action, label) => {
-        console.log('GA event:', category, ':', action, ':', label);
-        ReactGA.event({
-            category,
-            action,
-            label,
-        });
-    };
 
     useEffect(() => {
         const currentPath = location.pathname;
@@ -62,7 +54,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noreferrer"
                                 id="resume"
-                                onClick={trackLinkClick.bind(this, 'Footer Links', 'Resume Click', 'Footer')}
+                                onClick={() => trackEvent('Footer Links', 'Resume Click', 'Footer')}
                             >Resume</a>
                         </li>
                         <li>
@@ -70,7 +62,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noreferrer"
                                 id="linkedin"
-                                onClick={trackLinkClick.bind(this, 'Footer Links', 'LinkedIn Click', 'Footer')}
+                                onClick={() => trackEvent('Footer Links', 'LinkedIn Click', 'Footer')}
                             >Linkedin</a>
                         </li>
                         <li>
@@ -78,7 +70,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noreferrer"
                                 id="mail"
-                                onClick={trackLinkClick.bind(this, 'Footer Links', 'Mail Click', 'Footer')}
+                                onClick={() => trackEvent('Footer Links', 'Mail Click', 'Footer')}
                             >Email</a>
                         </li>
                     </ul>

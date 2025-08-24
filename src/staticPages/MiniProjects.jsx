@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import ReactGA from 'react-ga';
+import { trackEvent } from './Analytics';
 
 import Footer from './Footer';
 
@@ -17,20 +16,7 @@ import jobarchitech from '../assets/images/miniProjects/jobarchitech.png'
 import rgbox from '../assets/images/miniProjects/rgbox.png'
 
 
-const trackLinkClick = (category, action, label) => {
-  console.log('GA event:', category, ':', action, ':', label);
-  ReactGA.event({
-    category,
-    action,
-    label,
-  });
-};
-
 const MiniProjects = () => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-    console.log('page=>', window.location.pathname);
-  }, []);
 
   return (
     <div className="content">
@@ -54,12 +40,12 @@ const MiniProjects = () => {
               <div className="description2">Responding to anxiety by portraying the different ways that it can manifest.</div>
               <div className="links">
                 <a href="https://caxawu.itch.io/beyond" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/Games/Beyond', 'Play Beyond Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/Games/Beyond', 'Play Beyond Click', 'Mini Projects Links')}>
                   Play Beyond
                 </a>
                 |
                 <a href="https://www.youtube.com/watch?v=Wrmlwu4vtco" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/Games/Beyond', 'Watch Gameplay Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/Games/Beyond', 'Watch Beyond Gameplay Click', 'Mini Projects Links')}>
                   Watch the gameplay
                 </a>
               </div>
@@ -73,7 +59,7 @@ const MiniProjects = () => {
               <div className="description2">Raising awareness about climate-related challenges facing the Arctic.</div>
               <div className="links">
                 <a href="https://caxawu.itch.io/journey" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/GamesJourney', 'Play Journey Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/GamesJourney', 'Play Journey Click', 'Mini Projects Links')}>
                   Play Journey
                 </a>
               </div>
@@ -87,7 +73,7 @@ const MiniProjects = () => {
               <div className="description2">Helping to increase literacy amongst non-native English speakers.</div>
               <div className="links">
                 <a href="https://caxawu.itch.io/storyteller" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/Games/Storyteller', 'Play Storyteller Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/Games/Storyteller', 'Play Storyteller Click', 'Mini Projects Links')}>
                   Play Storyteller
                 </a>
               </div>
@@ -115,7 +101,7 @@ const MiniProjects = () => {
               <div className="description2">A real-time collaborative post-it note app that supports markdown notation.</div>
               <div className="links">
                 <a href="https://trusting-dubinsky-776c89.netlify.app/" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/COSC/Stickies', 'Add Note Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/COSC/Stickies', 'Stickies Click', 'Mini Projects Links')}>
                   Add a note
                 </a>
               </div>
@@ -129,7 +115,7 @@ const MiniProjects = () => {
               <div className="description2">A Buzzfeed-style quiz that uses HTML, CSS, Javascript, and jquery.</div>
               <div className="links">
                 <a href="https://dartmouth-cs52-21s.github.io/lab2-caxawu/" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/COSC/Buzzfeed', 'Add Quiz Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/COSC/Buzzfeed', 'Bozzfeed Click', 'Mini Projects Links')}>
                   Take the quiz
                 </a>
               </div>
@@ -144,7 +130,7 @@ const MiniProjects = () => {
               <div className="description2">A CRUD-style content app that uses React, Redux and React-Router.</div>
               <div className="links">
                 <a href="https://wizardly-johnson-50073f.netlify.app/" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/COSC/Adventures', 'Track Adventures Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/COSC/Adventures', 'Track Adventures Click', 'Mini Projects Links')}>
                   Track an adventure
                 </a>
               </div>
@@ -170,7 +156,7 @@ const MiniProjects = () => {
               <div className="description2">An augmented reality indoor navigation app using user-contributed data and Microsoft's Azure Spatial Anchors to generate AR paths to the destination.</div>
               <div className="links">
                 <a href="https://devpost.com/software/artrek" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/Hackathon/ARTrek', 'ARTrek Devpost Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/Hackathon/ARTrek', 'ARTrek Devpost Click', 'Mini Projects Links')}>
                   See Devpost
                 </a>
               </div>
@@ -184,7 +170,7 @@ const MiniProjects = () => {
               <div className="description2">A Chrome extension and web app that tracks application and helps with interview prep with personalized feedback using Google's NLP and speech-to-text APIs.</div>
               <div className="links">
                 <a href="https://devpost.com/software/jobarchi-tech" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/Hackathon/JobArchitech', 'JobArchitech Devpost Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/Hackathon/JobArchitech', 'JobArchitech Devpost Click', 'Mini Projects Links')}>
                   See Devpost
                 </a>
               </div>
@@ -198,7 +184,7 @@ const MiniProjects = () => {
               <div className="description2">A tabletop device for social spaces such as coffee shops that toggles between red and green to signal openness to socializing with new people.</div>
               <div className="links">
                 <a href="https://docs.google.com/presentation/d/1AdQusO3tumfNfmdHp6S9t3_hRSGw0PRgl-npWOVSQ1E/edit?usp=sharing" target="_blank" rel="noreferrer"
-                  onClick={trackLinkClick.bind(this, 'Other/Games/Storyteller', 'Play Storyteller Click', 'Mini Projects Links')}>
+                  onClick={() => trackEvent('Other/Hackathon/RGBox', 'RGBox Click', 'Mini Projects Links')}>
                   See presentation
                 </a>
               </div>

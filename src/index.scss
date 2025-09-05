@@ -1709,31 +1709,34 @@ a {
   // case studies
   .content-case-study {
     iframe {
-     width: 92%;
+     width: 96%;
     }
     .detail-section, .divider-container, .centered {
-      margin-right: 4rem;
+      width: 96%;
+      .arrow-case-study {
+        width: 2.5em;
+      }
     }
   }
   // artwork page
   .img-section {
-    margin-right: 4rem;
+    margin-right: 3rem;
   }
-      .back-to-top {
-      right: 32px;
-      bottom: 56px;
-      .icon {
-        width: 48px;
-        height: 48px;
-        .arrow {
-          height: 32px;
-          width: 32px;
-        }
-      }
-      .back-text {
-        margin-top: 8px;
-      }
+  .back-to-top {
+  right: 24px;
+  bottom: 56px;
+  .icon {
+    width: 48px;
+    height: 48px;
+    .arrow {
+      height: 32px;
+      width: 32px;
     }
+  }
+  .back-text {
+    margin-top: 8px;
+  }
+}
 
 }
 
@@ -1818,7 +1821,6 @@ a {
   #about {
     transform: translateX(0px) translateY(0px);
   }
-
   .about-section {
     .about-img {
       margin: auto;
@@ -1842,26 +1844,21 @@ a {
       padding: 2rem 16px;
       padding-bottom: 1.5em;
     }
-
     .body {
       padding: 0 16px;
-
       .item {
         display: flex;
         flex-direction: row;
         padding-bottom: 8px;
         min-width: 500px;
         gap: 32px;
-
         img {
           width: 50%;
         }
-
         .description {
           padding-bottom: 16px;
           display: flex;
           justify-content: center;
-
           .description1 {
             font-style: italic;
             margin-bottom: 0.5rem;
@@ -1870,6 +1867,12 @@ a {
         }
       }
     }
+  }
+    #burnout-img {
+    width: 92%;
+  }
+  .secondary-info {
+    width: 92%;
   }
 }
 
@@ -2128,7 +2131,7 @@ a {
      width: 100%;
     }
     .detail-section, .divider-container, .centered {
-      margin-right: 0rem;
+      width: 100%;
     }
     #burnout-img {
       width: 100%;

@@ -41,7 +41,7 @@ const AnimPlayer3D = ({animState, onScreenClick }) => {
       aspectRatio: "2240 / 1790", // maintains aspect ratio
       borderRadius: "2rem",
       overflow: "hidden",
-      backgroundColor: "red"
+      backgroundColor: "black"
     }} onClick={handleClickVariable} >
       <img
         src={currentImage}

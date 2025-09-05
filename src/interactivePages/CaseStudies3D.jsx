@@ -13,7 +13,6 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
           transformOrigin: "0 0",
           imageRendering: "crisp-edges",
           backgroundColor: "#FAFAFA",
-          // backgroundColor: "red",
           width: "2210px",
           height: "1200px",
           overflow: currState === "screen1" ? "auto" : "hidden",

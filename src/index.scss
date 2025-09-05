@@ -1695,9 +1695,16 @@ a {
       transform: translateX(-24rem) translateY(5rem);
     }
   }
+  #burnout-img {
+    width: 80%;
+  }
+  .secondary-info {
+    width: 80%;
+  }
 }
 
 // right padding so back to top arrow fits
+// ** interactive sizing is within this**
 @media only screen and (max-width: 1650px) {
   // case studies
   .content-case-study {
@@ -1712,6 +1719,21 @@ a {
   .img-section {
     margin-right: 4rem;
   }
+      .back-to-top {
+      right: 32px;
+      bottom: 56px;
+      .icon {
+        width: 48px;
+        height: 48px;
+        .arrow {
+          height: 32px;
+          width: 32px;
+        }
+      }
+      .back-text {
+        margin-top: 8px;
+      }
+    }
 
 }
 
@@ -1789,29 +1811,9 @@ a {
       }
     }
   }
-    .back-to-top {
-      right: 32px;
-      .icon {
-        width: 48px;
-        height: 48px;
-        .arrow {
-          height: 32px;
-          width: 32px;
-        }
-      }
-      .back-text {
-        margin-top: 8px;
-      }
-    }
 }
 
 @media only screen and (max-width: 1200px) {
-
-  // case studies
-    #burnout-img {
-    width: 92%;
-    margin-left: 0;
-  }
   // about page
   #about {
     transform: translateX(0px) translateY(0px);
@@ -1893,11 +1895,6 @@ a {
     .nav-button {
       display: none;
     }
-  }
-
-  .content-case-study .secondary-info {
-    width: 100%;
-    // background-color: red;
   }
 }
 
@@ -2134,8 +2131,8 @@ a {
       margin-right: 0rem;
     }
     #burnout-img {
-    width: 100%;
-  }
+      width: 100%;
+    }
   }
 
   .top-card {

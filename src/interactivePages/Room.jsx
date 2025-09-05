@@ -43,6 +43,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
   const [animState, setAnimState] = useState('none');
   const [isArrowPressed, setIsArrowPressed] = useState(false);
   const [iframeSrc, setIframeSrc] = useState("https://xinaicathywu.me/static/case-studies");    // set screen1 when clicking VR buttons
+  // const [iframeSrc, setIframeSrc] = useState("http://localhost:5173/static/case-studies");    // test link
 
   const particleSystemRef = useRef();
   const clickAudioRef = useRef(null);

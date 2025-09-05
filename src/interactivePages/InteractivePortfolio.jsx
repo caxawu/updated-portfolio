@@ -114,7 +114,7 @@ const InteractivePortfolio = () => {
       updateCameraPosition([20, 6, -40]);
       updateCameraLookAt([2000, -500, -36]);
     } else if ( focusState === 'modelsScreen' ) {
-      updateCameraPosition([32, 7, -36]);
+      updateCameraPosition([33.5, 7.5, -35]);
       updateCameraLookAt([10000, -500, -36]);
     } else if ( focusState === 'animPlayer' ) {
       updateCameraPosition([33, -2.5, -40]);

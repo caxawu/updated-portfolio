@@ -5,13 +5,13 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
   };
 
   return (
-    <div style={{width: "1780px", height: "2358px", overflow:"hidden", backgroundColor: "red", zIndex:"0"}} onClick={handleClickVariable}>
+    <div style={{width: "1780px", height: "2358px", overflow:"hidden", backgroundColor: "black", zIndex:"0"}} onClick={handleClickVariable}>
       <div
         style={{
           transform: "scale(2.1)",
           transformOrigin: "20% 0",
           imageRendering: "crisp-edges",
-          backgroundColor: "red",
+          backgroundColor: "black",
           width: "1480px",
           height: "2800px",
           overflow: currState === "screen2" ? "auto" : "hidden",

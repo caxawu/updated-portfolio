@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import diorama1 from "../assets/images/modelsScreen/diorama1.png";
 import diorama3 from "../assets/images/modelsScreen/diorama3.png";
 import dioramaWIP from "../assets/images/modelsScreen/dioramaWIP.png";

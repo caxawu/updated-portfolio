@@ -972,7 +972,7 @@ a {
 .back-to-top {
   position: fixed;
   bottom: 40px;
-  right: 184px; // needed to keep button in frame on interactive screen
+  right: 184px;
 
   .icon {
     display: flex;
@@ -1084,7 +1084,9 @@ a {
   max-width: 96rem;
 
   iframe {
-    height: 850px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
   }
 }
 
@@ -1695,7 +1697,23 @@ a {
   }
 }
 
+// right padding so back to top arrow fits
+@media only screen and (max-width: 1650px) {
+  // case studies
+  .content-case-study {
+    iframe {
+     width: 92%;
+    }
+    .detail-section, .divider-container, .centered {
+      margin-right: 4rem;
+    }
+  }
+  // artwork page
+  .img-section {
+    margin-right: 4rem;
+  }
 
+}
 
 // tablet screens
 @media only screen and (max-width: 1366px) {
@@ -1771,10 +1789,29 @@ a {
       }
     }
   }
+    .back-to-top {
+      right: 32px;
+      .icon {
+        width: 48px;
+        height: 48px;
+        .arrow {
+          height: 32px;
+          width: 32px;
+        }
+      }
+      .back-text {
+        margin-top: 8px;
+      }
+    }
 }
 
 @media only screen and (max-width: 1200px) {
 
+  // case studies
+    #burnout-img {
+    width: 92%;
+    margin-left: 0;
+  }
   // about page
   #about {
     transform: translateX(0px) translateY(0px);
@@ -1856,6 +1893,11 @@ a {
     .nav-button {
       display: none;
     }
+  }
+
+  .content-case-study .secondary-info {
+    width: 100%;
+    // background-color: red;
   }
 }
 
@@ -2084,11 +2126,16 @@ a {
   }
 
   .content-case-study {
-    padding: 0 24px;
-
+    padding: 0 32px;
     iframe {
-      height: 220px;
+     width: 100%;
     }
+    .detail-section, .divider-container, .centered {
+      margin-right: 0rem;
+    }
+    #burnout-img {
+    width: 100%;
+  }
   }
 
   .top-card {
@@ -2297,10 +2344,6 @@ a {
         height: auto;
       }
     }
-  }
-
-  #burnout-img {
-    width: 100%;
   }
 
   #horizontal {

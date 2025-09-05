@@ -131,7 +131,6 @@ const CaseStudyAnivision = (props) => {
                 </div>
             </div>
             <iframe 
-                width="100%"
                 src="https://www.youtube.com/embed/Tah1Z87AZhg?modestbranding=1&showinfo=0&rel=0"
                 frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

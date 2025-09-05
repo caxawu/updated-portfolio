@@ -19,7 +19,7 @@ const About = () => {
               <div className='bio'>
                 <div className="outline-overlay"></div>
                 <div className='text-secondary'>about me</div>
-                Hi, I’m Cathy! I’m a designer who loves to chase my curiousity. By day,
+                Hi, I’m Cathy! I’m a designer who loves to chase my curiosity. By day,
                 I’m a UX designer tackling complex problems and transforming them into simple, meaningful experiences.
                 By night, I'm a serial hobbyist: sketching, cooking new recipes, or obsessing over getting the interactions just
                 right in my latest side project.

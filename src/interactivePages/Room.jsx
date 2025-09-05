@@ -22,7 +22,7 @@ import Resume from './Resume3D';
 const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocusState, ...props }) => {
   const isIPad = /iPad|Macintosh/.test(navigator.userAgent) && 'ontouchend' in document;
   const htmlY = useMemo(() => {
-  return isIPad ? 204.1 : 206.65; // Adjust iPad value as needed
+  return isIPad ? 204.1 : 206.65; // Adjust iPad values
 }, []);
 
   const roomRef = useRef();

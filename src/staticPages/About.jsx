@@ -21,7 +21,7 @@ const About = () => {
                 <div className='text-secondary'>about me</div>
                 Hi, I’m Cathy! I’m a designer who loves to chase my curiousity. By day,
                 I’m a UX designer tackling complex problems and transforming them into simple, meaningful experiences.
-                By night, I'm sketching, cooking new recipes, or obsessing over getting the interactions just
+                By night, I'm a serial hobbyist: sketching, cooking new recipes, or obsessing over getting the interactions just
                 right in my latest side project.
                 <br /><br />
                 I fell in love with design at Dartmouth College where I graduated with a degree in 
@@ -35,12 +35,12 @@ const About = () => {
               <div className='bio'>
                 <div className="outline-overlay"></div>
                 <div className='text-secondary'>about my portfolio</div>
-                This journey started the way it does for most designers—unable to find the motivation to update my portfolio. I struggled to fit 
-                my work within a traditional format, so when I stumbled upon amazing 3D portfolios, something clicked.
+                This journey started the way it does for most designers—with me unable to find the motivation to update my portfolio. I always struggled to fit 
+                my work within a traditional format, but something clicked when stumbled across other people's 3D portfolios.
                 <br /><br />
-                 I’ve always loved point-and-click puzzle games so I wanted to create something interactive and explorable that weaved 
+                 I’ve always loved point-and-click puzzle games so I wanted to create something interactive that weaved 
                  together my love for design, 3D modeling, and game design. The ideas were easy, the coding was not, but seeing the room 
-                 I concepted, designed, and developed come together made it well worth it. It even gave me the motivation to finally write a 
+                 I concepted, designed, and developed come together made it well worth it. Most importantly, it gave me the motivation to finally write a 
                  case study or two.
                 <br /><br />
                 I’ve had a lot of fun in the process. Thanks for taking the time to explore! ❤️

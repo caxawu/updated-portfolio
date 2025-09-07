@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import diorama1 from "../assets/images/modelsScreen/diorama1.png";
-import diorama3 from "../assets/images/modelsScreen/diorama3.png";
+import diorama2 from "../assets/images/modelsScreen/diorama2.png";
 import dioramaWIP from "../assets/images/modelsScreen/dioramaWIP.png";
 import escher from "../assets/images/modelsScreen/escher.png";
 import juice from "../assets/images/modelsScreen/juice.png";
@@ -20,7 +20,7 @@ const ModelsScreen3D = ({ onScreenClick }) => {
   };
 
   const images = [
-    juice, dioramaWIP, diorama3, diorama1, plantTable, escher, kitchenAO, room, roomBasicsAngle, roomBasicsFront
+    juice, dioramaWIP, diorama2, diorama1, plantTable, escher, kitchenAO, room, roomBasicsAngle, roomBasicsFront
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

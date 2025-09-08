@@ -94,7 +94,7 @@ const About = () => {
                   Curious about my work or just want to say hi? Would love to chat!
                   <div className='spacing-075' />
                   <ul>
-                    <li><a href="https://drive.google.com/file/d/11bBEf4DXBEegXaYLejCiFg3O86Q9wAJ2/view?usp=sharing"
+                    <li><a href="Cathy Wu Resume.pdf"
                       target="_blank"
                       rel="noreferrer"
                       id="resume"

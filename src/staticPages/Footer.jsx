@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className="footer-section">
                     <ul>
                         <li>
-                            <a href="https://drive.google.com/file/d/11bBEf4DXBEegXaYLejCiFg3O86Q9wAJ2/view?usp=sharing"
+                            <a href="Cathy Wu Resume.pdf"
                                 target="_blank"
                                 rel="noreferrer"
                                 id="resume"

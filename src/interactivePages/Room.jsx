@@ -11,7 +11,7 @@ import ParticleSystemFloaties from "./ParticleSystemFloaties";
 import keyClickSound from "../assets/audio/key-click2.mp3";
 import ambientSound from "../assets/audio/birds3.mp3";
 
-import roomScene from '../assets/3d/deskFinal5.glb'
+import roomScene from '../assets/3d/deskFinal5.bin'
 import CaseStudies from './CaseStudies3D';
 import MiniPlayer from './MiniPlayer3D';
 import AnimPlayer from './AnimPlayer3D';

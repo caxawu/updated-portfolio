@@ -31,7 +31,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
             title="embed"
             width="1000px"
             height="1350px" // Make it taller than the visible area
-            src="https://unrivaled-lebkuchen.netlify.app/static/mini-projects"
+            src="https://xinaicathywu.me/static/mini-projects"
             style={{
               border: "none",
               position: "absolute",

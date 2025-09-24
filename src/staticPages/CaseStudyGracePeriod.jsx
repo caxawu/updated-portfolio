@@ -35,7 +35,7 @@ const CaseStudyGracePeriod = (props) => {
                         aimed at reducing customer service call volume.
                         <br /><br />
                         Through UX improvements that increased clarity and ease of use, customers are empowered to self-manage
-                        their accounts—resulting in a 20% reduction in calls and a 2% increase in customer retention.
+                        their accounts—reducing customer service calls by 20% and increasing customer retention by 2%.
                     </div>
                 </div>
                 <div className="header-img">
@@ -105,11 +105,11 @@ const CaseStudyGracePeriod = (props) => {
                         </ul>
                         <ul className="list">
                             <li className="bold">ROLE</li>
-                            <li>Lead product designer</li>
+                            <li>Lead Product Designer</li>
                         </ul>
                         <ul className="list">
                             <li className="bold">TIME</li>
-                            <li>1 year</li>
+                            <li>1 Year</li>
                         </ul>
                     </ul>
                 </div>
@@ -121,11 +121,11 @@ const CaseStudyGracePeriod = (props) => {
                         </ul>
                         <ul className="list">
                             <li className="bold">ROLE</li>
-                            <li>Lead product designer</li>
+                            <li>Lead Product Designer</li>
                         </ul>
                         <ul className="list">
                             <li className="bold">TIME</li>
-                            <li>1 year</li>
+                            <li>1 Year</li>
                         </ul>
                     </ul>
                 </div>

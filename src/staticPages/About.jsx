@@ -28,7 +28,7 @@ const About = () => {
                 <span className='bold highlight-dark-pink'> Cognitive Science focused in Human-Computer Interaction</span> along with minors in
                 <span className='bold highlight-dark-pink'> Human-Centered Design</span> and
                 <span className='bold highlight-dark-pink'> Digital Arts</span>. I'm currently a
-                <span className='bold highlight-dark-pink'> UI/UX designer at Capital One.</span>
+                <span className='bold highlight-dark-pink'> product designer at Capital One.</span>
               </div>
               </div>
               <div className='color-box' id="color2">

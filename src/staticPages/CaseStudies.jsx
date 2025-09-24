@@ -41,7 +41,7 @@ const CaseStudies = (props) => {
                                 Reducing customer call volume by 20% through improvements to the customer experience.
                                 <div className="tags">
                                     <ul className="left">
-                                        <li>UI/UX Design</li>
+                                        <li>Product Design</li>
                                     </ul>
                                     <ul className="right">
                                         <li>Capital One</li>
@@ -67,7 +67,7 @@ const CaseStudies = (props) => {
                                 Helping customers build financial resilience through saving for tangible goals.
                                 <div className="tags">
                                     <ul className="left">
-                                        <li>UI/UX Design</li>
+                                        <li>Product Design</li>
                                     </ul>
                                     <ul className="right">
                                         <li>Capital One</li>

@@ -105,7 +105,7 @@ const CaseStudyGracePeriod = (props) => {
                         </ul>
                         <ul className="list">
                             <li className="bold">ROLE</li>
-                            <li>Lead UI/UX designer</li>
+                            <li>Lead product designer</li>
                         </ul>
                         <ul className="list">
                             <li className="bold">TIME</li>
@@ -121,7 +121,7 @@ const CaseStudyGracePeriod = (props) => {
                         </ul>
                         <ul className="list">
                             <li className="bold">ROLE</li>
-                            <li>Lead UI/UX designer</li>
+                            <li>Lead product designer</li>
                         </ul>
                         <ul className="list">
                             <li className="bold">TIME</li>

@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className="footer-section">
                     <ul>
                         <li>
-                            <a href="Cathy Wu Resume.pdf"
+                            <a href="Cathy_Wu_Resume.pdf"
                                 target="_blank"
                                 rel="noreferrer"
                                 id="resume"

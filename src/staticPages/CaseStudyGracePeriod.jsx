@@ -168,13 +168,13 @@ const CaseStudyGracePeriod = (props) => {
                     changes during the grace period, thinking they were changing the CD that had just renewed. In reality, they were setting 
                     instructions for what would happen once this CD <i>ended</i>—months down the line.
                 </div>
-                <div className="gray-callouts">
-                    <div className="gray-card">
+                <div className="callout-cards">
+                    <div className="callout-card">
                         <b>Confirmed hypothesis</b>
                         <br />
                         Customers were calling in to customer support because they couldn’t self-service their accounts during the grace period.
                     </div>
-                    <div className="gray-card">
+                    <div className="callout-card">
                         <b>Unexpected insight</b>
                         <br />
                         Customers were calling customer support in confusion when the changes they made didn’t

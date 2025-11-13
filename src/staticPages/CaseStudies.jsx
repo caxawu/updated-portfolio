@@ -28,17 +28,17 @@ const CaseStudies = (props) => {
                         className="card"
                         initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.01 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            navigateTo('/static/case-studies/CD-grace-period');
-                            trackEvent('Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
+                            navigateTo('/static/case-studies/savings-goals');
+                            trackEvent('Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
                         }}>
-                            <img src={gracePeriod} alt="CD grace period" delay = "0.01" />
+                            <img src={savingsGoals} alt="Savings goals" delay = "0.05" />
                             <div className="description">
-                                <div className="bold spacing-05">CD Grace Period</div>
-                                Reducing customer call volume by 20% through improvements to the customer experience.
+                                <div className='bold spacing-05'>Savings Goals</div>
+                                Helping customers build financial resilience through saving for tangible goals.
                                 <div className="tags">
                                     <ul className="left">
                                         <li>Product Design</li>
@@ -54,17 +54,17 @@ const CaseStudies = (props) => {
                         className="card"
                         initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.01 }}
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            navigateTo('/static/case-studies/savings-goals');
-                            trackEvent('Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
+                            navigateTo('/static/case-studies/CD-grace-period');
+                            trackEvent('Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
                         }}>
-                            <img src={savingsGoals} alt="Savings goals" delay = "0.05" />
+                            <img src={gracePeriod} alt="CD grace period" delay = "0.01" />
                             <div className="description">
-                                <div className='bold spacing-05'>Savings Goals</div>
-                                Helping customers build financial resilience through saving for tangible goals.
+                                <div className="bold spacing-05">CD Grace Period</div>
+                                Reducing customer call volume by 20% through improvements to the customer experience.
                                 <div className="tags">
                                     <ul className="left">
                                         <li>Product Design</li>

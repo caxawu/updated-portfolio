@@ -184,11 +184,13 @@ const CaseStudyGracePeriod = (props) => {
                 <div className="text-block">
                     <b>Experience audit</b>
                     <br />
-                    Once we realized that the lack of self-service features was only part of the problem, we took a step back to 
-                    assess the entire CD experience. We discovered that the confusion was stemming from content, hierarchy, and visual issues on the CD 
-                    management page. It was difficult for customers to see their CD status and available options—leading customers to mistakenly enter the 
-                    maturity options self-service flow, believing it was their grace period self-service flow. We determined that just adding in grace period 
-                    self-service functionality was not sufficient. We needed a redesign that prioritized clarity.
+                    Once we realized that the lack of self-service features was only part of the problem, we took a step back to assess the entire CD experience. 
+                    We discovered that the confusion was stemming from content, hierarchy, and visual issues on the CD management page. It was difficult for customers 
+                    to see their account status and available options—leading customers to mistakenly enter the wrong self-service flow. Key details such as 
+                    "Your 14-month CD matures on May 22, 2025" were buried in a paragraph that blended into the background of the page. Meanwhile, maturity options 
+                    which took up almost the entire page were presented in a stripped-down format that worked for experienced CD customers but left those who needed 
+                    more guidance unsure what to do next. We determined that just adding in grace period self-service functionality was not sufficient—we needed a 
+                    redesign that prioritized clarity.
                 </div>
                 <div className="text-block">
                     <b>Competitive analysis</b>
@@ -198,14 +200,19 @@ const CaseStudyGracePeriod = (props) => {
                     Capital One as well. So, when they went to their CD management page looking for grace period options, they engaged with the only self-service 
                     option available and mistakenly made changes to their CD’s maturity options thinking it was their CD’s grace period options.
                 </div>
+                <div className="full-caption">
+                    <div className="img-row-w-caption" id="blue3">
+                        <img id='smaller' src={orig} alt="original CD management page" loading="eager" />
+                    </div>
+                </div>
                 <div className="white-callout">
                     <div className="white-card">
                         <b >Research summary</b>
                         <div id="grace-deco" className="deco-white-callout"></div>
-                        In the old experience, customers lacked sufficient information about key CD dates, which often led them to forget to choose what should happen 
-                        to their CD before it matured. Although there was a 10-day grace period, options were limited. To make any changes, customers had to call 
-                        customer support, as no self-service options were available. Even still, the only change they could make was to close their account without 
-                        penalty, with no option to modify their CD term length.
+                        In the old experience, customers lacked sufficient information about key CD dates, which led them to forget to choose a maturity option for their 
+                        CD before it matured. Although there was a 10-day grace period, options were limited. To make any changes, customers had to call customer support, 
+                        as no self-service options were available. Even still, the only change they could make was to close their account without penalty, with no option 
+                        to modify their CD term length.
                         <div className='spacing-105'/>
                         The lack of clarity on the CD management page made matters worse. Customers would log in during the grace period to make changes to their current CD, 
                         when in reality, they were changing the settings for their next CD after the current term ended.
@@ -227,32 +234,22 @@ const CaseStudyGracePeriod = (props) => {
                     customers looking for grace period options are immediately guided to the right location, preventing misinterpretation and confusion.
                 </div>
                 <div className="full-caption">
-                    <div className="img-row-w-caption">
+                    <div className="img-row-w-caption" id="blue3">
                         <img id='smaller' src={banner} alt="grace period banner" loading="eager" />
                     </div>
                     <div id='smaller' className="caption">The grace period banner at the top of the page: attention-grabbing for those looking for it, but not intrusive for those who aren’t.</div>
                 </div>
+                
                 <div className="text-block">
-                    <b>Informational clarity</b>
+                    <b>Consolidating info</b>
                     <br />
-                    To reduce the reliance on the grace period in the first place, we evaluated the copy and hierarchy of the page. Several UX issues jumped out. Key details such as 
-                    "Your 14-month CD matures on May 22, 2025" were buried in a paragraph that blended into the background of the page. Meanwhile, maturity options which took up almost 
-                    the entire page were presented in a stripped-down format that worked for experienced CD customers but left those who needed more guidance unsure what to do next.
-                </div>
-                <div className="full-caption">
-                    <div className="img-row-w-caption">
-                        <img id='smaller' src={orig} alt="original CD management page" loading="eager" />
-                    </div>
-                    <div id='smaller' className="caption">The old design that needed a UX revamp.</div>
-                </div>
-                <div className="text-block">
                     Important information like APY, deposit amount, and estimated earnings were scattered across different pages, making it hard for customers to get a complete view of their 
                     account. Since the CD management page was the core of the experience, we made it the one-stop shop for all CD-related information. We consolidated all key details into one 
                     easy-to-read table and added a key dates timeline that let customers quickly see important milestones and understand if any action was needed.
                 </div>
 
                 <div className="full-caption">
-                    <div className="img-row-w-caption">
+                    <div className="img-row-w-caption" id="blue1">
                         <img id='smaller' src={tile} alt="grace period summary tile" loading="eager" />
                     </div>
                     <div id='smaller' className="caption">The new module containing all relevant CD information in one view.</div>
@@ -263,14 +260,13 @@ const CaseStudyGracePeriod = (props) => {
                     To create a more balanced and cohesive page, we adjusted the layout to evenly emphasize current account details against future maturity selections.
                 </div>
                 <div className="full-caption">
-                    <div className="img-row-w-caption">
+                    <div className="img-row-w-caption" id="blue3">
                         <div className='img-single'>
                             <img src={highlights} alt="grace period before and after" loading="eager" />
                         </div>
                         
                     </div>
-                    <div className="caption">Redistribution of emphasis from the old design (heavy emphasis on maturity details) to the new design (even emphasis 
-                        between current CD details and maturity details.)</div>
+                    <div className="caption">The updated design has more even emphasis on current CD details and future maturity options compared to the original.</div>
                 </div>
                 <div className="text-block">
                     <b>Considering the holistic experience</b>

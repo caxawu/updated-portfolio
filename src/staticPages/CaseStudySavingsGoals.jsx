@@ -249,7 +249,7 @@ const CaseStudySavingsGoals = (props) => {
                         <ul>
                             <li>How should the goals be funded? Automatically? How?</li>
                             <li>How many goals should customers be able to create?</li>
-                            <li>Do customers have to set an goal date or a goal amount?</li>
+                            <li>Do customers have to set a goal date or a goal amount?</li>
                             <li>What happens when they reach their goal? Can they increase the goal amount? </li>
                             <li>What if customers withdraw money from their savings? Can goals be “protected” or will a withdrawal take away from their goal progress?</li>
                         </ul>

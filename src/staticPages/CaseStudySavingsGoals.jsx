@@ -291,9 +291,9 @@ const CaseStudySavingsGoals = (props) => {
                         <br />
                         <b>Paycheck Percentage</b>
                         <br /><br />
-                        Scans checking account for a small amount to transfer to savings daily.
+                        Moves a percentage of your paycheck into savings whenever you get paid.
                         <div className="spacing-075" />
-                        <b>Example use case:</b> You want a new pair of shoes—you fund it with Autopilot and wait until you have enough to make your purchase.
+                        <b>Example use case:</b> You want to an emergency buffer—you set Paycheck Percentage to move 10% of each paycheck directly into this goal.
                     </div>
                 </div>
 

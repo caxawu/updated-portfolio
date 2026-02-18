@@ -1467,7 +1467,8 @@ a {
   gap: 1.5rem;
 
   .callout-card {
-    background-color: #F5E9CA;
+    background-color: #ffffff;
+    border: 3px solid #E5E5E5;
     flex: 1;
     padding: 2rem;
     border-radius: $corner-rounding;
@@ -1568,12 +1569,12 @@ a {
   .pie {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 32%;
     align-items: center;
     text-align: center;
 
     img {
-      width: 50%;
+      width: 40%;
       margin-bottom: 1rem;
     }
   }

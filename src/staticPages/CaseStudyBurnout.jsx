@@ -55,7 +55,7 @@ const CaseStudyBurnout = (props) => {
                     </ul>
                     <ul className="list">
                         <li className="bold">TIME</li>
-                        <li>20 Weeks</li>
+                        <li>20 weeks</li>
                     </ul>
                 </ul>
             </div>

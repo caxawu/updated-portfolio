@@ -109,7 +109,7 @@ const CaseStudyGracePeriod = (props) => {
                         </ul>
                         <ul className="list">
                             <li className="bold">TIME</li>
-                            <li>1 year</li>
+                            <li>4 months</li>
                         </ul>
                     </ul>
                 </div>

@@ -165,7 +165,7 @@ const InteractivePortfolio = () => {
             {/* Expense: ambient < hemisphere < directional */}
             {/* <directionalLight position={[2, 1, 1]} intensity={0}/> */}
             {/* <hemisphereLight skyColor="#FFFFFF" groundColor="#000000" intensity={1}/> */}
-            <ambientLight intensity={4.7} color="#ffffff" />
+            <ambientLight intensity={4.6} color="#ffffff" />
             <Room
               position={RoomPosition}
               scale={RoomScale}

@@ -31,7 +31,7 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
             title="embed"
             width="1000px"
             height="1350px" // Make it taller than the visible area
-            src="https://xinaicathywu.me/about"
+            src="https://xinaicathywu.me/static/about"
             style={{
               border: "none",
               position: "absolute",

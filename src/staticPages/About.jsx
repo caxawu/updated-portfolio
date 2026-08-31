@@ -1,4 +1,3 @@
-import NavBar from './NavBar';
 import Footer from './Footer';
 import { trackEvent } from './Analytics';
 
@@ -10,7 +9,6 @@ const About = () => {
 
   return (
     <div id="about-spacing"> 
-      <NavBar />
       <div className='content' id="about">
         <div className='about-section'>
           <FadeInImage className='about-img' src={profilePic} data-pin-nopin="true" alt='Profile picture' loading='eager' />
@@ -19,31 +17,20 @@ const About = () => {
               <div className='bio'>
                 <div className="outline-overlay"></div>
                 <div className='text-secondary'>about me</div>
-                Hi, I’m Cathy! I’m a designer who loves to chase my curiosity. By day,
-                I’m a UX designer tackling complex problems and transforming them into simple, meaningful experiences.
-                By night, I'm a serial hobbyist: sketching, cooking new recipes, or obsessing over getting the interactions just
-                right in my latest side project.
-                <br /><br />
-                I fell in love with design at Dartmouth College where I graduated with a degree in 
-                <span className='bold highlight-dark-pink'> Cognitive Science focused in Human-Computer Interaction</span> along with minors in
-                <span className='bold highlight-dark-pink'> Human-Centered Design</span> and
-                <span className='bold highlight-dark-pink'> Digital Arts</span>. I'm currently a
-                <span className='bold highlight-dark-pink'> product designer at Capital One.</span>
+                Hi, I’m Cathy! I’m a designer who loves following my curiosity. By day, I’m a product designer tackling complex problems and concepting thoughtful experiences. By night, I'm pursuing one of my many hobbies whether it’s sketching, testing new recipes, or working on my latest side project.
+                <div className='spacing-1'/>
+                I'm currently a <span className='bold highlight-dark-pink'>product designer at Capital One.</span> I graduated from Dartmouth College in 2021 with a degree in <span className='bold highlight-dark-pink'>Cognitive Science focused in Human-Computer Interaction</span> and minors in <span className='bold highlight-dark-pink'>Human-Centered Design</span> and <span className='bold highlight-dark-pink'>Digital Arts</span>.
               </div>
               </div>
               <div className='color-box' id="color2">
               <div className='bio'>
                 <div className="outline-overlay"></div>
                 <div className='text-secondary'>about my portfolio</div>
-                This journey started the way it does for most designers—with me unable to find the motivation to update my portfolio. I always struggled to fit 
-                my work within a traditional format, but something clicked when stumbled across other people's 3D portfolios.
-                <br /><br />
-                 I’ve always loved point-and-click puzzle games so I wanted to create something interactive that weaved 
-                 together my love for design, 3D modeling, and game design. The ideas were easy, the coding was not, but seeing the room 
-                 I concepted, designed, and developed come together made it well worth it. Most importantly, it gave me the motivation to finally write a 
-                 case study or two.
-                <br /><br />
-                I’ve had a lot of fun in the process. Thanks for taking the time to explore! ❤️
+                This portfolio came from wanting to create something interactive that weaved together my love for design, 3D modeling, game design, and building fun things. Inspired by lots of cool 3D portfolios, I decided to base mine on my own room—showcasing the different facets of me as a creative with my projects, artwork, and interests scattered around the room for people to explore.
+                <div className='spacing-1'/>
+                  I 3D modeled everything in Maya and pulled it into the browser with Three.js and React Three Fiber. Through lots of trial and error and re-renders, I added interactivity and polish to make the experience feel delightful.
+                <div className='spacing-1'/>
+                I had a lot of fun in the process, take a peek in!
               </div>
             </div>
           </div>
@@ -76,14 +63,14 @@ const About = () => {
                 </div>
               </div>
               <div className="swatch-box" id="box2">
-                I love taking on creative projects—this portfolio has scratched that itch for now, but next is making progress on my open-world VR game in Unity!
+                I love working on creative projects: Currently fixing bugs in my side project Mise.
                 <div className='labels' id="color-light">
-                  <b>tech shenanigans</b>
+                  <b>tinkerings</b>
                   <div>#AFE3DF</div>
                 </div>
               </div>
               <div className="swatch-box" id="box3">
-                I’m a huge foodie and I love to cook. Currently trying to maintain my 117 week Beli streak and making soymilk and tofu from scratch!
+                I’m a huge foodie and love to cook. I’m learning to navigate my tiny NYC kitchen and trying to not lose my 170 week Beli streak.
                 <div className='labels' id="color-dark">
                   <b>food adventures</b>
                   <div>#65AEB3</div>
@@ -91,7 +78,7 @@ const About = () => {
               </div>
               <div className="swatch-box" id="box4">
                 <div>
-                  Curious about my work or just want to say hi? Would love to chat!
+                  Curious about my work or want to say hi? I'd love to chat!
                   <div className='spacing-075' />
                   <ul>
                     <li><a href="Cathy Wu Resume.pdf"

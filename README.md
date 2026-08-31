@@ -1,8 +1,25 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+3D interactive portfolio site.
 
-Currently, two official plugins are available:
+Visitors can click into the 3D room and navigate around to explore projects, or go to the classic portfolio site.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Workflow:
+- Maya
+    - Models objects, texture, and light
+        - Add invisible hit boxes to objects
+    - Bake lighting and export to texture map (Render selection to texture)
+        - Compress texture map for performance
+    - Duplicate room and re-texture objects with baked lighting
+    - Combine objects for more efficient rendering (combined tex file)
+    - Export entire room as fbx
+- Convert
+    - Convert fbx to glb
+- React
+    - Pull in glb file
+    - Light room with GI
+    - Add interactivity on top through iFrame or mesh handler
+- Publishing
+    - Deploying to xinaicathywu.me through Netlify
+
+'npm run dev' to start dev environment.

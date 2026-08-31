@@ -390,7 +390,7 @@ const CaseStudySavingsGoals = (props) => {
                                     To help customers get started, we ran user testing on what people tended to save towards. This data was distilled into pre-selected options.
                                     These options make it easy for customers to set up a goal and help them frame what they might want to save for.
 
-                                    <div className='spacing-105' />
+                                    <div className='spacing-15' />
                                     Emergency fund is highlighted as the most prominent item since we wanted to help customers build financial resilience—though we do not force them
                                     into it. To build a savings habit, any saving is a step in the right direction. Even if its towards a vacation, the act of saving gets customers
                                     into the habit and more comfortable with financial management.
@@ -452,7 +452,7 @@ const CaseStudySavingsGoals = (props) => {
                     incorporates more of these items. Though we’re funding with percentage distributions, funding via rules remains the ideal experience. Other enhancements such as
                     goal dates, intelligent logic to help customers stay on track, and personalized recommendations based on a customer’s past savings behavior will push this
                     experience to the next level.
-                    <div className='spacing-105' />
+                    <div className='spacing-15' />
                     <b>Current status</b>
                     <br />
                     Working closely with product & tech, we detailed the behavior and edge cases of each screen. We polished end-to-end designs, behavior logic, and screen

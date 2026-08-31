@@ -53,7 +53,7 @@ const About = () => {
             </div>
           </div>
           <div className='to-static '>
-            <div className='highlight-pink text-secondary light'>Want to see my projects in a classic format?</div>
+            <div className='highlight-pink text-secondary light'>See my projects in a classic format</div>
             {/* <span className="link-button text-title" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
               Go to static portfolio
             </span> */}

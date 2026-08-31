@@ -10,38 +10,39 @@ const NavBar = () => {
     const linkRefs = useRef({});
     const containerRef = useRef(null);
 
-useEffect(() => {
-    const currentPath = location.pathname;
+// moving about to static pages
+// useEffect(() => {
+//     const currentPath = location.pathname;
 
-    // Try exact match first
-    let activeEntry = links.find(link => link.to === currentPath);
+//     // Try exact match first
+//     let activeEntry = links.find(link => link.to === currentPath);
 
-    // Then fall back to startsWith (if needed)
-    if (!activeEntry) {
-        activeEntry = links.find(link => currentPath.startsWith(link.to));
-    }
+//     // Then fall back to startsWith (if needed)
+//     if (!activeEntry) {
+//         activeEntry = links.find(link => currentPath.startsWith(link.to));
+//     }
 
-    if (!activeEntry) {
-        setUnderlineProps({ left: 0, width: 0 }); // Clear underline if no match
-        return;
-    }
+//     if (!activeEntry) {
+//         setUnderlineProps({ left: 0, width: 0 }); // Clear underline if no match
+//         return;
+//     }
 
-    const activeRef = linkRefs.current[activeEntry.to];
-    const containerRect = containerRef.current?.getBoundingClientRect();
+//     const activeRef = linkRefs.current[activeEntry.to];
+//     const containerRect = containerRef.current?.getBoundingClientRect();
 
-    if (activeRef && containerRect) {
-        const rect = activeRef.getBoundingClientRect();
-        setUnderlineProps({
-            left: rect.left - containerRect.left,
-            width: rect.width,
-        });
-    }
-}, [location]);
+//     if (activeRef && containerRect) {
+//         const rect = activeRef.getBoundingClientRect();
+//         setUnderlineProps({
+//             left: rect.left - containerRect.left,
+//             width: rect.width,
+//         });
+//     }
+// }, [location]);
 
-    const links = [
-        { to: '/', label: 'home' },
-        { to: '/about', label: 'about' },
-    ];
+    // const links = [
+    //     { to: '/', label: 'home' },
+    //     { to: '/about', label: 'about' },
+    // ];
 
     return (
         <div className="nav-bar" id="home-nav-bar">
@@ -49,7 +50,7 @@ useEffect(() => {
                 <div className="logo" onClick={() => navigateTo('/')} style={{ cursor: 'pointer' }}>
                     Xinai (Cathy) Wu
                 </div>
-                <div className="links-and-button">
+                {/* <div className="links-and-button">
                     <div className="nav-links">
                         <ul ref={containerRef}>
                             {links.map(({ to, label }) => (
@@ -67,7 +68,7 @@ useEffect(() => {
                             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                         />
                     </div>
-                </div>
+                </div> */}
 
             </div>
         </div>

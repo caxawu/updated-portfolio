@@ -38,7 +38,7 @@ const Footer = () => {
 
     const links = [
         { to: '/', label: 'home' },
-        { to: '/about', label: 'about' },
+        { to: '/static/about', label: 'about' },
     ];
 
     return (

@@ -213,7 +213,7 @@ const CaseStudyGracePeriod = (props) => {
                         CD before it matured. Although there was a 10-day grace period, options were limited. To make any changes, customers had to call customer support, 
                         as no self-service options were available. Even still, the only change they could make was to close their account without penalty, with no option 
                         to modify their CD term length.
-                        <div className='spacing-105'/>
+                        <div className='spacing-15'/>
                         The lack of clarity on the CD management page made matters worse. Customers would log in during the grace period to make changes to their current CD, 
                         when in reality, they were changing the settings for their next CD after the current term ended.
                     </div>
@@ -270,7 +270,7 @@ const CaseStudyGracePeriod = (props) => {
                 </div>
                 <div className="text-block">
                     <b>Considering the holistic experience</b>
-                    <div className='spacing-105'/>
+                    <div className='spacing-15'/>
                     <b>Extending capabilities to call center agents</b>
                     <br />
                     With customers able to self-service their grace period options, we focused on giving our customer support team the same tools in the internal support 

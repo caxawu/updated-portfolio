@@ -31,11 +31,11 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
             title="embed"
             width="1000px"
             height="1350px" // Make it taller than the visible area
-            src="https://xinaicathywu.me/static/mini-projects"
+            src="https://xinaicathywu.me/about"
             style={{
               border: "none",
               position: "absolute",
-              top: "-185px", // Push iframe up to crop top
+              top: "-100px", // Push iframe up to crop top
               left: 0
             }}
           />

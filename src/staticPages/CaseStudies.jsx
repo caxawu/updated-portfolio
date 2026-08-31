@@ -104,7 +104,7 @@ const CaseStudies = (props) => {
                     </motion.div>
                 </div>
 
-                <div className='spacing-105'/>
+                <div className='spacing-15'/>
 
                 <div className="portfolio-title text-title">
                     <div className='highlight-pink'>

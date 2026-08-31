@@ -28,10 +28,11 @@ function App() {
         <StartPageAtTop />
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="about" element={<About/>}/>
+          {/* <Route path="about" element={<About/>}/> */}
           <Route path="interactive" element={<InteractivePortfolio/>}/>
 
           <Route path="static" element={<StaticPortfolio />} >
+            <Route path="about" element={<About/>}/>
             <Route path="case-studies" element={<CaseStudies />} />
             <Route path="case-studies/CD-grace-period" element={<CaseStudyGracePeriod />} />
             <Route path="case-studies/savings-goals" element={<CaseStudySavingsGoals />} />

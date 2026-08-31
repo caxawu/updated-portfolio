@@ -32,10 +32,11 @@ const OtherProjects3D = ({currState, onScreenClick }) => {
             width="1000px"
             height="1350px" // Make it taller than the visible area
             src="https://xinaicathywu.me/static/about"
+            // src="http://localhost:5173/static/about"
             style={{
               border: "none",
               position: "absolute",
-              top: "-100px", // Push iframe up to crop top
+              top: "-120px", // Push iframe up to crop top
               left: 0
             }}
           />

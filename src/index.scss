@@ -1800,7 +1800,7 @@ a {
   .about-section {
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 2rem;
+    margin: 0 1rem;
 
     .about-img {
       margin: auto;
@@ -1844,23 +1844,34 @@ a {
     }
   }
 }
-
+//interactive portfolio screen
 @media only screen and (max-width: 1200px) {
   // about page
   #about {
     transform: translateX(0px) translateY(0px);
   }
   .about-section {
+    
     .about-img {
       margin: auto;
-      padding: 0 12rem;
-      width: 35%;
-      margin-bottom: 2rem;
+      padding: 0rem;
+      width: 50%;
+      margin: 0;
+      margin-left: -5rem;
+      margin-right: 0.5rem;
+      margin-top: -3rem;
+      order: 1;
+    }
+    .color-swatches {
+      margin-top: 3.5rem;
+      margin-bottom: 4rem;
+      order: 2;
     }
 
     .text-bounding-box {
       width: 90%;
-      margin-bottom: 4rem;
+      margin-bottom: 8rem;
+      order: 3;
     }
   }
 

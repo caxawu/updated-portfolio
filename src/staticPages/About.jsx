@@ -12,6 +12,7 @@ const About = () => {
       <div className='content' id="about">
         <div className='about-section'>
           <FadeInImage className='about-img' src={profilePic} data-pin-nopin="true" alt='Profile picture' loading='eager' />
+          
           <div className='text-bounding-box'>
             <div className='color-box' id="color1">
               <div className='bio'>
@@ -30,10 +31,11 @@ const About = () => {
                 <div className='spacing-1'/>
                   I 3D modeled everything in Maya and pulled it into the browser with Three.js and React Three Fiber. Through lots of trial and error and re-renders, I added interactivity and polish to make the experience feel delightful.
                 <div className='spacing-1'/>
-                I had a lot of fun in the process, take a peek in!
+                I had a lot of fun in the process, take a look around!
               </div>
             </div>
           </div>
+
           <div className='color-swatches'>
             <div className='swatch' id="decorative">
               <div className="swatch-box" id="box1" />
@@ -109,6 +111,7 @@ const About = () => {
               <div className='swatch-title'>Cathy's colors</div>
             </div>
           </div>
+          
         </div>
       </div>
       <Footer />  

@@ -28,7 +28,7 @@ const StaticNavBar = () => {
     }, [location]);
 
     const links = [
-        { to: '/static/case-studies', label: 'case studies' },
+        { to: '/static/projects', label: 'projects' },
         { to: '/static/artwork/3d-modeling', label: 'artwork' },
         { to: '/static/about', label: 'about' },
     ];

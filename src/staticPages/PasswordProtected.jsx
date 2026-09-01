@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { LoaderCircle, ArrowRight } from 'lucide-react';
-import PasswordIllustration from '../assets/images/caseStudies/password.png'
+import PasswordIllustration from '../assets/images/Projects/password.png'
 
 export default function PasswordProtected({ children }) {
   const [enteredPassword, setEnteredPassword] = useState('');
@@ -63,7 +63,7 @@ export default function PasswordProtected({ children }) {
               )}
             </button>
           </form>
-          <div className="pass-back-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+          <div className="pass-back-button" onClick={() => navigateTo('/static/projects')} style={{ cursor: 'pointer' }}>
             back to case studies
           </div>
         </div>

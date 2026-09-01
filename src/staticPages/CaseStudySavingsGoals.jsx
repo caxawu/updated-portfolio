@@ -4,30 +4,30 @@ import { ChevronDownIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 import PasswordProtected from './PasswordProtected';
 import FadeInImage from './FadeInImage';
 
-import goalsHeader from '../assets/images/caseStudies/goals/goals-header.png'
-import pie1 from '../assets/images/caseStudies/goals/pie1.png'
-import pie2 from '../assets/images/caseStudies/goals/pie2.png'
-import pie3 from '../assets/images/caseStudies/goals/pie3.png'
-import autopilot from '../assets/images/caseStudies/goals/autopilot.png'
-import recurring from '../assets/images/caseStudies/goals/recurring.png'
-import paycheck from '../assets/images/caseStudies/goals/paycheck.png'
-import percentageSplit from '../assets/images/caseStudies/goals/percentage-split.png'
-import goalsConcepts from '../assets/images/caseStudies/goals/goalsConcepts.png'
-import goalsGrayscales from '../assets/images/caseStudies/goals/goalsGrayscales.png'
-import setup1 from '../assets/images/caseStudies/goals/setup1.png'
-import setup2 from '../assets/images/caseStudies/goals/setup2.png'
-import setup3 from '../assets/images/caseStudies/goals/setup3.png'
-import setup4 from '../assets/images/caseStudies/goals/setup4.png'
-import funding1 from '../assets/images/caseStudies/goals/funding1.png'
-import funding2 from '../assets/images/caseStudies/goals/funding2.png'
-import funding3 from '../assets/images/caseStudies/goals/funding3.png'
-import manual1 from '../assets/images/caseStudies/goals/manual1.png'
-import manual2 from '../assets/images/caseStudies/goals/manual2.png'
-import goalSelect from '../assets/images/caseStudies/goals/goalSelect.png'
-import details from '../assets/images/caseStudies/goals/details.png'
-import hub from '../assets/images/caseStudies/goals/hub.png'
-import detailsComplete from '../assets/images/caseStudies/goals/detailsComplete.png'
-import hubComplete from '../assets/images/caseStudies/goals/hubComplete.png'
+import goalsHeader from '../assets/images/Projects/goals/goals-header.png'
+import pie1 from '../assets/images/Projects/goals/pie1.png'
+import pie2 from '../assets/images/Projects/goals/pie2.png'
+import pie3 from '../assets/images/Projects/goals/pie3.png'
+import autopilot from '../assets/images/Projects/goals/autopilot.png'
+import recurring from '../assets/images/Projects/goals/recurring.png'
+import paycheck from '../assets/images/Projects/goals/paycheck.png'
+import percentageSplit from '../assets/images/Projects/goals/percentage-split.png'
+import goalsConcepts from '../assets/images/Projects/goals/goalsConcepts.png'
+import goalsGrayscales from '../assets/images/Projects/goals/goalsGrayscales.png'
+import setup1 from '../assets/images/Projects/goals/setup1.png'
+import setup2 from '../assets/images/Projects/goals/setup2.png'
+import setup3 from '../assets/images/Projects/goals/setup3.png'
+import setup4 from '../assets/images/Projects/goals/setup4.png'
+import funding1 from '../assets/images/Projects/goals/funding1.png'
+import funding2 from '../assets/images/Projects/goals/funding2.png'
+import funding3 from '../assets/images/Projects/goals/funding3.png'
+import manual1 from '../assets/images/Projects/goals/manual1.png'
+import manual2 from '../assets/images/Projects/goals/manual2.png'
+import goalSelect from '../assets/images/Projects/goals/goalSelect.png'
+import details from '../assets/images/Projects/goals/details.png'
+import hub from '../assets/images/Projects/goals/hub.png'
+import detailsComplete from '../assets/images/Projects/goals/detailsComplete.png'
+import hubComplete from '../assets/images/Projects/goals/hubComplete.png'
 
 import ToTopButton from './ToTopButton';
 import Footer from './Footer';
@@ -42,7 +42,7 @@ const CaseStudySavingsGoals = (props) => {
         <div className="content-case-study">
             <ToTopButton />
             <div id="goals-top-background" className="top-card">
-                <div className="back-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+                <div className="back-button" onClick={() => navigateTo('/static/projects')} style={{ cursor: 'pointer' }}>
                     <ChevronLeftIcon className="chevron" />
                     <div className='back-text'>back</div>
                 </div>
@@ -54,7 +54,7 @@ const CaseStudySavingsGoals = (props) => {
                         Helping customers build financial resilience and jumpstart a healthy savings habit.
                         Savings goals creates purpose and makes saving feel attainable as customers work towards a tangible goal.
                         <div className="spacing-075" />
-                        Currently set to launch in Q3 2025 with an associate pilot followed by rollout to 100% of customers.
+                        Rolling out to 100% of customers with early results showing 42% of customers have completed goals and 80% have graduated to another savings tool.
                     </div>
                 </div>
                 <div className="header-img" id="align-center">
@@ -68,9 +68,7 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">THE PROBLEM</div>
                         <div className="text-block">
-                            “Saving” can be incredible amorphous and daunting. Many people feel like they <i>should</i> be saving money,
-                            but don’t know to. Between feeling like they don’t have the means to save and not knowing how to begin,
-                            many end up not saving at all.
+                            Saving can be incredible amorphous and daunting. Many people feel like they should be saving money, but don’t know to. Between feeling like they don’t have the means to save and not knowing how to begin, many end up not saving at all.
                             <div className="spacing-075" />
                             <b className="highlight-blue">The goal:</b> Make saving money feel tangible so customers actually start
                             saving and start building their financial resiliency.
@@ -79,10 +77,7 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">CONTEXT</div>
                         <div className="text-block">
-                            Our research has shown that just $400 in savings allows most people to bounce back from an unexpected
-                            financial challenge—forming our definition of financial resilience. 58% of customers who primarily bank with
-                            Capital One have less than $400 across all bank accounts. Of those with savings accounts, 40% have
-                            less than $100 in the account.
+                            Our research has shown that just $400 in savings allows most people to bounce back from an unexpected financial challenge (our definition of financial resilience). 58% of customers who primarily bank with Capital One have less than that across all bank accounts. 40% of those with savings accounts have less than $100 in the account. 
                         </div>
                     </div>
                     <div className="summary-section">
@@ -97,9 +92,9 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">IMPACT</div>
                         <div className="text-block">
-                            <b className="highlight-blue">For our customers</b> Savings goals brings clarity and meaning to saving by helping customers visualize what they are working towards. Framing savings as tangible goals gets customers past the intimidation of not knowing how to get started. As they work towards their goal, users start building a savings habit that gets them closer to financial resiliency.
+                            <b className="highlight-blue">For our customers</b> Savings goals brings clarity and meaning to saving by helping customers visualize what they are working towards. Framing savings as tangible goals gets customers past the intimidation of not knowing how to get started. As they work towards their goal, users start <b>building a savings habit that gets them closer to financial resiliency.</b>
                             <div className="spacing-075" />
-                            <b className="highlight-blue">For the business:</b> As customers use this feature, they become a more engaged user base who become more likely to explore other features we offer. They also become more likely to open additional bank or card accounts—further deepen their primary banking relationship with Capital One. Creating a new tool to help customers save also leads to increased customer satisfaction and higher net promoter scores.
+                            <b className="highlight-blue">For the business:</b> As customers use this feature, they become a <b>more engaged user base</b> who become more likely to explore other features we offer. They also become more likely to <b>open additional bank or card accounts</b>—further <b>deepening their primary banking relationship</b> with Capital One. Creating a new tool to help customers save also leads to <b>increased customer satisfaction and higher net promoter scores.</b>
                         </div>
                     </div>
                 </div>
@@ -239,7 +234,7 @@ const CaseStudySavingsGoals = (props) => {
                 <div id="goals-deco" />
                 <div className="section-title text-secondary">design</div>
                 <div className="text-block">
-                    We began with a broad set of questions, from big experiential challenges to small interaction details. Each question carried its own set of implications and sparked even more questions. We ultimately focused on the one with the greatest impact across the entire experience: funding a goal.
+                    I began with a broad set of questions, from big experiential challenges to small interaction details. Each question carried its own set of implications and sparked more questions. I ultimately focused on the one with the greatest impact across the entire experience: funding a goal.
                 </div>
 
                 <div className="white-callout">
@@ -260,7 +255,8 @@ const CaseStudySavingsGoals = (props) => {
                 <div className="text-block">
                     <b className='highlight-blue'>Goal funding</b>
                     <div className="spacing-075" />
-                    As a guiding principle, we wanted to automate as much as possible to lower the barrier of entry for customers unfamiliar with saving. We moved forward with two concepts: rules-funding and percentage-funding.
+                    
+As a guiding principle on the Automatic Savings team, we wanted to automate as much as possible to lower the barrier of entry for customers unfamiliar with saving. So, I moved forward with two concepts: rules-funding and percentage-funding.
                 </div>
                 <div className="text-block">
                     <b>Funding via savings rules</b>
@@ -300,7 +296,7 @@ const CaseStudySavingsGoals = (props) => {
                 <div className="text-block">
                     <b>Funding via parcentage distribution</b>
                     <br />
-                    We explored percentage distribution as another method of automatic goal funding as early conversations with product and tech indicated that this might be the easier build. Whenever money entered your savings account, it would be distributed to your goals according to percentages you set.
+                    I explored percentage distribution as another method of automatic goal funding as early conversations with product and tech indicated that this might be the easier build. Whenever money entered your savings account, it would be distributed to your goals according to percentages you set.
                 </div>
                 <div className="callout-cards">
                     <div className="callout-card" id="white-callout">
@@ -310,7 +306,7 @@ const CaseStudySavingsGoals = (props) => {
                 <div className="text-block">
                     <b>Concept testing</b>
                     <br />
-                    In early concept testing, we determined that rules was the ideal experience. Savings rules tested considerably better. It was simpler, easy-to-understand, and matched customers’ mental models of saving.
+                    In early concept testing, we determined that funding via savings rules was the ideal experience. It tested considerably better.: it was simpler, easy-to-understand, and matched customers’ mental models of saving.
                 </div>
                 <div className="full-caption">
                     <div className="img-row-w-caption">
@@ -323,13 +319,13 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="white-card">
                         <b >Tech constraints</b>
                         <div id="goals-deco" className="deco-white-callout"></div>
-                        As we pursued rules-funding further, we discovered that while it was ideal, it was not feasible for MVP. Linking savings rules to goals would significantly increase the build time and consequently, the time to market as it required a new data tag and coordination with multiple tech teams to tag transaction properly for us to access the right data.
+                        As I pursued rules-funding further, the team discovered that while it was ideal, it was not feasible for MVP. Linking savings rules to goals would significantly increase the build time and consequently, the time to market. It required a new data tag and coordination with multiple tech teams to tag transaction properly for us to access the right data.
                         <br /><br />
-                        Working with our product and tech partners, we determined that we needed to pivot and deliver automation through percentage-funding instead.
+                        Working with my product and tech partners, we determined that we needed to pivot and deliver automation through percentage-funding instead.
                     </div>
                 </div>
                 <div className='text-block'>
-                    The biggest challenge became how to make percentages simple and easy to understand. The value of automatic funding was to make saving easier, so we had to ensure it didn’t become a barrier or create more work for customers. Through multiple rounds of user testing and iterations, we landed on a solution. By default, we’d distribute money coming into a savings account evenly into every goal, but the customers could still change the percentages as they see fit.
+                    The biggest challenge was how to make percentages simple and easy to understand. The value of automatic funding was to make saving easier. What we built couldn’t be a barrier or create more work for customers. Through multiple rounds of user testing and iterations, I landed on a solution. By default, we’d distribute money coming into a savings account evenly into every goal, but the customers could still change the percentages as they see fit. 
                 </div>
 
                 <div className="full-caption">
@@ -340,7 +336,7 @@ const CaseStudySavingsGoals = (props) => {
                 </div>
 
                 <div className='text-block'>
-                    Truing back to our goal of getting customers to start saving, we placed emphasis on goal creation. <b>Funding was our main challenge. For customers, it should be nearly invisible.</b> So, setting up a goal consisted of only 3 screens followed by a success screen. The only nod to funding was on the success screen—stating that the goal would be funded automatically, but you have the option to customize.
+                    Truing back to our goal of getting customers to start saving, I placed emphasis on goal creation. <b>Funding was our main challenge. For customers, it should be nearly invisible.</b> So, setting up a goal consisted of only 3 screens followed by a success screen. The only nod to funding was on the success screen—stating that the goal would be funded automatically, but you have the option to customize.
                 </div>
 
 
@@ -365,8 +361,7 @@ const CaseStudySavingsGoals = (props) => {
                     <div className="caption">Editing the default percentage distribution to a custom distribution.</div>
                 </div>
                 <div className='text-block'>
-                    To give customers even more control, we added manual money movement. Customers could move money from their unallocated funds (money in their savings account notn a goal) into
-                    any goal of choice—allowing customers the ability to jumpstart goals and have more flexibility over their money,
+                    For additional flexibility, I added manual money movement. Customers could move money from their unallocated funds (money in their savings account not in a goal) into any goal of choice—allowing customers the ability to jumpstart goals and have more control over their money,
                 </div>
                 <div className="full-caption" id="goals-setup">
                     <div className="img-row-w-caption" id="blue3">
@@ -387,13 +382,10 @@ const CaseStudySavingsGoals = (props) => {
                                 <div className='body'>
                                     <b>What to prioritize?</b>
                                     <br />
-                                    To help customers get started, we ran user testing on what people tended to save towards. This data was distilled into pre-selected options.
-                                    These options make it easy for customers to set up a goal and help them frame what they might want to save for.
+                                    To help customers get started, I ran user testing on what people tended to save for and distilled this data into pre-selected options. These options make it easy for customers to set up a goal and help them frame what they might want to save for. 
 
                                     <div className='spacing-15' />
-                                    Emergency fund is highlighted as the most prominent item since we wanted to help customers build financial resilience—though we do not force them
-                                    into it. To build a savings habit, any saving is a step in the right direction. Even if its towards a vacation, the act of saving gets customers
-                                    into the habit and more comfortable with financial management.
+                                    Emergency fund is highlighted as the most prominent item: we want to help customers build financial resilience, but we don’t force them into it. To build a savings habit, any saving is a step in the right direction. Even if it’s towards a vacation, the act of saving gets customers into the habit and more comfortable with financial management.
                                 </div>
                             </div>
                         </div>
@@ -429,8 +421,7 @@ const CaseStudySavingsGoals = (props) => {
                                 <div className='body'>
                                     <b>Celebration to acknowledge achievement</b>
                                     <br />
-                                    Celebration was an important moment. Once a goal is completed, we use confetti and congratulatory messaging to acknowledge and emphasize the achievement.
-                                    With the feeling that you’ve not only saved, but completed your goal of saving a particular amount, we urge customers to make saving not just a one-time thing, but a continued habit.
+                                    Celebration was an important moment. I wanted to emphasize the achievement: that customers have not only saved, but completed their goal. Confetti and congratulatory messaging acknowledges this achievement, extrinsically motivating the customer and urging them to make saving not just a one-time thing, but a continued habit.
                                 </div>
                             </div>
                         </div>
@@ -446,18 +437,17 @@ const CaseStudySavingsGoals = (props) => {
                 <div id="goals-deco" />
                 <div className="section-title text-secondary">implementation & next steps</div>
                 <div className="text-block">
-                    <b>The idea parking lot</b>
+                    <b>Future refinement</b>
                     <br />
-                    Throughout the process we generated many ideas that fell outside the scope of MVP. Post-launch, we are working towards the destination state that
-                    incorporates more of these items. Though we’re funding with percentage distributions, funding via rules remains the ideal experience. Other enhancements such as
-                    goal dates, intelligent logic to help customers stay on track, and personalized recommendations based on a customer’s past savings behavior will push this
-                    experience to the next level.
+                    Throughout the process, many ideas that fell outside the scope of MVP. Though we’re funding with percentage distributions, funding via rules remains the ideal experience. Other enhancements such as goal dates, intelligent logic to help customers stay on track, and personalized recommendations based on a customer’s past savings behavior will push this experience to the next level.
+                    <div className='spacing-15' />
+                    <b>Handoff</b>
+                    <br />
+                    Working closely with product & tech, I detailed the behavior and edge cases of each screen and polished end-to-end designs, behavior logic, and screen interactions before handing off the documentation to the tech team. 
                     <div className='spacing-15' />
                     <b>Current status</b>
                     <br />
-                    Working closely with product & tech, we detailed the behavior and edge cases of each screen. We polished end-to-end designs, behavior logic, and screen
-                    interactions before handing off the documentation to the tech team. The build is currently underway, set to finish in Q3 2025. We will launch with an associate
-                    pilot followed by a customer pilot before rolling out to all customers.
+                    42% of customers who started using this feature have completed goals and 80% of customers who used goals have graduated to another savings tool, validating the hypothesis that savings goals helped them kickstart their savings journey towards financial resiliency. As this feature continues to roll out, we are measuring metrics like feature usage, graduation to other savings tools, average savings account balance, PBR growth, and net promoter scores.
                 </div>
             </div>
             <Footer />

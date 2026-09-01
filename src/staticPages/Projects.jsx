@@ -5,23 +5,24 @@ import Footer from './Footer';
 
 import { motion } from "framer-motion";
 
-import burnout from '../assets/images/caseStudies/burnoutCover.png'
-import gracePeriod from '../assets/images/caseStudies/gracePeriodCover.png'
-import savingsGoals from '../assets/images/caseStudies/savingsGoalsCover.png'
-import anivision from '../assets/images/caseStudies/anivisionCover.png'
-import spaces from '../assets/images/caseStudies/spacesCover.png'
+import burnout from '../assets/images/Projects/burnoutCover.png'
+import gracePeriod from '../assets/images/Projects/gracePeriodCover.png'
+import savingsGoals from '../assets/images/Projects/savingsGoalsCover.png'
+import mise from '../assets/images/Projects/miseCover.png'
+import anivision from '../assets/images/Projects/anivisionCover.png'
+import spaces from '../assets/images/Projects/spacesCover.png'
 
 
-const CaseStudies = (props) => {
+const Projects = (props) => {
     const navigateTo = useNavigate();
 
     return (
         <div id='case-studies-spacing'>
             <div className="content">
                 <div className="portfolio-title text-title">
-                    <div className='highlight-pink'>
+                    {/* <div className='highlight-pink'>
                         web/mobile
-                    </div>
+                    </div> */}
                 </div>
                 <div className="portfolio-row">
                     <motion.div
@@ -32,36 +33,10 @@ const CaseStudies = (props) => {
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            navigateTo('/static/case-studies/savings-goals');
-                            trackEvent('Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
-                        }}>
-                            <img src={savingsGoals} alt="Savings goals" delay = "0.05" />
-                            <div className="description">
-                                <div className='bold spacing-05'>Savings Goals</div>
-                                Helping customers build financial resilience through saving for tangible goals.
-                                <div className="tags">
-                                    <ul className="left">
-                                        <li>Product Design</li>
-                                    </ul>
-                                    <ul className="right">
-                                        <li>Capital One</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="card"
-                        initial={{ opacity: 0, y: 25 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.01 }}
-                        >
-                        <div className="card-tile" 
-                        onClick={() => {
-                            navigateTo('/static/case-studies/CD-grace-period');
+                            navigateTo('/static/projects/CD-grace-period');
                             trackEvent('Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
                         }}>
-                            <img src={gracePeriod} alt="CD grace period" delay = "0.01" />
+                            <img src={gracePeriod} alt="CD grace period" delay = "0.05" />
                             <div className="description">
                                 <div className="bold spacing-05">CD Grace Period</div>
                                 Reducing customer call volume by 20% through improvements to the customer experience.
@@ -84,7 +59,33 @@ const CaseStudies = (props) => {
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            navigateTo('/static/case-studies/clinician-burnout');
+                            navigateTo('/static/projects/savings-goals');
+                            trackEvent('Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
+                        }}>
+                            <img src={savingsGoals} alt="Savings goals" delay = "0.1" />
+                            <div className="description">
+                                <div className='bold spacing-05'>Savings Goals</div>
+                                Helping customers build financial resilience through saving for tangible goals.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>Product Design</li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>Capital One</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                    {/* <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                        >
+                        <div className="card-tile" 
+                        onClick={() => {
+                            navigateTo('/static/projects/clinician-burnout');
                             trackEvent('Portfolio/Burnout', 'Burnout Click', 'Portfolio Nav');
                         }}>
                             <img src={burnout} alt="Clinician burnout" delay = "0.1" />
@@ -101,16 +102,16 @@ const CaseStudies = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
 
                 <div className='spacing-15'/>
 
-                <div className="portfolio-title text-title">
+                {/* <div className="portfolio-title text-title">
                     <div className='highlight-pink'>
                         VR
                     </div>
-                </div>
+                </div> */}
                 <div className="portfolio-row">
                     <motion.div
                         className="card"
@@ -120,20 +121,21 @@ const CaseStudies = (props) => {
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            navigateTo('/static/case-studies/anivision');
-                            trackEvent('Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
+                            // navigateTo('/static/projects/mise');
+                            trackEvent('Portfolio/Mise', 'Mise Click', 'Portfolio Nav');
                         }}>
-                            <img src={anivision} alt="Anivision" delay = "0.15" />
+                            <img src={mise} alt="Mise" delay = "0.15" />
                             <div className="description">
-                                <div className='bold spacing-05'>Anivision</div>
-                                Learn in an experiential and delightful way by exploring the world through the eyes of an animal.
+                                <div className='bold spacing-05'>Mise</div>
+                                A social cooking notebook app, built with Claude Code.
+                                <br/><br/>
                                 <div className="tags">
                                     <ul className="left">
                                         <li>Design & Development</li>
                                         <li></li>
                                     </ul>
                                     <ul className="right">
-                                        <li>DALI Lab</li>
+                                        <li>Mobile, AI</li>
                                     </ul>
                                 </div>
                             </div>
@@ -147,19 +149,46 @@ const CaseStudies = (props) => {
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            navigateTo('/static/case-studies/spaces');
+                            navigateTo('/static/projects/anivision');
+                            trackEvent('Portfolio/Anivision', 'Anivision Click', 'Portfolio Nav');
+                        }}>
+                            <img src={anivision} alt="Anivision" delay = "0.2" />
+                            <div className="description">
+                                <div className='bold spacing-05'>Anivision</div>
+                                Learning in an experiential and delightful way by exploring the world through the eyes of an animal.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>Design & Development</li>
+                                        <li></li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>VR</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
+                        >
+                        <div className="card-tile" 
+                        onClick={() => {
+                            navigateTo('/static/projects/spaces');
                             trackEvent('Portfolio/Spaces', 'Spaces Click', 'Portfolio Nav');
                         }}>
-                            <img src={spaces} alt="Spaces" delay = "0.2" />
+                            <img src={spaces} alt="Spaces" delay = "0.25" />
                             <div className="description">
                                 <div className='bold spacing-05'>Spaces</div>
-                                A VR perspective puzzle game set in an impossible space based on M.C. Escher’s “Relativity” drawing.
+                                <div>A VR perspective puzzle game set in an impossible space based on M.C. Escher’s drawing <i>Relativity.</i></div>
                                 <div className="tags">
                                     <ul className="left">
                                         <li>Design</li>
                                     </ul>
                                     <ul className="right">
-                                        <li>Digital Arts Capstone</li>
+                                        <li>VR</li>
                                     </ul>
                                 </div>
                             </div>
@@ -173,4 +202,4 @@ const CaseStudies = (props) => {
     );
 };
 
-export default CaseStudies;
+export default Projects;

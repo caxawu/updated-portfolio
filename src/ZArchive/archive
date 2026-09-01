@@ -244,7 +244,7 @@ export default Home
               <mesh name="screen1" ref={handleMeshRef} geometry={nodes.monitor1Shape.geometry} material={materials.m_blackFlat} />
               <mesh name="screen1" ref={handleMeshRef} geometry={nodes.monitor1Shape_1.geometry} material={materials.m_whiteMonitorBaked} />
               <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.1, 327]} transform occlude>
-                <CaseStudies onScreenClick={handleScreenClick} currState={currState} />
+                <Projects onScreenClick={handleScreenClick} currState={currState} />
               </Html>
             </group>
             <group name="monitor2">

@@ -7,8 +7,8 @@ import FadeInImage from './FadeInImage';
 import ToTopButton from './ToTopButton';
 import Footer from './Footer';
 
-import mobileHeader from '../assets/images/caseStudies/burnout/burnoutTopBackgroundMobile.png';
-import clinicianBurnout from '../assets/images/caseStudies/burnout/clinicianBurnout.png';
+import mobileHeader from '../assets/images/projects/burnout/burnoutTopBackgroundMobile.png';
+import clinicianBurnout from '../assets/images/projects/burnout/clinicianBurnout.png';
 
 
 const CaseStudyBurnout = (props) => {
@@ -19,7 +19,7 @@ const CaseStudyBurnout = (props) => {
         <div className="content-case-study">
             <ToTopButton />
             <div id="burnout-top-background" className="top-card">
-                <div className="back-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+                <div className="back-button" onClick={() => navigateTo('/static/projects')} style={{ cursor: 'pointer' }}>
                     <ChevronLeftIcon className="chevron" /> 
                     <div className='back-text'>back</div>
                 </div>

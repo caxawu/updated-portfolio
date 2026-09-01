@@ -1,4 +1,4 @@
-const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
+const Projects3D = ({ currState, onScreenClick, iframeSrc }) => {
 
   const handleClickVariable = () => {
     onScreenClick('screen1');
@@ -47,4 +47,4 @@ const CaseStudies3D = ({ currState, onScreenClick, iframeSrc }) => {
   )
 }
 
-export default CaseStudies3D
+export default Projects3D

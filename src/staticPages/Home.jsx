@@ -53,11 +53,11 @@ const About = () => {
             </div>
           </div>
           <div className='to-static '>
-            <div className='highlight-pink text-secondary light'>See my projects in a classic format</div>
-            {/* <span className="link-button text-title" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+            <div className='highlight-pink text-secondary light'>See my projects in a classic format instead</div>
+            {/* <span className="link-button text-title" onClick={() => navigateTo('/static/projects')} style={{ cursor: 'pointer' }}>
               Go to static portfolio
             </span> */}
-            <div className="nav-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+            <div className="nav-button" onClick={() => navigateTo('/static/projects')} style={{ cursor: 'pointer' }}>
                         Go to static portfolio
                     </div>
           </div>
@@ -74,7 +74,7 @@ const About = () => {
           <div className='labels'>
             <div className='label'>
               <span className='highlight-pink text-title spacing-05'>see my projects in 2D</span>
-              <div className="nav-button" onClick={() => navigateTo('/static/case-studies')} style={{ cursor: 'pointer' }}>
+              <div className="nav-button" onClick={() => navigateTo('/static/projects')} style={{ cursor: 'pointer' }}>
                 go to static portfolio
               </div>
             </div>

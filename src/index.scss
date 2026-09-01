@@ -34,6 +34,18 @@ html {
   // scroll-behavior: smooth;
 }
 
+// Always reserve the scrollbar gutter so page width stays constant between
+// routes that scroll (e.g. /static/projects) and ones that don't (e.g. /).
+// Without this the centered nav content shifts sideways by the scrollbar width.
+html {
+  scrollbar-gutter: stable;
+}
+
+// The interactive room is full-bleed (100vw); don't reserve a gutter there.
+html:has(.room-and-paper) {
+  scrollbar-gutter: auto;
+}
+
 #mobile {
   display: none;
 }
@@ -206,6 +218,7 @@ a {
   min-height: 53rem;
   justify-content: center;
   align-items: center;
+  margin-top: -2rem;
   margin-left: 3rem;
   padding: 0 3rem; //affects smaller screen sizes
   overflow: hidden;
@@ -373,7 +386,7 @@ a {
   border: 2px solid $escher-purple;
   transition: background-color 0.25s ease;
   border-radius: 8px;
-  height: 2.8rem;
+  height: 2.7rem;
   font-weight: $font-weight-med;
 }
 
@@ -610,12 +623,12 @@ a {
 
 #static-nav-bar {
   background: #FFFFFF;
-  box-shadow: $dropshadow;
+  border-bottom: 1px solid $highlight-link;
 }
 
 // static portfolio nav bar
 .nav-bar {
-  min-height: 4rem;
+  min-height: 3rem;
   padding: 1em 6rem;
   overflow: hidden;
 
@@ -623,6 +636,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin: auto;
     max-width: 96rem;
 
@@ -657,6 +671,7 @@ a {
         list-style-type: none;
         width: 100%;
         gap: 6rem;
+        margin: 0;
 
         li>a {
           display: flex;
@@ -1088,9 +1103,10 @@ a {
   max-width: 96rem;
 
   iframe {
-    width: 100%;
+    width: 92%;
     height: auto;
     aspect-ratio: 16/9;
+    padding: 0 4rem;
   }
 }
 
@@ -1225,14 +1241,14 @@ a {
 }
 
 #burnout-top-background {
-  background-image: url(./assets/images/caseStudies/burnout/burnoutTopBackground.png);
+  background-image: url(./assets/images/Projects/burnout/burnoutTopBackground.png);
   background-size: cover;
   background-position: center;
   background-color: #f0f0f0;
 }
 
 #spaces-top-background {
-  background-image: url(./assets/images/caseStudies/spaces/spacesTopBackground.png);
+  background-image: url(./assets/images/Projects/spaces/spacesTopBackground.png);
   background-size: cover;
   background-position: center;
   background-color: #f0f0f0;
@@ -1339,6 +1355,7 @@ a {
   flex-direction: row;
   align-items: flex-start;
   gap: 3vw;
+  padding: 0 4rem;
 }
 
 .secondary-info {
@@ -1393,6 +1410,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 16px;
+  padding: 0 4rem;
   padding-top: 3rem;
 }
 
@@ -1420,7 +1438,7 @@ a {
 
 .detail-section {
   margin-bottom: 96px;
-
+  padding: 0 4rem;
   .section-title {
     padding-top: 0.75rem;
     margin-bottom: 1rem;
@@ -1456,7 +1474,7 @@ a {
 
 .text-callout {
   margin: auto;
-  // width: 75%;
+  width: 75%;
   text-align: center;
   font-weight: 600;
   font-size: 1.25rem;
@@ -2167,6 +2185,7 @@ a {
 
   .content-case-study {
     padding: 0 32px;
+    background-color: red;
     iframe {
      width: 100%;
     }

@@ -31,7 +31,7 @@ const VRSpaces3D = ({currState, onScreenClick }) => {
             title="embed"
             width="100%"
             height="900" // Make it taller than the visible area
-            src="https://unrivaled-lebkuchen.netlify.app/static/case-studies/spaces"
+            src="https://unrivaled-lebkuchen.netlify.app/static/projects/spaces"
             style={{
               border: "none",
               position: "absolute",

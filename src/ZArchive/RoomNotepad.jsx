@@ -12,7 +12,7 @@ import keyClickSound from "../assets/audio/key-click2.mp3";
 import ambientSound from "../assets/audio/birds3.mp3";
 
 import roomScene from '../assets/3d/deskFinal3.glb'
-import CaseStudies from './CaseStudies3D';
+import Projects from './Projects3D';
 import MiniPlayer from './MiniPlayer3D';
 import AnimPlayer from './AnimPlayer3D';
 import ModelsScreen from './ModelsScreen3D';
@@ -42,7 +42,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
   const [imgState, setImgState] = useState('none');
   const [animState, setAnimState] = useState('none');
   const [isArrowPressed, setIsArrowPressed] = useState(false);
-  const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/case-studies");    // set screen1 when clicking VR buttons
+  const [iframeSrc, setIframeSrc] = useState("https://unrivaled-lebkuchen.netlify.app/static/projects");    // set screen1 when clicking VR buttons
 
   const particleSystemRef = useRef();
   const clickAudioRef = useRef(null);
@@ -258,7 +258,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
           setCurrState('screen1');
           setIframeSrc("");
           setTimeout(() => {
-            setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/spaces");
+            setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/projects/spaces");
           }, 50); // Small delay
         } else if (INTERSECTED.name == 'anivision') {
           setFocusState('anivision');
@@ -267,7 +267,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
           setCurrState('screen1');
           setIframeSrc("");
           setTimeout(() => {
-            setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/case-studies/anivision");
+            setIframeSrc("https://unrivaled-lebkuchen.netlify.app/static/projects/anivision");
           }, 50); // Small delay
         }
         else if (INTERSECTED.name == 'corkboard') {
@@ -424,7 +424,7 @@ const Room = ({ updateCameraPosition, updateCameraLookAt, defaultCamera, setFocu
                   material={materials.m_whiteMonitorBaked}
                 />
                 <Html scale={2} rotation-y={-Math.PI} position={[-91.4, 126.5, 326.5]} transform occlude>
-                  <CaseStudies onScreenClick={handleScreenClick} currState={currState} iframeSrc={iframeSrc} />
+                  <Projects onScreenClick={handleScreenClick} currState={currState} iframeSrc={iframeSrc} />
                 </Html>
               </group>
               <group name="monitor2">

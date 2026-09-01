@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { LoaderCircle, ArrowRight } from 'lucide-react';
-import PasswordIllustration from '../assets/images/Projects/password.png'
+import PasswordIllustration from '../assets/images/projects/password.png'
 
 export default function PasswordProtected({ children }) {
   const [enteredPassword, setEnteredPassword] = useState('');

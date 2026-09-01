@@ -5,12 +5,12 @@ import Footer from './Footer';
 
 import { motion } from "framer-motion";
 
-import burnout from '../assets/images/Projects/burnoutCover.png'
-import gracePeriod from '../assets/images/Projects/gracePeriodCover.png'
-import savingsGoals from '../assets/images/Projects/savingsGoalsCover.png'
-import mise from '../assets/images/Projects/miseCover.png'
-import anivision from '../assets/images/Projects/anivisionCover.png'
-import spaces from '../assets/images/Projects/spacesCover.png'
+import burnout from '../assets/images/projects/burnoutCover.png'
+import gracePeriod from '../assets/images/projects/gracePeriodCover.png'
+import savingsGoals from '../assets/images/projects/savingsGoalsCover.png'
+import mise from '../assets/images/projects/miseCover.png'
+import anivision from '../assets/images/projects/anivisionCover.png'
+import spaces from '../assets/images/projects/spacesCover.png'
 
 
 const Projects = (props) => {

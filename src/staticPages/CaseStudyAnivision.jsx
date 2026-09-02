@@ -102,7 +102,7 @@ const CaseStudyAnivision = (props) => {
                             <li id='mobile'>Designer, Developer, Project Manager</li>
                         </ul>
                         <ul className="list">
-                            <li className="bold">TIME</li>
+                            <li className="bold">YEAR</li>
                             <li>2019-2024</li>
                         </ul>
                     </ul>
@@ -121,7 +121,7 @@ const CaseStudyAnivision = (props) => {
                             <li id='mobile'>Designer, Developer, Project Manager</li>
                         </ul>
                         <ul className="list">
-                            <li className="bold">TIME</li>
+                            <li className="bold">YEAR</li>
                             <li>2019-2024</li>
                         </ul>
                     </ul>

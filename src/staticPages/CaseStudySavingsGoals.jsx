@@ -110,8 +110,8 @@ const CaseStudySavingsGoals = (props) => {
                             <li>Lead Product Designer</li>
                         </ul>
                         <ul className="list">
-                            <li className="bold">TIME</li>
-                            <li>1 year</li>
+                            <li className="bold">YEAR</li>
+                            <li>2023</li>
                         </ul>
                     </ul>
                 </div>
@@ -127,8 +127,8 @@ const CaseStudySavingsGoals = (props) => {
                             <li>Lead Product Designer</li>
                         </ul>
                         <ul className="list">
-                            <li className="bold">TIME</li>
-                            <li>1 Year</li>
+                            <li className="bold">YEAR</li>
+                            <li>2023</li>
                         </ul>
                     </ul>
                 </div>

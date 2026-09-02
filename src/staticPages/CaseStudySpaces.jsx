@@ -95,8 +95,8 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                             <li>Designer</li>
                         </ul>
                         <ul className="list">
-                            <li className="bold">TIME</li>
-                            <li>10 weeks</li>
+                            <li className="bold">YEAR</li>
+                            <li>2021 | 10 weeks</li>
                         </ul>
                     </ul>
                 </div>
@@ -111,8 +111,8 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                             <li>Designer</li>
                         </ul>
                         <ul className="list">
-                            <li className="bold">TIME</li>
-                            <li>10 weeks</li>
+                            <li className="bold">YEAR</li>
+                            <li>2021 | 10 weeks</li>
                         </ul>
                     </ul>
                 </div>

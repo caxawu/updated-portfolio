@@ -27,10 +27,10 @@ const ArtNavBar = () => {
     }, [location]);
 
     const links = [
-        { to: '/static/artwork/3d-modeling', label: '3d modeling' },
-        { to: '/static/artwork/animation', label: 'animation' },
         { to: '/static/artwork/paintings', label: 'paintings' },
         { to: '/static/artwork/drawings', label: 'drawings' },
+        { to: '/static/artwork/3d-modeling', label: '3d modeling' },
+        { to: '/static/artwork/animation', label: 'animation' },
     ];
 
     return (

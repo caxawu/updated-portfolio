@@ -30,7 +30,7 @@ const CaseStudyMise = (props) => {
                         Mise
                     </div>
                     <div className="headline">
-                        A social cooking notebook for tracking a dish across iterations &mdash; logging what you changed, how it turned out, and what to try next time.
+                        A social cooking notebook for tracking a dish across iterations&mdash;logging what you changed, how it turned out, and what to try next time.
                         <div className="spacing-075" />
                         A personal project designed and built with Claude Code.
                     </div>

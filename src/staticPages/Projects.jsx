@@ -6,6 +6,7 @@ import Footer from './Footer';
 import { motion } from "framer-motion";
 
 import burnout from '../assets/images/projects/burnoutCover.png'
+import pix from '../assets/images/projects/PIXCover.png'
 import gracePeriod from '../assets/images/projects/gracePeriodCover.png'
 import savingsGoals from '../assets/images/projects/savingsGoalsCover.png'
 import mise from '../assets/images/projects/miseCover.png'
@@ -33,13 +34,13 @@ const Projects = (props) => {
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            navigateTo('/static/projects/CD-grace-period');
-                            trackEvent('Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
+                            navigateTo('/static/projects/Discover-integration');
+                            trackEvent('Portfolio/PIX', 'PIX Click', 'Portfolio Nav');
                         }}>
-                            <img src={gracePeriod} alt="CD grace period" delay = "0.05" />
+                            <img src={pix} alt="Discover Bank Integration" delay = "0.05" />
                             <div className="description">
-                                <div className="bold spacing-05">CD Grace Period</div>
-                                Reducing customer call volume by 20% through improvements to the customer experience.
+                                <div className="bold spacing-05">Discover Bank Integration</div>
+                                Migrating Discover Bank customers into the Capital One ecosystem.
                                 <div className="tags">
                                     <ul className="left">
                                         <li>Product Design</li>
@@ -59,10 +60,36 @@ const Projects = (props) => {
                         >
                         <div className="card-tile" 
                         onClick={() => {
+                            navigateTo('/static/projects/CD-grace-period');
+                            trackEvent('Portfolio/Grace-Period', 'Grace Period Click', 'Portfolio Nav');
+                        }}>
+                            <img src={gracePeriod} alt="CD grace period" delay = "0.1" />
+                            <div className="description">
+                                <div className="bold spacing-05">CD Grace Period</div>
+                                Reducing customer call volume by 20% through improvements to the customer experience.
+                                <div className="tags">
+                                    <ul className="left">
+                                        <li>Product Design</li>
+                                    </ul>
+                                    <ul className="right">
+                                        <li>Capital One</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className="card"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                        >
+                        <div className="card-tile" 
+                        onClick={() => {
                             navigateTo('/static/projects/savings-goals');
                             trackEvent('Portfolio/Goals', 'Goals Click', 'Portfolio Nav');
                         }}>
-                            <img src={savingsGoals} alt="Savings goals" delay = "0.1" />
+                            <img src={savingsGoals} alt="Savings goals" delay = "0.15" />
                             <div className="description">
                                 <div className='bold spacing-05'>Savings Goals</div>
                                 Helping customers build financial resilience through saving for tangible goals.
@@ -121,7 +148,7 @@ const Projects = (props) => {
                         >
                         <div className="card-tile" 
                         onClick={() => {
-                            // navigateTo('/static/projects/mise');
+                            navigateTo('/static/projects/mise');
                             trackEvent('Portfolio/Mise', 'Mise Click', 'Portfolio Nav');
                         }}>
                             <img src={mise} alt="Mise" delay = "0.15" />

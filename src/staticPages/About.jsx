@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import Footer from './Footer';
 import { trackEvent } from './Analytics';
 
@@ -6,6 +8,8 @@ import FadeInImage from './FadeInImage';
 import profilePic from '../assets/images/profilePic.png'
 
 const About = () => {
+
+  const navigateTo = useNavigate();
 
   return (
     <div id="about-spacing"> 
@@ -27,11 +31,11 @@ const About = () => {
               <div className='bio'>
                 <div className="outline-overlay"></div>
                 <div className='text-secondary'>about my portfolio</div>
-                This portfolio came from wanting to create something interactive that weaved together my love for design, 3D modeling, game design, and building fun things. Inspired by lots of cool 3D portfolios, I decided to base mine on my own room—showcasing the different facets of me as a creative with my projects, artwork, and interests scattered around the room for people to explore.
+                This portfolio came from wanting to create something interactive that wove together my love for design, 3D modeling, game design, and building fun things. Inspired by lots of cool 3D portfolios, I decided to base mine on my own room—showcasing the different facets of me as a creative with my projects, artwork, and interests scattered around the room for people to explore.
                 <div className='spacing-1'/>
                   I 3D modeled everything in Maya and pulled it into the browser with Three.js and React Three Fiber. Through lots of trial and error and re-renders, I added interactivity and polish to make the experience feel delightful.
                 <div className='spacing-1'/>
-                I had a lot of fun in the process, take a look around!
+                I had a lot of fun in the process—take a look around!
               </div>
             </div>
           </div>
@@ -65,14 +69,22 @@ const About = () => {
                 </div>
               </div>
               <div className="swatch-box" id="box2">
-                I love working on creative projects: Currently fixing bugs in my side project Mise.
+                <div className="inline-row">
+                  I love working on creative projects: Currently fixing bugs in my side project <a
+                    onClick={() => {
+                      trackEvent('About/Mise', 'Mise Click', 'About page');
+                      navigateTo('/static/projects/mise');
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >Mise</a>.
+                </div>
                 <div className='labels' id="color-light">
                   <b>tinkerings</b>
                   <div>#AFE3DF</div>
                 </div>
               </div>
               <div className="swatch-box" id="box3">
-                I’m a huge foodie and love to cook. I’m learning to navigate my tiny NYC kitchen and trying to not lose my 170 week Beli streak.
+                I’m a huge foodie and love to cook. I’m learning to navigate my tiny NYC kitchen and trying not to lose my 170-week Beli streak.
                 <div className='labels' id="color-dark">
                   <b>food adventures</b>
                   <div>#65AEB3</div>
@@ -94,7 +106,7 @@ const About = () => {
                       rel="noreferrer"
                       id="linkedin"
                       onClick={() => trackEvent('Contact Links', 'LinkedIn Click', 'About page')}
-                    >Linkedin</a></li>
+                    >LinkedIn</a></li>
                     <li><a href="mailto:xinai.cathy.wu@gmail.com"
                       target="_blank"
                       rel="noreferrer"

@@ -63,7 +63,7 @@ const Footer = () => {
                                 rel="noreferrer"
                                 id="linkedin"
                                 onClick={() => trackEvent('Footer Links', 'LinkedIn Click', 'Footer')}
-                            >Linkedin</a>
+                            >LinkedIn</a>
                         </li>
                         <li>
                             <a href="mailto:xinai.cathy.wu@gmail.com"

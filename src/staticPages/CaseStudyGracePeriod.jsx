@@ -34,7 +34,7 @@ const CaseStudyGracePeriod = (props) => {
                         A redesigned user experience for managing Certificates of Deposit (CDs) during the grace period,
                         aimed at reducing customer service call volume.
                         <br /><br />
-                        Through UX improvements that increased clarity and ease of use, customers are empowered to self-manage their accounts which resulting in a 20% reduction in calls and a 2% increase in customer retention.
+                        Through UX improvements that increased clarity and ease of use, customers are empowered to self-manage their accounts, resulting in a 20% reduction in calls and a 2% increase in customer retention.
                     </div>
                 </div>
                 <div className="header-img">
@@ -80,9 +80,9 @@ const CaseStudyGracePeriod = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">IMPACT</div>
                         <div className="text-block">
-                            <b className="highlight-blue">For our customers</b> With the new grace period self-service features, customers can make the changes without needing to call in. We also better match customers’ expectations as self-service functionality is commonly offered by other financial institutions.
+                            <b className="highlight-blue">For our customers:</b> With the new grace period self-service features, customers can make changes without needing to call in. We also better match customers’ expectations as self-service functionality is commonly offered by other financial institutions.
                             <div className="spacing-075" />
-                            <b className="highlight-blue">For the business:</b> We’ve lowered operating costs to the customer service team through a 20% call volume reduction. Through an improved user experience, we saw a 2% increase in customer retention (Customer who choose to renew their CD to a new term instead of closing it and withdrawing the funds).
+                            <b className="highlight-blue">For the business:</b> We’ve lowered operating costs to the customer service team through a 20% call volume reduction. Through an improved user experience, we saw a 2% increase in customer retention (customers who chose to renew their CD to a new term instead of closing it and withdrawing the funds).
                         </div>
                     </div>
                 </div>
@@ -121,9 +121,9 @@ const CaseStudyGracePeriod = (props) => {
             </div>
 
             <div className="divider-container">
-                <hr class="line" />
-                <span class="label">The details</span>
-                <hr class="line" />
+                <hr className="line" />
+                <span className="label">The details</span>
+                <hr className="line" />
             </div>
             <div className="centered">
                 <div className="arrow-case-study centered">
@@ -146,17 +146,17 @@ const CaseStudyGracePeriod = (props) => {
                 <div className="text-block">
                     <b>Validating the hypothesis</b>
                     <br />
-                    I analyzed feedback from our customer support calls and found that as expected, a significant portion of calls were because customers could not self-service. However, I also uncovered a surprising amount of feedback regarding customer confusion. Many customers made changes during their grace period, saw nothing change on their account, and called in confused. Misleading UI was causing customers to change the wrong setting, thinking they were making grace period edits.
+                    I analyzed feedback from our customer support calls and found that, as expected, a significant portion of calls were because customers could not self-service. However, I also uncovered a surprising amount of feedback regarding customer confusion. Many customers made changes during their grace period, saw nothing change on their account, and called in confused. Misleading UI was causing customers to change the wrong setting, thinking they were making grace period edits.
                 </div>
                 <div className="callout-cards">
                     <div className="callout-card">
                         <b>Confirmed hypothesis</b>
-                        <br />
+                        <div className="spacing-075" />
                         Customers were calling in to customer support because they couldn’t self-service their accounts during the grace period.
                     </div>
                     <div className="callout-card">
                         <b>Unexpected insight</b>
-                        <br />
+                        <div className="spacing-075" />
                         Customers were calling customer support in confusion when the changes they made didn’t
                         seem to reflect on their accounts.
                     </div>
@@ -164,12 +164,12 @@ const CaseStudyGracePeriod = (props) => {
                 <div className="text-block">
                     <b>Experience audit</b>
                     <br />
-                    Once I realized that the lack of self-service features was only part of the problem, I took a step back and assessed the entire CD experience. The confusion was stemming from content, hierarchy, and visual issues on the CD management page. It was difficult for customers to see their account status and available options—causing customers to mistakenly enter the wrong self-service flow. Key details such as "Your 14-month CD matures on May 22, 2025" were buried in a paragraph that blended into the background of the page. Maturity options took up almost the entire page and was presented in a bare-bones format that worked for experienced CD customers but left those who needed more guidance unsure of what to do next. Simply adding in grace period self-service functionality was not sufficient. We also needed a redesign that prioritized clarity.
+                    Once I realized that the lack of self-service features was only part of the problem, I took a step back and assessed the entire CD experience. The confusion was stemming from content, hierarchy, and visual issues on the CD management page. It was difficult for customers to see their account status and available options—causing customers to mistakenly enter the wrong self-service flow. Key details such as "Your 14-month CD matures on May 22, 2025" were buried in a paragraph that blended into the background of the page. Maturity options took up almost the entire page and were presented in a bare-bones format that worked for experienced CD customers but left those who needed more guidance unsure of what to do next. Simply adding in grace period self-service functionality was not sufficient. We also needed a redesign that prioritized clarity.
                 </div>
                 <div className="text-block">
                     <b>Competitive analysis</b>
                     <br />
-                    I looked into the banking landscape to see what competitors offered and found that the majority offered self-service capabilities. This was the other piece of the puzzle. Because self-service was a standard feature for CDs in the grace period, customers expected it at Capital One as well. So, when they went to their CD management page looking for grace period options, they engaged with the only self-service option available and mistakenly made changes to their CD’s maturity options thinking it was their CD’s grace period options.
+                    I looked into the banking landscape to see what competitors offered and found that the majority offered self-service capabilities. This was the other piece of the puzzle. Because self-service was a standard feature for CDs in the grace period, customers expected it at Capital One as well. So, when they went to their CD management page looking for grace period options, they engaged with the only self-service option available and mistakenly made changes to their CD’s maturity options, thinking they were their CD’s grace period options.
                 </div>
                 <div className="full-caption">
                     <div className="img-row-w-caption" id="blue3">
@@ -208,7 +208,7 @@ const CaseStudyGracePeriod = (props) => {
                 <div className="text-block">
                     <b>Consolidating info</b>
                     <br />
-                    Important information like APY, deposit amount, and estimated earnings were scattered across different pages, making it hard for customers to get a complete view of their account. The CD management page is the core of the experience, so I made it a one-stop shop for all CD-related information: consolidated key information into one easy-to-read table and a key dates timeline to lets customers quickly see important information and milestones to determine if any action was needed.
+                    Important information like APY, deposit amount, and estimated earnings were scattered across different pages, making it hard for customers to get a complete view of their account. The CD management page is the core of the experience, so I made it a one-stop shop for all CD-related information: I consolidated key details into one easy-to-read table and added a key dates timeline that lets customers quickly see important information and milestones to determine if any action is needed.
                 </div>
 
                 <div className="full-caption">
@@ -236,11 +236,11 @@ const CaseStudyGracePeriod = (props) => {
                     <div className='spacing-15'/>
                     <b>Extending capabilities to customer service agents</b>
                     <br />
-                    To compliment giving customers self-service functionality, I worked with the internal platforms team to give customer support the same tools in their customer servicing platform. This allowed agents to assist customers who still needed help or preferred to have an agent make changes on their behalf. 
+                    To complement giving customers self-service functionality, I worked with the internal platforms team to give customer support the same tools in their customer servicing platform. This allowed agents to assist customers who still needed help or preferred to have an agent make changes on their behalf. 
                     <br /><br />
                     <b>Updating servicing emails</b>
                     <br />
-                    I worked with content design and the legal team to highlight new CD functionalities and created a new confirmation email for grace period account changes. In the spirit of informational clarity, I also took the opportunity partnering with my content designer to revise the language of existing CD emails, making them easier to understand and adding in helpful details like the CD maturity date. 
+                    I worked with content design and the legal team to highlight new CD functionalities and created a new confirmation email for grace period account changes. In the spirit of informational clarity, I also took the opportunity to partner with my content designer to revise the language of existing CD emails, making them easier to understand and adding in helpful details like the CD maturity date. 
                 </div>
             </div>
             <div className="detail-section">
@@ -249,12 +249,12 @@ const CaseStudyGracePeriod = (props) => {
                 <div className="text-block">
                     At key moments, I conducted usability tests with customers to guide our design iterations. Through critiques and feedback sessions with leadership, product, and tech partners, I landed on these final designs. 
                     <div className="spacing-075" />
-                    To help with handoff, I developed an step-by step roll out plan of how to get from the current state to the new design. This plan helped the tech team break the work into manageable pieces and enabled the product team to release parts of the experience, monitor performance, and ensure everything worked as expected before scaling the release to all customers. This approach also allowed us to deliver parts of the experience to customers more quickly, enabling them to start using the new tools sooner.
+                    To help with handoff, I developed a step-by-step rollout plan for getting from the current state to the new design. This plan helped the tech team break the work into manageable pieces and enabled the product team to release parts of the experience, monitor performance, and ensure everything worked as expected before scaling the release to all customers. This approach also allowed us to deliver parts of the experience to customers more quickly, enabling them to start using the new tools sooner.
                 </div>
             </div>
             <div className="detail-section">
                 <div id="grace-deco" />
-                <div className="section-title text-secondary">results & next steps</div>
+                <div className="section-title text-secondary">outcome</div>
                 <div className="text-block">
                     <b>Results</b>
                     <br />
@@ -264,11 +264,11 @@ const CaseStudyGracePeriod = (props) => {
                     <br /> <br />
                     <b>The idea parking lot</b>
                     <br />
-                    As I iterated, I uncovered many valuable ideas that fell outside the scope of grace period enhancements. Upon revisited them at the end of the project, my product partner and I identified the need for enhancements across the CD experience. This list became the foundation for an end-to-end redesign workshop, sparking conversations that informed future product roadmaps and spun off a new CD enhancement workstream.
+                    As I iterated, I uncovered many valuable ideas that fell outside the scope of grace period enhancements. Upon revisiting them at the end of the project, my product partner and I identified the need for enhancements across the CD experience. This list became the foundation for an end-to-end redesign workshop, sparking conversations that informed future product roadmaps and spun off a new CD enhancement workstream.
                     <br /> <br />
                     <b>A new design artifact</b>
                     <br />
-                    When I began the project, CD-related resources were scattered and there were no historical screens to reference. To help us better manage resources and preserve institutional knowledge for future designers or stakeholders, I created a living CD library—a single source of truth documenting the end-to-end customer journey with detailed screen specifications of all possible screen states. This library improved efficiency within the team and eliminating the frustration of searching for scattered information or relying on production to find the most up-to-date screens.
+                    When I began the project, CD-related resources were scattered and there were no historical screens to reference. To help us better manage resources and preserve institutional knowledge for future designers or stakeholders, I created a living CD library—a single source of truth documenting the end-to-end customer journey with detailed screen specifications of all possible screen states. This library improved efficiency within the team and eliminated the frustration of searching for scattered information or relying on production to find the most up-to-date screens.
                 </div>
             </div>
         <Footer />

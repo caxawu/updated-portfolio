@@ -112,7 +112,7 @@ const MiniProjects = () => {
             <div className="description">
               <div className="name">Buzzfeed Quiz</div>
               <div className="description1">Take a quiz and find your next favorite show!</div>
-              <div className="description2">A Buzzfeed-style quiz that uses HTML, CSS, Javascript, and jquery.</div>
+              <div className="description2">A Buzzfeed-style quiz that uses HTML, CSS, JavaScript, and jQuery.</div>
               <div className="links">
                 <a href="https://dartmouth-cs52-21s.github.io/lab2-caxawu/" target="_blank" rel="noreferrer"
                   onClick={() => trackEvent('Other/COSC/Buzzfeed', 'Bozzfeed Click', 'Mini Projects Links')}>
@@ -127,7 +127,7 @@ const MiniProjects = () => {
               <div className="name">Track Your Adventures</div>
               <div className="description1">Display your photos on digital polaroids attached to blinking string lights.
               </div>
-              <div className="description2">A CRUD-style content app that uses React, Redux and React-Router.</div>
+              <div className="description2">A CRUD-style content app that uses React, Redux, and React-Router.</div>
               <div className="links">
                 <a href="https://wizardly-johnson-50073f.netlify.app/" target="_blank" rel="noreferrer"
                   onClick={() => trackEvent('Other/COSC/Adventures', 'Track Adventures Click', 'Mini Projects Links')}>
@@ -167,7 +167,7 @@ const MiniProjects = () => {
             <div className="description">
               <div className="name">JobArchi.tech<br />Google Cloud Runner-Up @ HackDartmouth VI</div>
               <div className="description1">Track your job hunt journey from application to offer.</div>
-              <div className="description2">A Chrome extension and web app that tracks application and helps with interview prep with personalized feedback using Google's NLP and speech-to-text APIs.</div>
+              <div className="description2">A Chrome extension and web app that tracks applications and helps with interview prep by giving personalized feedback using Google's NLP and speech-to-text APIs.</div>
               <div className="links">
                 <a href="https://devpost.com/software/jobarchi-tech" target="_blank" rel="noreferrer"
                   onClick={() => trackEvent('Other/Hackathon/JobArchitech', 'JobArchitech Devpost Click', 'Mini Projects Links')}>

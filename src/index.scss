@@ -7,10 +7,13 @@ $highlight-pink: #EADCE0;
 $highlight-dark-pink: #D9CBD9;
 $link-purple: #91689B;
 $highlight-blue: #ceeeff; // case study: grace period
+$pix-blue: #012C47;
 $grace-blue: #013D5B;
 $goals-blue: #255F82;
 $escher-purple: #5A3CB2;
 $anivision-blue: #5A7DBD;
+$mise-sage: #C0D0B7; // case study: mise
+$green: #246E1D;
 $text-primary: #262626;
 
 $font-weight-light: 400;
@@ -663,6 +666,8 @@ a {
     .nav-links {
       display: flex;
       position: relative;
+      padding-top: 14px;
+      padding-bottom: 14px;
 
       ul {
         display: flex;
@@ -1232,6 +1237,10 @@ a {
   align-self: center;
 }
 
+#pix-top-background {
+  background-color: $pix-blue;
+}
+
 #grace-top-background {
   background-color: $grace-blue;
 }
@@ -1262,8 +1271,140 @@ a {
   display: flex;
 }
 
+#mise-top-background {
+  background-color: $mise-sage;
+
+  .back-button,
+  .text {
+    color: $text-primary;
+  }
+
+  .headline {
+    font-weight: $font-weight-reg;
+  }
+
+  .header-img {
+    max-width: 40%;
+    padding-right: 4rem;
+    margin-top: 2rem;
+  }
+}
+
+// mise: lightweight meta row
+.mise-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid #7B7B7B;
+  border-bottom: 1px solid #7B7B7B;
+  margin: 0 4rem;
+
+  .list {
+    padding: 1.25rem 2.5rem;
+    text-align: center;
+    list-style: none;
+    margin: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+// mise: live embed in a phone frame
+.phone-embed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 4rem 4rem;
+
+  .phone-caption {
+    max-width: 26rem;
+    text-align: center;
+    font-weight: 400;
+    color: #595959;
+  }
+
+  .demo-creds {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid #c9c9c9;
+    border-radius: 8px;
+    font-size: 0.9rem;
+
+    span {
+      white-space: nowrap;
+    }
+
+    b {
+      color: $text-primary;
+      margin-right: 0.35rem;
+    }
+  }
+}
+
+.phone-frame {
+  position: relative;
+  width: 380px;
+  max-width: 100%;
+  aspect-ratio: 380 / 780;
+  padding: 10px;
+  background: #1c1c1e;
+  border-radius: 48px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+
+  .phone-screen {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 38px;
+    overflow: hidden;
+  }
+
+  // white status-bar strip that pushes the app content down so centered
+  // text in the embed clears the notch
+  .phone-statusbar {
+    flex: 0 0 32px;
+    background: #fff;
+    z-index: 2;
+  }
+
+  // notch cut into the top edge of the screen
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42%;
+    height: 24px;
+    background: #000;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    z-index: 3;
+  }
+}
+
+.content-case-study .phone-frame iframe {
+  width: 100%;
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: #fff;
+  display: block;
+  aspect-ratio: auto;
+}
+
 .full-caption {
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
 }
 
 .img-row {
@@ -1282,6 +1423,11 @@ a {
   gap: 1rem;
   padding: 2rem;
   padding-bottom: 0;
+}
+
+#less-padding {
+  margin-top: -4rem;
+  margin-bottom: -4rem;
 }
 
 .img-single {
@@ -1303,6 +1449,11 @@ a {
 
 #smaller {
   width: 100%;
+  margin: auto;
+}
+
+#pixMetrics {
+  width: 80%;
   margin: auto;
 }
 
@@ -1437,7 +1588,7 @@ a {
 }
 
 .detail-section {
-  margin-bottom: 96px;
+  margin-bottom: 88px;
   padding: 0 4rem;
   .section-title {
     padding-top: 0.75rem;
@@ -1446,6 +1597,11 @@ a {
 }
 
 //color dependent on the case study page
+#pix-deco {
+  border-top: 3px solid $pix-blue;
+  width: 2em;
+}
+
 #grace-deco {
   border-top: 3px solid $grace-blue;
   width: 2em;
@@ -1476,7 +1632,7 @@ a {
   margin: auto;
   width: 75%;
   text-align: center;
-  font-weight: 600;
+  font-weight: $font-weight-med;
   font-size: 1.25rem;
   margin-top: 3rem;
   margin-bottom: 4rem;
@@ -1502,6 +1658,35 @@ a {
   #white-callout {
     background-color: #FFFFFF;
     border: 3px solid #E5E5E5;
+  }
+}
+
+.callout-numbers {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  gap: 1.75rem;
+  
+  .callout-number {
+    display: flex;
+    flex-direction: column;
+     flex: 1; 
+    gap: 0.5rem;
+    .eyebrow {
+      font-weight: $font-weight-med;
+    }
+    .number {
+      color: $green;
+      font-weight: $font-weight-bold;
+      font-size: 2rem;
+    }
+    .subhead {
+      color: $green;
+      font-weight: $font-weight-med;
+      padding-bottom: 0.5rem;
+    }
+
   }
 }
 
@@ -1558,6 +1743,10 @@ a {
 }
 
 //color dependent on the case study page
+#pix-color {
+  color: $pix-blue;
+}
+
 #grace-color {
   color: $grace-blue;
 }
@@ -1575,11 +1764,23 @@ a {
 }
 
 
+.horizontal-stack {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
 .text-block {
   margin-bottom: 2rem;
 
   ul {
+    display: flex;
+    flex-direction: column;
     margin-top: 0.5rem;
+    gap: 0.5rem;
+    li > ul {
+      margin-top: 0;
+      gap: 0rem;
+    }
   }
 }
 
@@ -1843,6 +2044,14 @@ a {
     flex-wrap: wrap;
     align-items: center;
   }
+  
+  .callout-numbers {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  gap: 1rem;
+  }
 
   #goals-setup {
     padding: 0;
@@ -1932,6 +2141,16 @@ a {
   .secondary-info {
     width: 92%;
   }
+    .callout-numbers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    row-gap: 2.5rem;
+    .callout-number {
+      flex: none;
+      width: auto;
+    }
+  }
 }
 
 @media only screen and (max-width: 1010px) {
@@ -1941,6 +2160,10 @@ a {
 
     .logo {
       align-items: center;
+    }
+
+    .nav-links {
+      padding-top: 0;
     }
 
     .nav-links ul {
@@ -2157,6 +2380,10 @@ a {
       align-items: center;
     }
 
+    .nav-links {
+      padding-top: 0;
+    }
+
     .nav-links ul {
       gap: 48px;
       padding-left: 0px;
@@ -2185,12 +2412,14 @@ a {
 
   .content-case-study {
     padding: 0 32px;
-    background-color: red;
     iframe {
      width: 100%;
+     padding: 0;
     }
     .detail-section, .divider-container, .centered {
       width: 100%;
+      padding-left: 0;
+      padding-right: 0;
     }
     #burnout-img {
       width: 100%;
@@ -2210,6 +2439,7 @@ a {
 
     .text {
       padding: 0;
+      padding: 0 4rem;
       padding-top: 16px;
       width: auto;
       color: $text-primary;
@@ -2236,7 +2466,6 @@ a {
     .header-img {
       max-width: 100%;
       padding: 20px 24px;
-      background-color: $grace-blue;
     }
 
     .header-img-anivision,
@@ -2247,19 +2476,49 @@ a {
     }
   }
 
+  #pix-top-background,
   #grace-top-background,
   #goals-top-background,
   #anivision-top-background,
   #spaces-top-background,
+  #mise-top-background,
   #burnout-top-background {
     background-color: transparent;
     background-image: none;
     padding-top: 24px;
   }
 
+  .mise-meta {
+    margin: 0;
+    .list {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  .phone-embed {
+    padding: 2rem 0 3rem;
+  }
+
+  #pix-top-background .header-img {
+    background-color: $pix-blue;
+  }
+
+  #grace-top-background .header-img {
+    background-color: $grace-blue;
+  }
+
+  #goals-top-background .header-img {
+    background-color: $goals-blue;
+  }
+  .top-card > .text {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+
   .summary {
     flex-direction: column-reverse;
     gap: 0;
+    padding: 0;
   }
 
   .secondary-container {
@@ -2275,6 +2534,7 @@ a {
         display: flex;
         padding: 0;
         justify-content: flex-start;
+        text-align: left;
         gap: 12px;
 
         li {
@@ -2494,6 +2754,20 @@ a {
       }
     }
   }
+  .top-card > .text {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+  .summary {
+    padding: 0rem;
+  }
+  .horizontal-stack {
+    flex-direction: column;
+    gap: 0rem;
+  }
+  #pixMetrics {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 375px) {
@@ -2515,7 +2789,6 @@ a {
 
       .nav-links ul {
         gap: 40px;
-        // background-color: red;
         padding-left: 0px;
         align-items: flex-end;
       }

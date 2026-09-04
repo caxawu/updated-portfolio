@@ -8,10 +8,12 @@ import { InteractivePortfolio} from '.';
 import StaticPortfolio from './staticPages/StaticPortfolio';
 
 import Projects from './staticPages/Projects';
+import CaseStudyPIX from './staticPages/CaseStudyPIX';
 import CaseStudyGracePeriod from './staticPages/CaseStudyGracePeriod';
 import CaseStudySavingsGoals from './staticPages/CaseStudySavingsGoals';
 import CaseStudyBurnout from './staticPages/CaseStudyBurnout';
 import CaseStudySpaces from './staticPages/CaseStudySpaces';
+import CaseStudyMise from './staticPages/CaseStudyMise';
 import CaseStudyAnivision from './staticPages/CaseStudyAnivision';
 
 import MiniProjects from './staticPages/MiniProjects';
@@ -34,10 +36,12 @@ function App() {
           <Route path="static" element={<StaticPortfolio />} >
             <Route path="about" element={<About/>}/>
             <Route path="projects" element={<Projects />} />
+            <Route path="projects/Discover-integration" element={<CaseStudyPIX />} />
             <Route path="projects/CD-grace-period" element={<CaseStudyGracePeriod />} />
             <Route path="projects/savings-goals" element={<CaseStudySavingsGoals />} />
             <Route path="projects/clinician-burnout" element={<CaseStudyBurnout />} />
             <Route path="projects/spaces" element={<CaseStudySpaces />} />
+            <Route path="projects/mise" element={<CaseStudyMise />} />
             <Route path="projects/anivision" element={<CaseStudyAnivision />} />
 
             <Route path="mini-projects" element={<MiniProjects />} />

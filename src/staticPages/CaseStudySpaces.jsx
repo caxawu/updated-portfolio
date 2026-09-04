@@ -54,7 +54,7 @@ const CaseStudySpaces = (props) => {
                     </a>
                 </div>
                 <div className="mobile-header-img" id='mobile'>
-                    <FadeInImage src={mobileHeader} alt="grace period header" loading="eager" />
+                    <FadeInImage src={mobileHeader} alt="Spaces header" loading="eager" />
                 </div>
             </div>
 
@@ -70,13 +70,13 @@ const CaseStudySpaces = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">CONTEXT</div>
                         <div className="text-block">
-                            My friend and I wanted build something in VR, a platform we were both passionate about, and challenged ourselves to create something that could only exist in VR and was fundamentally reliant on the medium’s immersive and interactive capabilities.
+                            My friend and I wanted to build something in VR, a platform we were both passionate about, and challenged ourselves to create something that could only exist in VR and was fundamentally reliant on the medium’s immersive and interactive capabilities.
                         </div>
                     </div>
                     <div className="summary-section">
                         <div className="section-title bold">GAMEPLAY</div>
                         <div className="text-block">
-                            Spaces is a VR perspective puzzle game set in an impossible space. We recreated M.C. Escher’s <i>Relativity</i> drawing in 3D and layered in a perspective puzzle game to encouraging players to explore the space.
+                            Spaces is a VR perspective puzzle game set in an impossible space. We recreated M.C. Escher’s <i>Relativity</i> drawing in 3D and layered in a perspective puzzle game to encourage players to explore the space.
                             <div className="spacing-075" />
                             
 Players begin with a series of photographs. Their goal is to find the exact vantage point in the space where each photo was taken. When they do, a picture frame appears and lets them insert the photo. The image transforms, allowing the player to reach into the photograph and pull out a cube as it transforms from a flat 2D image into a tangible 3D object. Placing this cube on a pedestal in the middle of the room unlocks the next photograph, moving them one step closer to activating the portal that leads to the next level.
@@ -127,9 +127,9 @@ Players begin with a series of photographs. Their goal is to find the exact vant
             />
 
             <div className="divider-container">
-                <hr class="line" />
-                <span class="label">The details</span>
-                <hr class="line" />
+                <hr className="line" />
+                <span className="label">The details</span>
+                <hr className="line" />
             </div>
             <div className="centered">
                 <div className="arrow-case-study centered">
@@ -142,11 +142,11 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                 <div id="spaces-deco" />
                 <div className="section-title text-secondary">role</div>
                 <div className="text-block">
-                    In a team of two, my partner and I created this experience from concept to implementation. We worked together during conceptual stage to define the experience, then  then divided responsibilities: I focused on design and supported development while she did the inverse.
+                    In a team of two, my partner and I created this experience from concept to implementation. We worked together during the conceptual stage to define the experience, then divided responsibilities: I focused on design and supported development while she did the inverse.
                     <div className="spacing-075" />
                     The design included:
                     <ul>
-                        <li>3D modeling the room based off M.C. Escher’s drawing</li>
+                        <li>3D modeling the room based on M.C. Escher’s drawing</li>
                         <li>Modeling & animating the flower vines that grow as players complete puzzles to add delight and signify game progress</li>
                         <li>Lighting the space to create a serene and polished environment</li>
                     </ul>
@@ -156,7 +156,7 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                 <div id="spaces-deco" />
                 <div className="section-title text-secondary">ideation</div>
                 <div className="text-block">
-                    Before settling on this idea, we focused on rapid experimentation. One early concept explored a narrative-driven escape room where players would uncover clues in an old hut and piece together the life of its former inhabitant. While designing puzzles for players to solve, we stumbled upon M.C. Escher’s art, known for its clever use of perspective and space. His drawing Relativity particularly resonated with us as a compelling parallel to VR's ability to challenge perception.
+                    Before settling on this idea, we focused on rapid experimentation. One early concept explored a narrative-driven escape room where players would uncover clues in an old hut and piece together the life of its former inhabitant. While designing puzzles for players to solve, we stumbled upon M.C. Escher’s art, known for its clever use of perspective and space. His drawing <i>Relativity</i> particularly resonated with us as a compelling parallel to VR's ability to challenge perception.
                 </div>
                 <div id="spaces-color" className="text-callout">
                     Bringing Escher’s drawing to life would allow players to physically move about an impossible space and experience the perspective shifts that <i>Relativity</i> captures.
@@ -177,7 +177,7 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                 <div id="spaces-deco" />
                 <div className="section-title text-secondary">design</div>
                 <div className="text-block">
-                    Just bringing Escher’s drawing to life didn’t feel like enough. It was cool to look at the space, but standing in a space like that made you wan to do something. We didn’t want to take away from the central theme of perspective, so we layered in a simple puzzle game to encourage players to explore.
+                    Just bringing Escher’s drawing to life didn’t feel like enough. It was cool to look at the space, but standing in a space like that made you want to do something. We didn’t want to take away from the central theme of perspective, so we layered in a simple puzzle game to encourage players to explore.
                 </div>
                 <div className="full-caption">
                     <div className="img-row-w-caption">
@@ -200,7 +200,7 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                     <div className="caption">The five puzzles to solve—photos taken from different perspectives in the space.</div>
                 </div>
                 <div className="text-block">
-                    To add another moment of delight, finishing a puzzle played on spatial manipulation as well. Once the player places the photo into the frame, the photo morphs into an image of a cube. The player would then reach in, grab the image, and pull it out into a three dimensional cube. With this 3D object now in hand, they could match the pattern with one of five pedestal in the center of the space and unlock the next photo.
+                    To add another moment of delight, finishing a puzzle played on spatial manipulation as well. Once the player places the photo into the frame, the photo morphs into an image of a cube. The player would then reach in, grab the image, and pull it out into a three dimensional cube. With this 3D object now in hand, they could match the pattern with one of five pedestals in the center of the space and unlock the next photo.
                 </div>
                 <div className="img-row" >
                     <div className="img-single">
@@ -225,7 +225,7 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                     </div>
                 </div>
                 <div className="text-block">
-                    Completing each of the five puzzles contributed towards a larger goal of opening a portal to the next level. To signify progress, each time a cube was placed on a pedestal, flower vines would grow, slowing forming the frame of the portal.
+                    Completing each of the five puzzles contributed towards a larger goal of opening a portal to the next level. To signify progress, each time a cube was placed on a pedestal, flower vines would grow, slowly forming the frame of the portal.
                 </div>
                 <div className="img-row">
                     <div className="img-single">
@@ -238,7 +238,7 @@ Players begin with a series of photographs. Their goal is to find the exact vant
                     </div>
                 </div>
                 <div className="text-block">
-                    Lighting and sound design added polish to the experience. I used soft, ambient lighting alongside atmospheric audio to make the environment not just spatially interesting, but aesthetically pleasing look at. In creating a peaceful and meditative atmosphere, players are encouraged to intentionally observe their surroundings.
+                    Lighting and sound design added polish to the experience. I used soft, ambient lighting alongside atmospheric audio to make the environment not just spatially interesting, but aesthetically pleasing to look at. By creating a peaceful and meditative atmosphere, we encourage players to intentionally observe their surroundings.
                 </div>
                 <div id="spaces-color" className="text-callout">
                     We created an experience that challenged players to see the world from unique perspectives, an idea at the heart of both Escher’s artworks and the affordances of virtual reality.

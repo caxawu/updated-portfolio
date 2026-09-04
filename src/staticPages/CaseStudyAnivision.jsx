@@ -58,7 +58,7 @@ const CaseStudyAnivision = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">CONTEXT</div>
                         <div className="text-block">
-                            Anivision is a NSF-funded project at Dartmouth’s Digital Applied Learning and Innovation (DALI) lab. Anivision’s 
+                            Anivision is an NSF-funded project at Dartmouth’s Digital Applied Learning and Innovation (DALI) lab. Anivision’s
                             work was based on academic research going back decades on primate and human sight. The project’s purpose is to 
                             implement data from academia in a way that makes it engaging for any audience, as well as to generate new data 
                             and insights about experiential learning with VR in accordance with the National Science Foundation’s DIFUSE 
@@ -68,7 +68,7 @@ const CaseStudyAnivision = (props) => {
                     <div className="summary-section">
                         <div className="section-title bold">GAMEPLAY</div>
                         <div className="text-block">
-                            Players explore and compare their perceptual experiences to that of animals with extreme adaptations like the tarsier's night-vision eyes or the honey bee's 
+                            Players explore and compare their perceptual experiences to those of animals with extreme adaptations like the tarsier's night-vision eyes or the honey bee's
                             ultraviolet sight. Users explore the Bornean rainforest in a self-motivated learning experience. As they move through a series of mini-games, they unlock the full set of an animal’s perceptual traits, learning piece by piece the benefits of each adaptation.
                         </div>
                     </div>
@@ -76,7 +76,7 @@ const CaseStudyAnivision = (props) => {
                         <div className="section-title bold">IMPACT</div>
                         
                         <div className="text-block">
-                            This project started as an <b>experimental prompt to explore learning through immersion.</b> Our view of the world is very human-centric which limits our 
+                            This project started as an <b>experimental prompt to explore learning through immersion.</b> Our view of the world is very human-centric, which limits our
                             understanding to the human experience. Animals perceive and experience the world in fundamentally different ways. Anivision transforms this concept into an 
                             engaging educational experience: <b>it’s one thing to read about an animal’s perception in a textbook and another to experience it firsthand.</b> This perceptual 
                             shift pushes the player beyond our human-centric view of the world and fosters a deeper sense of connection, empathy, and understanding of the non-human 
@@ -142,9 +142,9 @@ const CaseStudyAnivision = (props) => {
                 <div id="anivision-deco" />
                 <div className="section-title text-secondary">iterations</div>
                 <div className="text-block">
-                    This project has taken on many lives. It started as Tarsier Goggles: solely focused on the perceptual traits of the tarsier, a small primate found in the Bornean rainforest. In the earlier stages, we worked with Biology professors to ensure the scientific accuracy of the traits we were representing. Over time, it expanded to include other animals and rebranded to Anivision. During COVID, it gained another life as a web-based VR app so it could continue being used in college biology classrooms when access to a VR headset was difficult. 
+                    This project has taken on many lives. It started as Tarsier Goggles: solely focused on the perceptual traits of the tarsier, a small primate found in the Bornean rainforest. In the earlier stages, we worked with biology professors to ensure the scientific accuracy of the traits we were representing. Over time, it expanded to include other animals and rebranded to Anivision. During COVID, it gained another life as a web-based VR app so it could continue being used in college biology classrooms when access to a VR headset was difficult. 
                     <div className="spacing-075" />
-                    Throughout its lifetime, the gameplay was revamped multiple times as we explored alternatives to make the app more engaging. We’ve explored different directions from focusing on scientific realism to creating empathy with climate impacts to emphasizing gamification. This included multiple rounds of storyboarding, proof-of-concept prototyping in Unity, playtesting, and even creatively using Figma to prototype an interactive storytelling game so that we could rapid-test an idea. The current version of Anivision is built upon these past learnings to align with the goal of education delivered in an immersive, fun, and engaging way,
+                    Throughout its lifetime, the gameplay was revamped multiple times as we explored alternatives to make the app more engaging. We’ve explored different directions from focusing on scientific realism to creating empathy with climate impacts to emphasizing gamification. This included multiple rounds of storyboarding, proof-of-concept prototyping in Unity, playtesting, and even creatively using Figma to prototype an interactive storytelling game so that we could rapid-test an idea. The current version of Anivision is built upon these past learnings to align with the goal of education delivered in an immersive, fun, and engaging way.
                 </div>
             </div>
             <div className="detail-section">

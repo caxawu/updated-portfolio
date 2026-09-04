@@ -40,7 +40,7 @@ const CaseStudyBurnout = (props) => {
                     </a>
                 </div>
                 <div className="mobile-header-img" id='mobile'>
-                    <FadeInImage src={mobileHeader} alt="grace period header" loading="eager" />
+                    <FadeInImage src={mobileHeader} alt="Clinician Burnout header" loading="eager" />
                 </div>
             </div>
             <div className='secondary-container'>

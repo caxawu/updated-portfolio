@@ -24,7 +24,7 @@ const About = () => {
                 <div className='text-secondary'>about me</div>
                 Hi, I’m Cathy! I’m a designer who loves following my curiosity. By day, I’m a product designer tackling complex problems and concepting thoughtful experiences. By night, I'm pursuing one of my many hobbies whether it’s sketching, testing new recipes, or working on my latest side project.
                 <div className='spacing-1'/>
-                I'm currently a <span className='bold highlight-dark-pink'>product designer at Capital One.</span> I graduated from Dartmouth College in 2021 with a degree in <span className='bold highlight-dark-pink'>Cognitive Science focused in Human-Computer Interaction</span> and minors in <span className='bold highlight-dark-pink'>Human-Centered Design</span> and <span className='bold highlight-dark-pink'>Digital Arts</span>.
+                I'm currently a <span className='bold highlight-dark-pink'>product designer at Capital One.</span> I graduated from Dartmouth College with a degree in <span className='bold highlight-dark-pink'>Cognitive Science focused on Human-Computer Interaction</span> and minors in <span className='bold highlight-dark-pink'>Human-Centered Design</span> and <span className='bold highlight-dark-pink'>Digital Arts</span>.
               </div>
               </div>
               <div className='color-box' id="color2">
